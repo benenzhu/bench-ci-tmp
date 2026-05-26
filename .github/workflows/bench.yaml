@@ -3,7 +3,7 @@ name: Tilelang kernel bench
 on:
   push:
     branches:
-      - main  # only main pushes upload the baseline; feature pushes run via PR
+      - master # only main pushes upload the baseline; feature pushes run via PR
   pull_request:  # any PR (any base) -- enables stacked PRs
   workflow_dispatch:
 
