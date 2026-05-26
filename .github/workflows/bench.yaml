@@ -57,7 +57,8 @@ jobs:
         run: |
           git clone git@github.com:SemiAnalysisAI/InferenceX.git --depth=1 -b amd_atom_kimi_patch
           cd InferenceX
-          ls
+          ls -lh
+          ls -la
 
       # - name: Install bench-only runtime deps
       #   run: |
