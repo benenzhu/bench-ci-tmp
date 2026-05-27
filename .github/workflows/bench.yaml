@@ -59,6 +59,63 @@ jobs:
           cd InferenceX
           ls -lh
           ls -la
+      
+      - name: Run docker and check result
+        run: |
+          cat > "$GITHUB_WORKSPACE/run_inferencex_bench.sh" <<'EOF'
+          set -euo pipefail
+          set -x
+
+          cd /root/InferenceX
+          mkdir -p /workspace
+
+          CONFIG_JSON=$(python3 utils/matrix_logic/generate_sweep_configs.py full-sweep --config-files .github/configs/amd-master.yaml --model-prefix kimik2.5-fp4-mi355x-atom --no-evals --max-tp=4 --min-conc=4 --max-conc=4 --seq-lens=8k1k)
+          COUNT=$(echo "$CONFIG_JSON" | python3 -c "import sys,json; print(len(json.load(sys.stdin)))")
+
+          if [ "$COUNT" -ne 1 ]; then
+              echo "Expected 1 config, got $COUNT. Refine your filters."
+              echo "$CONFIG_JSON" | python3 -m json.tool
+              exit 1
+          fi
+
+          eval "$(echo "$CONFIG_JSON" | python3 -c "
+          import json,sys; e=json.load(sys.stdin)[0]
+          m={
+            'MODEL':e['model'],'TP':e['tp'],'CONC':e['conc'],'ISL':e['isl'],'OSL':e['osl'],
+            'EP_SIZE':e.get('ep',1),'DP_ATTENTION':str(e.get('dp-attn',False)).lower(),
+            'PRECISION':e['precision'],'FRAMEWORK':e['framework'],'IMAGE':e['image'],
+            'EXP_NAME':e['exp-name'],'SPEC_DECODING':e.get('spec-decoding','none'),
+            'RUN_EVAL':str(e.get('run-eval',False)).lower(),'RANDOM_RANGE_RATIO':'0.8',
+            'RESULT_FILENAME':f\"{e['exp-name']}_{e['precision']}_{e['framework']}_tp{e['tp']}-ep{e.get('ep',1)}_conc{e['conc']}\"
+          }
+          for k,v in m.items(): print(f'export {k}=\"{v}\"')
+          ")"
+
+          FW_SUFFIX=$([[ "$FRAMEWORK" == "atom" ]] && echo '_atom' || echo '')
+          SPEC_SUFFIX=$([[ "$SPEC_DECODING" == "mtp" ]] && echo '_mtp' || echo '')
+          SCRIPT="benchmarks/single_node/${EXP_NAME%%_*}_${PRECISION}_mi355x${FW_SUFFIX}${SPEC_SUFFIX}.sh"
+
+          echo "=== $SCRIPT | TP=$TP CONC=$CONC ISL=$ISL OSL=$OSL ==="
+          bash "$SCRIPT"
+          EOF
+
+          docker run --rm --init --network=host --privileged=true \
+            -e PIP_CONSTRAINT="" \
+            -v /dev/shm:/dev/shm \
+            --device /dev/kfd \
+            --device /dev/dri \
+            --security-opt seccomp=unconfined \
+            --entrypoint=/bin/bash \
+            -v "$GITHUB_WORKSPACE/InferenceX:/root/InferenceX" \
+            -v "$GITHUB_WORKSPACE/run_inferencex_bench.sh:/root/run_inferencex_bench.sh:ro" \
+            -v "/home/tazhu":"/A" \
+            -v "/root":"/B" \
+            -v "//scratch/tazhu/":"/C" \
+            -v "$CLAUDE_DIR":"/root/.claude" \
+            -v "/":"/D" \
+            -e HF_HUB_CACHE=/dev/shm \
+            rocm/atom:rocm7.2.3_ubuntu24.04_py3.12_pytorch_release_2.10.0_atom20260511 \
+            -lc 'bash /root/run_inferencex_bench.sh'
 
       # - name: Install bench-only runtime deps
       #   run: |
