@@ -41,6 +41,12 @@ jobs:
       TILELANG_REPO: /root/tilelang2
       TILELANG_COMMIT: 47288a27a5aa5b03db0dc763e634043745d3e1ce # main
     steps:
+      - name: Restore workspace ownership
+        run: |
+          if [ -d "$GITHUB_WORKSPACE" ]; then
+            sudo chown -R "$(id -u):$(id -g)" "$GITHUB_WORKSPACE"
+          fi
+
       - name: Checkout bench repo
         uses: actions/checkout@v4
 
