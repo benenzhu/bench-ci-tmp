@@ -108,11 +108,6 @@ jobs:
             --entrypoint=/bin/bash \
             -v "$GITHUB_WORKSPACE/InferenceX:/root/InferenceX" \
             -v "$GITHUB_WORKSPACE/run_inferencex_bench.sh:/root/run_inferencex_bench.sh:ro" \
-            -v "/home/tazhu":"/A" \
-            -v "/root":"/B" \
-            -v "//scratch/tazhu/":"/C" \
-            -v "$CLAUDE_DIR":"/root/.claude" \
-            -v "/":"/D" \
             -e HF_HUB_CACHE=/dev/shm \
             rocm/atom:rocm7.2.3_ubuntu24.04_py3.12_pytorch_release_2.10.0_atom20260511 \
             -lc 'bash /root/run_inferencex_bench.sh'
