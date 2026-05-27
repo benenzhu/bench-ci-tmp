@@ -103,7 +103,7 @@ jobs:
             -e PIP_CONSTRAINT="" \
             -v /dev/shm:/dev/shm \
             --device /dev/kfd \
-            --device /dev/dri \
+            --device /dev/dri  \
             --security-opt seccomp=unconfined \
             --entrypoint=/bin/bash \
             -v "$GITHUB_WORKSPACE/InferenceX:/root/InferenceX" \
