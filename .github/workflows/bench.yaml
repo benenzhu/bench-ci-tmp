@@ -72,9 +72,25 @@ jobs:
           set +x  # don't echo the private deploy keys into the logs
           mkdir -p /root/.ssh && chmod 700 /root/.ssh
           ssh-keyscan -t rsa,ecdsa,ed25519 github.com >> /root/.ssh/known_hosts 2>/dev/null || true
-          printf '%s\n' "$ATOM_REPO_KEY"  > /root/.ssh/atom_key
-          printf '%s\n' "$AITER_REPO_KEY" > /root/.ssh/aiter_key
+          printf '%s\n' "$ATOM_REPO_KEY"  | tr -d '\r' > /root/.ssh/atom_key
+          printf '%s\n' "$AITER_REPO_KEY" | tr -d '\r' > /root/.ssh/aiter_key
           chmod 600 /root/.ssh/atom_key /root/.ssh/aiter_key
+
+          # --- deploy-key self-check (prints no private key material) -------
+          # Confirms each key parses, and the "Hi owner/repo!" line from the
+          # ssh probe tells you exactly which repo that deploy key unlocks.
+          for k in atom_key aiter_key; do
+            echo "### deploy-key check: $k ###"
+            echo "first line: $(head -1 "/root/.ssh/$k")"
+            echo "line count: $(wc -l < "/root/.ssh/$k")"
+            if ssh-keygen -y -f "/root/.ssh/$k" >/dev/null 2>&1; then
+              echo "$k: parses OK"
+            else
+              echo "$k: PARSE FAILED (malformed private key)"
+            fi
+            ssh -i "/root/.ssh/$k" -o IdentitiesOnly=yes -o StrictHostKeyChecking=no \
+              -T git@github.com 2>&1 || true
+          done
           set -x
 
           pip uninstall -y flydsl triton amd-aiter atom || true
