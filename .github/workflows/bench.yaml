@@ -109,8 +109,14 @@ jobs:
           cd /root/aiter
           git checkout 01e553ad0b1cdcf886c535614a71e090a6608aa9
           pip install --ignore-installed --no-deps flydsl==0.1.8
+          # `pip install -e .` already installs aiter editable in develop mode
+          # (setuptools' editable_wheel command sets is_develop_mode()). The only
+          # extra thing `python setup.py develop` did was install the aiter-compatible
+          # triton -- but that path calls setup(setup_requires=...), which crashes in
+          # setuptools' fetch_build_eggs when the venv has a dist with no Name. Run the
+          # triton installer directly to avoid that legacy code path.
           pip install -e .
-          python setup.py develop
+          bash .github/scripts/install_triton.sh
 
           cd /root/InferenceX
           mkdir -p /workspace
