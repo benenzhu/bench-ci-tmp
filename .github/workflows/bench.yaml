@@ -57,12 +57,12 @@ jobs:
       
       - name: Run docker and check result
         env:
-          # Deploy keys are intentionally crossed in the GitHub secrets:
-          #   ATOM repo  -> secrets.AITER_DEPLOY_KEY
-          #   aiter repo -> secrets.ATOM_DEPLOY_KEY
-          # We re-map them here to names that match what they actually unlock.
-          ATOM_REPO_KEY: ${{ secrets.AITER_DEPLOY_KEY }}
-          AITER_REPO_KEY: ${{ secrets.ATOM_DEPLOY_KEY }}
+          # Each deploy key unlocks the repo matching its own name (confirmed by
+          # the `ssh -T` probe below -- "Hi RadeonFlow/<repo>!"):
+          #   secrets.ATOM_DEPLOY_KEY  -> RadeonFlow/AMD-ATOM
+          #   secrets.AITER_DEPLOY_KEY -> RadeonFlow/aiter
+          ATOM_REPO_KEY: ${{ secrets.ATOM_DEPLOY_KEY }}
+          AITER_REPO_KEY: ${{ secrets.AITER_DEPLOY_KEY }}
         run: |
           cat > "$GITHUB_WORKSPACE/run_inferencex_bench.sh" <<'EOF'
           set -euo pipefail
