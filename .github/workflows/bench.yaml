@@ -108,24 +108,26 @@ jobs:
           pip install setuptools-scm
           cd /root/aiter
           git checkout 01e553ad0b1cdcf886c535614a71e090a6608aa9
-          pip install --ignore-installed --no-deps flydsl==0.1.6
+          pip install --ignore-installed --no-deps flydsl==0.1.8
           pip install -e .
           python setup.py develop
 
           cd /root/InferenceX
           mkdir -p /workspace
 
-          CONFIG_JSON=$(python3 utils/matrix_logic/generate_sweep_configs.py full-sweep --config-files .github/configs/amd-master.yaml --model-prefix kimik2.5-fp4-mi355x-atom --no-evals --max-tp=4 --min-conc=4 --max-conc=4 --seq-lens=8k1k)
+          CONFIG_JSON=$(python3 utils/matrix_logic/generate_sweep_configs.py full-sweep --config-files .github/configs/amd-master.yaml --model-prefix kimik2.5-fp4-mi355x-atom --no-evals --max-tp=4 --min-conc=4 --max-conc=128 --seq-lens=8k1k)
           COUNT=$(echo "$CONFIG_JSON" | python3 -c "import sys,json; print(len(json.load(sys.stdin)))")
 
-          if [ "$COUNT" -ne 1 ]; then
-              echo "Expected 1 config, got $COUNT. Refine your filters."
+          if [ "$COUNT" -ne 6 ]; then
+              echo "Expected 6 configs (conc 4,8,16,32,64,128), got $COUNT. Refine your filters."
               echo "$CONFIG_JSON" | python3 -m json.tool
               exit 1
           fi
 
+          FAILED=()
+          for i in $(seq 0 $((COUNT - 1))); do
           eval "$(echo "$CONFIG_JSON" | python3 -c "
-          import json,sys; e=json.load(sys.stdin)[0]
+          import json,sys; e=json.load(sys.stdin)[$i]
           m={
             'MODEL':e['model'],'TP':e['tp'],'CONC':e['conc'],'ISL':e['isl'],'OSL':e['osl'],
             'EP_SIZE':e.get('ep',1),'DP_ATTENTION':str(e.get('dp-attn',False)).lower(),
@@ -142,7 +144,45 @@ jobs:
           SCRIPT="benchmarks/single_node/${EXP_NAME%%_*}_${PRECISION}_mi355x${FW_SUFFIX}${SPEC_SUFFIX}.sh"
 
           echo "=== $SCRIPT | TP=$TP CONC=$CONC ISL=$ISL OSL=$OSL ==="
-          bash "$SCRIPT"
+          if ! bash "$SCRIPT"; then
+            echo "::warning::bench FAILED for conc=$CONC (tp=$TP)"
+            FAILED+=("$CONC")
+          fi
+          done
+
+          # ---- Aggregate per-GPU throughput into a markdown summary -------
+          echo
+          echo "============================================"
+          echo "[sweep] Perf Sweep Summary"
+          echo "============================================"
+          echo "$CONFIG_JSON" | python3 -c "
+          import json,sys,os,math
+          configs=json.load(sys.stdin)
+          rows=[]
+          for e in configs:
+            rf=f\"{e['exp-name']}_{e['precision']}_{e['framework']}_tp{e['tp']}-ep{e.get('ep',1)}_conc{e['conc']}\"
+            path=f'/workspace/{rf}.json'
+            tp=int(e['tp']); conc=int(e['conc'])
+            if not os.path.exists(path):
+              rows.append((conc,tp,None,None,None)); continue
+            with open(path) as f: d=json.load(f)
+            tot=float(d.get('total_token_throughput',float('nan')))
+            out=float(d.get('output_throughput',float('nan')))
+            rows.append((conc,tp,tot,out,tot/tp))
+          rows.sort()
+          print('| CONC | TP | total_token_throughput (tok/s) | output_throughput (tok/s) | per_gpu total (÷TP) (tok/s) |')
+          print('| ---: | ---: | ---: | ---: | ---: |')
+          for conc,tp,tot,out,pg in rows:
+            if tot is None or math.isnan(tot):
+              print(f'| {conc} | {tp} | MISSING | MISSING | MISSING |')
+            else:
+              print(f'| {conc} | {tp} | {tot:.2f} | {out:.2f} | {pg:.2f} |')
+          "
+
+          if [ "${#FAILED[@]}" -ne 0 ]; then
+            echo "::error::benchmarks failed for conc: ${FAILED[*]}"
+            exit 1
+          fi
           EOF
 
           docker run --rm --init --network=host --privileged=true \
