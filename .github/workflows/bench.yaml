@@ -28,18 +28,7 @@ jobs:
       # the ROCm runtime resolve the same way as the user's interactive shell.
       PATH: /opt/venv/bin:/opt/rocm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
       LD_LIBRARY_PATH: /opt/rocm/lib
-      # tilelang's CMake auto-selects CUDA otherwise; force the ROCm/HIP backend.
-      USE_ROCM: "1"
-      # TODO: remove when upstream tvm-ffi is fixed -- right now its torch
-      # dlpack bridge can't resolve ROCm's dlpack and any kernel call dies
-      # at TVMFFIPyArgSetterTorchFallback_. The cython execution backend
-      # bypasses that path.
-      TILELANG_EXECUTION_BACKEND: cython
-      # Pin tilelang to a specific commit so bench numbers are reproducible
-      # across runs and across PRs -- bumping this var is the only way to
-      # change the compiler version used by CI.
-      TILELANG_REPO: /root/tilelang2
-      TILELANG_COMMIT: 47288a27a5aa5b03db0dc763e634043745d3e1ce # main
+
     steps:
       - name: Restore workspace ownership
         run: |
@@ -67,10 +56,42 @@ jobs:
           ls -la
       
       - name: Run docker and check result
+        env:
+          # Deploy keys are intentionally crossed in the GitHub secrets:
+          #   ATOM repo  -> secrets.AITER_DEPLOY_KEY
+          #   aiter repo -> secrets.ATOM_DEPLOY_KEY
+          # We re-map them here to names that match what they actually unlock.
+          ATOM_REPO_KEY: ${{ secrets.AITER_DEPLOY_KEY }}
+          AITER_REPO_KEY: ${{ secrets.ATOM_DEPLOY_KEY }}
         run: |
           cat > "$GITHUB_WORKSPACE/run_inferencex_bench.sh" <<'EOF'
           set -euo pipefail
           set -x
+
+          # --- Build ATOM + aiter from source ------------------------------
+          set +x  # don't echo the private deploy keys into the logs
+          mkdir -p /root/.ssh && chmod 700 /root/.ssh
+          ssh-keyscan -t rsa,ecdsa,ed25519 github.com >> /root/.ssh/known_hosts 2>/dev/null || true
+          printf '%s\n' "$ATOM_REPO_KEY"  > /root/.ssh/atom_key
+          printf '%s\n' "$AITER_REPO_KEY" > /root/.ssh/aiter_key
+          chmod 600 /root/.ssh/atom_key /root/.ssh/aiter_key
+          set -x
+
+          pip uninstall -y flydsl triton amd-aiter atom || true
+
+          cd /root
+          GIT_SSH_COMMAND="ssh -i /root/.ssh/atom_key -o IdentitiesOnly=yes" \
+            git clone git@github.com:RadeonFlow/AMD-ATOM.git
+          cd /root/AMD-ATOM
+          pip install -e .
+
+          cd /root
+          GIT_SSH_COMMAND="ssh -i /root/.ssh/aiter_key -o IdentitiesOnly=yes" \
+            git clone git@github.com:RadeonFlow/aiter.git
+          pip install setuptools-scm
+          cd /root/aiter
+          pip install -e .
+          python setup.py develop
 
           cd /root/InferenceX
           mkdir -p /workspace
@@ -107,6 +128,8 @@ jobs:
 
           docker run --rm --init --network=host --privileged=true \
             -e PIP_CONSTRAINT="" \
+            -e ATOM_REPO_KEY \
+            -e AITER_REPO_KEY \
             -v /dev/shm:/dev/shm \
             --device /dev/kfd \
             --device /dev/dri   \
@@ -117,153 +140,3 @@ jobs:
             -e HF_HUB_CACHE=/dev/shm \
             rocm/atom:rocm7.2.3_ubuntu24.04_py3.12_pytorch_release_2.10.0_atom20260511 \
             -lc 'bash /root/run_inferencex_bench.sh'
-
-      # - name: Install bench-only runtime deps
-      #   run: |
-      #     # einops is imported at the top of mla/example_mla_decode.py and
-      #     # bench.py loads every op module up front, so a missing einops
-      #     # crashes the whole sweep (not just MLA). The self-hosted runner's
-      #     # venv may not always carry it (e.g. after a Python upgrade).
-      #     pip install einops
-
-      # - name: Ensure gh CLI is installed
-      #   env:
-      #     GH_VERSION: "2.62.0"
-      #   run: |
-      #     # Idempotent install of the GitHub CLI to /usr/local/bin so
-      #     # subsequent CI runs (and interactive sessions on the
-      #     # self-hosted runner) have `gh` available. Skips if a usable
-      #     # `gh` is already on PATH.
-      #     if command -v gh >/dev/null 2>&1; then
-      #       echo "gh already installed: $(gh --version | head -n1)"
-      #       exit 0
-      #     fi
-      #     tarball="gh_${GH_VERSION}_linux_amd64.tar.gz"
-      #     url="https://github.com/cli/cli/releases/download/v${GH_VERSION}/${tarball}"
-      #     tmp=$(mktemp -d)
-      #     echo "Downloading ${url}"
-      #     curl -fsSL "${url}" -o "${tmp}/${tarball}"
-      #     tar -xzf "${tmp}/${tarball}" -C "${tmp}"
-      #     install -m 0755 "${tmp}/gh_${GH_VERSION}_linux_amd64/bin/gh" /usr/local/bin/gh
-      #     rm -rf "${tmp}"
-      #     gh --version
-
-      # - name: Verify gh auth via /dev/shm token (if present)
-      #   run: |
-      #     # Optional: if a token has been staged in /dev/shm/gh_token,
-      #     # use it to authenticate `gh`. Token is read but never echoed.
-      #     if [ -r /dev/shm/gh_token ]; then
-      #       export GH_TOKEN=$(cat /dev/shm/gh_token)
-      #       gh auth status || echo "gh auth status reported a problem"
-      #     else
-      #       echo "/dev/shm/gh_token not present; skipping gh auth verify"
-      #     fi
-
-      # - name: Smoke test (single shape)
-      #   run: |
-      #     python gemm/example_gemm.py
-
-      # - name: Show GPU info (amd-smi)
-      #   run: |
-      #     amd-smi || true
-
-      # - name: Run bench sweep (all ops)
-      #   run: |
-      #     python bench.py --output-csv /tmp/bench_current.csv
-
-      # # ----- baseline upload (push to main) --------------------------------
-      # # Every successful main run publishes its CSV as the "bench-baseline-main"
-      # # artifact. PRs download the most recent one and diff against it.
-
-      # # - name: Upload baseline (main only)
-      # #   if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-      # #   uses: actions/upload-artifact@v4
-      # #   with:
-      # #     name: bench-baseline-main
-      # #     path: /tmp/bench_current.csv
-      # #     retention-days: 90
-      # #     overwrite: true
-
-      # # # ----- compare-to-main (PRs only) ------------------------------------
-      # # # Fetch the most recent successful main run's bench-baseline-main
-      # # # artifact via gh CLI (much faster than rebuilding+rerunning on main).
-      # # # If no baseline exists yet, the compare step is skipped and a note is
-      # # # printed instead of failing the PR.
-
-      # # - name: Download main baseline CSV
-      # #   if: github.event_name == 'pull_request'
-      # #   id: download-baseline
-      # #   continue-on-error: true
-      # #   env:
-      # #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # #   run: |
-      # #     set -e
-      # #     rm -rf /tmp/baseline && mkdir -p /tmp/baseline
-      # #     RUN_ID=$(gh run list \
-      # #       --workflow "${{ github.workflow }}" \
-      # #       --branch main \
-      # #       --status success \
-      # #       --limit 1 \
-      # #       --json databaseId \
-      # #       --jq '.[0].databaseId // empty')
-      # #     if [ -z "$RUN_ID" ]; then
-      # #       echo "No successful main run found yet -- skipping compare."
-      # #       exit 0
-      # #     fi
-      # #     echo "Baseline run: $RUN_ID"
-      # #     gh run download "$RUN_ID" -n bench-baseline-main -D /tmp/baseline
-      # #     ls -la /tmp/baseline/
-
-      # # - name: Compare PR vs main baseline
-      # #   id: compare
-      # #   if: github.event_name == 'pull_request' && steps.download-baseline.outcome == 'success'
-      # #   # Don't fail the job here -- we want the comment posted even on
-      # #   # regression. A dedicated step at the end re-raises the failure.
-      # #   continue-on-error: true
-      # #   run: |
-      # #     if [ -f /tmp/baseline/bench_current.csv ]; then
-      # #       python compare_bench.py /tmp/baseline/bench_current.csv /tmp/bench_current.csv \
-      # #         --markdown /tmp/compare.md
-      # #     else
-      # #       echo "_Baseline CSV not present (likely the very first run on main has not yet completed). Skipping compare._" \
-      # #         > /tmp/compare.md
-      # #     fi
-
-      # # - name: Build PR comment body
-      # #   if: github.event_name == 'pull_request' && steps.compare.conclusion != 'skipped'
-      # #   run: |
-      # #     # Each push posts a NEW comment (no sticky overwrite) -- empty
-      # #     # commits + workflow re-runs leave a history so you can tell
-      # #     # whether a regression is reproducible vs. flaky.
-      # #     sha="${{ github.event.pull_request.head.sha }}"
-      # #     short_sha="${sha:0:7}"
-      # #     {
-      # #       echo "## Bench results vs \`main\` (commit \`${short_sha}\`, run #${{ github.run_number }}.${{ github.run_attempt }})"
-      # #       echo ""
-      # #       cat /tmp/compare.md
-      # #       echo ""
-      # #       echo "_Self-hosted runner: \`${{ runner.name }}\` &middot; [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})_"
-      # #     } > /tmp/comment.md
-
-      # # - name: Post comment to PR
-      # #   if: github.event_name == 'pull_request' && steps.compare.conclusion != 'skipped'
-      # #   env:
-      # #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # #   run: |
-      # #     gh pr comment ${{ github.event.pull_request.number }} \
-      # #       --body-file /tmp/comment.md
-
-      # # - name: Re-fail job if compare regressed
-      # #   if: steps.compare.outcome == 'failure'
-      # #   run: |
-      # #     echo "compare_bench.py reported a regression -- failing the job."
-      # #     exit 1
-
-      # # - name: Upload PR bench CSV
-      # #   if: always() && github.event_name == 'pull_request'
-      # #   uses: actions/upload-artifact@v4
-      # #   with:
-      # #     name: bench-pr
-      # #     path: /tmp/bench_current.csv
-      # #     if-no-files-found: ignore
-      # #     retention-days: 14
