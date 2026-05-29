@@ -126,6 +126,13 @@ jobs:
           # PYTHONDONTWRITEBYTECODE / PYTHONPYCACHEPREFIX.
           source benchmarks/benchmark_lib.sh
 
+          # benchmark_lib.sh reads ${EVAL_ONLY} unguarded (run_benchmark_serving,
+          # and again ~L868) -- upstream's single_node script sets it, but we
+          # bypass that script and run under `set -u`, so an unset EVAL_ONLY
+          # aborts. This is a perf sweep (--no-evals), so force the throughput
+          # path (the lib only skips it when EVAL_ONLY == "true").
+          export EVAL_ONLY=false
+
           # --- Port of scripts/serve.sh optimizations ----------------------
           # The ATOM_* knobs are plain env vars the server reads directly;
           # OMP_NUM_THREADS + AITER_QUICK_REDUCE_QUANTIZATION are what the
