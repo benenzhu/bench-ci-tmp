@@ -121,6 +121,35 @@ jobs:
           cd /root/InferenceX
           mkdir -p /workspace
 
+          # --- Port of scripts/serve.sh optimizations ----------------------
+          # The upstream single_node atom bench script launches the server with
+          # a minimal arg set and only exports OMP_NUM_THREADS + AITER_QUICK_
+          # REDUCE_QUANTIZATION. serve.sh enables more. The ATOM_* knobs are
+          # plain env vars the server reads directly, so we export them here
+          # (inherited by `bash "$SCRIPT"` in the loop below). The matching
+          # value of ATOM_ENABLE_HIP_MLA_DECODE is a literal port of serve.sh.
+          export ATOM_DISABLE_MMAP=0
+          export ATOM_USE_AITER_RP=1
+          export ATOM_USE_TRITON_MXFP4_BMM=1
+          export ATOM_ENABLE_HIP_MLA_DECODE=0
+
+          # The remaining serve.sh optimizations are server CLI flags, and the
+          # bench script hardcodes its server invocation (no env hook, and the
+          # sweep config / generate_sweep_configs.py expose no server-args
+          # field). Inject them by patching the cloned script before the loop.
+          # Guard on the anchor so an upstream rewrite fails loudly instead of
+          # silently running un-optimized.
+          PATCH_SCRIPT="benchmarks/single_node/kimik2.5_fp4_mi355x_atom.sh"
+          if ! grep -q -- '--trust-remote-code \\' "$PATCH_SCRIPT"; then
+            echo "::error::serve.sh port: anchor not found in $PATCH_SCRIPT; upstream changed, refusing to run un-optimized."
+            exit 1
+          fi
+          sed -i 's@--trust-remote-code \\@--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching --trust-remote-code \\@' "$PATCH_SCRIPT"
+          grep -q -- '--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching' "$PATCH_SCRIPT" \
+            || { echo "::error::serve.sh port: sed patch did not apply to $PATCH_SCRIPT"; exit 1; }
+          echo "[serve.sh port] patched server flags into $PATCH_SCRIPT:"
+          grep -n -- 'atom.entrypoints.openai_server\|--max-num-batched-tokens\|--gpu-memory-utilization\|--no-enable_prefix_caching' "$PATCH_SCRIPT"
+
           CONFIG_JSON=$(python3 utils/matrix_logic/generate_sweep_configs.py full-sweep --config-files .github/configs/amd-master.yaml --model-prefix kimik2.5-fp4-mi355x-atom --no-evals --max-tp=4 --min-conc=4 --max-conc=128 --seq-lens=8k1k)
           COUNT=$(echo "$CONFIG_JSON" | python3 -c "import sys,json; print(len(json.load(sys.stdin)))")
 
