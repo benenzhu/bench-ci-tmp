@@ -121,101 +121,206 @@ jobs:
           cd /root/InferenceX
           mkdir -p /workspace
 
+          # Reuse the shared bench helpers (wait_for_server_ready,
+          # run_benchmark_serving, start/stop_gpu_monitor). Sourcing also sets
+          # PYTHONDONTWRITEBYTECODE / PYTHONPYCACHEPREFIX.
+          source benchmarks/benchmark_lib.sh
+
           # --- Port of scripts/serve.sh optimizations ----------------------
-          # The upstream single_node atom bench script launches the server with
-          # a minimal arg set and only exports OMP_NUM_THREADS + AITER_QUICK_
-          # REDUCE_QUANTIZATION. serve.sh enables more. The ATOM_* knobs are
-          # plain env vars the server reads directly, so we export them here
-          # (inherited by `bash "$SCRIPT"` in the loop below). The matching
-          # value of ATOM_ENABLE_HIP_MLA_DECODE is a literal port of serve.sh.
+          # The ATOM_* knobs are plain env vars the server reads directly;
+          # OMP_NUM_THREADS + AITER_QUICK_REDUCE_QUANTIZATION are what the
+          # upstream bench script exports before launch. We launch the server
+          # ourselves below, so export them all here (the launch inherits them).
+          # ATOM_ENABLE_HIP_MLA_DECODE=0 is a literal port of serve.sh.
           export ATOM_DISABLE_MMAP=0
           export ATOM_USE_AITER_RP=1
           export ATOM_USE_TRITON_MXFP4_BMM=1
           export ATOM_ENABLE_HIP_MLA_DECODE=0
+          export OMP_NUM_THREADS=1
+          export AITER_QUICK_REDUCE_QUANTIZATION=INT4
 
-          # The remaining serve.sh optimizations are server CLI flags, and the
-          # bench script hardcodes its server invocation (no env hook, and the
-          # sweep config / generate_sweep_configs.py expose no server-args
-          # field). Inject them by patching the cloned script before the loop.
-          # Guard on the anchor so an upstream rewrite fails loudly instead of
-          # silently running un-optimized.
-          PATCH_SCRIPT="benchmarks/single_node/kimik2.5_fp4_mi355x_atom.sh"
-          if ! grep -q -- '--trust-remote-code \\' "$PATCH_SCRIPT"; then
-            echo "::error::serve.sh port: anchor not found in $PATCH_SCRIPT; upstream changed, refusing to run un-optimized."
-            exit 1
-          fi
-          sed -i 's@--trust-remote-code \\@--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching --trust-remote-code \\@' "$PATCH_SCRIPT"
-          grep -q -- '--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching' "$PATCH_SCRIPT" \
-            || { echo "::error::serve.sh port: sed patch did not apply to $PATCH_SCRIPT"; exit 1; }
-          echo "[serve.sh port] patched server flags into $PATCH_SCRIPT:"
-          grep -n -- 'atom.entrypoints.openai_server\|--max-num-batched-tokens\|--gpu-memory-utilization\|--no-enable_prefix_caching' "$PATCH_SCRIPT"
-
-          CONFIG_JSON=$(python3 utils/matrix_logic/generate_sweep_configs.py full-sweep --config-files .github/configs/amd-master.yaml --model-prefix kimik2.5-fp4-mi355x-atom --no-evals --max-tp=4 --min-conc=4 --max-conc=32 --seq-lens=8k1k)
-          COUNT=$(echo "$CONFIG_JSON" | python3 -c "import sys,json; print(len(json.load(sys.stdin)))")
-
-          if [ "$COUNT" -ne 4 ]; then
-              echo "Expected 4 configs (conc 4,8,16,32), got $COUNT. Refine your filters."
-              echo "$CONFIG_JSON" | python3 -m json.tool
+          # We launch the atom server ourselves (instead of calling the upstream
+          # single_node bench script) so we can (a) control the server CLI flags
+          # per serving variant and (b) own the server lifecycle -- start, sweep,
+          # shutdown, then restart with new flags -- all inside ONE docker
+          # container so the atom JIT cache built by the first server is reused
+          # by the second, cutting warm-up time. Guard on the upstream server
+          # invocation so an upstream rewrite fails loudly instead of letting us
+          # silently run a stale hardcoded launch.
+          REF_SCRIPT="benchmarks/single_node/kimik2.5_fp4_mi355x_atom.sh"
+          for anchor in 'atom.entrypoints.openai_server' '--kv_cache_dtype fp8' '--trust-remote-code'; do
+            grep -q -- "$anchor" "$REF_SCRIPT" || {
+              echo "::error::upstream server invocation changed (missing: '$anchor' in $REF_SCRIPT); refusing to run a stale hardcoded launch."
               exit 1
-          fi
+            }
+          done
 
-          FAILED=()
-          for i in $(seq 0 $((COUNT - 1))); do
+          # Derive base params (model / tp / seq-lens) from the sweep config so a
+          # model or yaml change is picked up automatically. The conc dimension
+          # is now driven by the explicit CONFIGS array below, not by the
+          # generator's conc range -- so we only need a single representative
+          # entry here (min-conc == max-conc).
+          CONFIG_JSON=$(python3 utils/matrix_logic/generate_sweep_configs.py full-sweep --config-files .github/configs/amd-master.yaml --model-prefix kimik2.5-fp4-mi355x-atom --no-evals --max-tp=4 --min-conc=4 --max-conc=4 --seq-lens=8k1k)
           eval "$(echo "$CONFIG_JSON" | python3 -c "
-          import json,sys; e=json.load(sys.stdin)[$i]
+          import json,sys
+          e=json.load(sys.stdin)[0]
           m={
-            'MODEL':e['model'],'TP':e['tp'],'CONC':e['conc'],'ISL':e['isl'],'OSL':e['osl'],
-            'EP_SIZE':e.get('ep',1),'DP_ATTENTION':str(e.get('dp-attn',False)).lower(),
-            'PRECISION':e['precision'],'FRAMEWORK':e['framework'],'IMAGE':e['image'],
-            'EXP_NAME':e['exp-name'],'SPEC_DECODING':e.get('spec-decoding','none'),
-            'RUN_EVAL':str(e.get('run-eval',False)).lower(),'RANDOM_RANGE_RATIO':'0.8',
-            'RESULT_FILENAME':f\"{e['exp-name']}_{e['precision']}_{e['framework']}_tp{e['tp']}-ep{e.get('ep',1)}_conc{e['conc']}\"
+            'MODEL':e['model'],'TP':e['tp'],'ISL':e['isl'],'OSL':e['osl'],
+            'EP_SIZE':e.get('ep',1),'PRECISION':e['precision'],
+            'FRAMEWORK':e['framework'],'EXP_NAME':e['exp-name'],
           }
           for k,v in m.items(): print(f'export {k}=\"{v}\"')
           ")"
+          [ -n "${MODEL:-}" ] || { echo "::error::failed to derive base params from sweep config"; echo "$CONFIG_JSON" | python3 -m json.tool; exit 1; }
+          echo "[base] MODEL=$MODEL TP=$TP ISL=$ISL OSL=$OSL EP_SIZE=$EP_SIZE EXP=$EXP_NAME"
 
-          FW_SUFFIX=$([[ "$FRAMEWORK" == "atom" ]] && echo '_atom' || echo '')
-          SPEC_SUFFIX=$([[ "$SPEC_DECODING" == "mtp" ]] && echo '_mtp' || echo '')
-          SCRIPT="benchmarks/single_node/${EXP_NAME%%_*}_${PRECISION}_mi355x${FW_SUFFIX}${SPEC_SUFFIX}.sh"
+          # (CONC NUM_PROMPTS) pairs to sweep. Fewer prompts than the upstream
+          # default of CONC*10 to keep the two-variant run inside the job timeout
+          # while still issuing enough requests for a stable measurement.
+          CONFIGS=(
+              "4 40"
+              "8 40"
+              "16 64"
+              "32 128"
+              "64 256"
+              "128 512"
+          )
 
-          echo "=== $SCRIPT | TP=$TP CONC=$CONC ISL=$ISL OSL=$OSL ==="
-          if ! bash "$SCRIPT"; then
-            echo "::warning::bench FAILED for conc=$CONC (tp=$TP)"
-            FAILED+=("$CONC")
+          # Two serving variants, run back-to-back in this container. Column
+          # order in the summary table follows VARIANT_KEYS.
+          VARIANT_KEYS=("baseline" "dp_tbo")
+          VARIANT_LABELS=("baseline" "dp_attn+tbo")
+          VARIANT_FLAGS=("" "--enable-dp-attention --enable-tbo")
+
+          # Fixed atom launch args replicated from $REF_SCRIPT, plus the serve.sh
+          # port optimizations. Variant-specific flags are appended per variant.
+          PORT=${PORT:-8888}
+          SERVER_LOG=/workspace/server.log
+          if [ "$ISL" = "1024" ] && [ "$OSL" = "1024" ]; then
+            MAX_MODEL_LEN=""
+          else
+            MAX_MODEL_LEN="--max-model-len 10240"
           fi
+          if [ "$EP_SIZE" -gt 1 ]; then
+            EP_FLAG="--enable-expert-parallel"
+          else
+            EP_FLAG=""
+          fi
+          COMMON_SERVER_FLAGS="--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching"
+
+          SERVER_PID=""
+          start_server() {
+            local extra="$1"
+            : > "$SERVER_LOG"
+            echo "[server] launching (extra flags: ${extra:-none})"
+            set -x
+            python3 -m atom.entrypoints.openai_server \
+                --model "$MODEL" \
+                --server-port "$PORT" \
+                -tp "$TP" \
+                --kv_cache_dtype fp8 $MAX_MODEL_LEN $EP_FLAG \
+                $COMMON_SERVER_FLAGS \
+                $extra \
+                --trust-remote-code \
+                > "$SERVER_LOG" 2>&1 &
+            SERVER_PID=$!
+            set +x
+            wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$SERVER_PID"
+          }
+          stop_server() {
+            [ -n "${SERVER_PID:-}" ] || return 0
+            echo "[server] shutting down PID=$SERVER_PID"
+            kill "$SERVER_PID" 2>/dev/null || true
+            for _ in $(seq 1 60); do kill -0 "$SERVER_PID" 2>/dev/null || break; sleep 1; done
+            kill -9 "$SERVER_PID" 2>/dev/null || true
+            wait "$SERVER_PID" 2>/dev/null || true
+            SERVER_PID=""
+            # Let the GPU release VRAM before the next launch binds the port.
+            sleep 10
+          }
+
+          FAILED=()
+          for vi in "${!VARIANT_KEYS[@]}"; do
+            vkey="${VARIANT_KEYS[$vi]}"
+            vlabel="${VARIANT_LABELS[$vi]}"
+            vflags="${VARIANT_FLAGS[$vi]}"
+            echo
+            echo "############################################"
+            echo "# serving variant: $vkey ($vlabel)"
+            echo "# server flags: $COMMON_SERVER_FLAGS $vflags"
+            echo "############################################"
+            start_server "$vflags"
+            start_gpu_monitor --output "/workspace/gpu_metrics_${vkey}.csv"
+            for cfg in "${CONFIGS[@]}"; do
+              read -r CONC NUM_PROMPTS <<< "$cfg"
+              RF="${EXP_NAME}_${PRECISION}_${FRAMEWORK}_tp${TP}-ep${EP_SIZE}_conc${CONC}_${vkey}"
+              echo "=== [$vkey] CONC=$CONC NUM_PROMPTS=$NUM_PROMPTS ISL=$ISL OSL=$OSL ==="
+              if ! run_benchmark_serving \
+                  --model "$MODEL" \
+                  --port "$PORT" \
+                  --backend vllm \
+                  --input-len "$ISL" \
+                  --output-len "$OSL" \
+                  --random-range-ratio 0.8 \
+                  --num-prompts "$NUM_PROMPTS" \
+                  --max-concurrency "$CONC" \
+                  --result-filename "$RF" \
+                  --result-dir /workspace/ \
+                  --server-pid "$SERVER_PID" \
+                  --trust-remote-code; then
+                echo "::warning::bench FAILED for variant=$vkey conc=$CONC"
+                FAILED+=("$vkey/conc$CONC")
+              fi
+            done
+            stop_gpu_monitor
+            stop_server
           done
 
-          # ---- Aggregate per-GPU throughput into a markdown summary -------
+          # ---- Aggregate both variants into a single comparison table -----
           echo
           echo "============================================"
-          echo "[sweep] Perf Sweep Summary"
+          echo "[sweep] Perf Sweep Summary (baseline vs dp_attn+tbo)"
           echo "============================================"
-          echo "$CONFIG_JSON" | python3 -c "
-          import json,sys,os,math
-          configs=json.load(sys.stdin)
-          rows=[]
-          for e in configs:
-            rf=f\"{e['exp-name']}_{e['precision']}_{e['framework']}_tp{e['tp']}-ep{e.get('ep',1)}_conc{e['conc']}\"
-            path=f'/workspace/{rf}.json'
-            tp=int(e['tp']); conc=int(e['conc'])
-            if not os.path.exists(path):
-              rows.append((conc,tp,None,None,None)); continue
-            with open(path) as f: d=json.load(f)
-            tot=float(d.get('total_token_throughput',float('nan')))
-            out=float(d.get('output_throughput',float('nan')))
-            rows.append((conc,tp,tot,out,tot/tp))
-          rows.sort()
-          print('| CONC | TP | total_token_throughput (tok/s) | output_throughput (tok/s) | per_gpu total (÷TP) (tok/s) |')
-          print('| ---: | ---: | ---: | ---: | ---: |')
-          for conc,tp,tot,out,pg in rows:
-            if tot is None or math.isnan(tot):
-              print(f'| {conc} | {tp} | MISSING | MISSING | MISSING |')
-            else:
-              print(f'| {conc} | {tp} | {tot:.2f} | {out:.2f} | {pg:.2f} |')
+          SUMMARY_PAIRS=$(printf '%s;' "${CONFIGS[@]}")
+          SUMMARY_PAIRS="$SUMMARY_PAIRS" EXP_NAME="$EXP_NAME" PRECISION="$PRECISION" \
+          FRAMEWORK="$FRAMEWORK" TP="$TP" EP_SIZE="$EP_SIZE" python3 -c "
+          import json,os,math
+          exp=os.environ['EXP_NAME']; prec=os.environ['PRECISION']; fw=os.environ['FRAMEWORK']
+          tp=int(os.environ['TP']); ep=int(os.environ['EP_SIZE'])
+          pairs=[x.split() for x in os.environ['SUMMARY_PAIRS'].split(';') if x.strip()]
+          variants=[('baseline','baseline'),('dp_tbo','dp_attn+tbo')]
+          def load(conc,vkey):
+            path=f'/workspace/{exp}_{prec}_{fw}_tp{tp}-ep{ep}_conc{conc}_{vkey}.json'
+            if not os.path.exists(path): return None
+            with open(path) as f: return json.load(f)
+          def fmt(v): return 'MISSING' if (v is None or math.isnan(v)) else f'{v:.2f}'
+          labels=[lbl for _,lbl in variants]
+          cols=['CONC','NUM_PROMPTS']
+          for lbl in labels: cols.append(f'total tok/s ({lbl})')
+          for lbl in labels: cols.append(f'output tok/s ({lbl})')
+          for lbl in labels: cols.append(f'per-GPU total /{tp} ({lbl})')
+          cols.append('total speedup (dp_attn+tbo / baseline)')
+          print('| '+' | '.join(cols)+' |')
+          print('|'+'|'.join(['---:']*len(cols))+'|')
+          for conc,nump in pairs:
+            tot={}; out={}
+            for vk,_ in variants:
+              d=load(conc,vk)
+              tot[vk]=float(d.get('total_token_throughput',float('nan'))) if d else None
+              out[vk]=float(d.get('output_throughput',float('nan'))) if d else None
+            row=[conc,nump]
+            for vk,_ in variants: row.append(fmt(tot[vk]))
+            for vk,_ in variants: row.append(fmt(out[vk]))
+            for vk,_ in variants:
+              v=tot[vk]; row.append('MISSING' if (v is None or math.isnan(v)) else f'{v/tp:.2f}')
+            b=tot['baseline']; x=tot['dp_tbo']
+            ok=b and x and not math.isnan(b) and not math.isnan(x) and b>0
+            row.append(f'{x/b:.3f}x' if ok else '-')
+            print('| '+' | '.join(map(str,row))+' |')
           "
 
           if [ "${#FAILED[@]}" -ne 0 ]; then
-            echo "::error::benchmarks failed for conc: ${FAILED[*]}"
+            echo "::error::benchmarks failed for: ${FAILED[*]}"
             exit 1
           fi
           EOF
