@@ -273,7 +273,6 @@ jobs:
                   --max-concurrency "$CONC" \
                   --result-filename "$RF" \
                   --result-dir /workspace/ \
-                  --server-pid "$SERVER_PID" \
                   --trust-remote-code; then
                 echo "::warning::bench FAILED for variant=$vkey conc=$CONC"
                 FAILED+=("$vkey/conc$CONC")
