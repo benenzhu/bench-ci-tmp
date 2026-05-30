@@ -99,7 +99,7 @@ jobs:
           GIT_SSH_COMMAND="ssh -i /root/.ssh/atom_key -o IdentitiesOnly=yes" \
             git clone git@github.com:RadeonFlow/AMD-ATOM.git
           cd /root/AMD-ATOM
-          git checkout origin/to-upstream
+          git checkout 0170b8adafce52c3cb64403a1e3a2e21cbe83f5f
           pip install -e .
 
           cd /root
@@ -107,7 +107,7 @@ jobs:
             git clone git@github.com:RadeonFlow/aiter.git
           pip install setuptools-scm
           cd /root/aiter
-          git checkout d41b6caf1b8fe3f0073fe481334b1e7b11e4bae6
+          git checkout df8ae91cd3b2d0c00727ec8fa769c0938e0ed55b
           pip install --ignore-installed --no-deps flydsl==0.1.8
           # `pip install -e .` already installs aiter editable in develop mode
           # (setuptools' editable_wheel command sets is_develop_mode()). The only
@@ -181,16 +181,16 @@ jobs:
           [ -n "${MODEL:-}" ] || { echo "::error::failed to derive base params from sweep config"; echo "$CONFIG_JSON" | python3 -m json.tool; exit 1; }
           echo "[base] MODEL=$MODEL TP=$TP ISL=$ISL OSL=$OSL EP_SIZE=$EP_SIZE EXP=$EXP_NAME"
 
-          # (CONC NUM_PROMPTS) pairs to sweep. Fewer prompts than the upstream
-          # default of CONC*10 to keep the two-variant run inside the job timeout
-          # while still issuing enough requests for a stable measurement.
+          # (CONC NUM_PROMPTS) pairs to sweep. NUM_PROMPTS == CONC*40 so each
+          # concurrency level issues a proportional request count (40 rounds of
+          # the full concurrent batch) for a stable measurement.
           CONFIGS=(
-              "4 40"
-              "8 40"
-              "16 64"
-              "32 128"
-              "64 256"
-              "128 512"
+              "4 160"
+              "8 320"
+              "16 640"
+              "32 1280"
+              "64 2560"
+              "128 5120"
           )
 
           # Two serving variants, run back-to-back in this container. Column
@@ -213,7 +213,7 @@ jobs:
           else
             EP_FLAG=""
           fi
-          COMMON_SERVER_FLAGS="--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching"
+          COMMON_SERVER_FLAGS="--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching --scheduler-delay-factor 1.0"
 
           SERVER_PID=""
           start_server() {
@@ -310,20 +310,37 @@ jobs:
           for lbl in labels: cols.append(f'total tok/s ({lbl})')
           for lbl in labels: cols.append(f'output tok/s ({lbl})')
           for lbl in labels: cols.append(f'per-GPU total /{tp} ({lbl})')
+          for lbl in labels: cols.append(f'e2e (s) ({lbl})')
+          for lbl in labels: cols.append(f'interactivity tok/s/user ({lbl})')
           cols.append('total speedup (dp_attn+tbo / baseline)')
           print('| '+' | '.join(cols)+' |')
           print('|'+'|'.join(['---:']*len(cols))+'|')
+          # e2e (mean, s) = ttft + tpot*(avg_out-1); interactivity = 1000/median_tpot
+          # -- same formulas as kimi/perf_sweep.sh.
+          def e2e(d):
+            if not d: return None
+            completed=float(d.get('completed',0)) or 1.0
+            avg_out=float(d.get('total_output_tokens',0))/completed
+            return (float(d.get('mean_ttft_ms',float('nan')))
+                    + float(d.get('mean_tpot_ms',float('nan')))*(avg_out-1))/1000.0
+          def inter(d):
+            if not d: return None
+            m=float(d.get('median_tpot_ms',float('nan')))
+            return 1000.0/m if m else float('nan')
           for conc,nump in pairs:
-            tot={}; out={}
+            tot={}; out={}; e2={}; it={}
             for vk,_ in variants:
               d=load(conc,vk)
               tot[vk]=float(d.get('total_token_throughput',float('nan'))) if d else None
               out[vk]=float(d.get('output_throughput',float('nan'))) if d else None
+              e2[vk]=e2e(d); it[vk]=inter(d)
             row=[conc,nump]
             for vk,_ in variants: row.append(fmt(tot[vk]))
             for vk,_ in variants: row.append(fmt(out[vk]))
             for vk,_ in variants:
               v=tot[vk]; row.append('MISSING' if (v is None or math.isnan(v)) else f'{v/tp:.2f}')
+            for vk,_ in variants: row.append(fmt(e2[vk]))
+            for vk,_ in variants: row.append(fmt(it[vk]))
             b=tot['baseline']; x=tot['dp_tbo']
             ok=b and x and not math.isnan(b) and not math.isnan(x) and b>0
             row.append(f'{x/b:.3f}x' if ok else '-')
