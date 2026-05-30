@@ -260,6 +260,11 @@ jobs:
             start_gpu_monitor --output "/workspace/gpu_metrics_${vkey}.csv"
             for cfg in "${CONFIGS[@]}"; do
               read -r CONC NUM_PROMPTS <<< "$cfg"
+              # The tbo variant is only benchmarked at concurrency 128.
+              if [ "$vkey" = "dp_tbo" ] && [ "$CONC" != "128" ]; then
+                echo "=== [$vkey] skipping CONC=$CONC (tbo runs only at conc 128) ==="
+                continue
+              fi
               RF="${EXP_NAME}_${PRECISION}_${FRAMEWORK}_tp${TP}-ep${EP_SIZE}_conc${CONC}_${vkey}"
               echo "=== [$vkey] CONC=$CONC NUM_PROMPTS=$NUM_PROMPTS ISL=$ISL OSL=$OSL ==="
               if ! run_benchmark_serving \
