@@ -142,7 +142,7 @@ jobs:
           export ATOM_DISABLE_MMAP=0
           export ATOM_USE_AITER_RP=1
           export ATOM_USE_TRITON_MXFP4_BMM=1
-          export ATOM_ENABLE_HIP_MLA_DECODE=0
+          export ATOM_ENABLE_HIP_MLA_DECODE=1
           export OMP_NUM_THREADS=1
           export AITER_QUICK_REDUCE_QUANTIZATION=INT4
 
