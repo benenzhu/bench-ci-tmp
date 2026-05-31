@@ -107,7 +107,7 @@ jobs:
             git clone git@github.com:RadeonFlow/aiter.git
           pip install setuptools-scm
           cd /root/aiter
-          git checkout 620b017cd315d4c12cce2e9c78b50e1b6e841750
+          git checkout e2f121ab2fd8755a2eb376b22b215b1a8e6bfd3b
           pip install --ignore-installed --no-deps flydsl==0.1.8
           # `pip install -e .` already installs aiter editable in develop mode
           # (setuptools' editable_wheel command sets is_develop_mode()). The only
