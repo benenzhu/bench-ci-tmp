@@ -212,7 +212,7 @@ jobs:
           else
             EP_FLAG=""
           fi
-          COMMON_SERVER_FLAGS="--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching --scheduler-delay-factor 1.0"
+          COMMON_SERVER_FLAGS="--max-num-batched-tokens 16384 --gpu-memory-utilization 0.7 --no-enable_prefix_caching"
 
           SERVER_PID=""
           start_server() {
