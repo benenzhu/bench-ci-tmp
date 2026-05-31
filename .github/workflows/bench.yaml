@@ -181,17 +181,15 @@ jobs:
           [ -n "${MODEL:-}" ] || { echo "::error::failed to derive base params from sweep config"; echo "$CONFIG_JSON" | python3 -m json.tool; exit 1; }
           echo "[base] MODEL=$MODEL TP=$TP ISL=$ISL OSL=$OSL EP_SIZE=$EP_SIZE EXP=$EXP_NAME"
 
-          # (CONC NUM_PROMPTS) pairs to sweep. NUM_PROMPTS == min(CONC*40, 1000)
-          # so each concurrency level issues a proportional request count (40
-          # rounds of the full concurrent batch) for a stable measurement, capped
-          # at 1000 requests to keep the high-conc rows inside the job timeout.
+          # (CONC NUM_PROMPTS) pairs to sweep. NUM_PROMPTS == CONC*10 to match the
+          # request count InferenceX uses in benchmarks/single_node/kimik2.5_fp4_mi355x_atom.sh.
           CONFIGS=(
-              "4 160"
-              "8 320"
-              "16 640"
-              "32 1000"
-              "64 1000"
-              "128 1000"
+              "4 40"
+              "8 80"
+              "16 160"
+              "32 320"
+              "64 640"
+              "128 1280"
           )
 
           # Two serving variants, run back-to-back in this container. Column
