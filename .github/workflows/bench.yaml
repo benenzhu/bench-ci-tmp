@@ -21,7 +21,7 @@ concurrency:
 jobs:
   bench:
     runs-on: self-hosted
-    timeout-minutes: 60
+    timeout-minutes: 70
     env:
       # The runner is non-interactive; ~/.bashrc isn't sourced. Pin the venv
       # and ROCm onto PATH/LD_LIBRARY_PATH explicitly so `python`, `pip`, and
@@ -259,9 +259,8 @@ jobs:
             start_gpu_monitor --output "/workspace/gpu_metrics_${vkey}.csv"
             for cfg in "${CONFIGS[@]}"; do
               read -r CONC NUM_PROMPTS <<< "$cfg"
-              # The tbo variant is only benchmarked at concurrency 128.
-              if [ "$vkey" = "dp_tbo" ] && [ "$CONC" != "128" ]; then
-                echo "=== [$vkey] skipping CONC=$CONC (tbo runs only at conc 128) ==="
+              if [ "$vkey" = "dp_tbo" ] && [ "$CONC" != "128" ] && [ "$CONC" != "64" ]; then
+                echo "=== [$vkey] skipping CONC=$CONC (tbo runs at conc 64 and 128) ==="
                 continue
               fi
               RF="${EXP_NAME}_${PRECISION}_${FRAMEWORK}_tp${TP}-ep${EP_SIZE}_conc${CONC}_${vkey}"
