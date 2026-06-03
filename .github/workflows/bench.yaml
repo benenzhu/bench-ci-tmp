@@ -107,7 +107,7 @@ jobs:
             git clone git@github.com:RadeonFlow/aiter.git
           pip install setuptools-scm
           cd /root/aiter
-          git checkout cc19c75558293b70fd8455ef98d0e82a16b41ff7
+          git checkout 6162c05e1521400435800b6b58ae500a5d604ce4
           pip install --ignore-installed --no-deps flydsl==0.1.8
           # `pip install -e .` already installs aiter editable in develop mode
           # (setuptools' editable_wheel command sets is_develop_mode()). The only
@@ -117,6 +117,8 @@ jobs:
           # triton installer directly to avoid that legacy code path.
           pip install -e .
           bash .github/scripts/install_triton.sh
+
+          python ./scripts/aot_build_from_trace.py
 
           cd /root/InferenceX
           mkdir -p /workspace
@@ -290,6 +292,38 @@ jobs:
           echo "============================================"
           echo "[sweep] Perf Sweep Summary (baseline vs dp_attn+tbo)"
           echo "============================================"
+          # Wrap the markdown table in sentinels so the outer workflow step can
+          # carve just the table out of the noisy bench log and append it to
+          # $GITHUB_STEP_SUMMARY -- that renders it on the run's Summary page.
+          echo "===BENCH_SUMMARY_START==="
+          echo "## Perf Sweep Summary (baseline vs dp_attn+tbo)"
+          echo
+          # --- Build provenance: which ATOM / aiter commit produced this run ---
+          # Per repo we report short SHA + commit subject, plus the ref HEAD sits
+          # on: "<branch> (head)" when HEAD is a branch (or its detached SHA still
+          # matches a branch tip), else "detached" -- the usual case here, since we
+          # `git checkout <sha>` a fixed commit that isn't any branch's tip.
+          print_provenance_row() {
+            local name="$1" dir="$2" sha subj ref b
+            sha=$(git -C "$dir" rev-parse --short HEAD 2>/dev/null || echo '?')
+            # squash '|' in the subject so it can't break the markdown table cell.
+            subj=$(git -C "$dir" log -1 --pretty=%s 2>/dev/null | tr '|' '/' || echo '?')
+            b=$(git -C "$dir" symbolic-ref -q --short HEAD 2>/dev/null || true)
+            if [ -z "$b" ]; then
+              b=$(git -C "$dir" for-each-ref --points-at HEAD \
+                    --format='%(refname:short)' refs/heads refs/remotes 2>/dev/null \
+                    | grep -v '/HEAD$' | head -1 || true)
+            fi
+            if [ -n "$b" ]; then ref="${b#origin/} (head)"; else ref="detached"; fi
+            echo "| $name | \`$sha\` | $ref | $subj |"
+          }
+          echo "### Build provenance"
+          echo
+          echo "| repo | commit | ref | message |"
+          echo "|---|---|---|---|"
+          print_provenance_row "AMD-ATOM" /root/AMD-ATOM
+          print_provenance_row "aiter"    /root/aiter
+          echo
           SUMMARY_PAIRS=$(printf '%s;' "${CONFIGS[@]}")
           SUMMARY_PAIRS="$SUMMARY_PAIRS" EXP_NAME="$EXP_NAME" PRECISION="$PRECISION" \
           FRAMEWORK="$FRAMEWORK" TP="$TP" EP_SIZE="$EP_SIZE" python3 -c "
@@ -344,6 +378,7 @@ jobs:
             row.append(f'{x/b:.3f}x' if ok else '-')
             print('| '+' | '.join(map(str,row))+' |')
           "
+          echo "===BENCH_SUMMARY_END==="
 
           if [ "${#FAILED[@]}" -ne 0 ]; then
             echo "::error::benchmarks failed for: ${FAILED[*]}"
@@ -365,7 +400,8 @@ jobs:
             -e HF_HUB_CACHE=/dev/shm \
             rocm/atom:rocm7.2.3_ubuntu24.04_py3.12_pytorch_release_2.10.0_atom20260511 \
             -lc 'bash /root/run_inferencex_bench.sh' 2>&1 \
-            | grep -v --line-buffered "Calling super().encode with"
+            | grep -v --line-buffered "Calling super().encode with" \
+            | tee "$GITHUB_WORKSPACE/bench_output.log"
           # ^ The Kimi tokenizer's remote code (loaded via --trust-remote-code)
           #   print()s "Calling super().encode with {...}" on every encode call,
           #   which the bench client invokes once per request -- thousands of
@@ -373,3 +409,20 @@ jobs:
           #   silence), so we filter it from the log stream here. The default GH
           #   Actions bash shell runs with `set -o pipefail`, so docker's exit
           #   code still propagates and a real bench failure still fails the step.
+
+      - name: Publish bench summary to job summary
+        # always(): the bench step exits 1 when any conc fails, but a failed run
+        # is exactly when we most want the partial table -- so render it anyway.
+        if: always()
+        run: |
+          LOG="$GITHUB_WORKSPACE/bench_output.log"
+          if [ -f "$LOG" ] && grep -q '===BENCH_SUMMARY_START===' "$LOG"; then
+            # Carve out the sentinel-delimited block, drop the two sentinel lines,
+            # leaving the "## ..." heading + markdown table for GitHub to render.
+            sed -n '/===BENCH_SUMMARY_START===/,/===BENCH_SUMMARY_END===/p' "$LOG" \
+              | grep -v '===BENCH_SUMMARY_' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "## Bench summary unavailable" >> "$GITHUB_STEP_SUMMARY"
+            echo >> "$GITHUB_STEP_SUMMARY"
+            echo "The bench run produced no summary table (it likely failed before the aggregation step). See the job logs." >> "$GITHUB_STEP_SUMMARY"
+          fi
