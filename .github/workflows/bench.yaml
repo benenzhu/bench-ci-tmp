@@ -99,7 +99,7 @@ jobs:
           GIT_SSH_COMMAND="ssh -i /root/.ssh/atom_key -o IdentitiesOnly=yes" \
             git clone git@github.com:RadeonFlow/AMD-ATOM.git
           cd /root/AMD-ATOM
-          git checkout e637dd0542b2073589ccddd37b1d444b73eb6604
+          git checkout 7ae1f4aae46945a99f994e61c6453df0f0333238
           pip install -e .
 
           cd /root
