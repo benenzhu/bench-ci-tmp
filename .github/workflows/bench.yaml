@@ -388,6 +388,7 @@ jobs:
 
           docker run --rm --init --network=host --privileged=true \
             -e PIP_CONSTRAINT="" \
+            -e HIP_VISIBLE_DEVICES=1,2,4,6 \
             -e ATOM_REPO_KEY \
             -e AITER_REPO_KEY \
             -v /dev/shm:/dev/shm \
