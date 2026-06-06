@@ -63,6 +63,8 @@ jobs:
           #   secrets.AITER_DEPLOY_KEY -> RadeonFlow/aiter
           ATOM_REPO_KEY: ${{ secrets.ATOM_DEPLOY_KEY }}
           AITER_REPO_KEY: ${{ secrets.AITER_DEPLOY_KEY }}
+          # HF token for pulling gated models; huggingface_hub reads $HF_TOKEN.
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
         run: |
           cat > "$GITHUB_WORKSPACE/run_inferencex_bench.sh" <<'EOF'
           set -euo pipefail
@@ -391,6 +393,7 @@ jobs:
             -e PIP_CONSTRAINT="" \
             -e ATOM_REPO_KEY \
             -e AITER_REPO_KEY \
+            -e HF_TOKEN \
             -v /dev/shm:/dev/shm \
             --device /dev/kfd \
             --device /dev/dri   \
