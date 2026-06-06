@@ -46,6 +46,7 @@ jobs:
       - name: check gpu utils
         run: |
           amd-smi
+          df -h
           bash /find-pid-for-docker.sh
 
       - name: clone InferenceX
