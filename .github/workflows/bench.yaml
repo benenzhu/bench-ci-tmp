@@ -222,7 +222,7 @@ jobs:
             : > "$SERVER_LOG"
             echo "[server] launching (extra flags: ${extra:-none})"
             set -x
-            HIP_VISIBLE_DEVICES=0,1,2,6 \
+            HIP_VISIBLE_DEVICES=0,1,2,3 \
             python3 -m atom.entrypoints.openai_server \
                 --model "$MODEL" \
                 --server-port "$PORT" \
