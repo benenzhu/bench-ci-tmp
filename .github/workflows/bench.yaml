@@ -205,7 +205,9 @@ jobs:
 
           # Fixed atom launch args replicated from $REF_SCRIPT, plus the serve.sh
           # port optimizations. Variant-specific flags are appended per variant.
-          PORT=${PORT:-8888}
+          # Randomize the server port (18000-18999) per run so a stale process
+          # still holding the previous port can't collide with this launch.
+          PORT=${PORT:-$((18000 + RANDOM % 1000))}
           SERVER_LOG=/workspace/server.log
           if [ "$ISL" = "1024" ] && [ "$OSL" = "1024" ]; then
             MAX_MODEL_LEN=""
