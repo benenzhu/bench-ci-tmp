@@ -21,7 +21,7 @@ concurrency:
 jobs:
   bench:
     runs-on: self-hosted
-    timeout-minutes: 70
+    timeout-minutes: 120
     env:
       # The runner is non-interactive; ~/.bashrc isn't sourced. Pin the venv
       # and ROCm onto PATH/LD_LIBRARY_PATH explicitly so `python`, `pip`, and
