@@ -110,7 +110,7 @@ jobs:
             git clone git@github.com:RadeonFlow/aiter.git
           pip install setuptools-scm
           cd /root/aiter
-          git checkout e1a90401bbb45577cd06d17992ab5d37aec715c4
+          git checkout bdbe4a3fbeacb5a4deec41ea2bee03edb985e48f
           pip install --ignore-installed --no-deps flydsl==0.1.8
           # `pip install -e .` already installs aiter editable in develop mode
           # (setuptools' editable_wheel command sets is_develop_mode()). The only
@@ -143,7 +143,7 @@ jobs:
           # OMP_NUM_THREADS + AITER_QUICK_REDUCE_QUANTIZATION are what the
           # upstream bench script exports before launch. We launch the server
           # ourselves below, so export them all here (the launch inherits them).
-          # ATOM_ENABLE_HIP_MLA_DECODE=0 is a literal port of serve.sh.
+          # ATOM_ENABLE_HIP_MLA_DECODE=1 enables the HIP MLA decode path.
           export ATOM_DISABLE_MMAP=0
           export ATOM_USE_AITER_RP=1
           export ATOM_USE_TRITON_MXFP4_BMM=1
