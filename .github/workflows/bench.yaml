@@ -102,7 +102,7 @@ jobs:
           GIT_SSH_COMMAND="ssh -i /root/.ssh/atom_key -o IdentitiesOnly=yes" \
             git clone git@github.com:RadeonFlow/AMD-ATOM.git
           cd /root/AMD-ATOM
-          git checkout 7ae1f4aae46945a99f994e61c6453df0f0333238
+          git checkout 4b5b917ca25beae1f309df613821915f14f76961
           pip install -e .
 
           cd /root
@@ -110,7 +110,7 @@ jobs:
             git clone git@github.com:RadeonFlow/aiter.git
           pip install setuptools-scm
           cd /root/aiter
-          git checkout eb3a7981b5d0153f5586412cf915927b92f0acca
+          git checkout 63206f0b110db240992cf6863739c737fd0e215f
           pip install --ignore-installed --no-deps flydsl==0.1.8
           # `pip install -e .` already installs aiter editable in develop mode
           # (setuptools' editable_wheel command sets is_develop_mode()). The only
