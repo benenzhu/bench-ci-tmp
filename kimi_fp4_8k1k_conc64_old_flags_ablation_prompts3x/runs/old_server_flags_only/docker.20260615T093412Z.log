@@ -1,0 +1,2 @@
+Error: The following required environment variables are not set:
+  - QUICK_REDUCE_QUANTIZATION

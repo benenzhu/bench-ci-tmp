@@ -6,6 +6,7 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 
 - `dsv4_sglang_8k1k_conc8_prompts3x/`: primary handoff bundle. It includes the strict same-config DeepSeek-V4-Pro FP4 SGLang reproduction, the broader MI355X Kimi/GLM suite copied under `suites/`, candidate tables, logs, raw JSON, aggregate JSON, and a verification script.
 - `kimi_int4_8k1k_conc16_prompts3x/`: completed Kimi-K2.5 INT4 vLLM same-row local reproduction attempt for the previously shortlisted 8k/1k middle-state candidate. It completed successfully but did not reproduce the recorded 4x dashboard gain. The Kimi HF cache is backed up with hardlinks under `/scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5`.
+- `kimi_fp4_8k1k_conc64_old_flags_ablation_prompts3x/`: Kimi-K2.5 MXFP4 old-image flag ablation for the dashboard candidate `348.532 -> 1647.260 tok/s/GPU`. Full 03-26 flags do not run on the old `v0.16.0` image at TP8 because AITER MLA rejects 8 local heads; the compatible subset without `block-size=1` completed at `290.762867 tok/s/GPU`.
 - `mi355_adsuite_prompts3x/`: original broader MI355X suite output directory for Kimi-K2.5, GLM-5, and the failed DeepSeek-V4-Pro vLLM old-row attempt. This is also copied into the primary bundle under `dsv4_sglang_8k1k_conc8_prompts3x/suites/mi355_adsuite_prompts3x/`.
 
 ## Main Results
@@ -43,6 +44,8 @@ If the story must stay strictly Kimi FP4, there is no same-config 3.5x-4.5x pair
 | Scope | Seq | CONC | Result |
 |---|---|---:|---|
 | Kimi-K2.5 FP4 vLLM | 8192/1024 | 64 | `348.532 -> 1647.260 tok/s/GPU`, `4.726x` |
+
+Old-image flag ablation for this FP4 candidate is saved in `kimi_fp4_8k1k_conc64_old_flags_ablation_prompts3x/`. The fair full-new-flags-on-old-image run is blocked: `VLLM_ROCM_USE_AITER=1` and `--block-size=1` each trigger the old `v0.16.0` AITER MLA assertion at TP8 (`Provided 8 number of heads`). Keeping `block_size=64` while applying the other compatible server flags completed locally at `290.762867 tok/s/GPU` with `CONC=64` and `num_prompts=192`.
 
 ## Verify
 

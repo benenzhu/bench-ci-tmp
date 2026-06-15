@@ -1,0 +1,11 @@
+label,status,note,image,commit,isl,osl,conc,tp,ep,num_prompts,enable_hsa_no_scratch_reclaim,enable_aiter,quick_reduce_quantization,gpu_memory_utilization,block_size,disable_prefix_caching,disable_log_requests,completed,duration,total_input_tokens,total_output_tokens,total_token_throughput,output_throughput,tput_per_gpu,output_tput_per_gpu,input_tput_per_gpu,mean_ttft_ms,mean_tpot_ms,mean_itl_ms,reference_old_tput_per_gpu,reference_new_tput_per_gpu
+old_baseline,not_run,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+old_all_new_flags,docker_failed:1,"old image plus 03-26 env/server flags: HSA conditional, AITER, INT4 quick reduce, gpu_memory=0.90, block_size=1, no prefix cache, no disable-log-requests",vllm/vllm-openai-rocm:v0.16.0,bc818474fdba28c4802e823fdc474be56fb79452,8192,1024,64,8,1,192,1,1,INT4,0.90,1,1,0,,,,,,,,,,,,,348.5322178041199,1647.2603593393117
+old_server_flags_only,docker_failed:1,"old image plus server flags only: gpu_memory=0.90, block_size=1, no prefix cache, no disable-log-requests",vllm/vllm-openai-rocm:v0.16.0,bc818474fdba28c4802e823fdc474be56fb79452,8192,1024,64,8,1,192,0,0,,0.90,1,1,0,,,,,,,,,,,,,348.5322178041199,1647.2603593393117
+old_server_flags_no_block1,success,"old image plus compatible server flags only: gpu_memory=0.90, no prefix cache, no disable-log-requests; block_size remains 64",vllm/vllm-openai-rocm:v0.16.0,bc818474fdba28c4802e823fdc474be56fb79452,8192,1024,64,8,1,192,0,0,,0.90,64,1,0,192,683.3089695889939,1412838,176609,2326.102935478869,258.4614103722789,290.7628669348586,32.307676296534865,258.45519063832376,7572.187612109398,227.438790370617,227.66157296177812,348.5322178041199,1647.2603593393117
+old_env_flags_only,not_run,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+old_aiter_quick_only,not_run,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+old_aiter_only,docker_failed:1,old image plus VLLM_ROCM_USE_AITER=1 only,vllm/vllm-openai-rocm:v0.16.0,bc818474fdba28c4802e823fdc474be56fb79452,8192,1024,64,8,1,192,0,1,,0.95,64,0,1,,,,,,,,,,,,,348.5322178041199,1647.2603593393117
+old_block1_only,docker_failed:1,old image plus --block-size=1 only,vllm/vllm-openai-rocm:v0.16.0,bc818474fdba28c4802e823fdc474be56fb79452,8192,1024,64,8,1,192,0,0,,0.95,1,0,1,,,,,,,,,,,,,348.5322178041199,1647.2603593393117
+old_no_prefix_only,not_run,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+old_mem090_only,not_run,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
