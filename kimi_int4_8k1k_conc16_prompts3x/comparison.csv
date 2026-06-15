@@ -1,0 +1,2 @@
+model_group,old_label,new_label,old_status,new_status,old_tput_per_gpu,new_tput_per_gpu,measured_gain_x,measured_improvement_pct,expected_old_tput_per_gpu,expected_new_tput_per_gpu,expected_gain_x
+kimi_int4,kimi_int4_old,kimi_int4_new,success,success,142.1744402828832,187.66949595644815,1.3199946177600126,31.999461776001258,157.19541980732237,631.0259966432371,4.014277244316015

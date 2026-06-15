@@ -1,0 +1,7 @@
+stage=initial
+timestamp=2026-06-15T08:05:57Z
+MODEL_DIR=/scratch/hf_hub_cache
+MODEL_CACHE_ROOT=/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5
+status=missing
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vdc1        40T  2.0T   36T   6% /scratch

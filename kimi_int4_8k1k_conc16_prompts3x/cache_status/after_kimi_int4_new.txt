@@ -1,0 +1,8 @@
+stage=after_kimi_int4_new
+timestamp=2026-06-15T08:47:42Z
+MODEL_DIR=/scratch/hf_hub_cache
+MODEL_CACHE_ROOT=/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5
+555G	/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5
+status=present
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vdc1        40T  2.6T   36T   7% /scratch

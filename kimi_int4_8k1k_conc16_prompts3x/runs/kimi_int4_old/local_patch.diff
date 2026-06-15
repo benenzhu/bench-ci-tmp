@@ -1,0 +1,13 @@
+diff --git a/benchmarks/kimik2.5_int4_mi355x.sh b/benchmarks/kimik2.5_int4_mi355x.sh
+index f0290b40..795ed84f 100755
+--- a/benchmarks/kimik2.5_int4_mi355x.sh
++++ b/benchmarks/kimik2.5_int4_mi355x.sh
+@@ -48,7 +48,7 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/ \

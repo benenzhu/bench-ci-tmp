@@ -1,0 +1,2414 @@
+{
+  "total_count": 25,
+  "jobs": [
+    {
+      "id": 64160961475,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqTww",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961475",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961475",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-19T14:40:27Z",
+      "completed_at": "2026-02-18T06:30:12Z",
+      "name": "check-newline",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961475",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 64160961530,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqT-g",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961530",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961530",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-19T14:40:29Z",
+      "completed_at": "2026-02-19T17:40:51Z",
+      "name": "single-node 1k8k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k8k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-64 | eval",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-19T14:40:30Z",
+          "completed_at": "2026-02-19T14:40:36Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-19T14:40:36Z",
+          "completed_at": "2026-02-19T14:40:36Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-19T14:40:36Z",
+          "completed_at": "2026-02-19T14:40:38Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "number": 4,
+          "started_at": "2026-02-19T14:40:38Z",
+          "completed_at": "2026-02-19T17:40:42Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2026-02-19T17:40:42Z",
+          "completed_at": "2026-02-19T17:40:42Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-02-19T17:40:42Z",
+          "completed_at": "2026-02-19T17:40:42Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-19T17:40:42Z",
+          "completed_at": "2026-02-19T17:40:43Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-19T17:40:43Z",
+          "completed_at": "2026-02-19T17:40:43Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-19T17:40:43Z",
+          "completed_at": "2026-02-19T17:40:43Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-19T17:40:43Z",
+          "completed_at": "2026-02-19T17:40:48Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-19T17:40:48Z",
+          "completed_at": "2026-02-19T17:40:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-19T17:40:49Z",
+          "completed_at": "2026-02-19T17:40:49Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961530",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 124,
+      "runner_name": "mi355x-amds_6",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160961565,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqUHQ",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961565",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961565",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-19T14:40:27Z",
+      "completed_at": "2026-02-19T14:40:27Z",
+      "name": "multi-node 8k1k /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961565",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 64160961632,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqUYA",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961632",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961632",
+      "status": "completed",
+      "conclusion": "cancelled",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-19T14:40:29Z",
+      "completed_at": "2026-02-19T17:40:51Z",
+      "name": "single-node 1k8k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k8k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-32",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-19T14:40:30Z",
+          "completed_at": "2026-02-19T14:40:36Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-19T14:40:36Z",
+          "completed_at": "2026-02-19T14:40:36Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-19T14:40:36Z",
+          "completed_at": "2026-02-19T14:40:39Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "number": 4,
+          "started_at": "2026-02-19T14:40:39Z",
+          "completed_at": "2026-02-19T17:40:42Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 5,
+          "started_at": "2026-02-19T17:40:42Z",
+          "completed_at": "2026-02-19T17:40:42Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-02-19T17:40:42Z",
+          "completed_at": "2026-02-19T17:40:42Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-19T17:40:42Z",
+          "completed_at": "2026-02-19T17:40:44Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-19T17:40:44Z",
+          "completed_at": "2026-02-19T17:40:44Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-19T17:40:44Z",
+          "completed_at": "2026-02-19T17:40:44Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-19T17:40:44Z",
+          "completed_at": "2026-02-19T17:40:49Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-19T17:40:49Z",
+          "completed_at": "2026-02-19T17:40:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-19T17:40:49Z",
+          "completed_at": "2026-02-19T17:40:49Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961632",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 120,
+      "runner_name": "mi355x-amds_3",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160961691,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqUmw",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961691",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961691",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-19T14:40:27Z",
+      "completed_at": "2026-02-19T14:40:27Z",
+      "name": "multi-node 1k8k /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961691",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 64160961756,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqU3A",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961756",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961756",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-18T06:31:11Z",
+      "completed_at": "2026-02-18T06:57:15Z",
+      "name": "single-node 8k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_8k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-16",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:31:12Z",
+          "completed_at": "2026-02-18T06:31:18Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:31:18Z",
+          "completed_at": "2026-02-18T06:31:18Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:31:18Z",
+          "completed_at": "2026-02-18T06:31:21Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:31:21Z",
+          "completed_at": "2026-02-18T06:57:04Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T06:57:04Z",
+          "completed_at": "2026-02-18T06:57:04Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T06:57:04Z",
+          "completed_at": "2026-02-18T06:57:08Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T06:57:08Z",
+          "completed_at": "2026-02-18T06:57:10Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T06:57:10Z",
+          "completed_at": "2026-02-18T06:57:10Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T06:57:10Z",
+          "completed_at": "2026-02-18T06:57:10Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T06:57:10Z",
+          "completed_at": "2026-02-18T06:57:10Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T06:57:10Z",
+          "completed_at": "2026-02-18T06:57:11Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T06:57:11Z",
+          "completed_at": "2026-02-18T06:57:11Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961756",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 122,
+      "runner_name": "mi355x-amds_5",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160961758,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqU3g",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961758",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961758",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-18T06:33:19Z",
+      "completed_at": "2026-02-18T07:37:40Z",
+      "name": "single-node 1k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:33:19Z",
+          "completed_at": "2026-02-18T06:33:25Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:33:25Z",
+          "completed_at": "2026-02-18T06:33:25Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:33:25Z",
+          "completed_at": "2026-02-18T06:33:27Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:33:27Z",
+          "completed_at": "2026-02-18T07:37:33Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T07:37:33Z",
+          "completed_at": "2026-02-18T07:37:33Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T07:37:33Z",
+          "completed_at": "2026-02-18T07:37:34Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T07:37:34Z",
+          "completed_at": "2026-02-18T07:37:36Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T07:37:36Z",
+          "completed_at": "2026-02-18T07:37:36Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T07:37:36Z",
+          "completed_at": "2026-02-18T07:37:36Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T07:37:36Z",
+          "completed_at": "2026-02-18T07:37:36Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T07:37:36Z",
+          "completed_at": "2026-02-18T07:37:37Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T07:37:37Z",
+          "completed_at": "2026-02-18T07:37:37Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961758",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 125,
+      "runner_name": "mi355x-amds_8",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160961778,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqU8g",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961778",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961778",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-18T07:35:10Z",
+      "completed_at": "2026-02-18T09:20:15Z",
+      "name": "single-node 1k8k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k8k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T07:35:10Z",
+          "completed_at": "2026-02-18T07:35:17Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T07:35:17Z",
+          "completed_at": "2026-02-18T07:35:17Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T07:35:17Z",
+          "completed_at": "2026-02-18T07:35:19Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T07:35:19Z",
+          "completed_at": "2026-02-18T09:20:09Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T09:20:09Z",
+          "completed_at": "2026-02-18T09:20:09Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T09:20:09Z",
+          "completed_at": "2026-02-18T09:20:11Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T09:20:11Z",
+          "completed_at": "2026-02-18T09:20:12Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T09:20:12Z",
+          "completed_at": "2026-02-18T09:20:12Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T09:20:12Z",
+          "completed_at": "2026-02-18T09:20:12Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T09:20:12Z",
+          "completed_at": "2026-02-18T09:20:12Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T09:20:12Z",
+          "completed_at": "2026-02-18T09:20:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T09:20:12Z",
+          "completed_at": "2026-02-18T09:20:12Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961778",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 120,
+      "runner_name": "mi355x-amds_3",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160961840,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqVMA",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160961840",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160961840",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:27Z",
+      "started_at": "2026-02-18T06:31:11Z",
+      "completed_at": "2026-02-18T07:08:42Z",
+      "name": "single-node 8k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_8k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-32",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:31:12Z",
+          "completed_at": "2026-02-18T06:31:21Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:31:21Z",
+          "completed_at": "2026-02-18T06:31:21Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:31:21Z",
+          "completed_at": "2026-02-18T06:31:23Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:31:23Z",
+          "completed_at": "2026-02-18T07:08:34Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T07:08:34Z",
+          "completed_at": "2026-02-18T07:08:34Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T07:08:34Z",
+          "completed_at": "2026-02-18T07:08:36Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T07:08:36Z",
+          "completed_at": "2026-02-18T07:08:37Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T07:08:37Z",
+          "completed_at": "2026-02-18T07:08:37Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T07:08:37Z",
+          "completed_at": "2026-02-18T07:08:37Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T07:08:37Z",
+          "completed_at": "2026-02-18T07:08:37Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T07:08:37Z",
+          "completed_at": "2026-02-18T07:08:38Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T07:08:38Z",
+          "completed_at": "2026-02-18T07:08:38Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160961840",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 121,
+      "runner_name": "mi355x-amds_2",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160962020,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqV5A",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160962020",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160962020",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:28Z",
+      "started_at": "2026-02-18T06:31:06Z",
+      "completed_at": "2026-02-18T07:12:24Z",
+      "name": "single-node 8k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_8k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:31:07Z",
+          "completed_at": "2026-02-18T06:31:13Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:31:13Z",
+          "completed_at": "2026-02-18T06:31:13Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:31:13Z",
+          "completed_at": "2026-02-18T06:31:15Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:31:15Z",
+          "completed_at": "2026-02-18T07:12:19Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T07:12:19Z",
+          "completed_at": "2026-02-18T07:12:20Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T07:12:20Z",
+          "completed_at": "2026-02-18T07:12:20Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T07:12:20Z",
+          "completed_at": "2026-02-18T07:12:21Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T07:12:21Z",
+          "completed_at": "2026-02-18T07:12:21Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T07:12:21Z",
+          "completed_at": "2026-02-18T07:12:21Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T07:12:21Z",
+          "completed_at": "2026-02-18T07:12:21Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T07:12:21Z",
+          "completed_at": "2026-02-18T07:12:22Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T07:12:22Z",
+          "completed_at": "2026-02-18T07:12:22Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160962020",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 123,
+      "runner_name": "mi355x-amds_4",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160962033,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqV8Q",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160962033",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160962033",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:28Z",
+      "started_at": "2026-02-18T06:57:18Z",
+      "completed_at": "2026-02-18T07:44:37Z",
+      "name": "single-node 1k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-32",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:57:19Z",
+          "completed_at": "2026-02-18T06:57:27Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:57:27Z",
+          "completed_at": "2026-02-18T06:57:27Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:57:27Z",
+          "completed_at": "2026-02-18T06:57:30Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:57:30Z",
+          "completed_at": "2026-02-18T07:44:32Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T07:44:32Z",
+          "completed_at": "2026-02-18T07:44:32Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T07:44:32Z",
+          "completed_at": "2026-02-18T07:44:33Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T07:44:33Z",
+          "completed_at": "2026-02-18T07:44:34Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T07:44:34Z",
+          "completed_at": "2026-02-18T07:44:34Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T07:44:34Z",
+          "completed_at": "2026-02-18T07:44:34Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T07:44:34Z",
+          "completed_at": "2026-02-18T07:44:34Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T07:44:34Z",
+          "completed_at": "2026-02-18T07:44:34Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T07:44:34Z",
+          "completed_at": "2026-02-18T07:44:34Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160962033",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 122,
+      "runner_name": "mi355x-amds_5",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160962184,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqWiA",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160962184",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160962184",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:28Z",
+      "started_at": "2026-02-18T06:31:57Z",
+      "completed_at": "2026-02-18T09:13:32Z",
+      "name": "single-node 1k8k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k8k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-16",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:31:58Z",
+          "completed_at": "2026-02-18T06:32:03Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:32:03Z",
+          "completed_at": "2026-02-18T06:32:03Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:32:03Z",
+          "completed_at": "2026-02-18T06:32:06Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:32:06Z",
+          "completed_at": "2026-02-18T09:13:28Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T09:13:28Z",
+          "completed_at": "2026-02-18T09:13:28Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T09:13:28Z",
+          "completed_at": "2026-02-18T09:13:29Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T09:13:29Z",
+          "completed_at": "2026-02-18T09:13:30Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T09:13:30Z",
+          "completed_at": "2026-02-18T09:13:30Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T09:13:30Z",
+          "completed_at": "2026-02-18T09:13:30Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T09:13:30Z",
+          "completed_at": "2026-02-18T09:13:30Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T09:13:30Z",
+          "completed_at": "2026-02-18T09:13:31Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T09:13:31Z",
+          "completed_at": "2026-02-18T09:13:31Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160962184",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 117,
+      "runner_name": "mi355x-amds_1",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160962263,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8EqW1w",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160962263",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160962263",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:28Z",
+      "started_at": "2026-02-18T06:31:06Z",
+      "completed_at": "2026-02-18T06:52:35Z",
+      "name": "single-node 8k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_8k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:31:07Z",
+          "completed_at": "2026-02-18T06:31:13Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:31:13Z",
+          "completed_at": "2026-02-18T06:31:13Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:31:13Z",
+          "completed_at": "2026-02-18T06:31:16Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:31:16Z",
+          "completed_at": "2026-02-18T06:52:28Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T06:52:28Z",
+          "completed_at": "2026-02-18T06:52:28Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T06:52:28Z",
+          "completed_at": "2026-02-18T06:52:30Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T06:52:30Z",
+          "completed_at": "2026-02-18T06:52:31Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T06:52:31Z",
+          "completed_at": "2026-02-18T06:52:31Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T06:52:31Z",
+          "completed_at": "2026-02-18T06:52:31Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T06:52:31Z",
+          "completed_at": "2026-02-18T06:52:31Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T06:52:31Z",
+          "completed_at": "2026-02-18T06:52:32Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T06:52:32Z",
+          "completed_at": "2026-02-18T06:52:32Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160962263",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 119,
+      "runner_name": "mi355x-amds_0",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160974925,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ErITQ",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160974925",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160974925",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-19T14:40:33Z",
+      "started_at": "2026-02-19T14:40:33Z",
+      "completed_at": "2026-02-19T14:40:27Z",
+      "name": "multi-node 1k1k /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160974925",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 64160976437,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ErONQ",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160976437",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160976437",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:34Z",
+      "started_at": "2026-02-18T07:24:02Z",
+      "completed_at": "2026-02-18T09:21:31Z",
+      "name": "single-node 1k8k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k8k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T07:24:03Z",
+          "completed_at": "2026-02-18T07:24:09Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T07:24:09Z",
+          "completed_at": "2026-02-18T07:24:09Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T07:24:09Z",
+          "completed_at": "2026-02-18T07:24:11Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T07:24:11Z",
+          "completed_at": "2026-02-18T09:21:21Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T09:21:21Z",
+          "completed_at": "2026-02-18T09:21:21Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T09:21:21Z",
+          "completed_at": "2026-02-18T09:21:25Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T09:21:25Z",
+          "completed_at": "2026-02-18T09:21:27Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T09:21:27Z",
+          "completed_at": "2026-02-18T09:21:27Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T09:21:27Z",
+          "completed_at": "2026-02-18T09:21:27Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T09:21:27Z",
+          "completed_at": "2026-02-18T09:21:27Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T09:21:27Z",
+          "completed_at": "2026-02-18T09:21:27Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T09:21:27Z",
+          "completed_at": "2026-02-18T09:21:27Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160976437",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 119,
+      "runner_name": "mi355x-amds_0",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160977441,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ErSIQ",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160977441",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160977441",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:34Z",
+      "started_at": "2026-02-18T06:53:26Z",
+      "completed_at": "2026-02-18T07:24:01Z",
+      "name": "single-node 8k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_8k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:53:27Z",
+          "completed_at": "2026-02-18T06:53:34Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:53:34Z",
+          "completed_at": "2026-02-18T06:53:34Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:53:34Z",
+          "completed_at": "2026-02-18T06:53:36Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:53:36Z",
+          "completed_at": "2026-02-18T07:23:57Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T07:23:57Z",
+          "completed_at": "2026-02-18T07:23:57Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T07:23:57Z",
+          "completed_at": "2026-02-18T07:23:58Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T07:23:58Z",
+          "completed_at": "2026-02-18T07:23:59Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T07:23:59Z",
+          "completed_at": "2026-02-18T07:23:59Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T07:23:59Z",
+          "completed_at": "2026-02-18T07:23:59Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T07:23:59Z",
+          "completed_at": "2026-02-18T07:23:59Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T07:23:59Z",
+          "completed_at": "2026-02-18T07:24:00Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T07:24:00Z",
+          "completed_at": "2026-02-18T07:24:00Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160977441",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 119,
+      "runner_name": "mi355x-amds_0",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160979580,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ErafA",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160979580",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160979580",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:35Z",
+      "started_at": "2026-02-18T06:30:14Z",
+      "completed_at": "2026-02-18T06:30:26Z",
+      "name": "setup",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:30:15Z",
+          "completed_at": "2026-02-18T06:30:16Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:30:16Z",
+          "completed_at": "2026-02-18T06:30:18Z"
+        },
+        {
+          "name": "Run pip install pydantic",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:30:18Z",
+          "completed_at": "2026-02-18T06:30:23Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T06:30:23Z",
+          "completed_at": "2026-02-18T06:30:23Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T06:30:23Z",
+          "completed_at": "2026-02-18T06:30:23Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160979580",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000014871,
+      "runner_name": "GitHub Actions 1000014871",
+      "runner_group_id": null,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 64160979756,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ErbLA",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160979756",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160979756",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:35Z",
+      "started_at": "2026-02-18T07:04:51Z",
+      "completed_at": "2026-02-18T07:35:08Z",
+      "name": "single-node 1k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-16",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T07:04:52Z",
+          "completed_at": "2026-02-18T07:05:02Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T07:05:02Z",
+          "completed_at": "2026-02-18T07:05:02Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T07:05:02Z",
+          "completed_at": "2026-02-18T07:05:04Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T07:05:04Z",
+          "completed_at": "2026-02-18T07:35:00Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T07:35:00Z",
+          "completed_at": "2026-02-18T07:35:00Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T07:35:00Z",
+          "completed_at": "2026-02-18T07:35:04Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T07:35:04Z",
+          "completed_at": "2026-02-18T07:35:05Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T07:35:05Z",
+          "completed_at": "2026-02-18T07:35:05Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T07:35:05Z",
+          "completed_at": "2026-02-18T07:35:05Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T07:35:05Z",
+          "completed_at": "2026-02-18T07:35:05Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T07:35:05Z",
+          "completed_at": "2026-02-18T07:35:06Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T07:35:06Z",
+          "completed_at": "2026-02-18T07:35:06Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160979756",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 120,
+      "runner_name": "mi355x-amds_3",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160980788,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ErfNA",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160980788",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160980788",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:36Z",
+      "started_at": "2026-02-18T06:31:55Z",
+      "completed_at": "2026-02-18T07:04:00Z",
+      "name": "single-node 1k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T06:31:56Z",
+          "completed_at": "2026-02-18T06:32:01Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T06:32:01Z",
+          "completed_at": "2026-02-18T06:32:01Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T06:32:01Z",
+          "completed_at": "2026-02-18T06:32:04Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T06:32:04Z",
+          "completed_at": "2026-02-18T07:03:53Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T07:03:53Z",
+          "completed_at": "2026-02-18T07:03:54Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T07:03:54Z",
+          "completed_at": "2026-02-18T07:03:56Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T07:03:56Z",
+          "completed_at": "2026-02-18T07:03:56Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T07:03:56Z",
+          "completed_at": "2026-02-18T07:03:56Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T07:03:56Z",
+          "completed_at": "2026-02-18T07:03:56Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T07:03:56Z",
+          "completed_at": "2026-02-18T07:03:57Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T07:03:57Z",
+          "completed_at": "2026-02-18T07:03:57Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T07:03:57Z",
+          "completed_at": "2026-02-18T07:03:57Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160980788",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 120,
+      "runner_name": "mi355x-amds_3",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64160981149,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ErgnQ",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64160981149",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64160981149",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T14:40:36Z",
+      "started_at": "2026-02-18T07:08:43Z",
+      "completed_at": "2026-02-18T07:31:02Z",
+      "name": "single-node 1k1k / (vllm/vllm-openai-rocm:v0.15.1, moonshotai/Kimi-K2.5, kimik2.5, int4, vllm, no... / kimik2.5_1k1k int4 mi355x vllm | tp=8 ep=1 dpa=false | disagg-false spec-none conc-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-18T07:08:44Z",
+          "completed_at": "2026-02-18T07:08:50Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-18T07:08:50Z",
+          "completed_at": "2026-02-18T07:08:50Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-18T07:08:50Z",
+          "completed_at": "2026-02-18T07:08:52Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-18T07:08:52Z",
+          "completed_at": "2026-02-18T07:30:57Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-18T07:30:57Z",
+          "completed_at": "2026-02-18T07:30:58Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-18T07:30:58Z",
+          "completed_at": "2026-02-18T07:30:59Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-02-18T07:30:59Z",
+          "completed_at": "2026-02-18T07:30:59Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-02-18T07:30:59Z",
+          "completed_at": "2026-02-18T07:30:59Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-02-18T07:30:59Z",
+          "completed_at": "2026-02-18T07:30:59Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-02-18T07:30:59Z",
+          "completed_at": "2026-02-18T07:30:59Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 20,
+          "started_at": "2026-02-18T07:30:59Z",
+          "completed_at": "2026-02-18T07:31:00Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 21,
+          "started_at": "2026-02-18T07:31:00Z",
+          "completed_at": "2026-02-18T07:31:00Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64160981149",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 121,
+      "runner_name": "mi355x-amds_2",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 64186028490,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ckRyg",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64186028490",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64186028490",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T17:40:52Z",
+      "started_at": "2026-02-19T17:40:54Z",
+      "completed_at": "2026-02-19T17:41:07Z",
+      "name": "collect-results / collect-results",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-19T17:40:55Z",
+          "completed_at": "2026-02-19T17:40:57Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-19T17:40:57Z",
+          "completed_at": "2026-02-19T17:40:59Z"
+        },
+        {
+          "name": "Download JSON artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-19T17:40:59Z",
+          "completed_at": "2026-02-19T17:41:00Z"
+        },
+        {
+          "name": "Print summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-19T17:41:00Z",
+          "completed_at": "2026-02-19T17:41:02Z"
+        },
+        {
+          "name": "Aggregate results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-19T17:41:02Z",
+          "completed_at": "2026-02-19T17:41:02Z"
+        },
+        {
+          "name": "Upload aggregated results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-19T17:41:02Z",
+          "completed_at": "2026-02-19T17:41:04Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-02-19T17:41:04Z",
+          "completed_at": "2026-02-19T17:41:04Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-02-19T17:41:04Z",
+          "completed_at": "2026-02-19T17:41:04Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64186028490",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000015170,
+      "runner_name": "GitHub Actions 1000015170",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 64186028582,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8ckSJg",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64186028582",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64186028582",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T17:40:52Z",
+      "started_at": "2026-02-19T17:40:54Z",
+      "completed_at": "2026-02-19T17:41:15Z",
+      "name": "collect-evals / collect-evals",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-19T17:40:55Z",
+          "completed_at": "2026-02-19T17:40:57Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-19T17:40:57Z",
+          "completed_at": "2026-02-19T17:41:06Z"
+        },
+        {
+          "name": "Download eval artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-19T17:41:06Z",
+          "completed_at": "2026-02-19T17:41:07Z"
+        },
+        {
+          "name": "Summarize evals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-19T17:41:07Z",
+          "completed_at": "2026-02-19T17:41:11Z"
+        },
+        {
+          "name": "Upload aggregated evals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-19T17:41:11Z",
+          "completed_at": "2026-02-19T17:41:12Z"
+        },
+        {
+          "name": "Cleanup downloaded eval artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-19T17:41:12Z",
+          "completed_at": "2026-02-19T17:41:12Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-02-19T17:41:12Z",
+          "completed_at": "2026-02-19T17:41:13Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-02-19T17:41:13Z",
+          "completed_at": "2026-02-19T17:41:13Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64186028582",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000015171,
+      "runner_name": "GitHub Actions 1000015171",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 64186059060,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8cmJNA",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64186059060",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64186059060",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T17:41:07Z",
+      "started_at": "2026-02-19T17:41:10Z",
+      "completed_at": "2026-02-19T17:41:27Z",
+      "name": "calc-success-rate",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-19T17:41:10Z",
+          "completed_at": "2026-02-19T17:41:11Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-19T17:41:11Z",
+          "completed_at": "2026-02-19T17:41:12Z"
+        },
+        {
+          "name": "Download results artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-19T17:41:12Z",
+          "completed_at": "2026-02-19T17:41:13Z"
+        },
+        {
+          "name": "Install python dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-19T17:41:13Z",
+          "completed_at": "2026-02-19T17:41:16Z"
+        },
+        {
+          "name": "Calculate success rate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-02-19T17:41:16Z",
+          "completed_at": "2026-02-19T17:41:25Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-02-19T17:41:25Z",
+          "completed_at": "2026-02-19T17:41:25Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-02-19T17:41:25Z",
+          "completed_at": "2026-02-19T17:41:26Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-02-19T17:41:26Z",
+          "completed_at": "2026-02-19T17:41:26Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64186059060",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000015172,
+      "runner_name": "GitHub Actions 1000015172",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 64186059070,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8cmJPg",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64186059070",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64186059070",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-02-19T17:41:07Z",
+      "started_at": "2026-02-19T17:41:07Z",
+      "completed_at": "2026-02-19T17:41:07Z",
+      "name": "trigger-vercel-deploy",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64186059070",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 64186059220,
+      "run_id": 22129277189,
+      "workflow_name": "Run Sweep - Add Kimi-K2.5 1T INT4 vLLM benchmark for MI355X (#734)\n\n* Add Kimi-K2.5 INT4 vLLM benchmark for MI355X\n\n- Add kimik2.5-int4-mi355x-vllm config to amd-master.yaml\n- Image: vllm/vllm-openai-rocm:v0.15.1 (per Andy Luo's recipe)\n- Model: moonshotai/Kimi-K2.5 with --mm-encoder-tp-mode data\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, 8k1k\n- No AITER env vars, no --no-enable-prefix-caching\n\nCloses #723\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* Update perf-changelog PR...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22129277189",
+      "run_attempt": 3,
+      "node_id": "CR_kwDOPLfvps8AAAAO8cmJ1A",
+      "head_sha": "d4f6998d1e5a4b44953d4618810143c599ce505b",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/64186059220",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22129277189/job/64186059220",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-02-19T17:41:07Z",
+      "started_at": "2026-02-19T17:41:10Z",
+      "completed_at": "2026-02-19T17:41:15Z",
+      "name": "upload-changelog-metadata",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-02-19T17:41:11Z",
+          "completed_at": "2026-02-19T17:41:12Z"
+        },
+        {
+          "name": "Extract and save changelog metadata",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-02-19T17:41:12Z",
+          "completed_at": "2026-02-19T17:41:12Z"
+        },
+        {
+          "name": "Upload changelog artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-02-19T17:41:12Z",
+          "completed_at": "2026-02-19T17:41:13Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-02-19T17:41:13Z",
+          "completed_at": "2026-02-19T17:41:13Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/64186059220",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000015173,
+      "runner_name": "GitHub Actions 1000015173",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

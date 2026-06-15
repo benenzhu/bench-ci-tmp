@@ -1,0 +1,720 @@
+Unable to find image 'vllm/vllm-openai-rocm:v0.15.1' locally
+v0.15.1: Pulling from vllm/vllm-openai-rocm
+07f15a1b7ec4: Pulling fs layer
+2fbd4bbcc8ec: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+6d0ba0c92848: Pulling fs layer
+0b57fb8c229f: Pulling fs layer
+d96cd91e6799: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+4aa340e0c4ff: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+11590479e17b: Pulling fs layer
+10a29b2166ff: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+afdc79af405f: Pulling fs layer
+58c76f07664e: Pulling fs layer
+18878cb4dc48: Pulling fs layer
+14f619760a9e: Pulling fs layer
+4f4fb700ef54: Already exists
+6d0ba0c92848: Download complete
+4aa340e0c4ff: Download complete
+58c76f07664e: Download complete
+07f15a1b7ec4: Download complete
+11590479e17b: Download complete
+10a29b2166ff: Download complete
+afdc79af405f: Download complete
+18878cb4dc48: Download complete
+2fbd4bbcc8ec: Download complete
+d96cd91e6799: Download complete
+0b57fb8c229f: Download complete
+0b57fb8c229f: Pull complete
+4f4fb700ef54: Pull complete
+18878cb4dc48: Pull complete
+07f15a1b7ec4: Pull complete
+d96cd91e6799: Pull complete
+4aa340e0c4ff: Pull complete
+afdc79af405f: Pull complete
+14f619760a9e: Download complete
+2fbd4bbcc8ec: Pull complete
+14f619760a9e: Pull complete
+6d0ba0c92848: Pull complete
+58c76f07664e: Pull complete
+11590479e17b: Pull complete
+10a29b2166ff: Pull complete
+Digest: sha256:4c7fbd92fe07e4dab956d283b5d61b971f6242516647df6af06fdcbc34fddc2c
+Status: Downloaded newer image for vllm/vllm-openai-rocm:v0.15.1
+Fetching 87 files:   0%|          | 0/87 [00:00<?, ?it/s]Downloading '.gitattributes' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/20ea40516e24e1bacb8e3434e3a7ca441764ee9b.incomplete'
+Downloading 'README.md' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/908e8aa5cd2f478f3c9253b474134980d4a131b4.incomplete'
+Downloading 'chat_template.jinja' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/f88cb41422626beb4cf1e7826b079448a4663cd0.incomplete'
+Downloading 'THIRD_PARTY_NOTICES.md' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/c558728752e493c3764a7abdd1281e3d12bfed1d.incomplete'
+Downloading 'LICENSE' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/7c219d7247ad815f9c73a93684402da0549e9724.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/20ea40516e24e1bacb8e3434e3a7ca441764ee9b
+Fetching 87 files:   1%|          | 1/87 [00:00<00:58,  1.47it/s]Downloading 'config.json' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/951255997883c0e4fd53a8a3e10add6e79354217.incomplete'
+Downloading 'configuration_deepseek.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b3152dd7c3e53d223d561848dc967f487daf32ef.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/908e8aa5cd2f478f3c9253b474134980d4a131b4
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/c558728752e493c3764a7abdd1281e3d12bfed1d
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/f88cb41422626beb4cf1e7826b079448a4663cd0
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/7c219d7247ad815f9c73a93684402da0549e9724
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/951255997883c0e4fd53a8a3e10add6e79354217
+Downloading 'figures/demo_video.mp4' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/09b4d925aa0a7c712feef50765355f0625d8f6d46ea302fd98db9609e9070047.incomplete'
+Downloading 'docs/deploy_guidance.md' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/1aac57bead663d507b156284690add81f1146953.incomplete'
+Downloading 'generation_config.json' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/4bb3f8ec4a1d604598b7ffb4621b955e995bda92.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b3152dd7c3e53d223d561848dc967f487daf32ef
+Downloading 'figures/kimi-logo.png' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/870b8be6e07cc2c46f7173e800fbaff8af0af5d1.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/1aac57bead663d507b156284690add81f1146953
+Downloading 'kimi_k25_vision_processing.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/fdf3ab2f100f7c28a1f1e7295297e54b515d0b53.incomplete'
+Downloading 'kimi_k25_processor.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/d526032f91036de5f3d226b866acf449553b986d.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/870b8be6e07cc2c46f7173e800fbaff8af0af5d1
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/4bb3f8ec4a1d604598b7ffb4621b955e995bda92
+Downloading 'configuration_kimi_k25.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/5858b3290a32509480affd58abc01482d5976550.incomplete'
+Downloading 'model-00001-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/18daf53a15070b9c70d8bb63420dbd39764af9118af67982eeb60749f5453233.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/fdf3ab2f100f7c28a1f1e7295297e54b515d0b53
+Downloading 'media_utils.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/8795e06f381700d6420798f82174e3f9647e9f89.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/d526032f91036de5f3d226b866acf449553b986d
+Downloading 'model-00002-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/e017c948926333558df1a9637ff052c663378a70afbc1bb5b20528b8b5a501aa.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/5858b3290a32509480affd58abc01482d5976550
+Fetching 87 files:   9%|▉         | 8/87 [00:00<00:06, 11.98it/s]Downloading 'model-00003-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/c74880b04dc208397d7182c4692ca67644ea732be216ac4b23241db389f86886.incomplete'
+Downloading 'model-00004-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/17faa37dbf12b17eb3cb94bc7d9b85db9f7d68411bdecec84224425b25b22fca.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/8795e06f381700d6420798f82174e3f9647e9f89
+Downloading 'model-00005-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/a97ff66ec88a9e02a129cb3dc75b2c3cb4fc4ccf698777042253504be372b52f.incomplete'
+Downloading 'model-00006-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/da5cfbfe78d1c740c3cbe8ba49d84712d4328be72d3389dad54361d480cd3148.incomplete'
+Downloading 'model-00007-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/65b0cd81a5c8320fdfbba91f3530bf35da9befe7a776da1f4d5485083b527d8a.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/09b4d925aa0a7c712feef50765355f0625d8f6d46ea302fd98db9609e9070047
+Fetching 87 files:  13%|█▎        | 11/87 [00:01<00:05, 13.06it/s]Downloading 'model-00008-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/da91fa6a5e61a3dc36a2a9e46e0be066ce67ae78a1f2dcdce04511c38e30fb5d.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/18daf53a15070b9c70d8bb63420dbd39764af9118af67982eeb60749f5453233
+Fetching 87 files:  18%|█▊        | 16/87 [00:07<00:45,  1.55it/s]Downloading 'model-00009-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/e4f08c59cee6cc26a92cfb5f36952511b171d5db527d1d78f84f7a081ab78599.incomplete'
+Fetching 87 files:  18%|█▊        | 16/87 [00:20<00:45,  1.55it/s]Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/a97ff66ec88a9e02a129cb3dc75b2c3cb4fc4ccf698777042253504be372b52f
+Downloading 'model-00010-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/7bdae095b9c721830784435564dada40a63c2c4b434cba4d81dbc0b1173e3d75.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/da5cfbfe78d1c740c3cbe8ba49d84712d4328be72d3389dad54361d480cd3148
+Downloading 'model-00011-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/899dbf01f498fa71c4e97833caac73c7fbb3e197a237f2f7d9fea9c5262afdc3.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/c74880b04dc208397d7182c4692ca67644ea732be216ac4b23241db389f86886
+Downloading 'model-00012-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/72be28902ba87b0a1ac24ebb3b36ee89850cc7f13fbbb51e8b1dba743c7eb171.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/e017c948926333558df1a9637ff052c663378a70afbc1bb5b20528b8b5a501aa
+Fetching 87 files:  20%|█▉        | 17/87 [00:34<04:19,  3.71s/it]Downloading 'model-00013-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/f375d01e1b1230cb0bbfc3c6ce6a81c26a578b633dc43e24956610c84205d688.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/17faa37dbf12b17eb3cb94bc7d9b85db9f7d68411bdecec84224425b25b22fca
+Fetching 87 files:  22%|██▏       | 19/87 [00:35<03:16,  2.89s/it]Downloading 'model-00014-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b341417f09964cf477c60fd431ecd6e454442e973d41a17038004340ce8ad83e.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/da91fa6a5e61a3dc36a2a9e46e0be066ce67ae78a1f2dcdce04511c38e30fb5d
+Downloading 'model-00015-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/9534ee2411e8c05451e19b7234ceddcd33271795b782d910baa9ebb96738d2f9.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/e4f08c59cee6cc26a92cfb5f36952511b171d5db527d1d78f84f7a081ab78599
+Downloading 'model-00016-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/46cd89549baf6099c1629a1a023b0a6886d5d115f9afc97ffb68390339967eb7.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/65b0cd81a5c8320fdfbba91f3530bf35da9befe7a776da1f4d5485083b527d8a
+Fetching 87 files:  25%|██▌       | 22/87 [00:39<02:32,  2.34s/it]Downloading 'model-00017-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/2b653d852e4d30f8eceb0800ae1a5b15c02fd203fae04c097aebb8fc99a0ef03.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b341417f09964cf477c60fd431ecd6e454442e973d41a17038004340ce8ad83e
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/7bdae095b9c721830784435564dada40a63c2c4b434cba4d81dbc0b1173e3d75
+Fetching 87 files:  29%|██▊       | 25/87 [00:58<03:44,  3.62s/it]Downloading 'model-00018-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/cd82fedc4da324d1be93db896d0b30ccc02ffd4d267bd1b64875c5cc0d7cee22.incomplete'
+Downloading 'model-00019-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/835c2cce752c8f7030d04fdd11a27311efc489b1558dee9d646d135d3cd82044.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/899dbf01f498fa71c4e97833caac73c7fbb3e197a237f2f7d9fea9c5262afdc3
+Fetching 87 files:  30%|██▉       | 26/87 [01:01<03:36,  3.55s/it]Downloading 'model-00020-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/26a3ec988f47120f07938afbf7ce3a27dbeeaf955e816ccf202ebf3751833438.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/72be28902ba87b0a1ac24ebb3b36ee89850cc7f13fbbb51e8b1dba743c7eb171
+Fetching 87 files:  31%|███       | 27/87 [01:02<03:08,  3.14s/it]Downloading 'model-00021-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/02376f1b7e16343f0e7ea4d847c85e33da30295499c25145fbd4998cb44fdcff.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/46cd89549baf6099c1629a1a023b0a6886d5d115f9afc97ffb68390339967eb7
+Downloading 'model-00022-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/a177b349938d277b2ff17d4593981343c7a66a6445b964fd596551dc325dd889.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/9534ee2411e8c05451e19b7234ceddcd33271795b782d910baa9ebb96738d2f9
+Downloading 'model-00023-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/ecbbd2355a4b74d425a1ab847de07d603a0f23c1eb5615563e72f224335022d7.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/f375d01e1b1230cb0bbfc3c6ce6a81c26a578b633dc43e24956610c84205d688
+Fetching 87 files:  32%|███▏      | 28/87 [01:06<03:21,  3.41s/it]Downloading 'model-00024-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/505f7178c7e3d089aa51d3eb83b2133e379ae75e25b00ebc80793c4affbd90e3.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/2b653d852e4d30f8eceb0800ae1a5b15c02fd203fae04c097aebb8fc99a0ef03
+Downloading 'model-00025-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/9240b5987ffbe8b47f0668db0b7608916e1648bc9a3a0b55f6079c222e430a83.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/cd82fedc4da324d1be93db896d0b30ccc02ffd4d267bd1b64875c5cc0d7cee22
+Fetching 87 files:  38%|███▊      | 33/87 [01:24<03:08,  3.49s/it]Downloading 'model-00026-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/4886aa2bf3e83fbb83adee7fde183b9476820dafcbaade99a87b95c8946e5b78.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/835c2cce752c8f7030d04fdd11a27311efc489b1558dee9d646d135d3cd82044
+Fetching 87 files:  39%|███▉      | 34/87 [01:25<02:46,  3.15s/it]Downloading 'model-00027-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/06e78ba422ca3d7188d701d6cbfef9ca79a94e56c572894ac63666cc90336a0c.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/26a3ec988f47120f07938afbf7ce3a27dbeeaf955e816ccf202ebf3751833438
+Fetching 87 files:  40%|████      | 35/87 [01:27<02:34,  2.98s/it]Downloading 'model-00028-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/4235b1e3d587a2ebbdcf111eb231c1d66a891ef0c8e6bc91214e4ebccbfa499f.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/02376f1b7e16343f0e7ea4d847c85e33da30295499c25145fbd4998cb44fdcff
+Fetching 87 files:  41%|████▏     | 36/87 [01:28<02:11,  2.59s/it]Downloading 'model-00029-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/2e37a630cd0f516cf82442de3db77f1f4ec7f0fa7b37a429c51dd17c26fd6b02.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/a177b349938d277b2ff17d4593981343c7a66a6445b964fd596551dc325dd889
+Fetching 87 files:  43%|████▎     | 37/87 [01:32<02:24,  2.89s/it]Downloading 'model-00030-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/04da30f98f4c57c6a821090be82d0d8e3af92ccb3edefb7cabed893d96ee0a04.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/505f7178c7e3d089aa51d3eb83b2133e379ae75e25b00ebc80793c4affbd90e3
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/9240b5987ffbe8b47f0668db0b7608916e1648bc9a3a0b55f6079c222e430a83
+Downloading 'model-00031-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/fdf3def720479758dfb38f53b6cf97d4d326fd39f215b2d1c65699423d3af2ad.incomplete'
+Downloading 'model-00032-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/52534a0a523aaf64c061297aa1efe3b6cb5e42a0af422f14933c159c92ba9e49.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/ecbbd2355a4b74d425a1ab847de07d603a0f23c1eb5615563e72f224335022d7
+Fetching 87 files:  44%|████▎     | 38/87 [01:38<02:54,  3.57s/it]Downloading 'model-00033-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/3b8438e1e9a6573f403c03defa00aa0649f716b5da098beb422827834e889ea8.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/06e78ba422ca3d7188d701d6cbfef9ca79a94e56c572894ac63666cc90336a0c
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/4886aa2bf3e83fbb83adee7fde183b9476820dafcbaade99a87b95c8946e5b78
+Fetching 87 files:  47%|████▋     | 41/87 [01:55<03:36,  4.71s/it]Downloading 'model-00034-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/bf6a7b9cf582a34c663e945ead490b13f3f6a07a00ff247c29afc4bf908960e3.incomplete'
+Downloading 'model-00035-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/fe6cd19a160352d14d6f28bb66dd7d9c06f1e9350025645def52fa979b77e004.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/4235b1e3d587a2ebbdcf111eb231c1d66a891ef0c8e6bc91214e4ebccbfa499f
+Fetching 87 files:  49%|████▉     | 43/87 [01:57<02:31,  3.43s/it]Downloading 'model-00036-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/c5487f8977f5ae403c45f36c34add86a8616da4bb8fa4f7dbccc9a0c156dcc1d.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/2e37a630cd0f516cf82442de3db77f1f4ec7f0fa7b37a429c51dd17c26fd6b02
+Fetching 87 files:  51%|█████     | 44/87 [02:00<02:28,  3.45s/it]Downloading 'model-00037-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/4236900d679c2a9c134e71e080b905fa877a53648ee7da7d36d3bf0b1f5586bb.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/04da30f98f4c57c6a821090be82d0d8e3af92ccb3edefb7cabed893d96ee0a04
+Fetching 87 files:  52%|█████▏    | 45/87 [02:01<01:56,  2.78s/it]Downloading 'model-00038-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b1c15627438fcdd2c905aa78a682f51a26fbdc50403bfa74601be6ee1550da3b.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/fdf3def720479758dfb38f53b6cf97d4d326fd39f215b2d1c65699423d3af2ad
+Fetching 87 files:  53%|█████▎    | 46/87 [02:04<02:00,  2.93s/it]Downloading 'model-00039-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/67cbaa9ecb8dc2dfd53c396927439bfd6a8a7503a49997615004fe5df0138e20.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/52534a0a523aaf64c061297aa1efe3b6cb5e42a0af422f14933c159c92ba9e49
+Fetching 87 files:  54%|█████▍    | 47/87 [02:04<01:29,  2.23s/it]Downloading 'model-00040-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/76b1c63b64a234b2631566f983f5775393ff3d8cbb6d8828fe9d168a039873ea.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/3b8438e1e9a6573f403c03defa00aa0649f716b5da098beb422827834e889ea8
+Fetching 87 files:  55%|█████▌    | 48/87 [02:07<01:28,  2.28s/it]Downloading 'model-00041-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b7e27bd85a6de53b3098a5ebc83e47dae99ce0d207dca130681e2ca1f95ac649.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/c5487f8977f5ae403c45f36c34add86a8616da4bb8fa4f7dbccc9a0c156dcc1d
+Downloading 'model-00042-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/67a8e121c665e0ad9fe9e72406d4560cc513b6a3df85ab05b8063e26cedc3f0b.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/fe6cd19a160352d14d6f28bb66dd7d9c06f1e9350025645def52fa979b77e004
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/bf6a7b9cf582a34c663e945ead490b13f3f6a07a00ff247c29afc4bf908960e3
+Fetching 87 files:  56%|█████▋    | 49/87 [02:23<03:48,  6.02s/it]Downloading 'model-00043-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/743f85f3f9d57e10432ab2961728385f5cb8ea8035e14b4fde83086b062b1afb.incomplete'
+Downloading 'model-00044-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/2ce242860d1d06de3c8d9077817e83e48841daf9d85cacb2ec19fbff04c69161.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/4236900d679c2a9c134e71e080b905fa877a53648ee7da7d36d3bf0b1f5586bb
+Fetching 87 files:  60%|█████▉    | 52/87 [02:24<01:45,  3.01s/it]Downloading 'model-00045-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/59b8afda0898ca3dd0ea382e941d05d1624061716f83b296f456a6e27db43f49.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b1c15627438fcdd2c905aa78a682f51a26fbdc50403bfa74601be6ee1550da3b
+Fetching 87 files:  61%|██████    | 53/87 [02:26<01:33,  2.76s/it]Downloading 'model-00046-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/5e6118090a8738a46430bae56464855ea0adf2ab2f4752b63c96a53c88f3b74c.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b7e27bd85a6de53b3098a5ebc83e47dae99ce0d207dca130681e2ca1f95ac649
+Downloading 'model-00047-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/953fb907ef1c49724b402c0f420ce3007eac3f20d4b2ecf286012b4cde671cb8.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/76b1c63b64a234b2631566f983f5775393ff3d8cbb6d8828fe9d168a039873ea
+Downloading 'model-00048-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/587db1e460105d0911601db58c115cb8b6d136b2b327426127dc8a45ff39c5e8.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/67a8e121c665e0ad9fe9e72406d4560cc513b6a3df85ab05b8063e26cedc3f0b
+Downloading 'model-00049-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/a93c151606f2853f398eecd708da5a2c8975600bf319f6b7f1bade66f83a8ca9.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/743f85f3f9d57e10432ab2961728385f5cb8ea8035e14b4fde83086b062b1afb
+Downloading 'model-00050-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/6a5be161b2f3af9e1f299588d4ef898a174504324aa163398c0a510d8cf735eb.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/2ce242860d1d06de3c8d9077817e83e48841daf9d85cacb2ec19fbff04c69161
+Downloading 'model-00051-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/d042fbe87dc47857f897b7491b2a965207be73d7477e5a1d8c46d5f25441615e.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/59b8afda0898ca3dd0ea382e941d05d1624061716f83b296f456a6e27db43f49
+Downloading 'model-00052-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/eaddbb07f16c5567ca9b94ef8585124188197877ce7c11b3c9818431da884adc.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/5e6118090a8738a46430bae56464855ea0adf2ab2f4752b63c96a53c88f3b74c
+Downloading 'model-00053-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/87a86769c0b7f8bc5f260ddedf35f85c4fc73db5524d025e9241adcb633bba15.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/587db1e460105d0911601db58c115cb8b6d136b2b327426127dc8a45ff39c5e8
+Downloading 'model-00054-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/803a24c512c5e2b0cd336323720be011df58036e176d6d63f7f1976ec8e533ab.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/67cbaa9ecb8dc2dfd53c396927439bfd6a8a7503a49997615004fe5df0138e20
+Fetching 87 files:  62%|██████▏   | 54/87 [03:03<05:49, 10.58s/it]Downloading 'model-00055-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/fcb683f1c9170fc6a661c569dc18163934e2629c0d25f278e4bc73f2ad09bfbe.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/953fb907ef1c49724b402c0f420ce3007eac3f20d4b2ecf286012b4cde671cb8
+Fetching 87 files:  71%|███████▏  | 62/87 [03:04<01:15,  3.01s/it]Downloading 'model-00056-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/3ef1f8d5bac88618ad5104a0ac30c268eac98a2add384c0bd31ec82cf8c3d5bd.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/a93c151606f2853f398eecd708da5a2c8975600bf319f6b7f1bade66f83a8ca9
+Fetching 87 files:  74%|███████▎  | 64/87 [03:15<01:21,  3.53s/it]Downloading 'model-00057-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/db51daa87c01b891ab72cf41acc01be732a5f8108afa32c7a50e8e1bba57e263.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/6a5be161b2f3af9e1f299588d4ef898a174504324aa163398c0a510d8cf735eb
+Fetching 87 files:  75%|███████▍  | 65/87 [03:15<01:08,  3.09s/it]Downloading 'model-00058-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/07998dcd30b032da866526de21463c7d4b54c16818ccac2d0faf9609b8d3ec8d.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/d042fbe87dc47857f897b7491b2a965207be73d7477e5a1d8c46d5f25441615e
+Fetching 87 files:  76%|███████▌  | 66/87 [03:20<01:10,  3.36s/it]Downloading 'model-00059-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/f7c1b87ab8a9c0df0e85acb6af5c5b7096ac434aaf2df17ca05b0b12ccd5a8ea.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/eaddbb07f16c5567ca9b94ef8585124188197877ce7c11b3c9818431da884adc
+Fetching 87 files:  77%|███████▋  | 67/87 [03:21<01:00,  3.02s/it]Downloading 'model-00060-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/d328618ace908cc752a8197591157a6ab060205f95b222e11bb9c57d8d906802.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/87a86769c0b7f8bc5f260ddedf35f85c4fc73db5524d025e9241adcb633bba15
+Fetching 87 files:  78%|███████▊  | 68/87 [03:28<01:10,  3.73s/it]Downloading 'model-00061-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b10e67a118315d38fa740093f4c6f82f468eb7f2881e08639c74230927dfdc51.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/803a24c512c5e2b0cd336323720be011df58036e176d6d63f7f1976ec8e533ab
+Fetching 87 files:  79%|███████▉  | 69/87 [03:32<01:07,  3.77s/it]Downloading 'model-00062-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/60f6e14a3f89fb81a1565de92417606379ed6f4aeaafff2ccba679a53df8c77f.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/3ef1f8d5bac88618ad5104a0ac30c268eac98a2add384c0bd31ec82cf8c3d5bd
+Downloading 'model-00063-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/0eb212be70e29ade1a3de5fdc24bff35aaee507dfba745ffb74febf2b05395e6.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/0eb212be70e29ade1a3de5fdc24bff35aaee507dfba745ffb74febf2b05395e6
+Downloading 'model-00064-of-000064.safetensors' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/7a8bc2d71c92fce81cbda9da8a33db470eb1f5eb899e87c03c0973cba34ddf8f.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/7a8bc2d71c92fce81cbda9da8a33db470eb1f5eb899e87c03c0973cba34ddf8f
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/fcb683f1c9170fc6a661c569dc18163934e2629c0d25f278e4bc73f2ad09bfbe
+Fetching 87 files:  80%|████████  | 70/87 [03:38<01:15,  4.44s/it]Downloading 'model.safetensors.index.json' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/bdba19b127c4d1dc57dc3b6f3366c10739c7e7f13baf3f5424b556469a4dbc1b.incomplete'
+Downloading 'modeling_deepseek.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/707925a7f440d22c1fde9ea13676b7ee924d6e21.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/707925a7f440d22c1fde9ea13676b7ee924d6e21
+Downloading 'modeling_kimi_k25.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/a40ec230e0fdc7283fa4b7c504303296913785ec.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/a40ec230e0fdc7283fa4b7c504303296913785ec
+Downloading 'preprocessor_config.json' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b0accb4b335998b847e0093bf4a63e1f32447cc9.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b0accb4b335998b847e0093bf4a63e1f32447cc9
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/bdba19b127c4d1dc57dc3b6f3366c10739c7e7f13baf3f5424b556469a4dbc1b
+Downloading 'tiktoken.model' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b6c497a7469b33ced9c38afb1ad6e47f03f5e5dc05f15930799210ec050c5103.incomplete'
+Downloading 'tokenization_kimi.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/7868ea7598734c24cbbbbf904799c76b29af9803.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/7868ea7598734c24cbbbbf904799c76b29af9803
+Downloading 'tokenizer_config.json' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/c4d32fcaffbe72d4050388e6464bb719408e361e.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/c4d32fcaffbe72d4050388e6464bb719408e361e
+Downloading 'tool_declaration_ts.py' to '/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/3cc7727ddbeabef16b90ce0219446bc2d4ea9032.incomplete'
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/3cc7727ddbeabef16b90ce0219446bc2d4ea9032
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b6c497a7469b33ced9c38afb1ad6e47f03f5e5dc05f15930799210ec050c5103
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/db51daa87c01b891ab72cf41acc01be732a5f8108afa32c7a50e8e1bba57e263
+Fetching 87 files:  83%|████████▎ | 72/87 [03:42<00:51,  3.43s/it]Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/60f6e14a3f89fb81a1565de92417606379ed6f4aeaafff2ccba679a53df8c77f
+Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/07998dcd30b032da866526de21463c7d4b54c16818ccac2d0faf9609b8d3ec8d
+Fetching 87 files:  84%|████████▍ | 73/87 [03:45<00:45,  3.22s/it]Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/f7c1b87ab8a9c0df0e85acb6af5c5b7096ac434aaf2df17ca05b0b12ccd5a8ea
+Fetching 87 files:  85%|████████▌ | 74/87 [03:45<00:32,  2.48s/it]Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/d328618ace908cc752a8197591157a6ab060205f95b222e11bb9c57d8d906802
+Fetching 87 files:  86%|████████▌ | 75/87 [03:45<00:22,  1.89s/it]Download complete. Moving file to /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/blobs/b10e67a118315d38fa740093f4c6f82f468eb7f2881e08639c74230927dfdc51
+Fetching 87 files:  87%|████████▋ | 76/87 [03:47<00:19,  1.77s/it]Fetching 87 files: 100%|██████████| 87/87 [03:47<00:00,  2.61s/it]
+/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611
++ SERVER_PID=154
++ wait_for_server_ready --port 18888 --server-log /workspace/server.log --server-pid 154
++ set +x
++ vllm serve moonshotai/Kimi-K2.5 --port 18888 --tensor-parallel-size=8 --gpu-memory-utilization 0.95 --max-model-len 9416 --block-size=64 --disable-log-requests --trust-remote-code --mm-encoder-tp-mode data
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:25 [utils.py:325] 
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:25 [utils.py:325]        █     █     █▄   ▄█
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:25 [utils.py:325]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.15.1
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:25 [utils.py:325]   █▄█▀ █     █     █     █  model   moonshotai/Kimi-K2.5
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:25 [utils.py:325]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:25 [utils.py:325] 
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:25 [utils.py:261] non-default args: {'model_tag': 'moonshotai/Kimi-K2.5', 'api_server_count': 1, 'port': 18888, 'model': 'moonshotai/Kimi-K2.5', 'trust_remote_code': True, 'max_model_len': 9416, 'tensor_parallel_size': 8, 'block_size': 64, 'gpu_memory_utilization': 0.95, 'mm_encoder_tp_mode': 'data'}
+[0;36m(APIServer pid=154)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(APIServer pid=154)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(APIServer pid=154)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:37 [model.py:541] Resolved architecture: KimiK25ForConditionalGeneration
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:37 [model.py:1561] Using max model len 9416
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:37 [scheduler.py:226] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:10:37 [vllm.py:624] Asynchronous scheduling is enabled.
+[0;36m(APIServer pid=154)[0;0m A new version of the following files was downloaded from https://huggingface.co/moonshotai/Kimi-K2.5:
+[0;36m(APIServer pid=154)[0;0m - tool_declaration_ts.py
+[0;36m(APIServer pid=154)[0;0m . Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[0;36m(APIServer pid=154)[0;0m [2026-06-15 08:10:38] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[0;36m(APIServer pid=154)[0;0m [2026-06-15 08:10:38] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[0;36m(APIServer pid=154)[0;0m WARNING 06-15 08:10:38 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+[0;36m(APIServer pid=154)[0;0m A new version of the following files was downloaded from https://huggingface.co/moonshotai/Kimi-K2.5:
+[0;36m(APIServer pid=154)[0;0m - media_utils.py
+[0;36m(APIServer pid=154)[0;0m . Make sure to double-check they do not contain any added malicious code. To avoid downloading new versions of the code file, you can pin a revision.
+[0;36m(APIServer pid=154)[0;0m [2026-06-15 08:10:38] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[0;36m(APIServer pid=154)[0;0m [2026-06-15 08:10:38] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[0;36m(APIServer pid=154)[0;0m WARNING 06-15 08:10:38 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[0;36m(EngineCore_DP0 pid=463)[0;0m INFO 06-15 08:10:49 [core.py:96] Initializing a V1 LLM engine (v0.15.1) with config: model='moonshotai/Kimi-K2.5', speculative_config=None, tokenizer='moonshotai/Kimi-K2.5', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=9416, download_dir=None, load_format=auto, tensor_parallel_size=8, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=compressed-tensors, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=moonshotai/Kimi-K2.5, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none', '+sparse_attn_indexer'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::unified_kv_cache_update'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': True}, 'local_cache_dir': None, 'static_all_moe_layers': []}
+[0;36m(EngineCore_DP0 pid=463)[0;0m WARNING 06-15 08:10:49 [multiproc_executor.py:910] Reducing Torch parallelism from 192 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[aiter] import [module_aiter_enum] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_enum.so
+[2026-06-15 08:11:00] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[2026-06-15 08:11:00] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[2026-06-15 08:11:00] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[2026-06-15 08:11:00] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[2026-06-15 08:11:00] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[2026-06-15 08:11:00] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+WARNING 06-15 08:11:00 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-15 08:11:00 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-15 08:11:00 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+INFO 06-15 08:11:00 [parallel_state.py:1212] world_size=8 rank=4 local_rank=4 distributed_init_method=tcp://127.0.0.1:40121 backend=nccl
+INFO 06-15 08:11:00 [parallel_state.py:1212] world_size=8 rank=6 local_rank=6 distributed_init_method=tcp://127.0.0.1:40121 backend=nccl
+INFO 06-15 08:11:00 [parallel_state.py:1212] world_size=8 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:40121 backend=nccl
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+WARNING 06-15 08:11:01 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+INFO 06-15 08:11:01 [parallel_state.py:1212] world_size=8 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:40121 backend=nccl
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[2026-06-15 08:11:01] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+WARNING 06-15 08:11:01 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-15 08:11:02 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+INFO 06-15 08:11:02 [parallel_state.py:1212] world_size=8 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:40121 backend=nccl
+WARNING 06-15 08:11:02 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+INFO 06-15 08:11:02 [parallel_state.py:1212] world_size=8 rank=5 local_rank=5 distributed_init_method=tcp://127.0.0.1:40121 backend=nccl
+WARNING 06-15 08:11:02 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+INFO 06-15 08:11:02 [parallel_state.py:1212] world_size=8 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:40121 backend=nccl
+INFO 06-15 08:11:02 [parallel_state.py:1212] world_size=8 rank=7 local_rank=7 distributed_init_method=tcp://127.0.0.1:40121 backend=nccl
+INFO 06-15 08:11:03 [pynccl.py:111] vLLM is using nccl==2.26.6
+INFO 06-15 08:11:15 [parallel_state.py:1423] rank 2 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 2, EP rank 2
+INFO 06-15 08:11:15 [parallel_state.py:1423] rank 1 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank 1
+INFO 06-15 08:11:15 [parallel_state.py:1423] rank 0 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0
+INFO 06-15 08:11:15 [parallel_state.py:1423] rank 3 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 3, EP rank 3
+INFO 06-15 08:11:15 [parallel_state.py:1423] rank 5 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 5, EP rank 5
+INFO 06-15 08:11:15 [parallel_state.py:1423] rank 4 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 4, EP rank 4
+INFO 06-15 08:11:15 [parallel_state.py:1423] rank 7 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 7, EP rank 7
+INFO 06-15 08:11:15 [parallel_state.py:1423] rank 6 in world size 8 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 6, EP rank 6
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:11:16 [gpu_model_runner.py:4033] Starting to load model moonshotai/Kimi-K2.5...
+[0;36m(Worker_TP2 pid=687)[0;0m WARNING 06-15 08:11:17 [activation.py:667] [ROCm] PyTorch's native GELU with tanh approximation is unstable. Falling back to GELU(approximate='none').
+[0;36m(Worker_TP2 pid=687)[0;0m INFO 06-15 08:11:17 [rocm.py:382] Using Flash Attention backend for ViT model.
+[0;36m(Worker_TP2 pid=687)[0;0m INFO 06-15 08:11:17 [mm_encoder_attention.py:77] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+[0;36m(Worker_TP2 pid=687)[0;0m WARNING 06-15 08:11:17 [compressed_tensors.py:766] Acceleration for non-quantized schemes is not supported by Compressed Tensors. Falling back to UnquantizedLinearMethod
+[0;36m(Worker_TP1 pid=686)[0;0m WARNING 06-15 08:11:17 [activation.py:667] [ROCm] PyTorch's native GELU with tanh approximation is unstable. Falling back to GELU(approximate='none').
+[0;36m(Worker_TP1 pid=686)[0;0m INFO 06-15 08:11:17 [rocm.py:382] Using Flash Attention backend for ViT model.
+[0;36m(Worker_TP1 pid=686)[0;0m INFO 06-15 08:11:17 [mm_encoder_attention.py:77] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+[0;36m(Worker_TP1 pid=686)[0;0m WARNING 06-15 08:11:17 [compressed_tensors.py:766] Acceleration for non-quantized schemes is not supported by Compressed Tensors. Falling back to UnquantizedLinearMethod
+[0;36m(Worker_TP3 pid=688)[0;0m WARNING 06-15 08:11:17 [activation.py:667] [ROCm] PyTorch's native GELU with tanh approximation is unstable. Falling back to GELU(approximate='none').
+[0;36m(Worker_TP3 pid=688)[0;0m INFO 06-15 08:11:17 [rocm.py:382] Using Flash Attention backend for ViT model.
+[0;36m(Worker_TP3 pid=688)[0;0m INFO 06-15 08:11:17 [mm_encoder_attention.py:77] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+[0;36m(Worker_TP0 pid=685)[0;0m WARNING 06-15 08:11:17 [activation.py:667] [ROCm] PyTorch's native GELU with tanh approximation is unstable. Falling back to GELU(approximate='none').
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:11:17 [rocm.py:382] Using Flash Attention backend for ViT model.
+[0;36m(Worker_TP3 pid=688)[0;0m WARNING 06-15 08:11:17 [compressed_tensors.py:766] Acceleration for non-quantized schemes is not supported by Compressed Tensors. Falling back to UnquantizedLinearMethod
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:11:17 [mm_encoder_attention.py:77] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+[0;36m(Worker_TP0 pid=685)[0;0m WARNING 06-15 08:11:17 [compressed_tensors.py:766] Acceleration for non-quantized schemes is not supported by Compressed Tensors. Falling back to UnquantizedLinearMethod
+[0;36m(Worker_TP5 pid=690)[0;0m WARNING 06-15 08:11:17 [activation.py:667] [ROCm] PyTorch's native GELU with tanh approximation is unstable. Falling back to GELU(approximate='none').
+[0;36m(Worker_TP5 pid=690)[0;0m INFO 06-15 08:11:17 [rocm.py:382] Using Flash Attention backend for ViT model.
+[0;36m(Worker_TP5 pid=690)[0;0m INFO 06-15 08:11:17 [mm_encoder_attention.py:77] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+[0;36m(Worker_TP2 pid=687)[0;0m INFO 06-15 08:11:17 [rocm.py:259] Using Triton MLA backend.
+[0;36m(Worker_TP7 pid=692)[0;0m WARNING 06-15 08:11:17 [activation.py:667] [ROCm] PyTorch's native GELU with tanh approximation is unstable. Falling back to GELU(approximate='none').
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:11:17 [rocm.py:259] Using Triton MLA backend.
+[0;36m(Worker_TP5 pid=690)[0;0m WARNING 06-15 08:11:17 [compressed_tensors.py:766] Acceleration for non-quantized schemes is not supported by Compressed Tensors. Falling back to UnquantizedLinearMethod
+[0;36m(Worker_TP7 pid=692)[0;0m INFO 06-15 08:11:17 [rocm.py:382] Using Flash Attention backend for ViT model.
+[0;36m(Worker_TP7 pid=692)[0;0m INFO 06-15 08:11:17 [mm_encoder_attention.py:77] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+[0;36m(Worker_TP1 pid=686)[0;0m INFO 06-15 08:11:17 [rocm.py:259] Using Triton MLA backend.
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:11:17 [mla_attention.py:1399] Using FlashAttention prefill for MLA
+[0;36m(Worker_TP7 pid=692)[0;0m WARNING 06-15 08:11:17 [compressed_tensors.py:766] Acceleration for non-quantized schemes is not supported by Compressed Tensors. Falling back to UnquantizedLinearMethod
+[0;36m(Worker_TP3 pid=688)[0;0m INFO 06-15 08:11:17 [rocm.py:259] Using Triton MLA backend.
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:11:17 [compressed_tensors_moe.py:191] Using CompressedTensorsWNA16MoEMethod
+[0;36m(Worker_TP2 pid=687)[0;0m INFO 06-15 08:11:17 [compressed_tensors_moe.py:191] Using CompressedTensorsWNA16MoEMethod
+[0;36m(Worker_TP1 pid=686)[0;0m INFO 06-15 08:11:17 [compressed_tensors_moe.py:191] Using CompressedTensorsWNA16MoEMethod
+[0;36m(Worker_TP6 pid=691)[0;0m WARNING 06-15 08:11:17 [activation.py:667] [ROCm] PyTorch's native GELU with tanh approximation is unstable. Falling back to GELU(approximate='none').
+[0;36m(Worker_TP6 pid=691)[0;0m INFO 06-15 08:11:17 [rocm.py:382] Using Flash Attention backend for ViT model.
+[0;36m(Worker_TP6 pid=691)[0;0m INFO 06-15 08:11:17 [mm_encoder_attention.py:77] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+[0;36m(Worker_TP6 pid=691)[0;0m WARNING 06-15 08:11:17 [compressed_tensors.py:766] Acceleration for non-quantized schemes is not supported by Compressed Tensors. Falling back to UnquantizedLinearMethod
+[0;36m(Worker_TP3 pid=688)[0;0m INFO 06-15 08:11:17 [compressed_tensors_moe.py:191] Using CompressedTensorsWNA16MoEMethod
+[0;36m(Worker_TP4 pid=689)[0;0m WARNING 06-15 08:11:17 [activation.py:667] [ROCm] PyTorch's native GELU with tanh approximation is unstable. Falling back to GELU(approximate='none').
+[0;36m(Worker_TP4 pid=689)[0;0m INFO 06-15 08:11:17 [rocm.py:382] Using Flash Attention backend for ViT model.
+[0;36m(Worker_TP4 pid=689)[0;0m INFO 06-15 08:11:17 [mm_encoder_attention.py:77] Using AttentionBackendEnum.FLASH_ATTN for MMEncoderAttention.
+[0;36m(Worker_TP4 pid=689)[0;0m WARNING 06-15 08:11:17 [compressed_tensors.py:766] Acceleration for non-quantized schemes is not supported by Compressed Tensors. Falling back to UnquantizedLinearMethod
+[0;36m(Worker_TP5 pid=690)[0;0m INFO 06-15 08:11:17 [rocm.py:259] Using Triton MLA backend.
+[0;36m(Worker_TP7 pid=692)[0;0m INFO 06-15 08:11:17 [rocm.py:259] Using Triton MLA backend.
+[0;36m(Worker_TP5 pid=690)[0;0m INFO 06-15 08:11:17 [compressed_tensors_moe.py:191] Using CompressedTensorsWNA16MoEMethod
+[0;36m(Worker_TP7 pid=692)[0;0m INFO 06-15 08:11:17 [compressed_tensors_moe.py:191] Using CompressedTensorsWNA16MoEMethod
+[0;36m(Worker_TP6 pid=691)[0;0m INFO 06-15 08:11:17 [rocm.py:259] Using Triton MLA backend.
+[0;36m(Worker_TP6 pid=691)[0;0m INFO 06-15 08:11:17 [compressed_tensors_moe.py:191] Using CompressedTensorsWNA16MoEMethod
+[0;36m(Worker_TP4 pid=689)[0;0m INFO 06-15 08:11:17 [rocm.py:259] Using Triton MLA backend.
+[0;36m(Worker_TP4 pid=689)[0;0m INFO 06-15 08:11:17 [compressed_tensors_moe.py:191] Using CompressedTensorsWNA16MoEMethod
+[0;36m(Worker_TP0 pid=685)[0;0m WARNING 06-15 08:11:17 [compilation.py:1078] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+[0;36m(Worker_TP2 pid=687)[0;0m WARNING 06-15 08:11:17 [compilation.py:1078] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+[0;36m(Worker_TP1 pid=686)[0;0m WARNING 06-15 08:11:17 [compilation.py:1078] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+[0;36m(Worker_TP3 pid=688)[0;0m WARNING 06-15 08:11:17 [compilation.py:1078] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+[0;36m(Worker_TP5 pid=690)[0;0m WARNING 06-15 08:11:17 [compilation.py:1078] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+[0;36m(Worker_TP7 pid=692)[0;0m WARNING 06-15 08:11:17 [compilation.py:1078] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+[0;36m(Worker_TP6 pid=691)[0;0m WARNING 06-15 08:11:17 [compilation.py:1078] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+[0;36m(Worker_TP4 pid=689)[0;0m WARNING 06-15 08:11:18 [compilation.py:1078] Op 'sparse_attn_indexer' not present in model, enabling with '+sparse_attn_indexer' has no effect
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/64 [00:00<?, ?it/s]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:   2% Completed | 1/64 [00:02<02:08,  2.04s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:   3% Completed | 2/64 [00:10<06:17,  6.08s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:   5% Completed | 3/64 [00:13<04:27,  4.38s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:   6% Completed | 4/64 [00:15<03:31,  3.52s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:   8% Completed | 5/64 [00:27<06:21,  6.46s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:   9% Completed | 6/64 [00:35<06:50,  7.07s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  11% Completed | 7/64 [00:43<07:03,  7.43s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  12% Completed | 8/64 [00:50<06:51,  7.35s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  14% Completed | 9/64 [01:02<07:59,  8.71s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  16% Completed | 10/64 [01:13<08:36,  9.57s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  17% Completed | 11/64 [01:25<09:01, 10.21s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  19% Completed | 12/64 [01:27<06:45,  7.79s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  20% Completed | 13/64 [01:39<07:34,  8.91s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  22% Completed | 14/64 [01:41<05:44,  6.89s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  23% Completed | 15/64 [01:43<04:27,  5.47s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  25% Completed | 16/64 [01:55<05:46,  7.22s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  27% Completed | 17/64 [02:03<05:56,  7.59s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  28% Completed | 18/64 [02:05<04:35,  5.98s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  30% Completed | 19/64 [02:15<05:24,  7.21s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  31% Completed | 20/64 [02:18<04:12,  5.75s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  33% Completed | 21/64 [02:18<02:56,  4.10s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  34% Completed | 22/64 [02:20<02:27,  3.51s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  36% Completed | 23/64 [02:22<02:07,  3.11s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  38% Completed | 24/64 [02:30<03:02,  4.57s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  39% Completed | 25/64 [02:39<03:41,  5.69s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  41% Completed | 26/64 [02:41<02:56,  4.64s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  42% Completed | 27/64 [02:52<04:07,  6.70s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  44% Completed | 28/64 [02:53<02:55,  4.87s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  45% Completed | 29/64 [02:55<02:26,  4.18s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  47% Completed | 30/64 [02:58<02:06,  3.72s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  48% Completed | 31/64 [03:01<01:51,  3.38s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  50% Completed | 32/64 [03:03<01:40,  3.15s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  52% Completed | 33/64 [03:12<02:34,  4.98s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  53% Completed | 34/64 [03:15<02:09,  4.30s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  55% Completed | 35/64 [03:18<01:50,  3.82s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  56% Completed | 36/64 [03:21<01:37,  3.47s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  58% Completed | 37/64 [03:31<02:31,  5.61s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  59% Completed | 38/64 [03:43<03:12,  7.42s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  61% Completed | 39/64 [03:54<03:35,  8.63s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  62% Completed | 40/64 [03:57<02:44,  6.86s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  64% Completed | 41/64 [04:09<03:10,  8.30s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  66% Completed | 42/64 [04:09<02:12,  6.04s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  67% Completed | 43/64 [04:18<02:21,  6.75s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  69% Completed | 44/64 [04:29<02:44,  8.20s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  70% Completed | 45/64 [04:41<02:55,  9.22s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  72% Completed | 46/64 [04:50<02:46,  9.24s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  73% Completed | 47/64 [05:02<02:50, 10.01s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  75% Completed | 48/64 [05:14<02:48, 10.56s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  77% Completed | 49/64 [05:19<02:14,  8.98s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  78% Completed | 50/64 [05:31<02:16,  9.72s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  80% Completed | 51/64 [05:42<02:14, 10.31s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  81% Completed | 52/64 [05:51<01:57,  9.78s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  83% Completed | 53/64 [06:03<01:54, 10.41s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  84% Completed | 54/64 [06:06<01:21,  8.12s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  86% Completed | 55/64 [06:16<01:20,  8.96s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  88% Completed | 56/64 [06:17<00:50,  6.36s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  89% Completed | 57/64 [06:28<00:55,  7.91s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  91% Completed | 58/64 [06:40<00:54,  9.02s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  92% Completed | 59/64 [06:51<00:48,  9.78s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  94% Completed | 60/64 [07:03<00:41, 10.36s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  95% Completed | 61/64 [07:15<00:32, 10.70s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  97% Completed | 62/64 [07:26<00:21, 10.88s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards:  98% Completed | 63/64 [07:34<00:09,  9.91s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards: 100% Completed | 64/64 [07:36<00:00,  7.62s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m Loading safetensors checkpoint shards: 100% Completed | 64/64 [07:36<00:00,  7.13s/it]
+[0;36m(Worker_TP0 pid=685)[0;0m 
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:18:54 [default_loader.py:291] Loading weights took 456.54 seconds
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:18:55 [gpu_model_runner.py:4130] Model loading took 74.87 GiB memory and 457.580735 seconds
+[0;36m(Worker_TP1 pid=686)[0;0m INFO 06-15 08:18:56 [gpu_model_runner.py:4958] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 vision_chunk items of the maximum feature size.
+[0;36m(Worker_TP5 pid=690)[0;0m INFO 06-15 08:18:56 [gpu_model_runner.py:4958] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 vision_chunk items of the maximum feature size.
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:18:56 [gpu_model_runner.py:4958] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 vision_chunk items of the maximum feature size.
+[0;36m(Worker_TP4 pid=689)[0;0m INFO 06-15 08:18:56 [gpu_model_runner.py:4958] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 vision_chunk items of the maximum feature size.
+[0;36m(Worker_TP6 pid=691)[0;0m INFO 06-15 08:18:56 [gpu_model_runner.py:4958] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 vision_chunk items of the maximum feature size.
+[0;36m(Worker_TP3 pid=688)[0;0m INFO 06-15 08:18:56 [gpu_model_runner.py:4958] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 vision_chunk items of the maximum feature size.
+[0;36m(Worker_TP7 pid=692)[0;0m INFO 06-15 08:18:56 [gpu_model_runner.py:4958] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 vision_chunk items of the maximum feature size.
+[0;36m(Worker_TP2 pid=687)[0;0m INFO 06-15 08:18:57 [gpu_model_runner.py:4958] Encoder cache will be initialized with a budget of 8192 tokens, and profiled with 1 vision_chunk items of the maximum feature size.
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:19:24 [backends.py:812] Using cache directory: /root/.cache/vllm/torch_compile_cache/c3a60fd7f6/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:19:24 [backends.py:872] Dynamo bytecode transform time: 4.86 s
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:19:31 [backends.py:302] Cache the graph of compile range (1, 8192) for later use
+[0;36m(Worker_TP3 pid=688)[0;0m INFO 06-15 08:19:32 [backends.py:302] Cache the graph of compile range (1, 8192) for later use
+[0;36m(Worker_TP4 pid=689)[0;0m INFO 06-15 08:19:32 [backends.py:302] Cache the graph of compile range (1, 8192) for later use
+[0;36m(Worker_TP1 pid=686)[0;0m INFO 06-15 08:19:32 [backends.py:302] Cache the graph of compile range (1, 8192) for later use
+[0;36m(Worker_TP5 pid=690)[0;0m INFO 06-15 08:19:32 [backends.py:302] Cache the graph of compile range (1, 8192) for later use
+[0;36m(Worker_TP6 pid=691)[0;0m INFO 06-15 08:19:32 [backends.py:302] Cache the graph of compile range (1, 8192) for later use
+[0;36m(Worker_TP7 pid=692)[0;0m INFO 06-15 08:19:32 [backends.py:302] Cache the graph of compile range (1, 8192) for later use
+[0;36m(Worker_TP2 pid=687)[0;0m INFO 06-15 08:19:32 [backends.py:302] Cache the graph of compile range (1, 8192) for later use
+[0;36m(Worker_TP0 pid=685)[0;0m WARNING 06-15 08:19:38 [fused_moe.py:1090] Using default MoE config. Performance might be sub-optimal! Config file not found at /usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/fused_moe/configs/E=384,N=256,device_name=0x75b0,dtype=int4_w4a16.json
+[0;36m(EngineCore_DP0 pid=463)[0;0m INFO 06-15 08:19:56 [shm_broadcast.py:542] No available shared memory broadcast block found in 60 seconds. This typically happens when some processes are hanging or doing some time-consuming work (e.g. compilation, weight/kv cache quantization).
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:20:03 [backends.py:319] Compiling a graph for compile range (1, 8192) takes 35.31 s
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:20:03 [monitor.py:34] torch.compile takes 40.17 s in total
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:20:06 [gpu_worker.py:356] Available KV cache memory: 189.13 GiB
+[0;36m(EngineCore_DP0 pid=463)[0;0m INFO 06-15 08:20:06 [kv_cache_utils.py:1307] GPU KV cache size: 2,888,064 tokens
+[0;36m(EngineCore_DP0 pid=463)[0;0m INFO 06-15 08:20:06 [kv_cache_utils.py:1312] Maximum concurrency for 9,416 tokens per request: 304.91x
+[0;36m(Worker_TP6 pid=691)[0;0m WARNING 06-15 08:20:06 [gpu_model_runner.py:5342] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[0;36m(Worker_TP3 pid=688)[0;0m WARNING 06-15 08:20:06 [gpu_model_runner.py:5342] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[0;36m(Worker_TP1 pid=686)[0;0m WARNING 06-15 08:20:06 [gpu_model_runner.py:5342] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[0;36m(Worker_TP0 pid=685)[0;0m WARNING 06-15 08:20:06 [gpu_model_runner.py:5342] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[0;36m(Worker_TP2 pid=687)[0;0m WARNING 06-15 08:20:06 [gpu_model_runner.py:5342] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[0;36m(Worker_TP7 pid=692)[0;0m WARNING 06-15 08:20:06 [gpu_model_runner.py:5342] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[0;36m(Worker_TP5 pid=690)[0;0m WARNING 06-15 08:20:06 [gpu_model_runner.py:5342] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[0;36m(Worker_TP4 pid=689)[0;0m WARNING 06-15 08:20:06 [gpu_model_runner.py:5342] CUDAGraphMode.FULL_AND_PIECEWISE is not supported with TritonMLABackend backend (support: AttentionCGSupport.NEVER); setting cudagraph_mode=PIECEWISE because attention is compiled piecewise
+[0;36m(Worker_TP0 pid=685)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 1/51 [00:00<00:09,  5.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 2/51 [00:00<00:07,  6.27it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 3/51 [00:00<00:06,  7.03it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   8%|▊         | 4/51 [00:00<00:06,  7.53it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:00<00:05,  7.88it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 6/51 [00:00<00:05,  8.11it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▎        | 7/51 [00:00<00:05,  8.27it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 8/51 [00:01<00:05,  8.38it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 9/51 [00:01<00:04,  8.50it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|█▉        | 10/51 [00:01<00:04,  8.58it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 11/51 [00:01<00:04,  8.63it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▎       | 12/51 [00:01<00:04,  8.66it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 13/51 [00:01<00:04,  8.71it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 14/51 [00:01<00:04,  8.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 15/51 [00:01<00:04,  8.85it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 16/51 [00:01<00:03,  8.89it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  35%|███▌      | 18/51 [00:02<00:03,  9.53it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 20/51 [00:02<00:03,  9.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 22/51 [00:02<00:02, 10.00it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  47%|████▋     | 24/51 [00:02<00:02, 10.04it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 26/51 [00:02<00:02, 10.13it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  55%|█████▍    | 28/51 [00:03<00:02, 10.16it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  59%|█████▉    | 30/51 [00:03<00:02, 10.21it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 32/51 [00:03<00:01, 10.24it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 34/51 [00:03<00:01, 10.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 36/51 [00:03<00:01, 10.22it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 38/51 [00:04<00:01, 10.20it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 40/51 [00:04<00:01,  8.87it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 42/51 [00:04<00:00,  9.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▋ | 44/51 [00:05<00:01,  5.94it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|█████████ | 46/51 [00:05<00:00,  6.27it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:05<00:00,  5.37it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 49/51 [00:05<00:00,  6.37it/s][0;36m(Worker_TP1 pid=686)[0;0m INFO 06-15 08:20:14 [custom_all_reduce.py:216] Registering 6222 cuda graph addresses
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:08<00:00,  2.27it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:08<00:00,  6.35it/s]
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:20:15 [custom_all_reduce.py:216] Registering 6222 cuda graph addresses
+[0;36m(Worker_TP3 pid=688)[0;0m INFO 06-15 08:20:15 [custom_all_reduce.py:216] Registering 6222 cuda graph addresses
+[0;36m(Worker_TP6 pid=691)[0;0m INFO 06-15 08:20:15 [custom_all_reduce.py:216] Registering 6222 cuda graph addresses
+[0;36m(Worker_TP2 pid=687)[0;0m INFO 06-15 08:20:15 [custom_all_reduce.py:216] Registering 6222 cuda graph addresses
+[0;36m(Worker_TP5 pid=690)[0;0m INFO 06-15 08:20:15 [custom_all_reduce.py:216] Registering 6222 cuda graph addresses
+[0;36m(Worker_TP7 pid=692)[0;0m INFO 06-15 08:20:15 [custom_all_reduce.py:216] Registering 6222 cuda graph addresses
+[0;36m(Worker_TP4 pid=689)[0;0m INFO 06-15 08:20:15 [custom_all_reduce.py:216] Registering 6222 cuda graph addresses
+[0;36m(Worker_TP0 pid=685)[0;0m INFO 06-15 08:20:16 [gpu_model_runner.py:5063] Graph capturing finished in 10 secs, took 0.96 GiB
+[0;36m(EngineCore_DP0 pid=463)[0;0m INFO 06-15 08:20:16 [core.py:272] init engine (profile, create kv cache, warmup model) took 80.40 seconds
+[0;36m(EngineCore_DP0 pid=463)[0;0m [2026-06-15 08:20:17] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[0;36m(EngineCore_DP0 pid=463)[0;0m [2026-06-15 08:20:17] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[0;36m(EngineCore_DP0 pid=463)[0;0m WARNING 06-15 08:20:17 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+[0;36m(EngineCore_DP0 pid=463)[0;0m INFO 06-15 08:20:18 [vllm.py:624] Asynchronous scheduling is enabled.
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:18 [api_server.py:665] Supported tasks: ['generate']
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:18 [serving.py:177] Warming up chat template processing...
+[0;36m(APIServer pid=154)[0;0m [2026-06-15 08:20:19] INFO tokenization_kimi.py:112: Reloaded tiktoken model from /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/snapshots/4d01dfe0332d63057c186e0b262165819efb6611/tiktoken.model
+[0;36m(APIServer pid=154)[0;0m [2026-06-15 08:20:19] INFO tokenization_kimi.py:118: #words: 163840 - BOS ID: 163584 - EOS ID: 163585
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [hf.py:310] Detected the chat template content format to be 'string'. You can set `--chat-template-content-format` to override this.
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [serving.py:212] Chat template warmup completed in 1528.9ms
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [api_server.py:946] Starting vLLM API server 0 on http://0.0.0.0:18888
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:38] Available routes are:
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /openapi.json, Methods: HEAD, GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /docs, Methods: HEAD, GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /redoc, Methods: HEAD, GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /scale_elastic_ep, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /is_scaling_elastic_ep, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /tokenize, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /detokenize, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /inference/v1/generate, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /pause, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /resume, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /is_paused, Methods: GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /metrics, Methods: GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /health, Methods: GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/chat/completions, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/chat/completions/render, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/responses, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/responses/{response_id}, Methods: GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/responses/{response_id}/cancel, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/audio/transcriptions, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/audio/translations, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/completions, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/completions/render, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/messages, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/models, Methods: GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /load, Methods: GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /version, Methods: GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /ping, Methods: GET
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /ping, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /invocations, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /classify, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/embeddings, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /score, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/score, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /rerank, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v1/rerank, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /v2/rerank, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO 06-15 08:20:20 [launcher.py:46] Route: /pooling, Methods: POST
+[0;36m(APIServer pid=154)[0;0m INFO:     Started server process [154]
+[0;36m(APIServer pid=154)[0;0m INFO:     Waiting for application startup.
+[0;36m(APIServer pid=154)[0;0m INFO:     Application startup complete.
++ [[ -n '' ]]
++ python3 /workspace/utils/bench_serving/benchmark_serving.py --model moonshotai/Kimi-K2.5 --backend vllm --base-url http://0.0.0.0:18888 --dataset-name random --random-input-len 8192 --random-output-len 1024 --random-range-ratio 0.8 --num-prompts 48 --max-concurrency 16 --request-rate inf --ignore-eos --save-result --num-warmups 32 --percentile-metrics ttft,tpot,itl,e2el --result-dir /workspace/ --result-filename kimik2.5_8192x1024_int4_vllm_mi355x_tp8-ep1-dpafalse_disagg-false_spec-none_conc16_prompts3x_old.json --trust-remote-code
+/workspace/utils/bench_serving/benchmark_serving.py:47: DeprecationWarning: `vllm.transformers_utils.tokenizer.get_tokenizer` has been moved to `vllm.tokenizers.get_tokenizer`. The old name will be removed in a future version.
+  from vllm.transformers_utils.tokenizer import get_tokenizer
+Namespace(backend='vllm', base_url='http://0.0.0.0:18888', host='127.0.0.1', port=8000, endpoint='/v1/completions', dataset_name='random', dataset_path=None, max_concurrency=16, model='moonshotai/Kimi-K2.5', tokenizer=None, best_of=1, use_beam_search=False, num_prompts=48, logprobs=None, request_rate=inf, burstiness=1.0, seed=0, trust_remote_code=True, disable_tqdm=False, profile=False, save_result=True, save_detailed=False, metadata=None, result_dir='/workspace/', result_filename='kimik2.5_8192x1024_int4_vllm_mi355x_tp8-ep1-dpafalse_disagg-false_spec-none_conc16_prompts3x_old.json', ignore_eos=True, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='99', goodput=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, random_input_len=8192, random_output_len=1024, random_range_ratio=0.8, random_prefix_len=0, use_chat_template=False, hf_subset=None, hf_split=None, hf_output_len=None, tokenizer_mode='auto', served_model_name=None, lora_modules=None, num_warmups=32)
+WARNING 06-15 08:20:30 [registry.py:216] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+Calling super().encode with {'add_special_tokens': False}
+-------------------  Input/Output Length Statistics  -------------------
+ input_lens : min=6625  max=8177  mean=7318.65  avg_token_mismatch=0.00  
+ output_lens: min=820   max=1023  mean=923.29  
+------------------------------------------------------------------------ 
+
+Starting initial single prompt test run...
+Warming up with 32 requests...
+  0%|          | 0/32 [00:00<?, ?it/s]  3%|▎         | 1/32 [00:59<30:35, 59.21s/it] 53%|█████▎    | 17/32 [01:55<01:27,  5.86s/it]100%|██████████| 32/32 [01:55<00:00,  3.61s/it]
+  0%|          | 0/48 [00:00<?, ?it/s]Warmup completed.
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 16
+  2%|▏         | 1/48 [01:40<1:18:20, 100.01s/it]  4%|▍         | 2/48 [01:41<32:07, 41.91s/it]     6%|▋         | 3/48 [01:42<17:37, 23.51s/it]  8%|▊         | 4/48 [01:44<10:59, 14.99s/it] 10%|█         | 5/48 [01:47<07:31, 10.50s/it] 12%|█▎        | 6/48 [01:51<05:52,  8.39s/it] 15%|█▍        | 7/48 [01:55<04:37,  6.76s/it] 17%|█▋        | 8/48 [01:55<03:07,  4.68s/it] 19%|█▉        | 9/48 [01:58<02:47,  4.29s/it] 21%|██        | 10/48 [01:58<01:54,  3.00s/it] 23%|██▎       | 11/48 [02:01<01:50,  2.98s/it] 27%|██▋       | 13/48 [02:05<01:28,  2.53s/it] 29%|██▉       | 14/48 [02:07<01:20,  2.37s/it] 31%|███▏      | 15/48 [02:10<01:21,  2.47s/it] 33%|███▎      | 16/48 [02:12<01:18,  2.45s/it] 35%|███▌      | 17/48 [03:24<11:18, 21.90s/it] 38%|███▊      | 18/48 [03:26<08:03, 16.10s/it] 40%|███▉      | 19/48 [03:26<05:32, 11.46s/it] 42%|████▏     | 20/48 [03:37<05:16, 11.32s/it] 44%|████▍     | 21/48 [03:38<03:45,  8.35s/it] 46%|████▌     | 22/48 [03:40<02:48,  6.50s/it] 50%|█████     | 24/48 [03:43<01:38,  4.12s/it] 52%|█████▏    | 25/48 [03:48<01:42,  4.45s/it] 54%|█████▍    | 26/48 [03:51<01:29,  4.09s/it] 56%|█████▋    | 27/48 [03:53<01:14,  3.54s/it] 58%|█████▊    | 28/48 [03:55<01:02,  3.11s/it] 60%|██████    | 29/48 [03:58<00:57,  3.01s/it] 62%|██████▎   | 30/48 [03:59<00:45,  2.53s/it] 65%|██████▍   | 31/48 [04:05<01:00,  3.54s/it] 67%|██████▋   | 32/48 [04:07<00:47,  2.96s/it] 69%|██████▉   | 33/48 [05:12<05:21, 21.45s/it] 71%|███████   | 34/48 [05:17<03:51, 16.55s/it] 73%|███████▎  | 35/48 [05:21<02:46, 12.81s/it] 75%|███████▌  | 36/48 [05:25<02:02, 10.17s/it] 77%|███████▋  | 37/48 [05:27<01:22,  7.48s/it] 79%|███████▉  | 38/48 [05:29<01:00,  6.06s/it] 81%|████████▏ | 39/48 [05:30<00:39,  4.43s/it] 83%|████████▎ | 40/48 [05:31<00:27,  3.39s/it] 85%|████████▌ | 41/48 [05:32<00:19,  2.78s/it] 88%|████████▊ | 42/48 [05:34<00:15,  2.63s/it] 90%|████████▉ | 43/48 [05:38<00:14,  2.86s/it] 92%|█████████▏| 44/48 [05:40<00:11,  2.75s/it] 94%|█████████▍| 45/48 [05:41<00:06,  2.08s/it] 96%|█████████▌| 46/48 [05:42<00:03,  1.86s/it] 98%|█████████▊| 47/48 [05:43<00:01,  1.51s/it]100%|██████████| 48/48 [05:47<00:00,  2.38s/it]100%|██████████| 48/48 [05:47<00:00,  7.25s/it]
+Starting main benchmark run...
+============ Serving Benchmark Result ============
+Successful requests:                     48        
+Benchmark duration (s):                  347.82    
+Total input tokens:                      351295    
+Total generated tokens:                  44318     
+Request throughput (req/s):              0.14      
+Output token throughput (tok/s):         127.42    
+Total Token throughput (tok/s):          1137.40   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          3849.91   
+Median TTFT (ms):                        1356.69   
+P99 TTFT (ms):                           16011.86  
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          115.91    
+Median TPOT (ms):                        117.37    
+P99 TPOT (ms):                           127.84    
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           115.97    
+Median ITL (ms):                         104.40    
+P99 ITL (ms):                            1004.74   
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          110810.08 
+Median E2EL (ms):                        110392.39 
+P99 E2EL (ms):                           131674.50 
+==================================================
++ local benchmark_exit_code=0
++ set +x

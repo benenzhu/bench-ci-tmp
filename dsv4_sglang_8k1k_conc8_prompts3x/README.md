@@ -53,12 +53,13 @@ Candidate tables are included under `docs/candidates/`. They distinguish rows we
 | DeepSeek-R1-0528 | 1,032.3 -> 3,658.6 tok/s/GPU, 3.54x | candidate only |
 | DeepSeek-V4-Pro | 3.3 -> 23.3 vLLM dashboard row, 7.00x | vLLM old failed; SGLang replacement succeeded |
 | Kimi-K2.5 | 28.7 -> 374.2 tok/s/GPU, 13.05x | reproduced successfully |
+| Kimi-K2.5 INT4 middle-state | 157.2 -> 631.0 tok/s/GPU, 4.01x dashboard row | reproduced separately and did not hold locally: 142.2 -> 187.7 tok/s/GPU, 1.32x |
 | MiniMax-M3 | 4.3 -> 15.5 tok/s/GPU, 3.62x | candidate only |
 | GLM-5 | 17.5 -> 44.2 tok/s/GPU, 2.52x | reproduced successfully |
 | MiniMax-M2.5 | 55.1 -> 98.2 tok/s/GPU, 1.78x | candidate only |
 | Qwen-3.5-397B-A17B | 42.7 -> 107.5 tok/s/GPU, 2.52x | candidate only |
 
-For Kimi-specific middle-state options around 3.5x-4.5x, see `docs/candidates/kimi_middle_state_candidates.md`. The short version: strict Kimi FP4 has no same-config 3.5x-4.5x pair; the best exact-band candidate is Kimi `int4`, `8192/1024`, `CONC=16`, at `4.014x`, while the nearest FP4 candidate is `8192/1024`, `CONC=64`, at `4.726x`.
+For Kimi-specific middle-state options around 3.5x-4.5x, see `docs/candidates/kimi_middle_state_candidates.md`. The short version: strict Kimi FP4 has no same-config 3.5x-4.5x pair; the previously shortlisted Kimi `int4`, `8192/1024`, `CONC=16`, `4.014x` row was tested locally in `../kimi_int4_8k1k_conc16_prompts3x/` and measured only `1.320x`. The cleaner same-workflow Kimi INT4 dashboard candidate is `1024/8192`, `CONC=16`, at `4.178x`, but it has not been locally reproduced yet.
 
 ## Bundle Layout
 
@@ -74,6 +75,7 @@ For Kimi-specific middle-state options around 3.5x-4.5x, see `docs/candidates/ki
 - `docs/dsv4_sglang_8k1k_conc8_repro_plan.md`: research handoff with source row details.
 - `docs/candidates/`: MI355X no-disagg no-ATOM candidate tables.
 - `suites/mi355_adsuite_prompts3x/`: prior multi-model local reproduction suite.
+- `../kimi_int4_8k1k_conc16_prompts3x/`: separate Kimi INT4 8k/1k local reproduction attempt that completed but did not reproduce the candidate-table 4x gain.
 - `MANIFEST.sha256`: checksum manifest for the committed bundle contents.
 
 ## Reproduce
