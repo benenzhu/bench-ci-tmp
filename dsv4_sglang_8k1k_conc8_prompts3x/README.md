@@ -58,6 +58,8 @@ Candidate tables are included under `docs/candidates/`. They distinguish rows we
 | MiniMax-M2.5 | 55.1 -> 98.2 tok/s/GPU, 1.78x | candidate only |
 | Qwen-3.5-397B-A17B | 42.7 -> 107.5 tok/s/GPU, 2.52x | candidate only |
 
+For Kimi-specific middle-state options around 3.5x-4.5x, see `docs/candidates/kimi_middle_state_candidates.md`. The short version: strict Kimi FP4 has no same-config 3.5x-4.5x pair; the best exact-band candidate is Kimi `int4`, `8192/1024`, `CONC=16`, at `4.014x`, while the nearest FP4 candidate is `8192/1024`, `CONC=64`, at `4.726x`.
+
 ## Bundle Layout
 
 - `comparison.csv`: one-row old/new comparison and gain.

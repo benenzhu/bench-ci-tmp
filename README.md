@@ -16,6 +16,26 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 | GLM-5 FP8 SGLang | 1024/1024 | 4 | `16.169320 -> 41.515338 tok/s/GPU`, `2.5675x` |
 | DeepSeek-V4-Pro FP4 vLLM | 1024/1024 | 4 | old-row local repro failed because the original workflow image was unavailable and the substitute image failed before benchmark |
 
+## Kimi Middle-State Candidates
+
+The existing Kimi FP4 `CONC=4` result is preserved because it is valid, but the gain is large (`14.6476x` local, `13.05x` dashboard). A separate candidate scan is saved in:
+
+```text
+dsv4_sglang_8k1k_conc8_prompts3x/docs/candidates/kimi_middle_state_candidates.md
+```
+
+Best fit for a 3.5x-4.5x story:
+
+| Scope | Seq | CONC | Result |
+|---|---|---:|---|
+| Kimi-K2.5 int4 vLLM | 8192/1024 | 16 | `157.195 -> 631.026 tok/s/GPU`, `4.014x` |
+
+If the story must stay strictly Kimi FP4, there is no same-config 3.5x-4.5x pair in the current MI355X history. The closest FP4 candidate is:
+
+| Scope | Seq | CONC | Result |
+|---|---|---:|---|
+| Kimi-K2.5 FP4 vLLM | 8192/1024 | 64 | `348.532 -> 1647.260 tok/s/GPU`, `4.726x` |
+
 ## Verify
 
 Run:
