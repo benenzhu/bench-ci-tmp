@@ -36,6 +36,7 @@ required_files=(
   cache_status/final.txt
   cache_status/after_kimi_int4_old.txt
   cache_status/after_kimi_int4_new.txt
+  cache_status/model_backup.txt
   cache_status/kimi_int4_old_image_manifest.txt
   cache_status/kimi_int4_new_image_manifest.txt
   runs/kimi_int4_old/status.txt
@@ -78,6 +79,13 @@ else
   fi
 fi
 ok "strict HF token scan has no matches"
+
+grep -q '^source=/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5$' cache_status/model_backup.txt || fail "model backup source mismatch"
+grep -q '^backup=/scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5$' cache_status/model_backup.txt || fail "model backup path mismatch"
+grep -q '^source_regular_files=94$' cache_status/model_backup.txt || fail "model backup source file count mismatch"
+grep -q '^backup_regular_files=94$' cache_status/model_backup.txt || fail "model backup file count mismatch"
+grep -q '^sample_same_inode=true$' cache_status/model_backup.txt || fail "model backup hardlink sample mismatch"
+ok "model cache backup record is present"
 
 python3 - <<'PY'
 import csv

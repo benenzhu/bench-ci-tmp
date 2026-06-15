@@ -69,6 +69,29 @@ The same workflow pair still has a dashboard candidate in the desired
 
 That `1024/8192` candidate has not been run locally in this bundle.
 
+## Model Cache Backup
+
+The Kimi model cache is on the 40T `/scratch` filesystem:
+
+- source: `/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5`
+- hardlink backup: `/scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5`
+- apparent size: `555G`
+- regular files: `94`
+- backup method: `cp -al`, so restore/deletion protection exists without
+  duplicating the 555G of blob data on disk
+
+Backup verification is saved in `cache_status/model_backup.txt`. A sample blob
+had the same inode in source and backup, with link count `2`.
+
+Restore from the backup:
+
+```bash
+mkdir -p /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5
+rsync -aH --info=progress2 \
+  /scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5/ \
+  /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/
+```
+
 ## Reproduce
 
 The HF token is intentionally not persisted in this directory. Use the existing

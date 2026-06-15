@@ -1,0 +1,16 @@
+stage=model_backup
+timestamp=2026-06-15T09:01:25Z
+source=/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5
+backup=/scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5
+filesystem=/scratch
+filesystem_size=40T
+method=cp -al hardlink backup on the same 40T filesystem
+source_regular_files=94
+backup_regular_files=94
+du_source=555G
+du_backup=555G
+sample_blob=02376f1b7e16343f0e7ea4d847c85e33da30295499c25145fbd4998cb44fdcff
+sample_same_inode=true
+sample_source_nlink=2
+sample_backup_nlink=2
+restore_command=rsync -aH --info=progress2 /scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5/ /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/

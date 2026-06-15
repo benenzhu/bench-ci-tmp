@@ -724,6 +724,22 @@ The same workflow pair still has a dashboard candidate in the desired
 
 That `1024/8192` candidate has not been run locally in this bundle.
 
+## Model Cache Backup
+
+The Kimi model cache is expected at `/scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5`.
+For this saved run, a hardlink backup record is stored in
+`cache_status/model_backup.txt` and points to
+`/scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5`.
+
+Restore from that backup:
+
+```bash
+mkdir -p /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5
+rsync -aH --info=progress2 \
+  /scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5/ \
+  /scratch/hf_hub_cache/models--moonshotai--Kimi-K2.5/
+```
+
 ## Acceptance
 
 Validate the saved bundle:
