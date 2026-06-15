@@ -10,13 +10,13 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 
 ## Main Results
 
-| Scope | Seq | CONC | Result |
-|---|---|---:|---|
-| DeepSeek-V4-Pro FP4 SGLang | 8192/1024 | 8 | `104.044135 -> 421.982767 tok/s/GPU`, `4.0558x` |
-| Kimi-K2.5 INT4 vLLM attempted middle-state | 8192/1024 | 16 | local `142.174440 -> 187.669496 tok/s/GPU`, `1.3200x`; did not reproduce the recorded `4.0143x` dashboard candidate |
-| Kimi-K2.5 FP4 vLLM | 8192/1024 | 4 | `24.517507 -> 359.122629 tok/s/GPU`, `14.6476x` |
-| GLM-5 FP8 SGLang | 1024/1024 | 4 | `16.169320 -> 41.515338 tok/s/GPU`, `2.5675x` |
-| DeepSeek-V4-Pro FP4 vLLM | 1024/1024 | 4 | old-row local repro failed because the original workflow image was unavailable and the substitute image failed before benchmark |
+| Scope | Seq | CONC | Image | Result |
+|---|---|---:|---|---|
+| DeepSeek-V4-Pro FP4 SGLang | 8192/1024 | 8 | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | `104.044135 -> 421.982767 tok/s/GPU`, `4.0558x` |
+| Kimi-K2.5 INT4 vLLM attempted middle-state | 8192/1024 | 16 | `vllm/vllm-openai-rocm:v0.15.1` -> `vllm/vllm-openai-rocm:v0.18.0` | local `142.174440 -> 187.669496 tok/s/GPU`, `1.3200x`; did not reproduce the recorded `4.0143x` dashboard candidate |
+| Kimi-K2.5 FP4 vLLM | 8192/1024 | 4 | `vllm/vllm-openai-rocm:v0.16.0` -> `vllm/vllm-openai-rocm:v0.22.0` | `24.517507 -> 359.122629 tok/s/GPU`, `14.6476x` |
+| GLM-5 FP8 SGLang | 1024/1024 | 4 | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` -> `lmsysorg/sglang-rocm:v0.5.10rc0-rocm720-mi35x-20260413` | `16.169320 -> 41.515338 tok/s/GPU`, `2.5675x` |
+| DeepSeek-V4-Pro FP4 vLLM | 1024/1024 | 4 | original old image unavailable; substitute `vllm/vllm-openai-rocm:v0.21.0` -> `vllm/vllm-openai-rocm:v0.22.0` | old-row local repro failed because the original workflow image was unavailable and the substitute image failed before benchmark |
 
 ## Kimi Middle-State Candidates
 
