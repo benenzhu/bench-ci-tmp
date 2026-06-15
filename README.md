@@ -9,12 +9,12 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 
 ## Main Results
 
-| Scope | Result |
-|---|---|
-| DeepSeek-V4-Pro FP4 SGLang | `104.044135 -> 421.982767 tok/s/GPU`, `4.0558x` |
-| Kimi-K2.5 FP4 vLLM | `24.517507 -> 359.122629 tok/s/GPU`, `14.6476x` |
-| GLM-5 FP8 SGLang | `16.169320 -> 41.515338 tok/s/GPU`, `2.5675x` |
-| DeepSeek-V4-Pro FP4 vLLM | old-row local repro failed because the original workflow image was unavailable and the substitute image failed before benchmark |
+| Scope | Seq | CONC | Result |
+|---|---|---:|---|
+| DeepSeek-V4-Pro FP4 SGLang | 8192/1024 | 8 | `104.044135 -> 421.982767 tok/s/GPU`, `4.0558x` |
+| Kimi-K2.5 FP4 vLLM | 8192/1024 | 4 | `24.517507 -> 359.122629 tok/s/GPU`, `14.6476x` |
+| GLM-5 FP8 SGLang | 1024/1024 | 4 | `16.169320 -> 41.515338 tok/s/GPU`, `2.5675x` |
+| DeepSeek-V4-Pro FP4 vLLM | 1024/1024 | 4 | old-row local repro failed because the original workflow image was unavailable and the substitute image failed before benchmark |
 
 ## Verify
 
