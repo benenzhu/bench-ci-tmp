@@ -1,0 +1,2 @@
+model_group,old_label,new_label,old_status,new_status,old_tput_per_gpu,new_tput_per_gpu,measured_gain_x,measured_improvement_pct,expected_old_tput_per_gpu,expected_new_tput_per_gpu,expected_gain_x
+dsv4,dsv4_sglang_old,dsv4_sglang_new,success,success,104.04413451994634,421.9827666910809,4.0558054390868366,305.58054390868364,115.801807,483.774241,4.177605285554828

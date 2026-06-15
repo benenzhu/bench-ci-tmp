@@ -1,0 +1,7 @@
+group=glm
+cache_name=models--zai-org--GLM-5-FP8
+source=/scratch/hf_hub_cache/models--zai-org--GLM-5-FP8
+destination=/scratch/hf_hub_cache/models--zai-org--GLM-5-FP8
+timestamp=2026-06-15T05:39:57Z
+705G	/scratch/hf_hub_cache/models--zai-org--GLM-5-FP8
+status=already_on_persistent_cache

@@ -1,0 +1,85 @@
+Unable to find image 'vllm/vllm-openai-rocm:v0.16.0' locally
+v0.16.0: Pulling from vllm/vllm-openai-rocm
+e6fdc8487bfe: Pulling fs layer
+0a5af9a4b9c5: Pulling fs layer
+393dcfddc38d: Pulling fs layer
+fed92861eb8a: Pulling fs layer
+3c8a93ca9e12: Pulling fs layer
+7aca9073787e: Pulling fs layer
+88ba410f66aa: Pulling fs layer
+2f4c517abc68: Pulling fs layer
+fa1544dd8a6c: Pulling fs layer
+cdcfc1f345c0: Pulling fs layer
+28a34e70ddc6: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+08bbc171654a: Pulling fs layer
+6ce01310d24d: Pulling fs layer
+2fc90beb372f: Pulling fs layer
+e76cece1a4ed: Pulling fs layer
+17534a994e6b: Pulling fs layer
+4775fdcdd486: Pulling fs layer
+22ce42f18e8a: Pulling fs layer
+36c4d4adba50: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+ae51ca3723e1: Pulling fs layer
+472fd2b58a64: Pulling fs layer
+27ff79a1df6c: Pulling fs layer
+c9054c3e3f0c: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+893e09d2bf43: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+4f4fb700ef54: Already exists
+fed92861eb8a: Download complete
+17534a994e6b: Download complete
+0a5af9a4b9c5: Download complete
+2fc90beb372f: Download complete
+fa1544dd8a6c: Download complete
+c9054c3e3f0c: Download complete
+e76cece1a4ed: Download complete
+22ce42f18e8a: Download complete
+2f4c517abc68: Download complete
+6ce01310d24d: Download complete
+393dcfddc38d: Download complete
+893e09d2bf43: Download complete
+08bbc171654a: Download complete
+4775fdcdd486: Download complete
+36c4d4adba50: Download complete
+cdcfc1f345c0: Download complete
+27ff79a1df6c: Download complete
+e6fdc8487bfe: Download complete
+472fd2b58a64: Download complete
+88ba410f66aa: Download complete
+2f4c517abc68: Pull complete
+e6fdc8487bfe: Pull complete
+3c8a93ca9e12: Download complete
+ae51ca3723e1: Download complete
+7aca9073787e: Download complete
+28a34e70ddc6: Download complete
+7aca9073787e: Pull complete
+17534a994e6b: Pull complete
+0a5af9a4b9c5: Pull complete
+27ff79a1df6c: Pull complete
+4775fdcdd486: Pull complete
+2fc90beb372f: Pull complete
+fed92861eb8a: Pull complete
+fa1544dd8a6c: Pull complete
+88ba410f66aa: Pull complete
+ae51ca3723e1: Pull complete
+3c8a93ca9e12: Pull complete
+4f4fb700ef54: Pull complete
+472fd2b58a64: Pull complete
+c9054c3e3f0c: Pull complete
+6ce01310d24d: Pull complete
+cdcfc1f345c0: Pull complete
+08bbc171654a: Pull complete
+e76cece1a4ed: Pull complete
+22ce42f18e8a: Pull complete
+393dcfddc38d: Pull complete
+893e09d2bf43: Pull complete
+36c4d4adba50: Pull complete
+28a34e70ddc6: Pull complete
+Digest: sha256:4566dbfa83e2769394d8e1191638549f19a48ae63a96e0cbfe4b12c06d38bb09
+Status: Downloaded newer image for vllm/vllm-openai-rocm:v0.16.0
+usage: vllm [-h] [-v] {chat,complete,serve,bench,collect-env,run-batch} ...
+vllm: error: unrecognized arguments: /workspace/benchmarks/single_node/kimik2.5_fp4_mi355x.sh

@@ -1,0 +1,13 @@
+diff --git a/benchmarks/single_node/dsv4_fp4_mi355x_vllm.sh b/benchmarks/single_node/dsv4_fp4_mi355x_vllm.sh
+index 2502cfdc..97fadbdd 100755
+--- a/benchmarks/single_node/dsv4_fp4_mi355x_vllm.sh
++++ b/benchmarks/single_node/dsv4_fp4_mi355x_vllm.sh
+@@ -103,7 +103,7 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/ \

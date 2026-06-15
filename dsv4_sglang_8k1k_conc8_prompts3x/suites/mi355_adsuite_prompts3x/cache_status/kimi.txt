@@ -1,0 +1,7 @@
+group=kimi
+cache_name=models--amd--Kimi-K2.5-MXFP4
+source=/scratch/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
+destination=/scratch/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
+timestamp=2026-06-15T04:45:35Z
+521G	/scratch/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
+status=already_on_persistent_cache

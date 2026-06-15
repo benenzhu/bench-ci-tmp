@@ -1,0 +1,7 @@
+group=dsv4
+cache_name=models--deepseek-ai--DeepSeek-V4-Pro
+source=/scratch/hf_hub_cache/models--deepseek-ai--DeepSeek-V4-Pro
+destination=/scratch/hf_hub_cache/models--deepseek-ai--DeepSeek-V4-Pro
+timestamp=2026-06-15T05:12:38Z
+806G	/scratch/hf_hub_cache/models--deepseek-ai--DeepSeek-V4-Pro
+status=already_on_persistent_cache

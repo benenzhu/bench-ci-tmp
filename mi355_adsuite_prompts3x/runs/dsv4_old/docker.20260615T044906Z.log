@@ -1,0 +1,4 @@
+Unable to find image 'vllm/vllm-openai-rocm:nightly-b50646e5effd7cb5884cd96fdff4c53c18521198' locally
+docker: Error response from daemon: failed to resolve reference "docker.io/vllm/vllm-openai-rocm:nightly-b50646e5effd7cb5884cd96fdff4c53c18521198": docker.io/vllm/vllm-openai-rocm:nightly-b50646e5effd7cb5884cd96fdff4c53c18521198: not found
+
+Run 'docker run --help' for more information

@@ -1,0 +1,4 @@
+model_group,old_label,new_label,old_status,new_status,old_tput_per_gpu,new_tput_per_gpu,measured_gain_x,measured_improvement_pct,expected_old_tput_per_gpu,expected_new_tput_per_gpu,expected_gain_x
+dsv4,dsv4_old,dsv4_new,docker_failed:1,success,,21.32887424788058,,,3.3,23.3,7.060606060606061
+kimi,kimi_old,kimi_new,success,success,24.517506602596864,359.12262861606865,14.64759995529198,1364.759995529198,28.7,374.2,13.038327526132404
+glm,glm_old,glm_new,success,success,16.169319874259486,41.51533759847504,2.567537652870903,156.7537652870903,17.5,44.2,2.525714285714286

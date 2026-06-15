@@ -1,0 +1,2541 @@
+{
+  "total_count": 25,
+  "jobs": [
+    {
+      "id": 66170603614,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNIXg",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603614",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603614",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:22:16Z",
+      "completed_at": "2026-03-07T04:37:43Z",
+      "name": "check-newline",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603614",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 66170603643,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNIew",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603643",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603643",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:22:16Z",
+      "completed_at": "2026-03-08T02:22:16Z",
+      "name": "multi-node 8k1k /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603643",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 66170603659,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNIiw",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603659",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603659",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T04:37:46Z",
+      "completed_at": "2026-03-07T04:37:58Z",
+      "name": "setup",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T04:37:47Z",
+          "completed_at": "2026-03-07T04:37:47Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T04:37:47Z",
+          "completed_at": "2026-03-07T04:37:51Z"
+        },
+        {
+          "name": "Run pip install pydantic",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T04:37:51Z",
+          "completed_at": "2026-03-07T04:37:56Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T04:37:56Z",
+          "completed_at": "2026-03-07T04:37:56Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T04:37:56Z",
+          "completed_at": "2026-03-07T04:37:56Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603659",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000019305,
+      "runner_name": "GitHub Actions 1000019305",
+      "runner_group_id": null,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 66170603709,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNIvQ",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603709",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603709",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T20:40:58Z",
+      "completed_at": "2026-03-07T21:15:19Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T20:40:59Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:08Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T20:41:08Z",
+          "completed_at": "2026-03-07T21:15:13Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T21:15:13Z",
+          "completed_at": "2026-03-07T21:15:13Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T21:15:13Z",
+          "completed_at": "2026-03-07T21:15:14Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T21:15:14Z",
+          "completed_at": "2026-03-07T21:15:15Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T21:15:15Z",
+          "completed_at": "2026-03-07T21:15:15Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T21:15:15Z",
+          "completed_at": "2026-03-07T21:15:15Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T21:15:15Z",
+          "completed_at": "2026-03-07T21:15:15Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T21:15:15Z",
+          "completed_at": "2026-03-07T21:15:15Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T21:15:15Z",
+          "completed_at": "2026-03-07T21:15:16Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T21:15:16Z",
+          "completed_at": "2026-03-07T21:15:16Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603709",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 123,
+      "runner_name": "mi355x-amds_4",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603725,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNIzQ",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603725",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603725",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T06:45:45Z",
+      "completed_at": "2026-03-07T07:15:34Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-16",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T06:45:46Z",
+          "completed_at": "2026-03-07T06:45:51Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T06:45:51Z",
+          "completed_at": "2026-03-07T06:45:51Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T06:45:51Z",
+          "completed_at": "2026-03-07T06:45:56Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T06:45:56Z",
+          "completed_at": "2026-03-07T07:15:30Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T07:15:30Z",
+          "completed_at": "2026-03-07T07:15:30Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T07:15:30Z",
+          "completed_at": "2026-03-07T07:15:31Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T07:15:31Z",
+          "completed_at": "2026-03-07T07:15:32Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T07:15:32Z",
+          "completed_at": "2026-03-07T07:15:32Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T07:15:32Z",
+          "completed_at": "2026-03-07T07:15:32Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T07:15:32Z",
+          "completed_at": "2026-03-07T07:15:32Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T07:15:32Z",
+          "completed_at": "2026-03-07T07:15:32Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T07:15:32Z",
+          "completed_at": "2026-03-07T07:15:33Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T07:15:33Z",
+          "completed_at": "2026-03-07T07:15:33Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603725",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 123,
+      "runner_name": "mi355x-amds_4",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603736,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI2A",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603736",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603736",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T04:38:00Z",
+      "completed_at": "2026-03-07T06:34:23Z",
+      "name": "single-node 1k8k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k8k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-16",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T04:38:01Z",
+          "completed_at": "2026-03-07T04:38:06Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T04:38:06Z",
+          "completed_at": "2026-03-07T04:38:06Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T04:38:06Z",
+          "completed_at": "2026-03-07T04:38:12Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T04:38:12Z",
+          "completed_at": "2026-03-07T06:34:18Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T06:34:18Z",
+          "completed_at": "2026-03-07T06:34:18Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T06:34:18Z",
+          "completed_at": "2026-03-07T06:34:19Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T06:34:19Z",
+          "completed_at": "2026-03-07T06:34:20Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T06:34:20Z",
+          "completed_at": "2026-03-07T06:34:20Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T06:34:20Z",
+          "completed_at": "2026-03-07T06:34:20Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T06:34:20Z",
+          "completed_at": "2026-03-07T06:34:20Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T06:34:20Z",
+          "completed_at": "2026-03-07T06:34:20Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T06:34:20Z",
+          "completed_at": "2026-03-07T06:34:21Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T06:34:21Z",
+          "completed_at": "2026-03-07T06:34:21Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603736",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 123,
+      "runner_name": "mi355x-amds_4",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603741,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI3Q",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603741",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603741",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:22:16Z",
+      "completed_at": "2026-03-08T02:22:16Z",
+      "name": "multi-node 1k8k /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603741",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 66170603743,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI3w",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603743",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603743",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T06:45:45Z",
+      "completed_at": "2026-03-07T08:26:14Z",
+      "name": "single-node 1k8k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k8k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T06:45:46Z",
+          "completed_at": "2026-03-07T06:45:51Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T06:45:51Z",
+          "completed_at": "2026-03-07T06:45:51Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T06:45:51Z",
+          "completed_at": "2026-03-07T06:45:56Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T06:45:56Z",
+          "completed_at": "2026-03-07T08:26:08Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T08:26:08Z",
+          "completed_at": "2026-03-07T08:26:08Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T08:26:08Z",
+          "completed_at": "2026-03-07T08:26:09Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T08:26:09Z",
+          "completed_at": "2026-03-07T08:26:10Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T08:26:10Z",
+          "completed_at": "2026-03-07T08:26:10Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T08:26:10Z",
+          "completed_at": "2026-03-07T08:26:10Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T08:26:10Z",
+          "completed_at": "2026-03-07T08:26:10Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T08:26:10Z",
+          "completed_at": "2026-03-07T08:26:11Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T08:26:11Z",
+          "completed_at": "2026-03-07T08:26:11Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T08:26:11Z",
+          "completed_at": "2026-03-07T08:26:11Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603743",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 122,
+      "runner_name": "mi355x-amds_5",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603746,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI4g",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603746",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603746",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T06:45:45Z",
+      "completed_at": "2026-03-07T07:16:45Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_8k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T06:45:46Z",
+          "completed_at": "2026-03-07T06:45:51Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T06:45:51Z",
+          "completed_at": "2026-03-07T06:45:51Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T06:45:51Z",
+          "completed_at": "2026-03-07T06:45:56Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T06:45:56Z",
+          "completed_at": "2026-03-07T07:16:40Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T07:16:40Z",
+          "completed_at": "2026-03-07T07:16:40Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T07:16:40Z",
+          "completed_at": "2026-03-07T07:16:41Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T07:16:41Z",
+          "completed_at": "2026-03-07T07:16:42Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T07:16:42Z",
+          "completed_at": "2026-03-07T07:16:42Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T07:16:42Z",
+          "completed_at": "2026-03-07T07:16:42Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T07:16:42Z",
+          "completed_at": "2026-03-07T07:16:42Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T07:16:42Z",
+          "completed_at": "2026-03-07T07:16:42Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T07:16:42Z",
+          "completed_at": "2026-03-07T07:16:42Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T07:16:42Z",
+          "completed_at": "2026-03-07T07:16:42Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603746",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 120,
+      "runner_name": "mi355x-amds_3",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603749,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI5Q",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603749",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603749",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:22:16Z",
+      "completed_at": "2026-03-08T02:22:16Z",
+      "name": "multi-node 1k1k /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603749",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 66170603751,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI5w",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603751",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603751",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T20:40:58Z",
+      "completed_at": "2026-03-07T21:10:34Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T20:40:59Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:08Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T20:41:08Z",
+          "completed_at": "2026-03-07T21:10:28Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T21:10:28Z",
+          "completed_at": "2026-03-07T21:10:29Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T21:10:29Z",
+          "completed_at": "2026-03-07T21:10:30Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T21:10:30Z",
+          "completed_at": "2026-03-07T21:10:30Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T21:10:30Z",
+          "completed_at": "2026-03-07T21:10:30Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T21:10:30Z",
+          "completed_at": "2026-03-07T21:10:30Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T21:10:30Z",
+          "completed_at": "2026-03-07T21:10:30Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T21:10:30Z",
+          "completed_at": "2026-03-07T21:10:31Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T21:10:31Z",
+          "completed_at": "2026-03-07T21:10:31Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T21:10:31Z",
+          "completed_at": "2026-03-07T21:10:31Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603751",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 120,
+      "runner_name": "mi355x-amds_3",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603755,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI6w",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603755",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603755",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T04:38:00Z",
+      "completed_at": "2026-03-07T05:06:08Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T04:38:01Z",
+          "completed_at": "2026-03-07T04:38:06Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T04:38:06Z",
+          "completed_at": "2026-03-07T04:38:06Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T04:38:06Z",
+          "completed_at": "2026-03-07T04:38:11Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T04:38:11Z",
+          "completed_at": "2026-03-07T05:05:58Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T05:05:58Z",
+          "completed_at": "2026-03-07T05:05:58Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T05:05:58Z",
+          "completed_at": "2026-03-07T05:06:02Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T05:06:02Z",
+          "completed_at": "2026-03-07T05:06:03Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T05:06:03Z",
+          "completed_at": "2026-03-07T05:06:03Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T05:06:03Z",
+          "completed_at": "2026-03-07T05:06:03Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T05:06:03Z",
+          "completed_at": "2026-03-07T05:06:03Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T05:06:03Z",
+          "completed_at": "2026-03-07T05:06:03Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T05:06:03Z",
+          "completed_at": "2026-03-07T05:06:04Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T05:06:04Z",
+          "completed_at": "2026-03-07T05:06:04Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603755",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 125,
+      "runner_name": "mi355x-amds_8",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603756,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI7A",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603756",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603756",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T20:40:58Z",
+      "completed_at": "2026-03-07T22:52:16Z",
+      "name": "single-node 1k8k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k8k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-32",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T20:40:59Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:08Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T20:41:08Z",
+          "completed_at": "2026-03-07T22:52:11Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T22:52:11Z",
+          "completed_at": "2026-03-07T22:52:11Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T22:52:11Z",
+          "completed_at": "2026-03-07T22:52:12Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T22:52:12Z",
+          "completed_at": "2026-03-07T22:52:13Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T22:52:13Z",
+          "completed_at": "2026-03-07T22:52:13Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T22:52:13Z",
+          "completed_at": "2026-03-07T22:52:13Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T22:52:13Z",
+          "completed_at": "2026-03-07T22:52:13Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T22:52:13Z",
+          "completed_at": "2026-03-07T22:52:14Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T22:52:14Z",
+          "completed_at": "2026-03-07T22:52:14Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T22:52:14Z",
+          "completed_at": "2026-03-07T22:52:14Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603756",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 124,
+      "runner_name": "mi355x-amds_6",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603760,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI8A",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603760",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603760",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T01:37:27Z",
+      "completed_at": "2026-03-08T02:07:09Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_8k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-08T01:37:28Z",
+          "completed_at": "2026-03-08T01:37:32Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-08T01:37:32Z",
+          "completed_at": "2026-03-08T01:37:33Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-08T01:37:33Z",
+          "completed_at": "2026-03-08T01:37:37Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-08T01:37:37Z",
+          "completed_at": "2026-03-08T02:07:04Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-08T02:07:04Z",
+          "completed_at": "2026-03-08T02:07:04Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-08T02:07:04Z",
+          "completed_at": "2026-03-08T02:07:06Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-08T02:07:06Z",
+          "completed_at": "2026-03-08T02:07:06Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-08T02:07:06Z",
+          "completed_at": "2026-03-08T02:07:07Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-08T02:07:07Z",
+          "completed_at": "2026-03-08T02:07:07Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-08T02:07:07Z",
+          "completed_at": "2026-03-08T02:07:07Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-08T02:07:07Z",
+          "completed_at": "2026-03-08T02:07:07Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-08T02:07:07Z",
+          "completed_at": "2026-03-08T02:07:07Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-08T02:07:07Z",
+          "completed_at": "2026-03-08T02:07:07Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603760",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 125,
+      "runner_name": "mi355x-amds_8",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603763,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI8w",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603763",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603763",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T20:40:58Z",
+      "completed_at": "2026-03-07T23:41:39Z",
+      "name": "single-node 1k8k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k8k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-64 | eval",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T20:40:59Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:08Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T20:41:08Z",
+          "completed_at": "2026-03-07T23:41:34Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T23:41:34Z",
+          "completed_at": "2026-03-07T23:41:34Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T23:41:34Z",
+          "completed_at": "2026-03-07T23:41:35Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T23:41:35Z",
+          "completed_at": "2026-03-07T23:41:36Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T23:41:36Z",
+          "completed_at": "2026-03-07T23:41:36Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-03-07T23:41:36Z",
+          "completed_at": "2026-03-07T23:41:37Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-03-07T23:41:37Z",
+          "completed_at": "2026-03-07T23:41:37Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T23:41:37Z",
+          "completed_at": "2026-03-07T23:41:37Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T23:41:37Z",
+          "completed_at": "2026-03-07T23:41:37Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T23:41:37Z",
+          "completed_at": "2026-03-07T23:41:37Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603763",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 121,
+      "runner_name": "mi355x-amds_2",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603766,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI9g",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603766",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603766",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T01:37:27Z",
+      "completed_at": "2026-03-08T02:11:20Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_8k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-16",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-08T01:37:28Z",
+          "completed_at": "2026-03-08T01:37:32Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-08T01:37:32Z",
+          "completed_at": "2026-03-08T01:37:33Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-08T01:37:33Z",
+          "completed_at": "2026-03-08T01:37:37Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-08T01:37:37Z",
+          "completed_at": "2026-03-08T02:11:15Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-08T02:11:15Z",
+          "completed_at": "2026-03-08T02:11:15Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-08T02:11:15Z",
+          "completed_at": "2026-03-08T02:11:16Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-08T02:11:16Z",
+          "completed_at": "2026-03-08T02:11:17Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-08T02:11:17Z",
+          "completed_at": "2026-03-08T02:11:17Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-08T02:11:17Z",
+          "completed_at": "2026-03-08T02:11:17Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-08T02:11:17Z",
+          "completed_at": "2026-03-08T02:11:17Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-08T02:11:17Z",
+          "completed_at": "2026-03-08T02:11:17Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-08T02:11:17Z",
+          "completed_at": "2026-03-08T02:11:18Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-08T02:11:18Z",
+          "completed_at": "2026-03-08T02:11:18Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603766",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 121,
+      "runner_name": "mi355x-amds_2",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603770,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNI-g",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603770",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603770",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T20:40:58Z",
+      "completed_at": "2026-03-07T21:28:35Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_8k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T20:40:59Z",
+          "completed_at": "2026-03-07T20:41:08Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T20:41:08Z",
+          "completed_at": "2026-03-07T20:41:08Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T20:41:08Z",
+          "completed_at": "2026-03-07T20:41:11Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T20:41:11Z",
+          "completed_at": "2026-03-07T21:28:29Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T21:28:29Z",
+          "completed_at": "2026-03-07T21:28:29Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T21:28:29Z",
+          "completed_at": "2026-03-07T21:28:30Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T21:28:30Z",
+          "completed_at": "2026-03-07T21:28:31Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T21:28:31Z",
+          "completed_at": "2026-03-07T21:28:31Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T21:28:31Z",
+          "completed_at": "2026-03-07T21:28:31Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T21:28:31Z",
+          "completed_at": "2026-03-07T21:28:31Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T21:28:31Z",
+          "completed_at": "2026-03-07T21:28:31Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T21:28:31Z",
+          "completed_at": "2026-03-07T21:28:31Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T21:28:31Z",
+          "completed_at": "2026-03-07T21:28:32Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603770",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 119,
+      "runner_name": "mi355x-amds_0",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603782,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNJBg",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603782",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603782",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T04:38:00Z",
+      "completed_at": "2026-03-07T05:09:29Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-32",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T04:38:01Z",
+          "completed_at": "2026-03-07T04:38:06Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T04:38:06Z",
+          "completed_at": "2026-03-07T04:38:06Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T04:38:06Z",
+          "completed_at": "2026-03-07T04:38:11Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T04:38:11Z",
+          "completed_at": "2026-03-07T05:09:24Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T05:09:24Z",
+          "completed_at": "2026-03-07T05:09:24Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T05:09:24Z",
+          "completed_at": "2026-03-07T05:09:25Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T05:09:25Z",
+          "completed_at": "2026-03-07T05:09:26Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T05:09:26Z",
+          "completed_at": "2026-03-07T05:09:26Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T05:09:26Z",
+          "completed_at": "2026-03-07T05:09:26Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T05:09:26Z",
+          "completed_at": "2026-03-07T05:09:26Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T05:09:26Z",
+          "completed_at": "2026-03-07T05:09:27Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T05:09:27Z",
+          "completed_at": "2026-03-07T05:09:27Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T05:09:27Z",
+          "completed_at": "2026-03-07T05:09:27Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603782",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 126,
+      "runner_name": "mi355x-amds_7",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603791,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNJDw",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603791",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603791",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T20:40:58Z",
+      "completed_at": "2026-03-07T22:25:45Z",
+      "name": "single-node 1k8k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_1k8k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T20:40:59Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:08Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T20:41:08Z",
+          "completed_at": "2026-03-07T22:25:40Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T22:25:40Z",
+          "completed_at": "2026-03-07T22:25:40Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T22:25:40Z",
+          "completed_at": "2026-03-07T22:25:41Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T22:25:41Z",
+          "completed_at": "2026-03-07T22:25:42Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T22:25:42Z",
+          "completed_at": "2026-03-07T22:25:42Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T22:25:42Z",
+          "completed_at": "2026-03-07T22:25:42Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T22:25:42Z",
+          "completed_at": "2026-03-07T22:25:42Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T22:25:42Z",
+          "completed_at": "2026-03-07T22:25:42Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T22:25:42Z",
+          "completed_at": "2026-03-07T22:25:43Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T22:25:43Z",
+          "completed_at": "2026-03-07T22:25:43Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603791",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 126,
+      "runner_name": "mi355x-amds_7",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603797,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNJFQ",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603797",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603797",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-07T20:40:58Z",
+      "completed_at": "2026-03-07T21:19:32Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219, zai-org/GLM-5-FP8, glm5, fp... / glm5_8k1k fp8 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-32",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-07T20:40:59Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:04Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-07T20:41:04Z",
+          "completed_at": "2026-03-07T20:41:08Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-07T20:41:08Z",
+          "completed_at": "2026-03-07T21:19:27Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-07T21:19:27Z",
+          "completed_at": "2026-03-07T21:19:27Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-07T21:19:27Z",
+          "completed_at": "2026-03-07T21:19:28Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-03-07T21:19:28Z",
+          "completed_at": "2026-03-07T21:19:28Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-03-07T21:19:28Z",
+          "completed_at": "2026-03-07T21:19:28Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-03-07T21:19:28Z",
+          "completed_at": "2026-03-07T21:19:28Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-03-07T21:19:28Z",
+          "completed_at": "2026-03-07T21:19:28Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-03-07T21:19:28Z",
+          "completed_at": "2026-03-07T21:19:29Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 22,
+          "started_at": "2026-03-07T21:19:29Z",
+          "completed_at": "2026-03-07T21:19:29Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-03-07T21:19:29Z",
+          "completed_at": "2026-03-07T21:19:29Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603797",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 125,
+      "runner_name": "mi355x-amds_8",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 66170603956,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNJtA",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603956",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603956",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:22:18Z",
+      "completed_at": "2026-03-08T02:22:20Z",
+      "name": "trigger-vercel-deploy",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 1,
+          "started_at": "2026-03-08T02:22:19Z",
+          "completed_at": "2026-03-08T02:22:19Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603956",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000019443,
+      "runner_name": "GitHub Actions 1000019443",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 66170603958,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNJtg",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603958",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603958",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:11:23Z",
+      "completed_at": "2026-03-08T02:11:37Z",
+      "name": "collect-evals / collect-evals",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-08T02:11:24Z",
+          "completed_at": "2026-03-08T02:11:26Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-08T02:11:26Z",
+          "completed_at": "2026-03-08T02:11:30Z"
+        },
+        {
+          "name": "Download eval artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-08T02:11:30Z",
+          "completed_at": "2026-03-08T02:11:31Z"
+        },
+        {
+          "name": "Summarize evals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-08T02:11:31Z",
+          "completed_at": "2026-03-08T02:11:34Z"
+        },
+        {
+          "name": "Upload aggregated evals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-08T02:11:34Z",
+          "completed_at": "2026-03-08T02:11:35Z"
+        },
+        {
+          "name": "Cleanup downloaded eval artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-08T02:11:35Z",
+          "completed_at": "2026-03-08T02:11:35Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-03-08T02:11:35Z",
+          "completed_at": "2026-03-08T02:11:35Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-03-08T02:11:35Z",
+          "completed_at": "2026-03-08T02:11:35Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603958",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000019439,
+      "runner_name": "GitHub Actions 1000019439",
+      "runner_group_id": null,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 66170603982,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNJzg",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170603982",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170603982",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:11:22Z",
+      "completed_at": "2026-03-08T02:11:34Z",
+      "name": "collect-results / collect-results",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-08T02:11:23Z",
+          "completed_at": "2026-03-08T02:11:24Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-08T02:11:24Z",
+          "completed_at": "2026-03-08T02:11:28Z"
+        },
+        {
+          "name": "Download JSON artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-08T02:11:28Z",
+          "completed_at": "2026-03-08T02:11:29Z"
+        },
+        {
+          "name": "Print summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-08T02:11:29Z",
+          "completed_at": "2026-03-08T02:11:31Z"
+        },
+        {
+          "name": "Aggregate results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-08T02:11:31Z",
+          "completed_at": "2026-03-08T02:11:32Z"
+        },
+        {
+          "name": "Upload aggregated results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-08T02:11:32Z",
+          "completed_at": "2026-03-08T02:11:32Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-03-08T02:11:32Z",
+          "completed_at": "2026-03-08T02:11:32Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-03-08T02:11:32Z",
+          "completed_at": "2026-03-08T02:11:32Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170603982",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000019438,
+      "runner_name": "GitHub Actions 1000019438",
+      "runner_group_id": null,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 66170604109,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNKTQ",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170604109",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170604109",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:11:36Z",
+      "completed_at": "2026-03-08T02:11:41Z",
+      "name": "upload-changelog-metadata",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-08T02:11:37Z",
+          "completed_at": "2026-03-08T02:11:39Z"
+        },
+        {
+          "name": "Extract and save changelog metadata",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-08T02:11:39Z",
+          "completed_at": "2026-03-08T02:11:39Z"
+        },
+        {
+          "name": "Upload changelog artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-08T02:11:39Z",
+          "completed_at": "2026-03-08T02:11:40Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-08T02:11:40Z",
+          "completed_at": "2026-03-08T02:11:40Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170604109",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000019441,
+      "runner_name": "GitHub Actions 1000019441",
+      "runner_group_id": null,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 66170604110,
+      "run_id": 22792161490,
+      "workflow_name": "Run Sweep - feat: add GLM-5 FP8 SGLang benchmark for MI355X (#762)\n\n* feat: add GLM-5 FP8 SGLang benchmark for MI355X\n\nAdd single-node benchmark configuration for GLM-5 FP8 on MI355X:\n- Config key: glm5-fp8-mi355x-sglang\n- Model: zai-org/GLM-5-FP8 with NSA tilelang backends\n- Image: rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219\n- TP=8, concurrency 4-64 for 1k1k, 1k8k, and 8k1k\n\nCloses #761\n\nCo-authored-by: functionstackx <functionstackx@users.noreply.github.com>\n\n* fix: install latest transformers for...",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/22792161490",
+      "run_attempt": 5,
+      "node_id": "CR_kwDOPLfvps8AAAAPaBNKTg",
+      "head_sha": "f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/66170604110",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/22792161490/job/66170604110",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-03-08T02:22:16Z",
+      "started_at": "2026-03-08T02:11:36Z",
+      "completed_at": "2026-03-08T02:11:58Z",
+      "name": "calc-success-rate",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-03-08T02:11:37Z",
+          "completed_at": "2026-03-08T02:11:40Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-03-08T02:11:40Z",
+          "completed_at": "2026-03-08T02:11:44Z"
+        },
+        {
+          "name": "Download results artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-03-08T02:11:44Z",
+          "completed_at": "2026-03-08T02:11:45Z"
+        },
+        {
+          "name": "Install python dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-03-08T02:11:45Z",
+          "completed_at": "2026-03-08T02:11:47Z"
+        },
+        {
+          "name": "Calculate success rate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-03-08T02:11:47Z",
+          "completed_at": "2026-03-08T02:11:55Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-03-08T02:11:55Z",
+          "completed_at": "2026-03-08T02:11:56Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-03-08T02:11:56Z",
+          "completed_at": "2026-03-08T02:11:56Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-03-08T02:11:56Z",
+          "completed_at": "2026-03-08T02:11:56Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/66170604110",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000019440,
+      "runner_name": "GitHub Actions 1000019440",
+      "runner_group_id": null,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

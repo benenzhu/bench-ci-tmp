@@ -1,0 +1,13 @@
+diff --git a/benchmarks/single_node/glm5_fp8_mi355x.sh b/benchmarks/single_node/glm5_fp8_mi355x.sh
+index 668120e5..35811651 100755
+--- a/benchmarks/single_node/glm5_fp8_mi355x.sh
++++ b/benchmarks/single_node/glm5_fp8_mi355x.sh
+@@ -65,7 +65,7 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/
