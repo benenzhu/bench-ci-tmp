@@ -1,0 +1,7 @@
+timestamp=2026-06-16T10:14:59Z
+MODEL_DIR=/scratch/hf_hub_cache
+MODEL_CACHE_ROOT=/scratch/hf_hub_cache/models--deepseek-ai--DeepSeek-V4-Pro
+806G	/scratch/hf_hub_cache/models--deepseek-ai--DeepSeek-V4-Pro
+status=already_on_persistent_scratch
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vdc1        40T  2.6T   36T   7% /scratch

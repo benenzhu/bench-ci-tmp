@@ -1,0 +1,3653 @@
+{
+  "total_count": 32,
+  "jobs": [
+    {
+      "id": 74071437605,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwBxJQ",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071437605",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071437605",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:29Z",
+      "started_at": "2026-05-02T21:26:31Z",
+      "completed_at": "2026-05-02T21:26:47Z",
+      "name": "setup",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:32Z",
+          "completed_at": "2026-05-02T21:26:32Z"
+        },
+        {
+          "name": "Reject conflicting sweep labels",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:32Z",
+          "completed_at": "2026-05-02T21:26:32Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:32Z",
+          "completed_at": "2026-05-02T21:26:39Z"
+        },
+        {
+          "name": "Run pip install pydantic",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-05-02T21:26:39Z",
+          "completed_at": "2026-05-02T21:26:45Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-05-02T21:26:45Z",
+          "completed_at": "2026-05-02T21:26:45Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-05-02T21:26:45Z",
+          "completed_at": "2026-05-02T21:26:45Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071437605",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000048975,
+      "runner_name": "GitHub Actions 1000048975",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 74071437772,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwBxzA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071437772",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071437772",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-05-02T21:26:29Z",
+      "started_at": "2026-05-02T21:26:29Z",
+      "completed_at": "2026-05-02T21:26:29Z",
+      "name": "check-newline",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071437772",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 74071450384,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjEA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450384",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450384",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:47Z",
+      "completed_at": "2026-05-02T21:26:47Z",
+      "name": "multi-node 1k1k /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450384",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 74071450416,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjMA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450416",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450416",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:47Z",
+      "completed_at": "2026-05-02T21:26:47Z",
+      "name": "agentic /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450416",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 74071450420,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjNA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450420",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450420",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:47Z",
+      "completed_at": "2026-05-02T21:26:47Z",
+      "name": "multi-node eval /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450420",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 74071450451,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjUw",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450451",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450451",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:47Z",
+      "completed_at": "2026-05-02T21:26:47Z",
+      "name": "multi-node 8k1k /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450451",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 74071450458,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjWg",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450458",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450458",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T22:00:59Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_1k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-128",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T22:00:53Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:00:53Z",
+          "completed_at": "2026-05-02T22:00:53Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:00:53Z",
+          "completed_at": "2026-05-02T22:00:54Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:00:54Z",
+          "completed_at": "2026-05-02T22:00:54Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:00:54Z",
+          "completed_at": "2026-05-02T22:00:54Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:00:54Z",
+          "completed_at": "2026-05-02T22:00:55Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:00:55Z",
+          "completed_at": "2026-05-02T22:00:57Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:00:57Z",
+          "completed_at": "2026-05-02T22:00:57Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:00:57Z",
+          "completed_at": "2026-05-02T22:00:57Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:00:57Z",
+          "completed_at": "2026-05-02T22:00:57Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:00:57Z",
+          "completed_at": "2026-05-02T22:00:57Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:00:57Z",
+          "completed_at": "2026-05-02T22:00:57Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:00:57Z",
+          "completed_at": "2026-05-02T22:00:58Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450458",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 275,
+      "runner_name": "mi355x-amds_08",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450464,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjYA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450464",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450464",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T21:55:04Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_1k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T21:54:58Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T21:54:58Z",
+          "completed_at": "2026-05-02T21:54:58Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T21:54:58Z",
+          "completed_at": "2026-05-02T21:54:59Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T21:54:59Z",
+          "completed_at": "2026-05-02T21:54:59Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T21:54:59Z",
+          "completed_at": "2026-05-02T21:54:59Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T21:54:59Z",
+          "completed_at": "2026-05-02T21:55:00Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T21:55:00Z",
+          "completed_at": "2026-05-02T21:55:01Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T21:55:01Z",
+          "completed_at": "2026-05-02T21:55:01Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T21:55:01Z",
+          "completed_at": "2026-05-02T21:55:01Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T21:55:01Z",
+          "completed_at": "2026-05-02T21:55:01Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T21:55:01Z",
+          "completed_at": "2026-05-02T21:55:01Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T21:55:01Z",
+          "completed_at": "2026-05-02T21:55:02Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T21:55:02Z",
+          "completed_at": "2026-05-02T21:55:02Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450464",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 269,
+      "runner_name": "mi355x-amds_05",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450465,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjYQ",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450465",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450465",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:55:05Z",
+      "completed_at": "2026-05-02T22:31:08Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_1k1k fp4 mi355x sglang | tp=8 ep=1 dpa=true | disagg-false spec-none conc-16",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:55:05Z",
+          "completed_at": "2026-05-02T21:55:10Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:55:10Z",
+          "completed_at": "2026-05-02T21:55:11Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:55:11Z",
+          "completed_at": "2026-05-02T21:55:16Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:55:16Z",
+          "completed_at": "2026-05-02T21:55:16Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:55:16Z",
+          "completed_at": "2026-05-02T22:31:02Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:31:02Z",
+          "completed_at": "2026-05-02T22:31:02Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:31:02Z",
+          "completed_at": "2026-05-02T22:31:03Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:31:03Z",
+          "completed_at": "2026-05-02T22:31:03Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:31:03Z",
+          "completed_at": "2026-05-02T22:31:03Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:31:03Z",
+          "completed_at": "2026-05-02T22:31:04Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:31:04Z",
+          "completed_at": "2026-05-02T22:31:05Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:31:05Z",
+          "completed_at": "2026-05-02T22:31:05Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:31:05Z",
+          "completed_at": "2026-05-02T22:31:05Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:31:05Z",
+          "completed_at": "2026-05-02T22:31:05Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:31:05Z",
+          "completed_at": "2026-05-02T22:31:06Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:31:06Z",
+          "completed_at": "2026-05-02T22:31:06Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:31:06Z",
+          "completed_at": "2026-05-02T22:31:06Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450465",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 269,
+      "runner_name": "mi355x-amds_05",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450472,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjaA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450472",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450472",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T22:08:09Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_1k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-256",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T22:08:02Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:08:02Z",
+          "completed_at": "2026-05-02T22:08:02Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:08:02Z",
+          "completed_at": "2026-05-02T22:08:03Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:08:03Z",
+          "completed_at": "2026-05-02T22:08:03Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:08:03Z",
+          "completed_at": "2026-05-02T22:08:03Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:08:03Z",
+          "completed_at": "2026-05-02T22:08:04Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:08:04Z",
+          "completed_at": "2026-05-02T22:08:05Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:08:05Z",
+          "completed_at": "2026-05-02T22:08:05Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:08:05Z",
+          "completed_at": "2026-05-02T22:08:05Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:08:05Z",
+          "completed_at": "2026-05-02T22:08:05Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:08:05Z",
+          "completed_at": "2026-05-02T22:08:06Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:08:06Z",
+          "completed_at": "2026-05-02T22:08:07Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:08:07Z",
+          "completed_at": "2026-05-02T22:08:07Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450472",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 276,
+      "runner_name": "mi355x-amds_04",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450473,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjaQ",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450473",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450473",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T22:01:27Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_1k1k fp4 mi355x sglang | tp=8 ep=1 dpa=true | disagg-false spec-none conc-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:03Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:03Z",
+          "completed_at": "2026-05-02T21:27:03Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:03Z",
+          "completed_at": "2026-05-02T22:01:21Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:01:21Z",
+          "completed_at": "2026-05-02T22:01:21Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:01:21Z",
+          "completed_at": "2026-05-02T22:01:22Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:01:22Z",
+          "completed_at": "2026-05-02T22:01:22Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:01:22Z",
+          "completed_at": "2026-05-02T22:01:22Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:01:22Z",
+          "completed_at": "2026-05-02T22:01:23Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:01:23Z",
+          "completed_at": "2026-05-02T22:01:24Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:01:24Z",
+          "completed_at": "2026-05-02T22:01:24Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:01:24Z",
+          "completed_at": "2026-05-02T22:01:24Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:01:24Z",
+          "completed_at": "2026-05-02T22:01:24Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:01:24Z",
+          "completed_at": "2026-05-02T22:01:24Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:01:24Z",
+          "completed_at": "2026-05-02T22:01:25Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:01:25Z",
+          "completed_at": "2026-05-02T22:01:25Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450473",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 271,
+      "runner_name": "mi355x-amds_06",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450480,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjcA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450480",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450480",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T22:00:51Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_1k1k fp4 mi355x sglang | tp=8 ep=1 dpa=true | disagg-false spec-none conc-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:03Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:03Z",
+          "completed_at": "2026-05-02T21:27:03Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:03Z",
+          "completed_at": "2026-05-02T22:00:45Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:00:45Z",
+          "completed_at": "2026-05-02T22:00:45Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:00:45Z",
+          "completed_at": "2026-05-02T22:00:46Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:00:46Z",
+          "completed_at": "2026-05-02T22:00:46Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:00:46Z",
+          "completed_at": "2026-05-02T22:00:46Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:00:46Z",
+          "completed_at": "2026-05-02T22:00:47Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:00:47Z",
+          "completed_at": "2026-05-02T22:00:48Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:00:48Z",
+          "completed_at": "2026-05-02T22:00:48Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:00:48Z",
+          "completed_at": "2026-05-02T22:00:48Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:00:48Z",
+          "completed_at": "2026-05-02T22:00:48Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:00:48Z",
+          "completed_at": "2026-05-02T22:00:48Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:00:48Z",
+          "completed_at": "2026-05-02T22:00:49Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:00:49Z",
+          "completed_at": "2026-05-02T22:00:49Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450480",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 272,
+      "runner_name": "mi355x-amds_00",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450504,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjiA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450504",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450504",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T22:01:28Z",
+      "completed_at": "2026-05-02T22:36:29Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_1k1k fp4 mi355x sglang | tp=8 ep=1 dpa=true | disagg-false spec-none conc-2",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T22:01:29Z",
+          "completed_at": "2026-05-02T22:01:34Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T22:01:34Z",
+          "completed_at": "2026-05-02T22:01:35Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T22:01:35Z",
+          "completed_at": "2026-05-02T22:01:41Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T22:01:41Z",
+          "completed_at": "2026-05-02T22:01:41Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T22:01:41Z",
+          "completed_at": "2026-05-02T22:36:24Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:36:24Z",
+          "completed_at": "2026-05-02T22:36:24Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:36:24Z",
+          "completed_at": "2026-05-02T22:36:25Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:36:25Z",
+          "completed_at": "2026-05-02T22:36:25Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:36:25Z",
+          "completed_at": "2026-05-02T22:36:25Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:36:25Z",
+          "completed_at": "2026-05-02T22:36:26Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:36:26Z",
+          "completed_at": "2026-05-02T22:36:27Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:36:27Z",
+          "completed_at": "2026-05-02T22:36:27Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:36:27Z",
+          "completed_at": "2026-05-02T22:36:27Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:36:27Z",
+          "completed_at": "2026-05-02T22:36:27Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:36:27Z",
+          "completed_at": "2026-05-02T22:36:27Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:36:27Z",
+          "completed_at": "2026-05-02T22:36:28Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:36:28Z",
+          "completed_at": "2026-05-02T22:36:28Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450504",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 271,
+      "runner_name": "mi355x-amds_06",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450515,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjkw",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450515",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450515",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T22:05:32Z",
+      "name": "single-node 1k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_1k1k fp4 mi355x sglang | tp=8 ep=1 dpa=true | disagg-false spec-none conc-32",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:03Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:03Z",
+          "completed_at": "2026-05-02T21:27:03Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:03Z",
+          "completed_at": "2026-05-02T22:05:25Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:05:25Z",
+          "completed_at": "2026-05-02T22:05:25Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:05:25Z",
+          "completed_at": "2026-05-02T22:05:26Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:05:26Z",
+          "completed_at": "2026-05-02T22:05:26Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:05:26Z",
+          "completed_at": "2026-05-02T22:05:26Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:05:26Z",
+          "completed_at": "2026-05-02T22:05:27Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:05:27Z",
+          "completed_at": "2026-05-02T22:05:28Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:05:28Z",
+          "completed_at": "2026-05-02T22:05:28Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:05:28Z",
+          "completed_at": "2026-05-02T22:05:28Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:05:28Z",
+          "completed_at": "2026-05-02T22:05:28Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:05:28Z",
+          "completed_at": "2026-05-02T22:05:29Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:05:29Z",
+          "completed_at": "2026-05-02T22:05:29Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:05:29Z",
+          "completed_at": "2026-05-02T22:05:30Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450515",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 273,
+      "runner_name": "mi355x-amds_07",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450518,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjlg",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450518",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450518",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T23:00:09Z",
+      "name": "eval / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro, dsv4, fp4,... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-64 | eval-only",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T23:00:01Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-05-02T23:00:01Z",
+          "completed_at": "2026-05-02T23:00:01Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2026-05-02T23:00:01Z",
+          "completed_at": "2026-05-02T23:00:01Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T23:00:01Z",
+          "completed_at": "2026-05-02T23:00:01Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T23:00:01Z",
+          "completed_at": "2026-05-02T23:00:01Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T23:00:01Z",
+          "completed_at": "2026-05-02T23:00:02Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T23:00:02Z",
+          "completed_at": "2026-05-02T23:00:04Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-05-02T23:00:04Z",
+          "completed_at": "2026-05-02T23:00:06Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 13,
+          "started_at": "2026-05-02T23:00:06Z",
+          "completed_at": "2026-05-02T23:00:06Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-05-02T23:00:06Z",
+          "completed_at": "2026-05-02T23:00:06Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T23:00:06Z",
+          "completed_at": "2026-05-02T23:00:06Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T23:00:06Z",
+          "completed_at": "2026-05-02T23:00:07Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T23:00:07Z",
+          "completed_at": "2026-05-02T23:00:07Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450518",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 270,
+      "runner_name": "mi355x-amds_02",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450522,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjmg",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450522",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450522",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T22:01:47Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-32",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T21:27:02Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:02Z",
+          "completed_at": "2026-05-02T22:01:40Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:01:40Z",
+          "completed_at": "2026-05-02T22:01:40Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:01:40Z",
+          "completed_at": "2026-05-02T22:01:41Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:01:41Z",
+          "completed_at": "2026-05-02T22:01:41Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:01:41Z",
+          "completed_at": "2026-05-02T22:01:41Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:01:41Z",
+          "completed_at": "2026-05-02T22:01:42Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:01:42Z",
+          "completed_at": "2026-05-02T22:01:43Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:01:43Z",
+          "completed_at": "2026-05-02T22:01:43Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:01:43Z",
+          "completed_at": "2026-05-02T22:01:43Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:01:43Z",
+          "completed_at": "2026-05-02T22:01:43Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:01:43Z",
+          "completed_at": "2026-05-02T22:01:44Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:01:44Z",
+          "completed_at": "2026-05-02T22:01:44Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:01:44Z",
+          "completed_at": "2026-05-02T22:01:44Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450522",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 274,
+      "runner_name": "mi355x-amds_01",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450529,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjoQ",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450529",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450529",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:47Z",
+      "completed_at": "2026-05-02T21:26:47Z",
+      "name": "multi-node agentic /",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450529",
+      "labels": [
+
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 74071450532,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjpA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450532",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450532",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T22:00:52Z",
+      "completed_at": "2026-05-02T23:35:36Z",
+      "name": "eval / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro, dsv4, fp4,... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-128 | eval-only",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T22:00:53Z",
+          "completed_at": "2026-05-02T22:00:58Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T22:00:58Z",
+          "completed_at": "2026-05-02T22:00:58Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T22:00:58Z",
+          "completed_at": "2026-05-02T22:01:05Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-05-02T22:01:05Z",
+          "completed_at": "2026-05-02T22:01:05Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T22:01:05Z",
+          "completed_at": "2026-05-02T23:35:28Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 6,
+          "started_at": "2026-05-02T23:35:28Z",
+          "completed_at": "2026-05-02T23:35:28Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 7,
+          "started_at": "2026-05-02T23:35:28Z",
+          "completed_at": "2026-05-02T23:35:28Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T23:35:28Z",
+          "completed_at": "2026-05-02T23:35:28Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T23:35:28Z",
+          "completed_at": "2026-05-02T23:35:28Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T23:35:28Z",
+          "completed_at": "2026-05-02T23:35:30Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T23:35:30Z",
+          "completed_at": "2026-05-02T23:35:31Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-05-02T23:35:31Z",
+          "completed_at": "2026-05-02T23:35:33Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 13,
+          "started_at": "2026-05-02T23:35:33Z",
+          "completed_at": "2026-05-02T23:35:34Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14,
+          "started_at": "2026-05-02T23:35:34Z",
+          "completed_at": "2026-05-02T23:35:34Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T23:35:34Z",
+          "completed_at": "2026-05-02T23:35:34Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T23:35:34Z",
+          "completed_at": "2026-05-02T23:35:35Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T23:35:35Z",
+          "completed_at": "2026-05-02T23:35:35Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450532",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 272,
+      "runner_name": "mi355x-amds_00",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450539,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjqw",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450539",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450539",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T22:01:48Z",
+      "completed_at": "2026-05-02T22:42:13Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-8",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T22:01:49Z",
+          "completed_at": "2026-05-02T22:01:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T22:01:55Z",
+          "completed_at": "2026-05-02T22:01:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T22:01:55Z",
+          "completed_at": "2026-05-02T22:02:01Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T22:02:01Z",
+          "completed_at": "2026-05-02T22:02:01Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T22:02:01Z",
+          "completed_at": "2026-05-02T22:42:07Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:42:07Z",
+          "completed_at": "2026-05-02T22:42:07Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:42:07Z",
+          "completed_at": "2026-05-02T22:42:08Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:42:08Z",
+          "completed_at": "2026-05-02T22:42:08Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:42:08Z",
+          "completed_at": "2026-05-02T22:42:08Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:42:08Z",
+          "completed_at": "2026-05-02T22:42:09Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:42:09Z",
+          "completed_at": "2026-05-02T22:42:10Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:42:10Z",
+          "completed_at": "2026-05-02T22:42:10Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:42:10Z",
+          "completed_at": "2026-05-02T22:42:10Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:42:10Z",
+          "completed_at": "2026-05-02T22:42:10Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:42:10Z",
+          "completed_at": "2026-05-02T22:42:10Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:42:10Z",
+          "completed_at": "2026-05-02T22:42:11Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:42:11Z",
+          "completed_at": "2026-05-02T22:42:11Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450539",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 274,
+      "runner_name": "mi355x-amds_01",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450540,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjrA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450540",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450540",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T22:01:00Z",
+      "completed_at": "2026-05-02T22:59:40Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-128",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T22:01:02Z",
+          "completed_at": "2026-05-02T22:01:07Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T22:01:07Z",
+          "completed_at": "2026-05-02T22:01:07Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T22:01:07Z",
+          "completed_at": "2026-05-02T22:01:13Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T22:01:13Z",
+          "completed_at": "2026-05-02T22:01:13Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T22:01:13Z",
+          "completed_at": "2026-05-02T22:59:33Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:59:33Z",
+          "completed_at": "2026-05-02T22:59:34Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:59:34Z",
+          "completed_at": "2026-05-02T22:59:35Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:59:35Z",
+          "completed_at": "2026-05-02T22:59:35Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:59:35Z",
+          "completed_at": "2026-05-02T22:59:35Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:59:35Z",
+          "completed_at": "2026-05-02T22:59:36Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:59:36Z",
+          "completed_at": "2026-05-02T22:59:37Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:59:37Z",
+          "completed_at": "2026-05-02T22:59:37Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:59:37Z",
+          "completed_at": "2026-05-02T22:59:37Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:59:37Z",
+          "completed_at": "2026-05-02T22:59:37Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:59:37Z",
+          "completed_at": "2026-05-02T22:59:37Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:59:37Z",
+          "completed_at": "2026-05-02T22:59:38Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:59:38Z",
+          "completed_at": "2026-05-02T22:59:38Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450540",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 275,
+      "runner_name": "mi355x-amds_08",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450543,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjrw",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450543",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450543",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T21:26:48Z",
+      "completed_at": "2026-05-02T22:02:01Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-2",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T21:26:49Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:26:55Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T21:26:55Z",
+          "completed_at": "2026-05-02T21:27:03Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T21:27:03Z",
+          "completed_at": "2026-05-02T21:27:03Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T21:27:03Z",
+          "completed_at": "2026-05-02T22:01:54Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:01:54Z",
+          "completed_at": "2026-05-02T22:01:54Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:01:54Z",
+          "completed_at": "2026-05-02T22:01:55Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:01:55Z",
+          "completed_at": "2026-05-02T22:01:55Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:01:55Z",
+          "completed_at": "2026-05-02T22:01:55Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:01:55Z",
+          "completed_at": "2026-05-02T22:01:56Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:01:56Z",
+          "completed_at": "2026-05-02T22:01:57Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:01:57Z",
+          "completed_at": "2026-05-02T22:01:57Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:01:57Z",
+          "completed_at": "2026-05-02T22:01:57Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:01:57Z",
+          "completed_at": "2026-05-02T22:01:57Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:01:57Z",
+          "completed_at": "2026-05-02T22:01:57Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:01:58Z",
+          "completed_at": "2026-05-02T22:01:58Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:01:58Z",
+          "completed_at": "2026-05-02T22:01:58Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450543",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 268,
+      "runner_name": "mi355x-amds_03",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450563,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjww",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450563",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450563",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T22:06:23Z",
+      "completed_at": "2026-05-02T22:44:18Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-4",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T22:06:24Z",
+          "completed_at": "2026-05-02T22:06:29Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T22:06:29Z",
+          "completed_at": "2026-05-02T22:06:29Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T22:06:29Z",
+          "completed_at": "2026-05-02T22:06:38Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T22:06:38Z",
+          "completed_at": "2026-05-02T22:06:38Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T22:06:38Z",
+          "completed_at": "2026-05-02T22:44:12Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:44:12Z",
+          "completed_at": "2026-05-02T22:44:13Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:44:13Z",
+          "completed_at": "2026-05-02T22:44:13Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:44:13Z",
+          "completed_at": "2026-05-02T22:44:13Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:44:13Z",
+          "completed_at": "2026-05-02T22:44:13Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:44:13Z",
+          "completed_at": "2026-05-02T22:44:14Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:44:14Z",
+          "completed_at": "2026-05-02T22:44:16Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:44:16Z",
+          "completed_at": "2026-05-02T22:44:16Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:44:16Z",
+          "completed_at": "2026-05-02T22:44:16Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:44:16Z",
+          "completed_at": "2026-05-02T22:44:16Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:44:16Z",
+          "completed_at": "2026-05-02T22:44:16Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:44:16Z",
+          "completed_at": "2026-05-02T22:44:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:44:17Z",
+          "completed_at": "2026-05-02T22:44:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450563",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 273,
+      "runner_name": "mi355x-amds_07",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450567,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjxw",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450567",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450567",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T22:31:59Z",
+      "completed_at": "2026-05-02T23:01:00Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-16",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T22:32:00Z",
+          "completed_at": "2026-05-02T22:32:05Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T22:32:05Z",
+          "completed_at": "2026-05-02T22:32:05Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T22:32:05Z",
+          "completed_at": "2026-05-02T22:32:10Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T22:32:10Z",
+          "completed_at": "2026-05-02T22:32:10Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T22:32:10Z",
+          "completed_at": "2026-05-02T23:00:55Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T23:00:55Z",
+          "completed_at": "2026-05-02T23:00:55Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T23:00:55Z",
+          "completed_at": "2026-05-02T23:00:56Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T23:00:56Z",
+          "completed_at": "2026-05-02T23:00:56Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T23:00:56Z",
+          "completed_at": "2026-05-02T23:00:56Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T23:00:56Z",
+          "completed_at": "2026-05-02T23:00:57Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T23:00:57Z",
+          "completed_at": "2026-05-02T23:00:58Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T23:00:58Z",
+          "completed_at": "2026-05-02T23:00:58Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T23:00:58Z",
+          "completed_at": "2026-05-02T23:00:58Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T23:00:58Z",
+          "completed_at": "2026-05-02T23:00:58Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T23:00:58Z",
+          "completed_at": "2026-05-02T23:00:58Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T23:00:58Z",
+          "completed_at": "2026-05-02T23:00:59Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T23:00:59Z",
+          "completed_at": "2026-05-02T23:00:59Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450567",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 269,
+      "runner_name": "mi355x-amds_05",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450568,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjyA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450568",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450568",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T22:02:02Z",
+      "completed_at": "2026-05-02T22:36:14Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=1 dpa=false | disagg-false spec-none conc-1",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T22:02:03Z",
+          "completed_at": "2026-05-02T22:02:07Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T22:02:07Z",
+          "completed_at": "2026-05-02T22:02:07Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T22:02:07Z",
+          "completed_at": "2026-05-02T22:02:13Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T22:02:13Z",
+          "completed_at": "2026-05-02T22:02:13Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T22:02:13Z",
+          "completed_at": "2026-05-02T22:36:08Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:36:08Z",
+          "completed_at": "2026-05-02T22:36:08Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:36:08Z",
+          "completed_at": "2026-05-02T22:36:09Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:36:09Z",
+          "completed_at": "2026-05-02T22:36:09Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:36:09Z",
+          "completed_at": "2026-05-02T22:36:09Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:36:09Z",
+          "completed_at": "2026-05-02T22:36:10Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:36:10Z",
+          "completed_at": "2026-05-02T22:36:11Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:36:11Z",
+          "completed_at": "2026-05-02T22:36:11Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:36:11Z",
+          "completed_at": "2026-05-02T22:36:11Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:36:11Z",
+          "completed_at": "2026-05-02T22:36:11Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:36:11Z",
+          "completed_at": "2026-05-02T22:36:11Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:36:11Z",
+          "completed_at": "2026-05-02T22:36:12Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:36:12Z",
+          "completed_at": "2026-05-02T22:36:13Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450568",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 268,
+      "runner_name": "mi355x-amds_03",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74071450575,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARPwCjzw",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74071450575",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74071450575",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T21:26:47Z",
+      "started_at": "2026-05-02T22:08:10Z",
+      "completed_at": "2026-05-02T22:52:47Z",
+      "name": "single-node 8k1k / (rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4, deepseek-ai/DeepSeek-V4-Pro... / dsv4_8k1k fp4 mi355x sglang | tp=8 ep=8 dpa=true | disagg-false spec-none conc-64",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T22:08:11Z",
+          "completed_at": "2026-05-02T22:08:16Z"
+        },
+        {
+          "name": "Resource cleanup (pre-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T22:08:16Z",
+          "completed_at": "2026-05-02T22:08:16Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T22:08:16Z",
+          "completed_at": "2026-05-02T22:08:22Z"
+        },
+        {
+          "name": "Cleanup stale eval outputs (pre-run)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 4,
+          "started_at": "2026-05-02T22:08:22Z",
+          "completed_at": "2026-05-02T22:08:22Z"
+        },
+        {
+          "name": "Launch job script",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T22:08:22Z",
+          "completed_at": "2026-05-02T22:52:39Z"
+        },
+        {
+          "name": "Process result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T22:52:39Z",
+          "completed_at": "2026-05-02T22:52:40Z"
+        },
+        {
+          "name": "Upload result",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-05-02T22:52:40Z",
+          "completed_at": "2026-05-02T22:52:41Z"
+        },
+        {
+          "name": "Upload agentic aggregated result",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-05-02T22:52:41Z",
+          "completed_at": "2026-05-02T22:52:41Z"
+        },
+        {
+          "name": "Upload agentic raw results",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-05-02T22:52:41Z",
+          "completed_at": "2026-05-02T22:52:41Z"
+        },
+        {
+          "name": "Upload server logs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-05-02T22:52:41Z",
+          "completed_at": "2026-05-02T22:52:42Z"
+        },
+        {
+          "name": "Upload GPU metrics",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-05-02T22:52:42Z",
+          "completed_at": "2026-05-02T22:52:43Z"
+        },
+        {
+          "name": "Upload eval results (if any)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-05-02T22:52:43Z",
+          "completed_at": "2026-05-02T22:52:43Z"
+        },
+        {
+          "name": "Verify eval scores",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-05-02T22:52:43Z",
+          "completed_at": "2026-05-02T22:52:43Z"
+        },
+        {
+          "name": "Cleanup eval outputs (post-upload)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-05-02T22:52:43Z",
+          "completed_at": "2026-05-02T22:52:43Z"
+        },
+        {
+          "name": "Resource cleanup (post-run)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-05-02T22:52:43Z",
+          "completed_at": "2026-05-02T22:52:43Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-05-02T22:52:43Z",
+          "completed_at": "2026-05-02T22:52:44Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-05-02T22:52:44Z",
+          "completed_at": "2026-05-02T22:52:44Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74071450575",
+      "labels": [
+        "mi355x"
+      ],
+      "runner_id": 276,
+      "runner_name": "mi355x-amds_04",
+      "runner_group_id": 1,
+      "runner_group_name": "Default"
+    },
+    {
+      "id": 74075790004,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARP0LatA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74075790004",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74075790004",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T23:01:01Z",
+      "started_at": "2026-05-02T23:01:03Z",
+      "completed_at": "2026-05-02T23:01:18Z",
+      "name": "collect-results / collect-results",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T23:01:03Z",
+          "completed_at": "2026-05-02T23:01:05Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T23:01:05Z",
+          "completed_at": "2026-05-02T23:01:12Z"
+        },
+        {
+          "name": "Download JSON artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T23:01:12Z",
+          "completed_at": "2026-05-02T23:01:13Z"
+        },
+        {
+          "name": "Print summary",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-05-02T23:01:13Z",
+          "completed_at": "2026-05-02T23:01:15Z"
+        },
+        {
+          "name": "Aggregate results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T23:01:15Z",
+          "completed_at": "2026-05-02T23:01:16Z"
+        },
+        {
+          "name": "Upload aggregated results",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T23:01:16Z",
+          "completed_at": "2026-05-02T23:01:16Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-05-02T23:01:16Z",
+          "completed_at": "2026-05-02T23:01:17Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-05-02T23:01:17Z",
+          "completed_at": "2026-05-02T23:01:17Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74075790004",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000049034,
+      "runner_name": "GitHub Actions 1000049034",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 74075802941,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARP0MNPQ",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74075802941",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74075802941",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T23:01:19Z",
+      "started_at": "2026-05-02T23:01:21Z",
+      "completed_at": "2026-05-02T23:01:39Z",
+      "name": "calc-success-rate",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T23:01:22Z",
+          "completed_at": "2026-05-02T23:01:24Z"
+        },
+        {
+          "name": "Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T23:01:24Z",
+          "completed_at": "2026-05-02T23:01:31Z"
+        },
+        {
+          "name": "Download results artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T23:01:31Z",
+          "completed_at": "2026-05-02T23:01:31Z"
+        },
+        {
+          "name": "Install python dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-05-02T23:01:31Z",
+          "completed_at": "2026-05-02T23:01:34Z"
+        },
+        {
+          "name": "Calculate success rate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T23:01:34Z",
+          "completed_at": "2026-05-02T23:01:37Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T23:01:37Z",
+          "completed_at": "2026-05-02T23:01:37Z"
+        },
+        {
+          "name": "Post Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-05-02T23:01:37Z",
+          "completed_at": "2026-05-02T23:01:38Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-05-02T23:01:38Z",
+          "completed_at": "2026-05-02T23:01:38Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74075802941",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000049035,
+      "runner_name": "GitHub Actions 1000049035",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 74075802945,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARP0MNQQ",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74075802945",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74075802945",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T23:01:19Z",
+      "started_at": "2026-05-02T23:01:21Z",
+      "completed_at": "2026-05-02T23:01:27Z",
+      "name": "upload-changelog-metadata",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T23:01:22Z",
+          "completed_at": "2026-05-02T23:01:24Z"
+        },
+        {
+          "name": "Extract and save changelog metadata",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T23:01:24Z",
+          "completed_at": "2026-05-02T23:01:24Z"
+        },
+        {
+          "name": "Upload changelog artifact",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T23:01:24Z",
+          "completed_at": "2026-05-02T23:01:25Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-05-02T23:01:25Z",
+          "completed_at": "2026-05-02T23:01:25Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74075802945",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000049036,
+      "runner_name": "GitHub Actions 1000049036",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 74075803053,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARP0MNrQ",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74075803053",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74075803053",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-05-02T23:01:19Z",
+      "started_at": "2026-05-02T23:01:19Z",
+      "completed_at": "2026-05-02T23:01:19Z",
+      "name": "compare-results",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74075803053",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    },
+    {
+      "id": 74077277152,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARP1mL4A",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74077277152",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74077277152",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T23:35:37Z",
+      "started_at": "2026-05-02T23:35:39Z",
+      "completed_at": "2026-05-02T23:35:55Z",
+      "name": "collect-evals / collect-evals",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T23:35:39Z",
+          "completed_at": "2026-05-02T23:35:41Z"
+        },
+        {
+          "name": "Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T23:35:41Z",
+          "completed_at": "2026-05-02T23:35:49Z"
+        },
+        {
+          "name": "Download eval artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T23:35:49Z",
+          "completed_at": "2026-05-02T23:35:50Z"
+        },
+        {
+          "name": "Summarize evals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-05-02T23:35:50Z",
+          "completed_at": "2026-05-02T23:35:53Z"
+        },
+        {
+          "name": "Upload aggregated evals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-05-02T23:35:53Z",
+          "completed_at": "2026-05-02T23:35:53Z"
+        },
+        {
+          "name": "Cleanup downloaded eval artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-05-02T23:35:53Z",
+          "completed_at": "2026-05-02T23:35:53Z"
+        },
+        {
+          "name": "Post Checkout code",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-05-02T23:35:53Z",
+          "completed_at": "2026-05-02T23:35:53Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13,
+          "started_at": "2026-05-02T23:35:53Z",
+          "completed_at": "2026-05-02T23:35:53Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74077277152",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000049075,
+      "runner_name": "GitHub Actions 1000049075",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 74077289385,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARP1m7qQ",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74077289385",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74077289385",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-05-02T23:35:55Z",
+      "started_at": "2026-05-02T23:35:58Z",
+      "completed_at": "2026-05-02T23:36:01Z",
+      "name": "trigger-ingest",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-05-02T23:35:58Z",
+          "completed_at": "2026-05-02T23:35:58Z"
+        },
+        {
+          "name": "Trigger database ingest",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-05-02T23:35:58Z",
+          "completed_at": "2026-05-02T23:35:59Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-05-02T23:35:59Z",
+          "completed_at": "2026-05-02T23:35:59Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74077289385",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000049076,
+      "runner_name": "GitHub Actions 1000049076",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 74077289420,
+      "run_id": 25262278289,
+      "workflow_name": "Run Sweep - dsv4-mi355x-sgl (#1244)",
+      "head_branch": "main",
+      "run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/runs/25262278289",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOPLfvps8AAAARP1m7zA",
+      "head_sha": "f93f91dfb0efbc46e363dbcdf96e983ea96d214d",
+      "url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/actions/jobs/74077289420",
+      "html_url": "https://github.com/SemiAnalysisAI/InferenceX/actions/runs/25262278289/job/74077289420",
+      "status": "completed",
+      "conclusion": "skipped",
+      "created_at": "2026-05-02T23:35:55Z",
+      "started_at": "2026-05-02T23:35:55Z",
+      "completed_at": "2026-05-02T23:35:55Z",
+      "name": "comment-unofficial-run-visualizer",
+      "steps": [
+
+      ],
+      "check_run_url": "https://api.github.com/repos/SemiAnalysisAI/InferenceX/check-runs/74077289420",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": null,
+      "runner_name": null,
+      "runner_group_id": null,
+      "runner_group_name": null
+    }
+  ]
+}

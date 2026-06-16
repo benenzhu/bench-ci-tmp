@@ -1,0 +1,7 @@
+stage=after_restore_dsv4_1k1k_c8_old
+timestamp=2026-06-16T08:31:27Z
+model_cache_root=/scratch/hf_hub_cache/models--deepseek-ai--DeepSeek-V4-Pro
+config=/scratch/hf_hub_cache/models--deepseek-ai--DeepSeek-V4-Pro/snapshots/5607980f3a4b8ea0371b9f11e1848ac41f14979e/config.json
+realpath=/scratch/hf_hub_cache/models--deepseek-ai--DeepSeek-V4-Pro/blobs/025a1ca59cb255296f274d4ef5e0ea632a0d6384
+model_type=deepseek_v4
+sha256=5fe4568daee51c208cb8a79538eaeda090ae011ade1dee2c386aa95f569c810e

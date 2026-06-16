@@ -5,6 +5,7 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 ## Contents
 
 - `dsv4_sglang_8k1k_conc8_prompts3x/`: primary handoff bundle. It includes the strict same-config DeepSeek-V4-Pro FP4 SGLang reproduction, the broader MI355X Kimi/GLM suite copied under `suites/`, candidate tables, logs, raw JSON, aggregate JSON, and a verification script.
+- `dsv4_sglang_geomean_prompts3x/`: DeepSeek-V4-Pro FP4 SGLang MI355X geomean bundle across seven TP8 non-disaggregated configs, with final exact geomean `3.4739x` / `247.4%` improvement.
 - `kimi_int4_8k1k_conc16_prompts3x/`: completed Kimi-K2.5 INT4 vLLM same-row local reproduction attempt for the previously shortlisted 8k/1k middle-state candidate. It completed successfully but did not reproduce the recorded 4x dashboard gain. The Kimi HF cache is backed up with hardlinks under `/scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5`.
 - `kimi_fp4_8k1k_conc64_old_flags_ablation_prompts3x/`: Kimi-K2.5 MXFP4 old-image flag ablation for the dashboard candidate `348.532 -> 1647.260 tok/s/GPU`. Full 03-26 flags do not run on the old `v0.16.0` image at TP8 because AITER MLA rejects 8 local heads; the compatible subset without `block-size=1` completed at `290.762867 tok/s/GPU`.
 - `mi355_adsuite_prompts3x/`: original broader MI355X suite output directory for Kimi-K2.5, GLM-5, and the failed DeepSeek-V4-Pro vLLM old-row attempt. This is also copied into the primary bundle under `dsv4_sglang_8k1k_conc8_prompts3x/suites/mi355_adsuite_prompts3x/`.
@@ -13,6 +14,7 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 
 | Scope | Seq | CONC | Image | Result |
 |---|---|---:|---|---|
+| DeepSeek-V4-Pro FP4 SGLang geomean | mixed: `8k1k_c8`, `1k1k_c1/c2/c3/c4/c8`, `1k512_c1` | mixed | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | geomean `3.4739x`, improvement `247.4%`; exact rows in `dsv4_sglang_geomean_prompts3x/comparison.csv` |
 | DeepSeek-V4-Pro FP4 SGLang | 8192/1024 | 8 | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | `104.044135 -> 421.982767 tok/s/GPU`, `4.0558x` |
 | Kimi-K2.5 INT4 vLLM attempted middle-state | 8192/1024 | 16 | `vllm/vllm-openai-rocm:v0.15.1` -> `vllm/vllm-openai-rocm:v0.18.0` | local `142.174440 -> 187.669496 tok/s/GPU`, `1.3200x`; did not reproduce the recorded `4.0143x` dashboard candidate |
 | Kimi-K2.5 FP4 vLLM | 8192/1024 | 4 | `vllm/vllm-openai-rocm:v0.16.0` -> `vllm/vllm-openai-rocm:v0.22.0` | `24.517507 -> 359.122629 tok/s/GPU`, `14.6476x` |
@@ -66,6 +68,15 @@ scripts/verify_kimi_int4_8k1k_conc16.sh
 ```
 
 Expected: all checks pass, and the script prints that the local attempt completed but did not reproduce the recorded `4.0143x` dashboard gain.
+
+For the DSV4 SGLang geomean bundle:
+
+```bash
+cd /scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x
+scripts/verify_dsv4_sglang_geomean.sh
+```
+
+Expected: `ok: 7 configs, geomean=3.473867x`.
 
 ## Git Notes
 
