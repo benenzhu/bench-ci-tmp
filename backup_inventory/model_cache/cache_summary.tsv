@@ -1,0 +1,5 @@
+cache_dir	model_id	size	file_count	snapshots	refs
+models--amd--Kimi-K2.5-MXFP4	amd/Kimi-K2.5-MXFP4	521G	94	419004c8716cf22c929aa15d39b85e09a8a2091a	main=419004c8716cf22c929aa15d39b85e09a8a2091a
+models--deepseek-ai--DeepSeek-V4-Pro	deepseek-ai/DeepSeek-V4-Pro	806G	100	5607980f3a4b8ea0371b9f11e1848ac41f14979e	main=5607980f3a4b8ea0371b9f11e1848ac41f14979e
+models--moonshotai--Kimi-K2.5	moonshotai/Kimi-K2.5	555G	94	4d01dfe0332d63057c186e0b262165819efb6611	main=4d01dfe0332d63057c186e0b262165819efb6611
+models--zai-org--GLM-5-FP8	zai-org/GLM-5-FP8	705G	154	4f96cc5eec29dcee5d6ded54f7ffe889438f9516	main=4f96cc5eec29dcee5d6ded54f7ffe889438f9516

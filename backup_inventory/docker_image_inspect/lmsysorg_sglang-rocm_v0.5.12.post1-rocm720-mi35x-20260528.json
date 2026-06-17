@@ -1,0 +1,117 @@
+[
+    {
+        "Id": "sha256:b006e06a35a185d48395c7b7a35115d925d48070ba746ec05c11928769c8ce55",
+        "RepoTags": [
+            "lmsysorg/sglang-rocm:v0.5.12.post1-rocm720-mi35x-20260528"
+        ],
+        "RepoDigests": [
+            "lmsysorg/sglang-rocm@sha256:b006e06a35a185d48395c7b7a35115d925d48070ba746ec05c11928769c8ce55"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-05-28T19:10:11.202396934Z",
+        "Config": {
+            "User": "root",
+            "Env": [
+                "PATH=/root/.cargo/bin:/opt/venv/bin:/opt/rocm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin",
+                "DEBIAN_FRONTEND=noninteractive",
+                "LD_LIBRARY_PATH=/opt/rocm/lib",
+                "BUILD_VLLM=0",
+                "BUILD_TRITON=1",
+                "BUILD_LLVM=0",
+                "BUILD_AITER_ALL=1",
+                "BUILD_MOONCAKE=1",
+                "AITER_COMMIT_DEFAULT=46e6c92b3eb33f64823aaa1ff39a14586b059ef5",
+                "GPU_ARCH_LIST=gfx950",
+                "PYTORCH_ROCM_ARCH=gfx942;gfx950",
+                "AITER_COMMIT=46e6c92b3eb33f64823aaa1ff39a14586b059ef5",
+                "SETUPTOOLS_SCM_PRETEND_VERSION=",
+                "AITER_USE_SYSTEM_TRITON=1",
+                "CARGO_BUILD_JOBS=4",
+                "LIBGL_ALWAYS_INDIRECT=1",
+                "SGLANG_DISABLE_CUDNN_CHECK=1",
+                "HIP_FORCE_DEV_KERNARG=1",
+                "HSA_NO_SCRATCH_RECLAIM=1",
+                "SGLANG_ALLOW_OVERWRITE_LONGER_CONTEXT_LEN=1",
+                "SGLANG_INT4_WEIGHT=0",
+                "SGLANG_MOE_PADDING=1",
+                "SGLANG_ROCM_DISABLE_LINEARQUANT=0",
+                "SGLANG_ROCM_FUSED_DECODE_MLA=1",
+                "SGLANG_SET_CPU_AFFINITY=1",
+                "SGLANG_USE_AITER=1",
+                "SGLANG_USE_ROCM700A=1",
+                "NCCL_MIN_NCHANNELS=112",
+                "ROCM_QUICK_REDUCE_QUANTIZATION=INT8",
+                "TORCHINDUCTOR_MAX_AUTOTUNE=1",
+                "TORCHINDUCTOR_MAX_AUTOTUNE_POINTWISE=1"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "WorkingDir": "/sgl-workspace",
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "22.04"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 27252093673,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:fbb9bbbaf4d2b027acd15252897d5043386eea7121e0e0433e697714bb14beac",
+                "sha256:5c4eabd140879cda77a89bf72a4dc6840a8059f2e450561604414557ab79e6f0",
+                "sha256:dd3085d4f3723f12e6e6efdbdd79d7803eefea14eca480b9e418be697c7b05c1",
+                "sha256:37de30e4cda523db57500931680eb5b90f0c5ff57d60601edaf4f6873744c5a8",
+                "sha256:8ca139a99936112756f816903d53e768231d7b3964843a65ceeedd5642717743",
+                "sha256:4b9ef101929866b45cec239df6580dd8ceb24adeb32453a4b9a4bc77fab0b481",
+                "sha256:76d0138cccf7f0671e2dd7959d0fbc6dae2e7b96d7a4dbb13d770e5238439d72",
+                "sha256:e1e3e472a1f785717338e9f0b7066adcc6b1799c11bb3e79d4f521b1b70f1e7c",
+                "sha256:fadb8107069714d1d1293d27933ca92f213e5c124b083c360a3bccbbb9a3cc82",
+                "sha256:a71eb0c36a83652317386dd2d1ee3ee902efd4410e89e1bf9aaf043efecf8a5d",
+                "sha256:69da7bdbff72b2cca33ba5452bc3f54be83c4f477652996bac22f6ac382796d2",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:2a99ae7715ce2a56c2ee49fc69ebbdc2104d1c49dc577d4e93e78ba7f0568244",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:5d00422fb27253ffe20abe234f3b6e6bc52fd3f86a3239dc99125b9fc83bd210",
+                "sha256:06b6ee4a0eb9436bf1db60ee1a7635d9e340ce6681b3457b69a9695a2b991a15",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:41a76b306deaf5b5013e8b4d0fd3236f8800614382bc730988d6319c82a16d9c",
+                "sha256:c1ccaff93a4b078bd4ccc5f88f5b1977e68058bc73cf4e2d4cf986ea36c608a2",
+                "sha256:38ffea3543f1a47a64033d8e234e5fb8db4ab12adc41b78dac681cbcf297d3d2",
+                "sha256:bad445c0748864dab84f132c33454a8ef95d82617e7eb40e9ec3440883607b7f",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:5c7c839b32f96ac076f3f4c7f122f4284dd7e7d16f587755a39264fcfaf75a26",
+                "sha256:b361131811c3fb1d47848f61a8bf2190bf69b9f80ddd266c73f8fd01d7a2948f",
+                "sha256:81ee073dce5b411936cf114aae87eeaedf66471843705d32924176b47215515c",
+                "sha256:faed73d5964ffd263d1f109b9527e6482576474668b86332542176965d726146",
+                "sha256:b174fb3d462a62c3ed979da76f5644333a53aaaa505c12174fb90f93311ec91d",
+                "sha256:c9368b7c36e7311d5505a4f25d0e30f0bd528cd3c22f8c52f0189b8f0fcf890d",
+                "sha256:781147441dd9aaaa5de984c12a958f7f49ece59c12ff168238a71a732d4c4e11",
+                "sha256:c2206ac42200b472be0118ed54cf45adbe0195ce9f177eb8a780e08f7d52c22b",
+                "sha256:525e39678644526da912d64be0209697a68f4fbe88e02f852bfb64dec2adddb7",
+                "sha256:af6796d9e28aabd5f5898f06e9a6202b475b41db30d552982cfcf53f85811999",
+                "sha256:62aa45e50cf2ddca54da9e1c24d7645424c7c2e788ba4a781749bc6d3bc3e25d",
+                "sha256:d320d7795145512176a8b32c1e37f84da8e88842e1344303fa9cd1d53c91aeeb",
+                "sha256:4c5c4f0f8b872687a858ba4beb6e4943fe5a99d839286698094811814d41efdc"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-06-14T10:54:32.907994204Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:b006e06a35a185d48395c7b7a35115d925d48070ba746ec05c11928769c8ce55",
+            "size": 7903
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "docker.io/lmsysorg/sglang-rocm"
+                }
+            ]
+        }
+    }
+]

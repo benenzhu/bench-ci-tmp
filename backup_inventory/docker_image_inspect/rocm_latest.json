@@ -1,0 +1,68 @@
+[
+    {
+        "Id": "sha256:52ef0c5a0a004532cb65b4785e47f19fb44045134fb7b5086b0f5b947da6b936",
+        "RepoTags": [
+            "rocm:latest"
+        ],
+        "RepoDigests": [
+            "rocm@sha256:52ef0c5a0a004532cb65b4785e47f19fb44045134fb7b5086b0f5b947da6b936"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-03-16T17:39:01.729576531Z",
+        "Config": {
+            "User": "root",
+            "ExposedPorts": {
+                "8888/tcp": {}
+            },
+            "Env": [
+                "PATH=/opt/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "JUPYTER_TOKEN=defaulttoken"
+            ],
+            "Cmd": [
+                "/bin/sh",
+                "-c",
+                "jupyter lab --no-browser --notebook-dir=/home/rocm-user/jupyter --ServerApp.allow_remote_access=true --IdentityProvider.token=${JUPYTER_TOKEN} --allow-root --ip=0.0.0.0"
+            ],
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "24.04"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 8988784277,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:efafae78d70c98626c521c246827389128e7d7ea442db31bc433934647f0c791",
+                "sha256:43a42ace944c8c07239e48495759f7773a95e25e4ccf21fd511d4f870f1b5470",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:e453f4d4f96467b2439f48a31a507baab18b5dfe27d064b4ae0e2de3d9dc7e7e",
+                "sha256:7c7ec86c426070b8170a3dc01cc92bc6bfc7853d7ba8eadebe80d938649c67b8",
+                "sha256:d7d7ad5497593ea630fbe6a38a0f32d39485e5d5c568ecfe89c40009fdae998b",
+                "sha256:482f76bd830f057c21d5318ac7fe490a685e47556bd4e4cf3cbb11ae46d17904",
+                "sha256:d43a59afd001a82945739e72b1ade1b1f5187548c3a1ba091628e14a718a7b60",
+                "sha256:a4346303801fcc7c6587ab64565cb09deffa96a989abbc67243bc5a413ba3bf6",
+                "sha256:53e69884242ebebf8a7286a15ae7c1855b376a05f505536489cc626ff8d552dc",
+                "sha256:4921199be7dbb163ed3461fa316e99ad8562c3ee6818c099671e080c3e4da75b"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-03-16T17:46:28.894873981Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.oci.image.index.v1+json",
+            "digest": "sha256:52ef0c5a0a004532cb65b4785e47f19fb44045134fb7b5086b0f5b947da6b936",
+            "size": 856
+        },
+        "Identity": {
+            "Build": [
+                {
+                    "Ref": "1u1pqhayxn9brkl4yx5vm36uc",
+                    "CreatedAt": "2026-03-16T17:47:36.520557419Z"
+                }
+            ]
+        }
+    }
+]

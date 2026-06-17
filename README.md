@@ -9,6 +9,8 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 - `kimi_int4_8k1k_conc16_prompts3x/`: completed Kimi-K2.5 INT4 vLLM same-row local reproduction attempt for the previously shortlisted 8k/1k middle-state candidate. It completed successfully but did not reproduce the recorded 4x dashboard gain. The Kimi HF cache is backed up with hardlinks under `/scratch/model_backups/hf_hub_cache/models--moonshotai--Kimi-K2.5`.
 - `kimi_fp4_8k1k_conc64_old_flags_ablation_prompts3x/`: Kimi-K2.5 MXFP4 old-image flag ablation for the dashboard candidate `348.532 -> 1647.260 tok/s/GPU`. Full 03-26 flags do not run on the old `v0.16.0` image at TP8 because AITER MLA rejects 8 local heads; the compatible subset without `block-size=1` completed at `290.762867 tok/s/GPU`.
 - `mi355_adsuite_prompts3x/`: original broader MI355X suite output directory for Kimi-K2.5, GLM-5, and the failed DeepSeek-V4-Pro vLLM old-row attempt. This is also copied into the primary bundle under `dsv4_sglang_8k1k_conc8_prompts3x/suites/mi355_adsuite_prompts3x/`.
+- `HANDOFF.md`: restart note for the next agent after this machine is released. It assumes only this git repo survives and documents what must be re-downloaded.
+- `backup_inventory/`: small, git-safe inventories for model cache directories, Docker images, repo files, and one legacy root script. It does not contain model weights or Docker layers.
 
 ## Main Results
 
@@ -81,3 +83,5 @@ Expected: `ok: 7 configs, geomean=3.473867x`.
 ## Git Notes
 
 This parent repo is intended for pushing the whole `/scratch/inferencex_runs` tree. The nested git metadata from `dsv4_sglang_8k1k_conc8_prompts3x/.git` was moved out before committing so the directory is tracked as ordinary files rather than as a submodule.
+
+If this machine is released, use `HANDOFF.md` as the first file to read. The large local state under `/scratch/hf_hub_cache`, `/scratch/model_backups`, `/dev/shm`, and Docker storage is not preserved by this git repo.

@@ -1,0 +1,117 @@
+[
+    {
+        "Id": "sha256:5fe418ac6a16244a233cc2a135ce98781c6995f3fab1b9f4f9461288f361d098",
+        "RepoTags": [
+            "rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260218"
+        ],
+        "RepoDigests": [
+            "rocm/sgl-dev@sha256:5fe418ac6a16244a233cc2a135ce98781c6995f3fab1b9f4f9461288f361d098"
+        ],
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2026-02-19T02:15:47.979477778Z",
+        "Config": {
+            "User": "root",
+            "Env": [
+                "PATH=/root/.cargo/bin:/opt/venv/bin:/opt/rocm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/go/bin",
+                "DEBIAN_FRONTEND=noninteractive",
+                "LD_LIBRARY_PATH=/opt/rocm/lib",
+                "BUILD_VLLM=0",
+                "BUILD_TRITON=1",
+                "BUILD_LLVM=0",
+                "BUILD_AITER_ALL=1",
+                "BUILD_MOONCAKE=1",
+                "AITER_COMMIT=v0.1.10.post3",
+                "GPU_ARCH_LIST=gfx950",
+                "SETUPTOOLS_SCM_PRETEND_VERSION=",
+                "CARGO_BUILD_JOBS=4",
+                "LIBGL_ALWAYS_INDIRECT=1",
+                "PYTORCH_ROCM_ARCH=gfx942;gfx950",
+                "SGLANG_DISABLE_CUDNN_CHECK=1",
+                "HIP_FORCE_DEV_KERNARG=1",
+                "HSA_NO_SCRATCH_RECLAIM=1",
+                "SGLANG_ALLOW_OVERWRITE_LONGER_CONTEXT_LEN=1",
+                "SGLANG_INT4_WEIGHT=0",
+                "SGLANG_MOE_PADDING=1",
+                "SGLANG_ROCM_DISABLE_LINEARQUANT=0",
+                "SGLANG_ROCM_FUSED_DECODE_MLA=1",
+                "SGLANG_SET_CPU_AFFINITY=1",
+                "SGLANG_USE_AITER=1",
+                "SGLANG_USE_ROCM700A=1",
+                "NCCL_MIN_NCHANNELS=112",
+                "VLLM_FP8_PADDING=1",
+                "VLLM_FP8_ACT_PADDING=1",
+                "VLLM_FP8_WEIGHT_PADDING=1",
+                "VLLM_FP8_REDUCE_CONV=1",
+                "TORCHINDUCTOR_MAX_AUTOTUNE=1",
+                "TORCHINDUCTOR_MAX_AUTOTUNE_POINTWISE=1"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "WorkingDir": "/sgl-workspace",
+            "Labels": {
+                "org.opencontainers.image.ref.name": "ubuntu",
+                "org.opencontainers.image.version": "22.04"
+            },
+            "ArgsEscaped": true
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 29303231194,
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:fbb9bbbaf4d2b027acd15252897d5043386eea7121e0e0433e697714bb14beac",
+                "sha256:5c4eabd140879cda77a89bf72a4dc6840a8059f2e450561604414557ab79e6f0",
+                "sha256:dd3085d4f3723f12e6e6efdbdd79d7803eefea14eca480b9e418be697c7b05c1",
+                "sha256:37de30e4cda523db57500931680eb5b90f0c5ff57d60601edaf4f6873744c5a8",
+                "sha256:8ca139a99936112756f816903d53e768231d7b3964843a65ceeedd5642717743",
+                "sha256:4b9ef101929866b45cec239df6580dd8ceb24adeb32453a4b9a4bc77fab0b481",
+                "sha256:76d0138cccf7f0671e2dd7959d0fbc6dae2e7b96d7a4dbb13d770e5238439d72",
+                "sha256:e1e3e472a1f785717338e9f0b7066adcc6b1799c11bb3e79d4f521b1b70f1e7c",
+                "sha256:fadb8107069714d1d1293d27933ca92f213e5c124b083c360a3bccbbb9a3cc82",
+                "sha256:a71eb0c36a83652317386dd2d1ee3ee902efd4410e89e1bf9aaf043efecf8a5d",
+                "sha256:032c011fd39683560124a73898e27f0a64654b5e77008e6542ed1f25455dfd4d",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:ff6ad524065720fd1ae963d57720edd0389fcff2ed92e10c4056f235cb6e6e35",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:6e40eeb9d8fc5947c5c6563ffcacb80857848dafa2d30882b31760b790e0912e",
+                "sha256:3eaa2a9d21f1608ced3310ff43e83952a377666d4ec6a6a2c75d7ab2a9286749",
+                "sha256:9553aa25d06ae6b59c0d99ffb2e869f4f35333935cd821ab3dddfeef13250b86",
+                "sha256:85b6bb48685670cadfd9086557e9c86ff80de2b3575b05655d17956f487ec601",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:2f087298e26ce7d1de510c464d613f4f92295ce13dd8e1dba5a7d09aba8d3944",
+                "sha256:22475590f746cae23a5a4e43e5d572fb93d9834f25865b7d191e36a95b1d2d05",
+                "sha256:5f70bf18a086007016e948b04aed3b82103a36bea41755b6cddfaf10ace3c6ef",
+                "sha256:4e22f9920a263ffe4d853d8550568d661f8e61924b7aad37f8305b14d6e8e2ac",
+                "sha256:3d8ad707b200b9561c0b6ce9e1a59d75e53a1e993357f81aa0a97cb7b0f51723",
+                "sha256:e5de4fc8e9a54e7ef585747603557cb37b7807bbcd27b26e774c019639957a0b",
+                "sha256:61607c062c60a81b9165ab44ab5c0c277f3f90bd7f083beec153df58ffb290bf",
+                "sha256:cfaccf4782f5a7a8d97989624d283f44c700fad275b6e07666a1d68e8700ee15",
+                "sha256:bdb1c01d8ed2a38d241c1cc48906fd7d296d4826cfc9a3548bf71f8f68362e47",
+                "sha256:0c4fee61b4d73be706246f32269290b4ab3235287190fd3a1e8a5a4d3b62e9c6",
+                "sha256:7b34bce0c378bfaaf503f3254549c7f70ec3c8b36ddde80da3f1991903f61a2d",
+                "sha256:56ec312cc8071006267726207cc041a83a389424cf455adfcb350e940b10c892",
+                "sha256:294b7fa872a499e8bf48284a81a362582cb6191302bdd6f509ca8c79e41cac07",
+                "sha256:c779daecca09bdb8636b2fbe6ec89e0ad54e0b287e5a5c2c6c982137c141bf41",
+                "sha256:e566093c4f23a573d2655a68ed77cb7dca4eec31ff2dd2d2c4b4325851e5847e",
+                "sha256:90973b8617ff86ee738a45b36e0fb48f339afe16b0725638e36f438a4fa687a0"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2026-06-14T10:32:17.682285043Z"
+        },
+        "Descriptor": {
+            "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+            "digest": "sha256:5fe418ac6a16244a233cc2a135ce98781c6995f3fab1b9f4f9461288f361d098",
+            "size": 7704
+        },
+        "Identity": {
+            "Pull": [
+                {
+                    "Repository": "docker.io/rocm/sgl-dev"
+                }
+            ]
+        }
+    }
+]
