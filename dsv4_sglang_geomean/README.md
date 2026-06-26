@@ -11,7 +11,7 @@ Generated: 2026-06-16 UTC
 - Parallelism: TP `8`, EP `1`, DP attention `false`
 - Prompt-count patch: `num_prompts = CONC * 3`
 - HF cache: `/scratch/hf_hub_cache`
-- Output root: `/scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x`
+- Output root: `/scratch/inferencex_runs/dsv4_sglang_geomean`
 
 Old baseline:
 
@@ -55,7 +55,7 @@ CSV artifacts:
 The runner is saved in this bundle:
 
 ```bash
-cd /scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x
+cd /scratch/inferencex_runs/dsv4_sglang_geomean
 scripts/repro_dsv4_sglang_geomean.sh
 ```
 
@@ -75,7 +75,7 @@ The old SGLang script mutates the cached HF `config.json` by changing `model_typ
 ## Verify
 
 ```bash
-cd /scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x
+cd /scratch/inferencex_runs/dsv4_sglang_geomean
 scripts/verify_dsv4_sglang_geomean.sh
 ```
 

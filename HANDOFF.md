@@ -16,7 +16,7 @@ This repo contains the benchmark results, logs, scripts, workflow metadata, comp
 Primary entry points:
 
 - `README.md`: top-level result summary and verification commands.
-- `dsv4_sglang_geomean_prompts3x/`: final DSV4 geomean bundle. This is the cleanest current result for the requested 2.5x-3.5x geomean target.
+- `dsv4_sglang_geomean/`: final DSV4 geomean bundle. This is the cleanest current result for the requested 2.5x-3.5x geomean target.
 - `dsv4_sglang_8k1k_conc8_prompts3x/`: strict DSV4 8k/1k CONC=8 bundle plus broader candidate docs.
 - `kimi_int4_8k1k_conc16_prompts3x/`: Kimi INT4 local repro attempt that did not reproduce the dashboard 4x claim.
 - `kimi_fp4_8k1k_conc64_old_flags_ablation_prompts3x/`: Kimi FP4 old-image flag ablation.
@@ -28,7 +28,7 @@ Primary entry points:
 Use the DSV4 SGLang geomean result for the "more configs, geomean 2.5x-3.5x" story:
 
 ```bash
-cd /scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x
+cd /scratch/inferencex_runs/dsv4_sglang_geomean
 scripts/verify_dsv4_sglang_geomean.sh
 ```
 
@@ -44,7 +44,7 @@ Summary:
 |---|---:|---|---|---:|
 | DeepSeek-V4-Pro FP4 SGLang, MI355X, TP8, non-disagg, `num_prompts=CONC*3` | 7 | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` | `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | `3.473867x` / `247.4%` improvement |
 
-Exact rows are in `dsv4_sglang_geomean_prompts3x/comparison.csv`.
+Exact rows are in `dsv4_sglang_geomean/comparison.csv`.
 
 ## What Is Not In Git
 
@@ -146,7 +146,7 @@ The scripts create detached worktrees at the exact old/new workflow commits and 
 These checks do not require model weights or Docker images because they validate saved artifacts:
 
 ```bash
-cd /scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x
+cd /scratch/inferencex_runs/dsv4_sglang_geomean
 scripts/verify_dsv4_sglang_geomean.sh
 
 cd /scratch/inferencex_runs/dsv4_sglang_8k1k_conc8_prompts3x
@@ -172,7 +172,7 @@ Expected: no output.
 DSV4 geomean:
 
 ```bash
-cd /scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x
+cd /scratch/inferencex_runs/dsv4_sglang_geomean
 TARGETS=all scripts/repro_dsv4_sglang_geomean.sh
 ```
 

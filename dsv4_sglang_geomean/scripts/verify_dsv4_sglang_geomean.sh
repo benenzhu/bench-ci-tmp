@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT=${ROOT:-/scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x}
+ROOT=${ROOT:-/scratch/inferencex_runs/dsv4_sglang_geomean}
 
 python3 - "$ROOT" <<'PY'
 import csv

@@ -6,7 +6,7 @@ set -euo pipefail
 
 export REPO=/root/InferenceX
 export WT_ROOT=/scratch/inferencex_worktrees/dsv4_sglang_geomean
-export OUT_DIR=/scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x
+export OUT_DIR=/scratch/inferencex_runs/dsv4_sglang_geomean
 export MODEL_DIR=/scratch/hf_hub_cache
 export HF_HOME_DIR=/scratch/hf_home
 export PORT=18888

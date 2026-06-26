@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Kimi-K2.5 MXFP4 vLLM MI355X multi-config geomean repro.
-# Modeled on repro_dsv4_sglang_geomean.sh. Key differences:
+# GLM-5 FP8 SGLang MI355X multi-config geomean repro.
+# Modeled on repro_glm5_fp8_geomean.sh. Key differences:
 # - Model weights staged on /dev/shm only (machine constraint).
-# - vLLM framework, no HF config.json mutation (DSV4-specific) needed.
+# - SGLang framework; memory knob is --mem-fraction-static (not vLLM's gpu-memory-utilization).
 # - Sweeps multiple CONC values to build a geomean across configs.
 
 REPO=${REPO:-/root/InferenceX}
-WT_ROOT=${WT_ROOT:-/dev/shm/inferencex_worktrees/kimi_fp4_geomean}
-OUT_DIR=${OUT_DIR:-/home/tazhu/bench-ci-tmp/kimi_fp4_geomean_prompts3x}
+WT_ROOT=${WT_ROOT:-/dev/shm/inferencex_worktrees/glm5_fp8_geomean}
+OUT_DIR=${OUT_DIR:-/home/tazhu/bench-ci-tmp/glm5_fp8_geomean}
 MODEL_DIR=${MODEL_DIR:-/dev/shm/hf_hub_cache}
 HF_HOME_DIR=${HF_HOME_DIR:-/dev/shm/hf_home}
 PORT=${PORT:-19000}  # 18888 is held by a shared tinyproxy on this machine; use a free port
-GPU_MEM_UTIL=${GPU_MEM_UTIL:-0.80}  # lowered from upstream 0.95: leaves headroom for other users on GPU3 AND for CUDA-graph capture (0.85 OOM'd during graph capture at CONC=8)
+GPU_MEM_UTIL=${GPU_MEM_UTIL:-0.80}  # SGLang mem-fraction-static, lowered from upstream 0.85 to leave headroom for other users on GPU3
 PROMPT_MULTIPLIER=${PROMPT_MULTIPLIER:-3}
 RANDOM_RANGE_RATIO=${RANDOM_RANGE_RATIO:-0.8}
 SKIP_EXISTING=${SKIP_EXISTING:-1}
@@ -25,29 +25,27 @@ CONTINUE_ON_ERROR=${CONTINUE_ON_ERROR:-1}
 REPO_SLUG=SemiAnalysisAI/InferenceX
 
 # Base (anchor) config carries commit/image/script/run metadata shared by all CONC variants.
-OLD_COMMIT=bc818474fdba28c4802e823fdc474be56fb79452
-NEW_COMMIT=a187fa20e7785c88e136c834c411fc39022c75ba
-OLD_IMAGE=vllm/vllm-openai-rocm:v0.16.0
-NEW_IMAGE=vllm/vllm-openai-rocm:v0.22.0
-BENCH_SCRIPT=benchmarks/single_node/kimik2.5_fp4_mi355x.sh
-MODEL_ID=amd/Kimi-K2.5-MXFP4
-MODEL_PREFIX_VAL=kimik2.5
-MODEL_CACHE_NAME=models--amd--Kimi-K2.5-MXFP4
+OLD_COMMIT=f3d0fc5bd7b148daad4e16a7ae79cbf762e9e278
+NEW_COMMIT=6a3ca2d293795be4b567fb61589fb80ca010d4c7
+OLD_IMAGE=rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219
+NEW_IMAGE=lmsysorg/sglang-rocm:v0.5.10rc0-rocm720-mi35x-20260413
+BENCH_SCRIPT=benchmarks/single_node/glm5_fp8_mi355x.sh
+MODEL_ID=zai-org/GLM-5-FP8
+MODEL_PREFIX_VAL=glm5
+MODEL_CACHE_NAME=models--zai-org--GLM-5-FP8
 
-declare -A OLD_RUN=([run]=22555187591 [attempt]=2 [job]=65962398410)
-declare -A NEW_RUN=([run]=26696253037 [attempt]=1 [job]=78682149908)
+declare -A OLD_RUN=([run]=22792161490 [attempt]=5 [job]=66170603755)
+declare -A NEW_RUN=([run]=24574269364 [attempt]=1 [job]=71855382514)
 
 # Config sweep: id:isl:osl:conc
 CONFIG_SPECS=(
-  8k1k_c4:8192:1024:4
-  8k1k_c8:8192:1024:8
-  8k1k_c16:8192:1024:16
-  8k1k_c32:8192:1024:32
-  8k1k_c64:8192:1024:64
-  8k1k_c128:8192:1024:128
-  8k1k_c256:8192:1024:256
+  1k1k_c1:1024:1024:1
+  1k1k_c2:1024:1024:2
   1k1k_c4:1024:1024:4
   1k1k_c8:1024:1024:8
+  1k1k_c16:1024:1024:16
+  8k1k_c4:8192:1024:4
+  8k1k_c8:8192:1024:8
 )
 
 declare -A VARIANT CONFIG_ID COMMIT IMAGE MODEL MODEL_PREFIX PRECISION FRAMEWORK
@@ -57,14 +55,14 @@ LABEL_ORDER=()
 for spec in "${CONFIG_SPECS[@]}"; do
   IFS=: read -r cfg isl osl conc <<< "$spec"
   for variant in old new; do
-    label="kimi_fp4_${cfg}_${variant}"
+    label="glm5_fp8_${cfg}_${variant}"
     LABEL_ORDER+=("$label")
     VARIANT[$label]="$variant"
     CONFIG_ID[$label]="$cfg"
     MODEL[$label]="$MODEL_ID"
     MODEL_PREFIX[$label]="$MODEL_PREFIX_VAL"
-    PRECISION[$label]=fp4
-    FRAMEWORK[$label]=vllm
+    PRECISION[$label]=fp8
+    FRAMEWORK[$label]=sglang
     SCRIPT[$label]="$BENCH_SCRIPT"
     ISL[$label]="$isl"
     OSL[$label]="$osl"
@@ -103,7 +101,7 @@ selected_labels() {
     case "$token" in
       old) for l in "${LABEL_ORDER[@]}"; do [[ "${VARIANT[$l]}" == "old" ]] && printf '%s\n' "$l"; done ;;
       new) for l in "${LABEL_ORDER[@]}"; do [[ "${VARIANT[$l]}" == "new" ]] && printf '%s\n' "$l"; done ;;
-      kimi_fp4_*)
+      glm5_fp8_*)
         if [[ -n "${VARIANT[$token]+x}" ]]; then printf '%s\n' "$token"
         else echo "Unknown TARGETS token: $token" >&2; exit 1; fi ;;
       *)
@@ -134,26 +132,26 @@ prepare_worktree() {
   local dest; dest=$(worktree_for "$label")
   ensure_commit "$commit"
   mkdir -p "$WT_ROOT" "$(run_dir_for "$label")"
-  if [[ -e "$dest" && ! -f "$dest/.kimi_fp4_repro_owner" ]]; then
+  if [[ -e "$dest" && ! -f "$dest/.glm5_fp8_repro_owner" ]]; then
     echo "Refusing to modify unowned worktree path: $dest" >&2; exit 1
   fi
   if [[ ! -e "$dest/.git" ]]; then
     git -C "$REPO" worktree add --force --detach "$dest" "$commit"
-    touch "$dest/.kimi_fp4_repro_owner"
+    touch "$dest/.glm5_fp8_repro_owner"
   else
     git -C "$dest" reset --hard "$commit" >/dev/null
     git -C "$dest" clean -fdx >/dev/null
-    touch "$dest/.kimi_fp4_repro_owner"
+    touch "$dest/.glm5_fp8_repro_owner"
   fi
   [[ -f "$dest/$script" ]] || { echo "Benchmark script not found: $dest/$script" >&2; exit 1; }
   perl -0pi -e 's/--num-prompts "\$\(\(CONC \* 10\)\)"/--num-prompts "\$\(\(CONC * PROMPT_MULTIPLIER\)\)"/g' "$dest/$script"
   rg -F -q -- '--num-prompts "$((CONC * PROMPT_MULTIPLIER))"' "$dest/$script" || {
     echo "Failed to patch num-prompts in $dest/$script" >&2; exit 1; }
-  # Lower GPU memory utilization to leave headroom for other users on this shared machine.
-  # old commit ships 0.95, new commit ships 0.90; clamp both down to $GPU_MEM_UTIL.
-  perl -0pi -e "s/--gpu-memory-utilization 0\.9[05]/--gpu-memory-utilization $GPU_MEM_UTIL/g" "$dest/$script"
-  rg -F -q -- "--gpu-memory-utilization $GPU_MEM_UTIL" "$dest/$script" || {
-    echo "Failed to patch gpu-memory-utilization in $dest/$script" >&2; exit 1; }
+  # Lower SGLang static memory fraction to leave headroom for other users on this shared machine.
+  # upstream ships 0.85; clamp down to $GPU_MEM_UTIL.
+  perl -0pi -e "s/--mem-fraction-static 0\.8[05]/--mem-fraction-static $GPU_MEM_UTIL/g" "$dest/$script"
+  rg -F -q -- "--mem-fraction-static $GPU_MEM_UTIL" "$dest/$script" || {
+    echo "Failed to patch mem-fraction-static in $dest/$script" >&2; exit 1; }
   git -C "$dest" diff -- "$script" > "$(run_dir_for "$label")/local_patch.diff" 2>/dev/null || true
 }
 
@@ -197,8 +195,8 @@ EOF
 
 write_runtime_patch_script() {
   local wt; wt=$(worktree_for "$1")
-  printf '#!/usr/bin/env bash\nset -euo pipefail\n' > "$wt/.kimi_fp4_runtime_patch.sh"
-  chmod +x "$wt/.kimi_fp4_runtime_patch.sh"
+  printf '#!/usr/bin/env bash\nset -euo pipefail\n' > "$wt/.glm5_fp8_runtime_patch.sh"
+  chmod +x "$wt/.glm5_fp8_runtime_patch.sh"
 }
 
 record_model_cache_status() {
@@ -220,7 +218,7 @@ check_image_manifest() {
     echo "status=ok" > "${dest}.txt"; else echo "status=manifest_inspect_failed" > "${dest}.txt"; fi
 }
 
-cleanup_named_container() { docker rm -f "mi355-kimi-fp4-$1" >/dev/null 2>&1 || true; }
+cleanup_named_container() { docker rm -f "mi355-glm5-fp8-$1" >/dev/null 2>&1 || true; }
 
 copy_run_artifacts() {
   local label=$1 status=$2 wt run_dir result_filename script
@@ -272,7 +270,7 @@ run_one() {
 
   set +e
   docker run --rm \
-    --name "mi355-kimi-fp4-$label" \
+    --name "mi355-glm5-fp8-$label" \
     --network host --ipc host --privileged \
     --device=/dev/kfd --device=/dev/dri --group-add video \
     --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
@@ -294,7 +292,7 @@ run_one() {
     -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPYCACHEPREFIX=/tmp/inferencex-pycache \
     -e PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True \
     "${IMAGE[$label]}" \
-    -lc "bash /workspace/.kimi_fp4_runtime_patch.sh && bash /workspace/$script" > "$docker_log" 2>&1
+    -lc "bash /workspace/.glm5_fp8_runtime_patch.sh && bash /workspace/$script" > "$docker_log" 2>&1
   local docker_status=$?
   set -e
 
@@ -339,7 +337,7 @@ for label in labels:
     variant = env.get("VARIANT", "old" if label.endswith("_old") else "new")
     cfg = env.get("CONFIG_ID", "")
     row = {
-        "model_group": "kimi_fp4", "config_id": cfg, "variant": variant, "label": label,
+        "model_group": "glm5_fp8", "config_id": cfg, "variant": variant, "label": label,
         "status": status, "model": env.get("MODEL", ""), "precision": env.get("PRECISION", ""),
         "framework": env.get("FRAMEWORK", ""), "image": env.get("IMAGE", ""), "commit": env.get("COMMIT", ""),
         "isl": env.get("ISL", ""), "osl": env.get("OSL", ""), "conc": env.get("CONC", ""),
@@ -375,17 +373,17 @@ for cfg in config_order:
     except (TypeError, ValueError):
         ot = old.get("tput_per_gpu", ""); nt = new.get("tput_per_gpu", ""); gain = ""; pct = ""
     comp_rows.append({
-        "model_group": "kimi_fp4", "config_id": cfg,
+        "model_group": "glm5_fp8", "config_id": cfg,
         "isl": old.get("isl") or new.get("isl", ""), "osl": old.get("osl") or new.get("osl", ""),
         "conc": old.get("conc") or new.get("conc", ""), "num_prompts": old.get("num_prompts") or new.get("num_prompts", ""),
-        "old_label": old.get("label", f"kimi_fp4_{cfg}_old"), "new_label": new.get("label", f"kimi_fp4_{cfg}_new"),
+        "old_label": old.get("label", f"glm5_fp8_{cfg}_old"), "new_label": new.get("label", f"glm5_fp8_{cfg}_new"),
         "old_status": old.get("status", "not_run"), "new_status": new.get("status", "not_run"),
         "old_tput_per_gpu": ot, "new_tput_per_gpu": nt, "measured_gain_x": gain, "measured_improvement_pct": pct,
     })
 if gains:
     geomean = math.prod(gains) ** (1.0 / len(gains))
     comp_rows.append({
-        "model_group": "kimi_fp4", "config_id": "GEOMEAN", "isl": "", "osl": "", "conc": "", "num_prompts": "",
+        "model_group": "glm5_fp8", "config_id": "GEOMEAN", "isl": "", "osl": "", "conc": "", "num_prompts": "",
         "old_label": "", "new_label": "", "old_status": f"{len(gains)} configs", "new_status": f"{len(gains)} configs",
         "old_tput_per_gpu": "", "new_tput_per_gpu": "", "measured_gain_x": geomean, "measured_improvement_pct": (geomean - 1.0) * 100,
     })

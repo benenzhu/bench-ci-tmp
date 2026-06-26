@@ -3,7 +3,7 @@ set -euo pipefail
 
 REPO=${REPO:-/root/InferenceX}
 WT_ROOT=${WT_ROOT:-/scratch/inferencex_worktrees/dsv4_sglang_geomean}
-OUT_DIR=${OUT_DIR:-/scratch/inferencex_runs/dsv4_sglang_geomean_prompts3x}
+OUT_DIR=${OUT_DIR:-/scratch/inferencex_runs/dsv4_sglang_geomean}
 MODEL_DIR=${MODEL_DIR:-/scratch/hf_hub_cache}
 HF_HOME_DIR=${HF_HOME_DIR:-/scratch/hf_home}
 PORT=${PORT:-18888}
