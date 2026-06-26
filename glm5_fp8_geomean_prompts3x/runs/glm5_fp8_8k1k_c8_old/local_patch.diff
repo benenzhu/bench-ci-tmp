@@ -1,0 +1,22 @@
+diff --git a/benchmarks/single_node/glm5_fp8_mi355x.sh b/benchmarks/single_node/glm5_fp8_mi355x.sh
+index b2778b91..86ad9166 100755
+--- a/benchmarks/single_node/glm5_fp8_mi355x.sh
++++ b/benchmarks/single_node/glm5_fp8_mi355x.sh
+@@ -38,7 +38,7 @@ python3 -m sglang.launch_server \
+     --trust-remote-code \
+     --tool-call-parser glm47 \
+     --reasoning-parser glm45 \
+-    --mem-fraction-static 0.85 \
++    --mem-fraction-static 0.80 \
+     --model-loader-extra-config '{"enable_multithread_load": true, "num_threads": 8}' \
+     --nsa-prefill-backend tilelang \
+     --nsa-decode-backend tilelang > $SERVER_LOG 2>&1 &
+@@ -55,7 +55,7 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/

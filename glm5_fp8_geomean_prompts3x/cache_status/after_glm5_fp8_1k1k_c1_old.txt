@@ -1,0 +1,8 @@
+stage=after_glm5_fp8_1k1k_c1_old
+timestamp=2026-06-25T03:16:18Z
+MODEL_DIR=/dev/shm/hf_hub_cache
+MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--zai-org--GLM-5-FP8
+705G	/dev/shm/hf_hub_cache/models--zai-org--GLM-5-FP8
+status=present
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.5T  1.5T   45G  98% /dev/shm
