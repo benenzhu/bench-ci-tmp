@@ -1,0 +1,121 @@
+Fetching 87 files:   0%|          | 0/87 [00:00<?, ?it/s]Fetching 87 files: 100%|██████████| 87/87 [00:00<00:00, 13064.50it/s]
+[32m✓ Downloaded[0m
+  path: /dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4/snapshots/e8b79186fe41c4ac9071bd40d81478f0eed87ab0
+Requirement already satisfied: amd-quark in /usr/local/lib/python3.12/dist-packages (0.11.2)
+Requirement already satisfied: evaluate in /usr/local/lib/python3.12/dist-packages (from amd-quark) (0.4.6)
+Requirement already satisfied: joblib in /usr/local/lib/python3.12/dist-packages (from amd-quark) (1.5.3)
+Requirement already satisfied: ninja in /usr/local/lib/python3.12/dist-packages (from amd-quark) (1.13.0)
+Requirement already satisfied: numpy<=2.1.3 in /usr/local/lib/python3.12/dist-packages (from amd-quark) (2.1.3)
+Requirement already satisfied: onnx<=1.19.0,>=1.16.0 in /usr/local/lib/python3.12/dist-packages (from amd-quark) (1.19.0)
+Requirement already satisfied: onnxscript in /usr/local/lib/python3.12/dist-packages (from amd-quark) (0.7.0)
+Requirement already satisfied: onnxslim>=0.1.84 in /usr/local/lib/python3.12/dist-packages (from amd-quark) (0.1.94)
+Requirement already satisfied: pandas in /usr/local/lib/python3.12/dist-packages (from amd-quark) (3.0.2)
+Requirement already satisfied: plotly in /usr/local/lib/python3.12/dist-packages (from amd-quark) (6.7.0)
+Requirement already satisfied: protobuf in /usr/local/lib/python3.12/dist-packages (from amd-quark) (6.33.6)
+Requirement already satisfied: pydantic in /usr/local/lib/python3.12/dist-packages (from amd-quark) (2.13.4)
+Requirement already satisfied: rich in /usr/local/lib/python3.12/dist-packages (from amd-quark) (15.0.0)
+Requirement already satisfied: scipy in /usr/local/lib/python3.12/dist-packages (from amd-quark) (1.17.1)
+Requirement already satisfied: sentencepiece in /usr/local/lib/python3.12/dist-packages (from amd-quark) (0.2.1)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.12/dist-packages (from amd-quark) (4.67.3)
+Requirement already satisfied: zstandard in /usr/local/lib/python3.12/dist-packages (from amd-quark) (0.25.0)
+Requirement already satisfied: typing_extensions>=4.7.1 in /usr/local/lib/python3.12/dist-packages (from onnx<=1.19.0,>=1.16.0->amd-quark) (4.15.0)
+Requirement already satisfied: ml_dtypes in /usr/local/lib/python3.12/dist-packages (from onnx<=1.19.0,>=1.16.0->amd-quark) (0.5.4)
+Requirement already satisfied: colorama in /usr/local/lib/python3.12/dist-packages (from onnxslim>=0.1.84->amd-quark) (0.4.6)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from onnxslim>=0.1.84->amd-quark) (26.2)
+Requirement already satisfied: sympy>=1.13.1 in /usr/local/lib/python3.12/dist-packages (from onnxslim>=0.1.84->amd-quark) (1.14.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy>=1.13.1->onnxslim>=0.1.84->amd-quark) (1.3.0)
+Requirement already satisfied: datasets>=2.0.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (4.8.5)
+Requirement already satisfied: dill in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (0.4.1)
+Requirement already satisfied: requests>=2.19.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (2.34.2)
+Requirement already satisfied: xxhash in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (3.7.0)
+Requirement already satisfied: multiprocess in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (0.70.19)
+Requirement already satisfied: fsspec>=2021.05.0 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]>=2021.05.0->evaluate->amd-quark) (2026.2.0)
+Requirement already satisfied: huggingface-hub>=0.7.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (1.17.0)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (3.29.0)
+Requirement already satisfied: pyarrow>=21.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (24.0.0)
+Requirement already satisfied: httpx<1.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (0.28.1)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (6.0.3)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]>=2021.05.0->evaluate->amd-quark) (3.13.5)
+Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (4.13.0)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (2026.5.20)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (3.17)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (0.16.0)
+Requirement already satisfied: click>=8.4.0 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub>=0.7.0->evaluate->amd-quark) (8.4.1)
+Requirement already satisfied: hf-xet<2.0.0,>=1.4.3 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub>=0.7.0->evaluate->amd-quark) (1.5.0)
+Requirement already satisfied: typer<0.26.0,>=0.20.0 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub>=0.7.0->evaluate->amd-quark) (0.25.1)
+Requirement already satisfied: shellingham>=1.3.0 in /usr/local/lib/python3.12/dist-packages (from typer<0.26.0,>=0.20.0->huggingface-hub>=0.7.0->evaluate->amd-quark) (1.5.4)
+Requirement already satisfied: annotated-doc>=0.0.2 in /usr/local/lib/python3.12/dist-packages (from typer<0.26.0,>=0.20.0->huggingface-hub>=0.7.0->evaluate->amd-quark) (0.0.4)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (2.6.2)
+Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (26.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (6.7.1)
+Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (0.5.2)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.24.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.19.0->evaluate->amd-quark) (3.4.7)
+Requirement already satisfied: urllib3<3,>=1.26 in /usr/local/lib/python3.12/dist-packages (from requests>=2.19.0->evaluate->amd-quark) (2.7.0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich->amd-quark) (4.2.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.12/dist-packages (from rich->amd-quark) (2.20.0)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py>=2.2.0->rich->amd-quark) (0.1.2)
+Requirement already satisfied: onnx_ir<2,>=0.1.16 in /usr/local/lib/python3.12/dist-packages (from onnxscript->amd-quark) (0.2.1)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas->amd-quark) (2.9.0.post0)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.8.2->pandas->amd-quark) (1.17.0)
+Requirement already satisfied: narwhals>=1.15.1 in /usr/local/lib/python3.12/dist-packages (from plotly->amd-quark) (2.21.2)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (0.7.0)
+Requirement already satisfied: pydantic-core==2.46.4 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (2.46.4)
+Requirement already satisfied: typing-inspection>=0.4.2 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (0.4.2)
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 26.1.1 -> 26.1.2
+[notice] To update, run: python3.12 -m pip install --upgrade pip
+[GPU Monitor] Started AMD (PID=32, interval=1s, output=/workspace/gpu_metrics.csv)
++ SERVER_PID=33
++ wait_for_server_ready --port 19000 --server-log /workspace/server.log --server-pid 33
++ set +x
++ vllm serve amd/Kimi-K2.5-MXFP4 --port 19000 --tensor-parallel-size=8 --gpu-memory-utilization 0.85 --max-model-len 9416 --block-size=1 --no-enable-prefix-caching --trust-remote-code --no-enable-prefix-caching --mm-encoder-tp-mode data
+WARNING 06-23 07:55:55 [argparse_utils.py:422] Found duplicate keys --no-enable-prefix-caching
+(APIServer pid=33) INFO 06-23 07:55:55 [utils.py:344] 
+(APIServer pid=33) INFO 06-23 07:55:55 [utils.py:344]        █     █     █▄   ▄█
+(APIServer pid=33) INFO 06-23 07:55:55 [utils.py:344]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.22.0
+(APIServer pid=33) INFO 06-23 07:55:55 [utils.py:344]   █▄█▀ █     █     █     █  model   amd/Kimi-K2.5-MXFP4
+(APIServer pid=33) INFO 06-23 07:55:55 [utils.py:344]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=33) INFO 06-23 07:55:55 [utils.py:344] 
+(APIServer pid=33) INFO 06-23 07:55:55 [utils.py:278] non-default args: {'model_tag': 'amd/Kimi-K2.5-MXFP4', 'port': 19000, 'model': 'amd/Kimi-K2.5-MXFP4', 'trust_remote_code': True, 'max_model_len': 9416, 'tensor_parallel_size': 8, 'block_size': 1, 'gpu_memory_utilization': 0.85, 'enable_prefix_caching': False, 'mm_encoder_tp_mode': 'data'}
+(APIServer pid=33) INFO 06-23 07:56:09 [model.py:617] Resolved architecture: KimiK25ForConditionalGeneration
+(APIServer pid=33) INFO 06-23 07:56:09 [model.py:1752] Using max model len 9416
+(APIServer pid=33) [aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+(APIServer pid=33) INFO 06-23 07:56:11 [scheduler.py:239] Chunked prefill is enabled with max_num_batched_tokens=8192.
+(APIServer pid=33) INFO 06-23 07:56:11 [vllm.py:977] Asynchronous scheduling is enabled.
+(APIServer pid=33) INFO 06-23 07:56:11 [kernel.py:270] Final IR op priority after setting platform defaults: IrOpPriorityConfig(rms_norm=['aiter', 'native'], fused_add_rms_norm=['aiter', 'native'])
+(APIServer pid=33) INFO 06-23 07:56:11 [compilation.py:312] Enabled custom fusions: norm_quant, act_quant, allreduce_rms, mla_dual_rms_norm
+(APIServer pid=33) WARNING 06-23 07:56:13 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+(EngineCore pid=670) INFO 06-23 07:56:25 [core.py:112] Initializing a V1 LLM engine (v0.22.0) with config: model='amd/Kimi-K2.5-MXFP4', speculative_config=None, tokenizer='amd/Kimi-K2.5-MXFP4', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=9416, download_dir=None, load_format=auto, tensor_parallel_size=8, pipeline_parallel_size=1, data_parallel_size=1, decode_context_parallel_size=1, dcp_comm_backend=ag_rs, disable_custom_all_reduce=False, quantization=quark, quantization_config=None, enforce_eager=False, enable_return_routed_experts=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False, enable_mfu_metrics=False, enable_mm_processor_stats=False, enable_logging_iteration_details=False), seed=0, served_model_name=amd/Kimi-K2.5-MXFP4, enable_prefix_caching=False, enable_chunked_prefill=True, pooler_config=None, compilation_config={'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['+quant_fp8', '+grouped_topk', '+sparse_attn_indexer', 'none'], 'ir_enable_torch_wrap': True, 'splitting_ops': ['vllm::unified_attention_with_output', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::qwen_gdn_attention_core', 'vllm::gdn_attention_core_xpu', 'vllm::olmo_hybrid_gdn_full_forward', 'vllm::kda_attention', 'vllm::sparse_attn_indexer', 'vllm::rocm_aiter_sparse_attn_indexer', 'vllm::deepseek_v4_attention', 'vllm::unified_kv_cache_update', 'vllm::unified_mla_kv_cache_update'], 'compile_mm_encoder': False, 'cudagraph_mm_encoder': False, 'encoder_cudagraph_token_budgets': [], 'encoder_cudagraph_max_vision_items_per_batch': 0, 'encoder_cudagraph_max_frames_per_batch': None, 'compile_sizes': [], 'compile_ranges_endpoints': [4681, 8192], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'size_asserts': False, 'alignment_asserts': False, 'scalar_asserts': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': True, 'fuse_act_quant': True, 'fuse_attn_quant': False, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': True, 'fuse_rope_kvcache_cat_mla': False, 'fuse_act_padding': False, 'fuse_mla_dual_rms_norm': True, 'fuse_rope_kvcache': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False, 'assume_32_bit_indexing': False}, 'local_cache_dir': None, 'fast_moe_cold_start': True, 'static_all_moe_layers': []}, kernel_config=KernelConfig(ir_op_priority=IrOpPriorityConfig(rms_norm=['aiter', 'native'], fused_add_rms_norm=['aiter', 'native']), enable_flashinfer_autotune=True, moe_backend='auto', linear_backend='auto')
+(EngineCore pid=670) WARNING 06-23 07:56:25 [multiproc_executor.py:1029] Reducing Torch parallelism from 128 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+(EngineCore pid=670) INFO 06-23 07:56:25 [multiproc_executor.py:139] DP group leader: node_rank=0, node_rank_within_dp=0, master_addr=127.0.0.1, mq_connect_ip=10.235.26.199 (local), world_size=8, local_world_size=8
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /usr/local/lib/python3.12/dist-packages/aiter/jit/module_aiter_core.so
+WARNING 06-23 07:56:39 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-23 07:56:39 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-23 07:56:39 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-23 07:56:39 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-23 07:56:39 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+(Worker pid=965) INFO 06-23 07:56:40 [parallel_state.py:1422] world_size=8 rank=7 local_rank=7 distributed_init_method=tcp://127.0.0.1:59993 backend=nccl
+(Worker pid=964) INFO 06-23 07:56:40 [parallel_state.py:1422] world_size=8 rank=6 local_rank=6 distributed_init_method=tcp://127.0.0.1:59993 backend=nccl
+WARNING 06-23 07:56:40 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-23 07:56:40 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+WARNING 06-23 07:56:40 [registry.py:253] Using a slow tokenizer. This might cause a significant slowdown. Consider using a fast tokenizer instead.
+(Worker pid=958) INFO 06-23 07:56:40 [parallel_state.py:1422] world_size=8 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:59993 backend=nccl
+(Worker pid=959) INFO 06-23 07:56:40 [parallel_state.py:1422] world_size=8 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:59993 backend=nccl
+(Worker pid=961) INFO 06-23 07:56:40 [parallel_state.py:1422] world_size=8 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:59993 backend=nccl
+(Worker pid=960) INFO 06-23 07:56:40 [parallel_state.py:1422] world_size=8 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:59993 backend=nccl
+(Worker pid=963) INFO 06-23 07:56:40 [parallel_state.py:1422] world_size=8 rank=5 local_rank=5 distributed_init_method=tcp://127.0.0.1:59993 backend=nccl
+(Worker pid=962) INFO 06-23 07:56:40 [parallel_state.py:1422] world_size=8 rank=4 local_rank=4 distributed_init_method=tcp://127.0.0.1:59993 backend=nccl
+(Worker pid=958) INFO 06-23 07:56:41 [pynccl.py:113] vLLM is using nccl==2.27.7

@@ -1,0 +1,153 @@
+Fetching 87 files:   0%|          | 0/87 [00:00<?, ?it/s]Fetching 87 files: 100%|██████████| 87/87 [00:00<00:00, 56234.31it/s]
+/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4/snapshots/e8b79186fe41c4ac9071bd40d81478f0eed87ab0
+Collecting amd-quark
+  Downloading amd_quark-0.11.2-py3-none-any.whl.metadata (12 kB)
+Collecting evaluate (from amd-quark)
+  Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+Collecting joblib (from amd-quark)
+  Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: ninja in /usr/local/lib/python3.12/dist-packages (from amd-quark) (1.13.0)
+Collecting numpy<=2.1.3 (from amd-quark)
+  Downloading numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting onnx<=1.19.0,>=1.16.0 (from amd-quark)
+  Downloading onnx-1.19.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (7.0 kB)
+Collecting onnxscript (from amd-quark)
+  Downloading onnxscript-0.7.0-py3-none-any.whl.metadata (13 kB)
+Collecting onnxslim>=0.1.84 (from amd-quark)
+  Downloading onnxslim-0.1.94-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: pandas in /usr/local/lib/python3.12/dist-packages (from amd-quark) (2.3.3)
+Collecting plotly (from amd-quark)
+  Downloading plotly-6.8.0-py3-none-any.whl.metadata (9.0 kB)
+Requirement already satisfied: protobuf in /usr/local/lib/python3.12/dist-packages (from amd-quark) (6.33.5)
+Requirement already satisfied: pydantic in /usr/local/lib/python3.12/dist-packages (from amd-quark) (2.12.5)
+Requirement already satisfied: rich in /usr/local/lib/python3.12/dist-packages (from amd-quark) (14.3.3)
+Collecting scipy (from amd-quark)
+  Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Requirement already satisfied: sentencepiece in /usr/local/lib/python3.12/dist-packages (from amd-quark) (0.2.1)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.12/dist-packages (from amd-quark) (4.67.3)
+Collecting zstandard (from amd-quark)
+  Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.3 kB)
+Requirement already satisfied: typing_extensions>=4.7.1 in /usr/local/lib/python3.12/dist-packages (from onnx<=1.19.0,>=1.16.0->amd-quark) (4.15.0)
+Collecting ml_dtypes (from onnx<=1.19.0,>=1.16.0->amd-quark)
+  Downloading ml_dtypes-0.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+Collecting colorama (from onnxslim>=0.1.84->amd-quark)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from onnxslim>=0.1.84->amd-quark) (26.0)
+Requirement already satisfied: sympy>=1.13.1 in /usr/local/lib/python3.12/dist-packages (from onnxslim>=0.1.84->amd-quark) (1.14.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy>=1.13.1->onnxslim>=0.1.84->amd-quark) (1.3.0)
+Requirement already satisfied: datasets>=2.0.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (4.5.0)
+Requirement already satisfied: dill in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (0.4.0)
+Requirement already satisfied: requests>=2.19.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (2.32.5)
+Requirement already satisfied: xxhash in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (3.6.0)
+Requirement already satisfied: multiprocess in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (0.70.18)
+Requirement already satisfied: fsspec>=2021.05.0 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]>=2021.05.0->evaluate->amd-quark) (2025.10.0)
+Requirement already satisfied: huggingface-hub>=0.7.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (0.36.2)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (3.24.3)
+Requirement already satisfied: pyarrow>=21.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (23.0.1)
+Requirement already satisfied: httpx<1.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (0.28.1)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (6.0.3)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]>=2021.05.0->evaluate->amd-quark) (3.13.3)
+Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (4.12.1)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (2026.2.25)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (3.11)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (0.16.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub>=0.7.0->evaluate->amd-quark) (1.3.1)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (25.4.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (6.7.1)
+Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (0.4.1)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.22.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.19.0->evaluate->amd-quark) (3.4.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.12/dist-packages (from requests>=2.19.0->evaluate->amd-quark) (2.6.3)
+Collecting onnx_ir<2,>=0.1.16 (from onnxscript->amd-quark)
+  Downloading onnx_ir-0.2.1-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas->amd-quark) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas->amd-quark) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas->amd-quark) (2025.3)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.8.2->pandas->amd-quark) (1.17.0)
+Collecting narwhals>=1.15.1 (from plotly->amd-quark)
+  Downloading narwhals-2.22.1-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (0.7.0)
+Requirement already satisfied: pydantic-core==2.41.5 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (2.41.5)
+Requirement already satisfied: typing-inspection>=0.4.2 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (0.4.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich->amd-quark) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.12/dist-packages (from rich->amd-quark) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py>=2.2.0->rich->amd-quark) (0.1.2)
+Downloading amd_quark-0.11.2-py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 23.8 MB/s  0:00:00
+Downloading numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 83.8 MB/s  0:00:00
+Downloading onnx-1.19.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (18.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 108.1 MB/s  0:00:00
+Downloading onnxslim-0.1.94-py3-none-any.whl (238 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading evaluate-0.4.6-py3-none-any.whl (84 kB)
+Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Downloading ml_dtypes-0.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 125.1 MB/s  0:00:00
+Downloading onnxscript-0.7.0-py3-none-any.whl (714 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 714.8/714.8 kB 131.5 MB/s  0:00:00
+Downloading onnx_ir-0.2.1-py3-none-any.whl (166 kB)
+Downloading plotly-6.8.0-py3-none-any.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 103.4 MB/s  0:00:00
+Downloading narwhals-2.22.1-py3-none-any.whl (454 kB)
+Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 105.6 MB/s  0:00:00
+Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 128.6 MB/s  0:00:00
+Installing collected packages: zstandard, numpy, narwhals, joblib, colorama, scipy, plotly, ml_dtypes, onnx, onnxslim, onnx_ir, onnxscript, evaluate, amd-quark
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.2.6
+    Uninstalling numpy-2.2.6:
+      Successfully uninstalled numpy-2.2.6
+
+Successfully installed amd-quark-0.11.2 colorama-0.4.6 evaluate-0.4.6 joblib-1.5.3 ml_dtypes-0.5.4 narwhals-2.22.1 numpy-2.1.3 onnx-1.19.0 onnx_ir-0.2.1 onnxscript-0.7.0 onnxslim-0.1.94 plotly-6.8.0 scipy-1.18.0 zstandard-0.25.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 26.0.1 -> 26.1.2
+[notice] To update, run: python3 -m pip install --upgrade pip
++ SERVER_PID=34
++ wait_for_server_ready --port 18888 --server-log /workspace/server.log --server-pid 34
++ set +x
++ vllm serve amd/Kimi-K2.5-MXFP4 --port 18888 --tensor-parallel-size=8 --gpu-memory-utilization 0.95 --max-model-len 9416 --block-size=64 --disable-log-requests --trust-remote-code --mm-encoder-tp-mode data
+(APIServer pid=34) INFO 06-23 03:50:13 [utils.py:287] 
+(APIServer pid=34) INFO 06-23 03:50:13 [utils.py:287]        █     █     █▄   ▄█
+(APIServer pid=34) INFO 06-23 03:50:13 [utils.py:287]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.16.0
+(APIServer pid=34) INFO 06-23 03:50:13 [utils.py:287]   █▄█▀ █     █     █     █  model   amd/Kimi-K2.5-MXFP4
+(APIServer pid=34) INFO 06-23 03:50:13 [utils.py:287]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=34) INFO 06-23 03:50:13 [utils.py:287] 
+(APIServer pid=34) INFO 06-23 03:50:13 [utils.py:223] non-default args: {'model_tag': 'amd/Kimi-K2.5-MXFP4', 'api_server_count': 1, 'port': 18888, 'model': 'amd/Kimi-K2.5-MXFP4', 'trust_remote_code': True, 'max_model_len': 9416, 'tensor_parallel_size': 8, 'block_size': 64, 'gpu_memory_utilization': 0.95, 'mm_encoder_tp_mode': 'data'}
+(APIServer pid=34) Traceback (most recent call last):
+(APIServer pid=34)   File "/usr/local/bin/vllm", line 10, in <module>
+(APIServer pid=34)     sys.exit(main())
+(APIServer pid=34)              ^^^^^^
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 73, in main
+(APIServer pid=34)     args.dispatch_function(args)
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 111, in cmd
+(APIServer pid=34)     uvloop.run(run_server(args))
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=34)     return __asyncio.run(
+(APIServer pid=34)            ^^^^^^^^^^^^^^
+(APIServer pid=34)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=34)     return runner.run(main)
+(APIServer pid=34)            ^^^^^^^^^^^^^^^^
+(APIServer pid=34)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=34)     return self._loop.run_until_complete(task)
+(APIServer pid=34)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=34)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=34)     return await main
+(APIServer pid=34)            ^^^^^^^^^^
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 456, in run_server
+(APIServer pid=34)     listen_address, sock = setup_server(args)
+(APIServer pid=34)                            ^^^^^^^^^^^^^^^^^^
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 428, in setup_server
+(APIServer pid=34)     sock = create_server_socket(sock_addr)
+(APIServer pid=34)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 376, in create_server_socket
+(APIServer pid=34)     sock.bind(addr)
+(APIServer pid=34) OSError: [Errno 98] Address already in use
+Server died before becoming healthy. Exiting.

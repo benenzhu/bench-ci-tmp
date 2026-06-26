@@ -1,0 +1,270 @@
+Unable to find image 'vllm/vllm-openai-rocm:v0.16.0' locally
+v0.16.0: Pulling from vllm/vllm-openai-rocm
+e6fdc8487bfe: Pulling fs layer
+2f4c517abc68: Pulling fs layer
+7aca9073787e: Pulling fs layer
+0a5af9a4b9c5: Pulling fs layer
+17534a994e6b: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+27ff79a1df6c: Pulling fs layer
+4775fdcdd486: Pulling fs layer
+2fc90beb372f: Pulling fs layer
+fa1544dd8a6c: Pulling fs layer
+fed92861eb8a: Pulling fs layer
+ae51ca3723e1: Pulling fs layer
+88ba410f66aa: Pulling fs layer
+3c8a93ca9e12: Pulling fs layer
+472fd2b58a64: Pulling fs layer
+cdcfc1f345c0: Pulling fs layer
+6ce01310d24d: Pulling fs layer
+c9054c3e3f0c: Pulling fs layer
+08bbc171654a: Pulling fs layer
+28a34e70ddc6: Pulling fs layer
+36c4d4adba50: Pulling fs layer
+893e09d2bf43: Pulling fs layer
+22ce42f18e8a: Pulling fs layer
+e76cece1a4ed: Pulling fs layer
+393dcfddc38d: Pulling fs layer
+0a5af9a4b9c5: Waiting
+36c4d4adba50: Waiting
+c9054c3e3f0c: Waiting
+6ce01310d24d: Waiting
+893e09d2bf43: Waiting
+22ce42f18e8a: Waiting
+08bbc171654a: Waiting
+e76cece1a4ed: Waiting
+28a34e70ddc6: Waiting
+3c8a93ca9e12: Waiting
+393dcfddc38d: Waiting
+472fd2b58a64: Waiting
+4775fdcdd486: Waiting
+fa1544dd8a6c: Waiting
+ae51ca3723e1: Waiting
+cdcfc1f345c0: Waiting
+2fc90beb372f: Waiting
+fed92861eb8a: Waiting
+17534a994e6b: Waiting
+27ff79a1df6c: Waiting
+88ba410f66aa: Waiting
+4f4fb700ef54: Waiting
+2f4c517abc68: Download complete
+17534a994e6b: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+e6fdc8487bfe: Download complete
+e6fdc8487bfe: Pull complete
+2f4c517abc68: Pull complete
+4775fdcdd486: Verifying Checksum
+4775fdcdd486: Download complete
+2fc90beb372f: Verifying Checksum
+2fc90beb372f: Download complete
+fa1544dd8a6c: Verifying Checksum
+fa1544dd8a6c: Download complete
+27ff79a1df6c: Download complete
+fed92861eb8a: Download complete
+88ba410f66aa: Download complete
+3c8a93ca9e12: Verifying Checksum
+3c8a93ca9e12: Download complete
+472fd2b58a64: Verifying Checksum
+472fd2b58a64: Download complete
+cdcfc1f345c0: Verifying Checksum
+cdcfc1f345c0: Download complete
+6ce01310d24d: Verifying Checksum
+6ce01310d24d: Download complete
+c9054c3e3f0c: Verifying Checksum
+c9054c3e3f0c: Download complete
+08bbc171654a: Download complete
+28a34e70ddc6: Verifying Checksum
+28a34e70ddc6: Download complete
+36c4d4adba50: Verifying Checksum
+36c4d4adba50: Download complete
+893e09d2bf43: Download complete
+22ce42f18e8a: Verifying Checksum
+22ce42f18e8a: Download complete
+e76cece1a4ed: Download complete
+393dcfddc38d: Verifying Checksum
+393dcfddc38d: Download complete
+ae51ca3723e1: Verifying Checksum
+ae51ca3723e1: Download complete
+7aca9073787e: Verifying Checksum
+7aca9073787e: Download complete
+7aca9073787e: Pull complete
+0a5af9a4b9c5: Pull complete
+17534a994e6b: Pull complete
+4f4fb700ef54: Pull complete
+27ff79a1df6c: Pull complete
+4775fdcdd486: Pull complete
+2fc90beb372f: Pull complete
+fa1544dd8a6c: Pull complete
+fed92861eb8a: Pull complete
+ae51ca3723e1: Pull complete
+88ba410f66aa: Pull complete
+3c8a93ca9e12: Pull complete
+472fd2b58a64: Pull complete
+cdcfc1f345c0: Pull complete
+6ce01310d24d: Pull complete
+c9054c3e3f0c: Pull complete
+08bbc171654a: Pull complete
+28a34e70ddc6: Pull complete
+36c4d4adba50: Pull complete
+893e09d2bf43: Pull complete
+22ce42f18e8a: Pull complete
+e76cece1a4ed: Pull complete
+393dcfddc38d: Pull complete
+Digest: sha256:4566dbfa83e2769394d8e1191638549f19a48ae63a96e0cbfe4b12c06d38bb09
+Status: Downloaded newer image for vllm/vllm-openai-rocm:v0.16.0
+Fetching 87 files:   0%|          | 0/87 [00:00<?, ?it/s]Fetching 87 files:   1%|          | 1/87 [00:00<00:27,  3.09it/s]Downloading 'README.md' to '/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4/blobs/48ecf140963d69e81dde1dabaa63ead7ba23ea9c.incomplete'
+Download complete. Moving file to /dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4/blobs/48ecf140963d69e81dde1dabaa63ead7ba23ea9c
+Fetching 87 files:   5%|▍         | 4/87 [00:00<00:07, 10.86it/s]Fetching 87 files:  17%|█▋        | 15/87 [00:00<00:01, 38.71it/s]Fetching 87 files:  34%|███▍      | 30/87 [00:00<00:00, 69.71it/s]Fetching 87 files:  46%|████▌     | 40/87 [00:00<00:00, 77.27it/s]Fetching 87 files:  62%|██████▏   | 54/87 [00:00<00:00, 93.02it/s]Fetching 87 files:  75%|███████▍  | 65/87 [00:00<00:00, 91.39it/s]Fetching 87 files:  86%|████████▌ | 75/87 [00:01<00:00, 85.85it/s]Fetching 87 files:  98%|█████████▊| 85/87 [00:01<00:00, 85.64it/s]Fetching 87 files: 100%|██████████| 87/87 [00:01<00:00, 66.85it/s]
+/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4/snapshots/e8b79186fe41c4ac9071bd40d81478f0eed87ab0
+Collecting amd-quark
+  Downloading amd_quark-0.11.2-py3-none-any.whl.metadata (12 kB)
+Collecting evaluate (from amd-quark)
+  Downloading evaluate-0.4.6-py3-none-any.whl.metadata (9.5 kB)
+Collecting joblib (from amd-quark)
+  Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+Requirement already satisfied: ninja in /usr/local/lib/python3.12/dist-packages (from amd-quark) (1.13.0)
+Collecting numpy<=2.1.3 (from amd-quark)
+  Downloading numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (62 kB)
+Collecting onnx<=1.19.0,>=1.16.0 (from amd-quark)
+  Downloading onnx-1.19.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (7.0 kB)
+Collecting onnxscript (from amd-quark)
+  Downloading onnxscript-0.7.0-py3-none-any.whl.metadata (13 kB)
+Collecting onnxslim>=0.1.84 (from amd-quark)
+  Downloading onnxslim-0.1.94-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: pandas in /usr/local/lib/python3.12/dist-packages (from amd-quark) (2.3.3)
+Collecting plotly (from amd-quark)
+  Downloading plotly-6.8.0-py3-none-any.whl.metadata (9.0 kB)
+Requirement already satisfied: protobuf in /usr/local/lib/python3.12/dist-packages (from amd-quark) (6.33.5)
+Requirement already satisfied: pydantic in /usr/local/lib/python3.12/dist-packages (from amd-quark) (2.12.5)
+Requirement already satisfied: rich in /usr/local/lib/python3.12/dist-packages (from amd-quark) (14.3.3)
+Collecting scipy (from amd-quark)
+  Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+Requirement already satisfied: sentencepiece in /usr/local/lib/python3.12/dist-packages (from amd-quark) (0.2.1)
+Requirement already satisfied: tqdm in /usr/local/lib/python3.12/dist-packages (from amd-quark) (4.67.3)
+Collecting zstandard (from amd-quark)
+  Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (3.3 kB)
+Requirement already satisfied: typing_extensions>=4.7.1 in /usr/local/lib/python3.12/dist-packages (from onnx<=1.19.0,>=1.16.0->amd-quark) (4.15.0)
+Collecting ml_dtypes (from onnx<=1.19.0,>=1.16.0->amd-quark)
+  Downloading ml_dtypes-0.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.9 kB)
+Collecting colorama (from onnxslim>=0.1.84->amd-quark)
+  Downloading colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Requirement already satisfied: packaging in /usr/local/lib/python3.12/dist-packages (from onnxslim>=0.1.84->amd-quark) (26.0)
+Requirement already satisfied: sympy>=1.13.1 in /usr/local/lib/python3.12/dist-packages (from onnxslim>=0.1.84->amd-quark) (1.14.0)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/dist-packages (from sympy>=1.13.1->onnxslim>=0.1.84->amd-quark) (1.3.0)
+Requirement already satisfied: datasets>=2.0.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (4.5.0)
+Requirement already satisfied: dill in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (0.4.0)
+Requirement already satisfied: requests>=2.19.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (2.32.5)
+Requirement already satisfied: xxhash in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (3.6.0)
+Requirement already satisfied: multiprocess in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (0.70.18)
+Requirement already satisfied: fsspec>=2021.05.0 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]>=2021.05.0->evaluate->amd-quark) (2025.10.0)
+Requirement already satisfied: huggingface-hub>=0.7.0 in /usr/local/lib/python3.12/dist-packages (from evaluate->amd-quark) (0.36.2)
+Requirement already satisfied: filelock in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (3.24.3)
+Requirement already satisfied: pyarrow>=21.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (23.0.1)
+Requirement already satisfied: httpx<1.0.0 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (0.28.1)
+Requirement already satisfied: pyyaml>=5.1 in /usr/local/lib/python3.12/dist-packages (from datasets>=2.0.0->evaluate->amd-quark) (6.0.3)
+Requirement already satisfied: aiohttp!=4.0.0a0,!=4.0.0a1 in /usr/local/lib/python3.12/dist-packages (from fsspec[http]>=2021.05.0->evaluate->amd-quark) (3.13.3)
+Requirement already satisfied: anyio in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (4.12.1)
+Requirement already satisfied: certifi in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (2026.2.25)
+Requirement already satisfied: httpcore==1.* in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (1.0.9)
+Requirement already satisfied: idna in /usr/local/lib/python3.12/dist-packages (from httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (3.11)
+Requirement already satisfied: h11>=0.16 in /usr/local/lib/python3.12/dist-packages (from httpcore==1.*->httpx<1.0.0->datasets>=2.0.0->evaluate->amd-quark) (0.16.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.1.3 in /usr/local/lib/python3.12/dist-packages (from huggingface-hub>=0.7.0->evaluate->amd-quark) (1.3.1)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (2.6.1)
+Requirement already satisfied: aiosignal>=1.4.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (25.4.0)
+Requirement already satisfied: frozenlist>=1.1.1 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (6.7.1)
+Requirement already satisfied: propcache>=0.2.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (0.4.1)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in /usr/local/lib/python3.12/dist-packages (from aiohttp!=4.0.0a0,!=4.0.0a1->fsspec[http]>=2021.05.0->evaluate->amd-quark) (1.22.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /usr/local/lib/python3.12/dist-packages (from requests>=2.19.0->evaluate->amd-quark) (3.4.4)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/local/lib/python3.12/dist-packages (from requests>=2.19.0->evaluate->amd-quark) (2.6.3)
+Collecting onnx_ir<2,>=0.1.16 (from onnxscript->amd-quark)
+  Downloading onnx_ir-0.2.1-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: python-dateutil>=2.8.2 in /usr/local/lib/python3.12/dist-packages (from pandas->amd-quark) (2.9.0.post0)
+Requirement already satisfied: pytz>=2020.1 in /usr/local/lib/python3.12/dist-packages (from pandas->amd-quark) (2025.2)
+Requirement already satisfied: tzdata>=2022.7 in /usr/local/lib/python3.12/dist-packages (from pandas->amd-quark) (2025.3)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.8.2->pandas->amd-quark) (1.17.0)
+Collecting narwhals>=1.15.1 (from plotly->amd-quark)
+  Downloading narwhals-2.22.1-py3-none-any.whl.metadata (15 kB)
+Requirement already satisfied: annotated-types>=0.6.0 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (0.7.0)
+Requirement already satisfied: pydantic-core==2.41.5 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (2.41.5)
+Requirement already satisfied: typing-inspection>=0.4.2 in /usr/local/lib/python3.12/dist-packages (from pydantic->amd-quark) (0.4.2)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /usr/local/lib/python3.12/dist-packages (from rich->amd-quark) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /usr/local/lib/python3.12/dist-packages (from rich->amd-quark) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /usr/local/lib/python3.12/dist-packages (from markdown-it-py>=2.2.0->rich->amd-quark) (0.1.2)
+Downloading amd_quark-0.11.2-py3-none-any.whl (1.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 23.3 MB/s  0:00:00
+Downloading numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.0/16.0 MB 77.8 MB/s  0:00:00
+Downloading onnx-1.19.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (18.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 18.2/18.2 MB 107.9 MB/s  0:00:00
+Downloading onnxslim-0.1.94-py3-none-any.whl (238 kB)
+Downloading colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Downloading evaluate-0.4.6-py3-none-any.whl (84 kB)
+Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
+Downloading ml_dtypes-0.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (5.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.0/5.0 MB 126.2 MB/s  0:00:00
+Downloading onnxscript-0.7.0-py3-none-any.whl (714 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 714.8/714.8 kB 141.9 MB/s  0:00:00
+Downloading onnx_ir-0.2.1-py3-none-any.whl (166 kB)
+Downloading plotly-6.8.0-py3-none-any.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 110.1 MB/s  0:00:00
+Downloading narwhals-2.22.1-py3-none-any.whl (454 kB)
+Downloading scipy-1.18.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 104.5 MB/s  0:00:00
+Downloading zstandard-0.25.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.5/5.5 MB 128.7 MB/s  0:00:00
+Installing collected packages: zstandard, numpy, narwhals, joblib, colorama, scipy, plotly, ml_dtypes, onnx, onnxslim, onnx_ir, onnxscript, evaluate, amd-quark
+  Attempting uninstall: numpy
+    Found existing installation: numpy 2.2.6
+    Uninstalling numpy-2.2.6:
+      Successfully uninstalled numpy-2.2.6
+
+Successfully installed amd-quark-0.11.2 colorama-0.4.6 evaluate-0.4.6 joblib-1.5.3 ml_dtypes-0.5.4 narwhals-2.22.1 numpy-2.1.3 onnx-1.19.0 onnx_ir-0.2.1 onnxscript-0.7.0 onnxslim-0.1.94 plotly-6.8.0 scipy-1.18.0 zstandard-0.25.0
+WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+
+[notice] A new release of pip is available: 26.0.1 -> 26.1.2
+[notice] To update, run: python3 -m pip install --upgrade pip
++ SERVER_PID=34
++ wait_for_server_ready --port 18888 --server-log /workspace/server.log --server-pid 34
++ set +x
++ vllm serve amd/Kimi-K2.5-MXFP4 --port 18888 --tensor-parallel-size=8 --gpu-memory-utilization 0.95 --max-model-len 9416 --block-size=64 --disable-log-requests --trust-remote-code --mm-encoder-tp-mode data
+(APIServer pid=34) INFO 06-23 03:48:46 [utils.py:287] 
+(APIServer pid=34) INFO 06-23 03:48:46 [utils.py:287]        █     █     █▄   ▄█
+(APIServer pid=34) INFO 06-23 03:48:46 [utils.py:287]  ▄▄ ▄█ █     █     █ ▀▄▀ █  version 0.16.0
+(APIServer pid=34) INFO 06-23 03:48:46 [utils.py:287]   █▄█▀ █     █     █     █  model   amd/Kimi-K2.5-MXFP4
+(APIServer pid=34) INFO 06-23 03:48:46 [utils.py:287]    ▀▀  ▀▀▀▀▀ ▀▀▀▀▀ ▀     ▀
+(APIServer pid=34) INFO 06-23 03:48:46 [utils.py:287] 
+(APIServer pid=34) INFO 06-23 03:48:46 [utils.py:223] non-default args: {'model_tag': 'amd/Kimi-K2.5-MXFP4', 'api_server_count': 1, 'port': 18888, 'model': 'amd/Kimi-K2.5-MXFP4', 'trust_remote_code': True, 'max_model_len': 9416, 'tensor_parallel_size': 8, 'block_size': 64, 'gpu_memory_utilization': 0.95, 'mm_encoder_tp_mode': 'data'}
+(APIServer pid=34) Traceback (most recent call last):
+(APIServer pid=34)   File "/usr/local/bin/vllm", line 10, in <module>
+(APIServer pid=34)     sys.exit(main())
+(APIServer pid=34)              ^^^^^^
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 73, in main
+(APIServer pid=34)     args.dispatch_function(args)
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/serve.py", line 111, in cmd
+(APIServer pid=34)     uvloop.run(run_server(args))
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 96, in run
+(APIServer pid=34)     return __asyncio.run(
+(APIServer pid=34)            ^^^^^^^^^^^^^^
+(APIServer pid=34)   File "/usr/lib/python3.12/asyncio/runners.py", line 195, in run
+(APIServer pid=34)     return runner.run(main)
+(APIServer pid=34)            ^^^^^^^^^^^^^^^^
+(APIServer pid=34)   File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+(APIServer pid=34)     return self._loop.run_until_complete(task)
+(APIServer pid=34)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=34)   File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/uvloop/__init__.py", line 48, in wrapper
+(APIServer pid=34)     return await main
+(APIServer pid=34)            ^^^^^^^^^^
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 456, in run_server
+(APIServer pid=34)     listen_address, sock = setup_server(args)
+(APIServer pid=34)                            ^^^^^^^^^^^^^^^^^^
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 428, in setup_server
+(APIServer pid=34)     sock = create_server_socket(sock_addr)
+(APIServer pid=34)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(APIServer pid=34)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/openai/api_server.py", line 376, in create_server_socket
+(APIServer pid=34)     sock.bind(addr)
+(APIServer pid=34) OSError: [Errno 98] Address already in use
+Server died before becoming healthy. Exiting.

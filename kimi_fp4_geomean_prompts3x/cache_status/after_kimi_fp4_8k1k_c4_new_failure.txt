@@ -1,0 +1,8 @@
+stage=after_kimi_fp4_8k1k_c4_new_failure
+timestamp=2026-06-23T03:49:53Z
+MODEL_DIR=/dev/shm/hf_hub_cache
+MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
+521G	/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
+status=present
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.5T  1.3T  229G  85% /dev/shm
