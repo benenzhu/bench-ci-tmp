@@ -34,13 +34,13 @@ The old->new gains above come from image/runtime upgrades shipped across many PR
 
 | # | Optimization | What it does | Models |
 |---|---|---|---|
-| 1 | AITER fused-kernel paths | quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, fused hash-topk replace slower Torch fallbacks | Kimi, DSV4 |
+| 1 | AITER optimized kernels | Fusion & optimized GPU kernels for inference (MHC, fused hash-topk, fused compress) | Kimi, DSV4 |
 | 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends optimizations | DSV4, GLM-5 |
 | 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO) | DSV4, Kimi |
 
 Details:
 
-1. **AITER fused-kernel paths.** AITER quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, and fused hash-topk replace slower Torch fallbacks. This is the dominant lever for Kimi (the v0.16->v0.18 jump in PR #936 enabled AITER quick-reduce + tuned memory) and a recurring one for DeepSeek-V4-Pro (PR #1272 fused compress, #1300 AITER MHC pre/post, #1355 fused hash-topk).
+1. **AITER optimized kernels.** Fusion and optimized GPU kernels for inference — AITER MHC (hash-correction) pre/post, fused hash-topk, and fused compress. This is the dominant lever for Kimi (the v0.16->v0.18 jump in PR #936) and a recurring one for DeepSeek-V4-Pro (PR #1272 fused compress, #1300 AITER MHC pre/post, #1355 fused hash-topk).
 
 2. **MoE/Attention backend upgrades.** FlyDSL MoE and the Triton attention backend (DeepSeek-V4-Pro PR #1355) plus NSA TileLang backends (GLM-5 PR #762) replace the generic MoE/Attention paths with hardware-tuned ones on MI355X.
 
