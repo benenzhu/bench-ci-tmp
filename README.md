@@ -35,14 +35,14 @@ The old->new gains above come from image/runtime upgrades shipped across many PR
 | # | Optimization | What it does | Models | Source PRs |
 |---|---|---|---|---|
 | 1 | AITER fused-kernel paths | quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, fused hash-topk replace slower Torch fallbacks | Kimi, DSV4 | #936, #1272, #1300, #1355 |
-| 2 | MoE backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends replace generic MoE/attention paths with MI355X-tuned ones | DSV4, GLM-5 | #1355, #762 |
+| 2 | MoE + Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends replace generic MoE/attention paths with MI355X-tuned ones | DSV4, GLM-5 | #1355, #762 |
 | 3 | FP8 KV cache + memory/scheduling tuning | `--kv-cache-dtype fp8_e4m3`, CONC-driven `--cuda-graph-max-bs` / `--max-running-requests`, high-concurrency KV-pool-full fixes — free memory for larger micro-batches | GLM-5, DSV4, Kimi | #1023, #1272, #1568 |
 
 Details:
 
 1. **AITER fused-kernel paths.** AITER quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, and fused hash-topk replace slower Torch fallbacks. This is the dominant lever for Kimi (the v0.16->v0.18 jump in PR #936 enabled AITER quick-reduce + tuned memory) and a recurring one for DeepSeek-V4-Pro (PR #1272 fused compress, #1300 AITER MHC pre/post, #1355 fused hash-topk).
 
-2. **MoE backend upgrades.** FlyDSL MoE and the Triton attention backend (DeepSeek-V4-Pro PR #1355) plus NSA TileLang backends (GLM-5 PR #762) replace the generic MoE/attention paths with hardware-tuned ones on MI355X.
+2. **MoE + Attention backend upgrades.** FlyDSL MoE and the Triton attention backend (DeepSeek-V4-Pro PR #1355) plus NSA TileLang backends (GLM-5 PR #762) replace the generic MoE/attention paths with hardware-tuned ones on MI355X.
 
 3. **FP8 KV cache + memory/scheduling tuning.** `--kv-cache-dtype fp8_e4m3` (GLM-5 PR #1023), CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` so graph-capture and serving capacity match each sweep point (DeepSeek-V4-Pro PR #1272), and high-concurrency KV-pool-full fixes (PR #1568). These free memory for larger micro-batches at high concurrency, which is exactly where the credible 2-4x gains land.
 
