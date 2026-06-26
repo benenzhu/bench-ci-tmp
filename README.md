@@ -32,11 +32,11 @@ The Kimi-K2.5 headline geomean uses the three high-concurrency configs (`8k1k` C
 
 The old->new gains above come from image/runtime upgrades shipped across many PRs in the `SemiAnalysisAI/InferenceX` perf changelog. The three biggest inference-side levers:
 
-| # | Optimization | What it does | Models | Source PRs |
-|---|---|---|---|---|
-| 1 | AITER fused-kernel paths | quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, fused hash-topk replace slower Torch fallbacks | Kimi, DSV4 | #936, #1272, #1300, #1355 |
-| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends replace generic MoE/Attention paths with MI355X-tuned ones | DSV4, GLM-5 | #1355, #762 |
-| 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO), plus CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` and KV-pool sizing — free memory and overlap compute for larger micro-batches at high concurrency | DSV4, Kimi | #1272 |
+| # | Optimization | What it does | Models |
+|---|---|---|---|
+| 1 | AITER fused-kernel paths | quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, fused hash-topk replace slower Torch fallbacks | Kimi, DSV4 |
+| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends replace generic MoE/Attention paths with MI355X-tuned ones | DSV4, GLM-5 |
+| 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO), plus CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` and KV-pool sizing — free memory and overlap compute for larger micro-batches at high concurrency | DSV4, Kimi |
 
 Details:
 
