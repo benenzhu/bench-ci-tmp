@@ -21,17 +21,19 @@ Three models, each swept across multiple TP8 non-disaggregated configs (`num_pro
 | Model | Prec / Framework | Configs | Geomean | Improvement | Bundle |
 |---|---|---:|---:|---:|---|
 | DeepSeek-V4-Pro | FP4 / SGLang | 7 | `3.4739x` | `247.4%` | `dsv4_sglang_geomean_prompts3x/` |
-| Kimi-K2.5 | FP4 / vLLM | 7 | `9.9584x` | `895.8%` | `kimi_fp4_geomean_prompts3x/` |
+| Kimi-K2.5 | FP4 / vLLM | 3 (high-conc) | `3.7100x` | `271.0%` | `kimi_fp4_geomean_prompts3x/` |
 | GLM-5 | FP8 / SGLang | 7 | `2.5290x` | `152.9%` | `glm5_fp8_geomean_prompts3x/` |
 
 Exact per-config rows are in each bundle's `comparison.csv`.
+
+The Kimi-K2.5 headline geomean uses the three high-concurrency configs (`8k1k` CONC 64/128/256), where both old and new images are near saturation and the gain is a credible `3.71x`. The bundle also contains lower-concurrency configs (CONC 4-32), but at low concurrency the old image (vLLM v0.16.0) is pathologically slow, inflating per-config gains to 10-18x; those are kept for completeness but are not the reported headline.
 
 ## Main Results
 
 | Scope | Seq | CONC | Image | Result |
 |---|---|---:|---|---|
 | DeepSeek-V4-Pro FP4 SGLang geomean | mixed: `8k1k_c8`, `1k1k_c1/c2/c3/c4/c8`, `1k512_c1` | mixed | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | geomean `3.4739x`, improvement `247.4%`; exact rows in `dsv4_sglang_geomean_prompts3x/comparison.csv` |
-| Kimi-K2.5 FP4 vLLM geomean | mixed: `8k1k_c4/c8/c16/c32/c64`, `1k1k_c4/c8` | mixed | `vllm/vllm-openai-rocm:v0.16.0` -> `vllm/vllm-openai-rocm:v0.22.0` | geomean `9.9584x`, improvement `895.8%`; exact rows in `kimi_fp4_geomean_prompts3x/comparison.csv` |
+| Kimi-K2.5 FP4 vLLM geomean (high-conc) | `8k1k_c64/c128/c256` | 64/128/256 | `vllm/vllm-openai-rocm:v0.16.0` -> `vllm/vllm-openai-rocm:v0.22.0` | geomean `3.7100x`, improvement `271.0%`; per-config `4.17x / 3.97x / 3.08x`; full 9-config sweep (incl. low-conc 10-18x outliers) in `kimi_fp4_geomean_prompts3x/comparison.csv` |
 | GLM-5 FP8 SGLang geomean | mixed: `1k1k_c1/c2/c4/c8/c16`, `8k1k_c4/c8` | mixed | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` -> `lmsysorg/sglang-rocm:v0.5.10rc0-rocm720-mi35x-20260413` | geomean `2.5290x`, improvement `152.9%`; exact rows in `glm5_fp8_geomean_prompts3x/comparison.csv` |
 | DeepSeek-V4-Pro FP4 SGLang | 8192/1024 | 8 | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | `104.044135 -> 421.982767 tok/s/GPU`, `4.0558x` |
 | Kimi-K2.5 INT4 vLLM attempted middle-state | 8192/1024 | 16 | `vllm/vllm-openai-rocm:v0.15.1` -> `vllm/vllm-openai-rocm:v0.18.0` | local `142.174440 -> 187.669496 tok/s/GPU`, `1.3200x`; did not reproduce the recorded `4.0143x` dashboard candidate |

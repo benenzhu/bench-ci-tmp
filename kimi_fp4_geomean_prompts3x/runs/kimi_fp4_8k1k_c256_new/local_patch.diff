@@ -1,0 +1,22 @@
+diff --git a/benchmarks/single_node/kimik2.5_fp4_mi355x.sh b/benchmarks/single_node/kimik2.5_fp4_mi355x.sh
+index 56e927ef..1c723677 100755
+--- a/benchmarks/single_node/kimik2.5_fp4_mi355x.sh
++++ b/benchmarks/single_node/kimik2.5_fp4_mi355x.sh
+@@ -70,7 +70,7 @@ set -x
+ vllm serve $MODEL --port $PORT \
+ --tensor-parallel-size=$TP \
+ $EP \
+---gpu-memory-utilization 0.90 \
++--gpu-memory-utilization 0.80 \
+ --max-model-len $MAX_MODEL_LEN \
+ --block-size=1 \
+ --no-enable-prefix-caching \
+@@ -90,7 +90,7 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/ \

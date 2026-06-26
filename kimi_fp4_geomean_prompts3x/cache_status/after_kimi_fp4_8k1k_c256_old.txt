@@ -1,5 +1,5 @@
-stage=final
-timestamp=2026-06-25T08:20:21Z
+stage=after_kimi_fp4_8k1k_c256_old
+timestamp=2026-06-25T08:06:40Z
 MODEL_DIR=/dev/shm/hf_hub_cache
 MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
 521G	/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
