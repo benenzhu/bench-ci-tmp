@@ -35,16 +35,18 @@ The old->new gains above come from image/runtime upgrades shipped across many PR
 | # | Optimization | What it does | Models | Source PRs |
 |---|---|---|---|---|
 | 1 | AITER fused-kernel paths | quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, fused hash-topk replace slower Torch fallbacks | Kimi, DSV4 | #936, #1272, #1300, #1355 |
-| 2 | MoE + Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends replace generic MoE/attention paths with MI355X-tuned ones | DSV4, GLM-5 | #1355, #762 |
-| 3 | FP8 KV cache + memory/scheduling tuning | `--kv-cache-dtype fp8_e4m3`, CONC-driven `--cuda-graph-max-bs` / `--max-running-requests`, high-concurrency KV-pool-full fixes — free memory for larger micro-batches | GLM-5, DSV4, Kimi | #1023, #1272, #1568 |
+| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends replace generic MoE/Attention paths with MI355X-tuned ones | DSV4, GLM-5 | #1355, #762 |
+| 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO), plus CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` and KV-pool sizing — free memory and overlap compute for larger micro-batches at high concurrency | DSV4 (Kimi upcoming) | #1272 |
 
 Details:
 
 1. **AITER fused-kernel paths.** AITER quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, and fused hash-topk replace slower Torch fallbacks. This is the dominant lever for Kimi (the v0.16->v0.18 jump in PR #936 enabled AITER quick-reduce + tuned memory) and a recurring one for DeepSeek-V4-Pro (PR #1272 fused compress, #1300 AITER MHC pre/post, #1355 fused hash-topk).
 
-2. **MoE + Attention backend upgrades.** FlyDSL MoE and the Triton attention backend (DeepSeek-V4-Pro PR #1355) plus NSA TileLang backends (GLM-5 PR #762) replace the generic MoE/attention paths with hardware-tuned ones on MI355X.
+2. **MoE/Attention backend upgrades.** FlyDSL MoE and the Triton attention backend (DeepSeek-V4-Pro PR #1355) plus NSA TileLang backends (GLM-5 PR #762) replace the generic MoE/Attention paths with hardware-tuned ones on MI355X.
 
-3. **FP8 KV cache + memory/scheduling tuning.** `--kv-cache-dtype fp8_e4m3` (GLM-5 PR #1023), CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` so graph-capture and serving capacity match each sweep point (DeepSeek-V4-Pro PR #1272), and high-concurrency KV-pool-full fixes (PR #1568). These free memory for larger micro-batches at high concurrency, which is exactly where the credible 2-4x gains land.
+3. **Parallelism & scheduling tuning.** DeepSeek-V4-Pro uses expert parallelism (EP), DP-attention, and two-batch overlap (TBO) to keep all eight GPUs busy at high concurrency, combined with CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` so graph-capture and serving capacity match each sweep point, plus KV-pool sizing to free memory for larger micro-batches. Kimi will adopt the same EP/DP/TBO path next.
+
+<sub>Evidence in the InferenceX perf changelog: CONC-driven graph/serving sizing — DSV4 PR #1272; high-concurrency KV-pool fix — #1568; EP=8 + DP-attention + DeepEP recipe — #1868; MORI EP two-batch-overlapping / TBO — #783, #2150, and the DSV4 ATOM high-concurrency TBO entries. FP8 KV cache (`--kv-cache-dtype fp8_e4m3`) shipped for GLM-5 in #1023.</sub>
 
 Per-model attribution: Kimi's speedup is concentrated in the single v0.16->v0.18 jump (PR #936); later image bumps (v0.18->0.21->0.22) are version-only with no new runtime tuning. DeepSeek-V4-Pro accrues gains incrementally — nearly every image bump ships additional runtime-env tuning. GLM-5 has the fewest dedicated optimizations (mainly FP8 KV cache + graph sizing), consistent with its lower `2.53x` geomean.
 
