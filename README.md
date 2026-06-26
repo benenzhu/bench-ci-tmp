@@ -35,14 +35,14 @@ The old->new gains above come from image/runtime upgrades shipped across many PR
 | # | Optimization | What it does | Models |
 |---|---|---|---|
 | 1 | AITER optimized kernels | Fused & optimized GPU kernels for inference (MHC, fused hash-topk, fused compress) | Kimi, DSV4 |
-| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends optimizations | DSV4, GLM-5 |
+| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA backends optimizations | DSV4, GLM-5 |
 | 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO) | DSV4, Kimi |
 
 Details:
 
 1. **AITER optimized kernels.** Fused & optimized GPU kernels for inference — AITER MHC (hash-correction) pre/post, fused hash-topk, and fused compress. This is the dominant lever for Kimi (the v0.16->v0.18 jump in PR #936) and a recurring one for DeepSeek-V4-Pro (PR #1272 fused compress, #1300 AITER MHC pre/post, #1355 fused hash-topk).
 
-2. **MoE/Attention backend upgrades.** FlyDSL MoE and the Triton attention backend (DeepSeek-V4-Pro PR #1355) plus NSA TileLang backends (GLM-5 PR #762) replace the generic MoE/Attention paths with hardware-tuned ones on MI355X.
+2. **MoE/Attention backend upgrades.** FlyDSL MoE and the Triton attention backend (DeepSeek-V4-Pro PR #1355) plus NSA backends (GLM-5 PR #762) replace the generic MoE/Attention paths with hardware-tuned ones on MI355X.
 
 3. **Parallelism & scheduling tuning.** DeepSeek-V4-Pro and Kimi use expert parallelism (EP), DP-attention, and two-batch overlap (TBO) to keep all eight GPUs busy at high concurrency, combined with CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` so graph-capture and serving capacity match each sweep point, plus KV-pool sizing to free memory for larger micro-batches.
 
