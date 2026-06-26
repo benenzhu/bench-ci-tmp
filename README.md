@@ -28,6 +28,18 @@ Exact per-config rows are in each bundle's `comparison.csv`.
 
 The Kimi-K2.5 headline geomean uses the three high-concurrency configs (`8k1k` CONC 64/128/256), where both old and new images are near saturation and the gain is a credible `3.71x`. The bundle also contains lower-concurrency configs (CONC 4-32), but at low concurrency the old image (vLLM v0.16.0) is pathologically slow, inflating per-config gains to 10-18x; those are kept for completeness but are not the reported headline.
 
+## Top Inference Optimizations
+
+The old->new gains above come from image/runtime upgrades shipped across many PRs in the `SemiAnalysisAI/InferenceX` perf changelog. The three biggest inference-side levers driving these speedups:
+
+1. **AITER fused-kernel paths.** AITER INT4 quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, and fused hash-topk replace slower Torch fallbacks. This is the dominant lever for Kimi (the v0.16->v0.18 jump in PR #936 enabled AITER INT4 quick-reduce + tuned memory) and a recurring one for DeepSeek-V4-Pro (PR #1272 fused compress, #1300 AITER MHC pre/post, #1355 fused hash-topk).
+
+2. **MoE backend upgrades.** FlyDSL MoE and the Triton attention backend (DeepSeek-V4-Pro PR #1355) plus NSA TileLang backends (GLM-5 PR #762) replace the generic MoE/attention paths with hardware-tuned ones on MI355X.
+
+3. **FP8 KV cache + memory/scheduling tuning.** `--kv-cache-dtype fp8_e4m3` (GLM-5 PR #1023), CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` so graph-capture and serving capacity match each sweep point (DeepSeek-V4-Pro PR #1272), and high-concurrency KV-pool-full fixes (PR #1568). These free memory for larger micro-batches at high concurrency, which is exactly where the credible 2-4x gains land.
+
+Notes: Kimi's speedup is concentrated in the single v0.16->v0.18 jump (PR #936); later image bumps (v0.18->0.21->0.22) are version-only with no new runtime tuning. DeepSeek-V4-Pro accrues gains incrementally — nearly every image bump ships additional runtime-env tuning. GLM-5 has the fewest dedicated optimizations (mainly FP8 KV cache + graph sizing), consistent with its lower `2.53x` geomean.
+
 ## Main Results
 
 | Scope | Seq | CONC | Image | Result |
