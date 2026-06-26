@@ -35,8 +35,8 @@ The old->new gains above come from image/runtime upgrades shipped across many PR
 | # | Optimization | What it does | Models |
 |---|---|---|---|
 | 1 | AITER fused-kernel paths | quick-reduce, AITER MHC (hash-correction) pre/post, fused compress, fused hash-topk replace slower Torch fallbacks | Kimi, DSV4 |
-| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends replace generic MoE/Attention paths with MI355X-tuned ones | DSV4, GLM-5 |
-| 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO), plus CONC-driven `--cuda-graph-max-bs` / `--max-running-requests` and KV-pool sizing — free memory and overlap compute for larger micro-batches at high concurrency | DSV4, Kimi |
+| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA TileLang backends optimizations | DSV4, GLM-5 |
+| 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO) | DSV4, Kimi |
 
 Details:
 
