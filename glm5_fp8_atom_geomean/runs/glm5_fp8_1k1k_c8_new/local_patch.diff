@@ -1,0 +1,22 @@
+diff --git a/benchmarks/single_node/glm5_fp8_mi355x_atom.sh b/benchmarks/single_node/glm5_fp8_mi355x_atom.sh
+index 036346af..deb19ad0 100644
+--- a/benchmarks/single_node/glm5_fp8_mi355x_atom.sh
++++ b/benchmarks/single_node/glm5_fp8_mi355x_atom.sh
+@@ -39,7 +39,7 @@ fi
+ 
+ # Start GPU monitoring (power, temperature, clocks every second)
+ start_gpu_monitor
+-MEM_FRAC_STATIC=0.9
++MEM_FRAC_STATIC=0.80
+ 
+ set -x
+ pip install -U transformers
+@@ -66,7 +66,7 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/ \
