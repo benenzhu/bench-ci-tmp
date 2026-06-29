@@ -23,7 +23,7 @@ Three models, each swept across multiple TP8 non-disaggregated configs (`num_pro
 |---|---|---:|---:|---:|---|
 | DeepSeek-V4-Pro | FP4 / SGLang | 7 | `3.4739x` | `247.4%` | `dsv4_sglang_geomean/` |
 | Kimi-K2.5 | FP4 / vLLM | 3 | `3.7100x` | `271.0%` | `kimi_fp4_geomean/` |
-| GLM-5 | FP8 / ATOM | 7 | `3.1415x` | `214.1%` | `glm5_fp8_atom_geomean/` |
+| GLM-5 | FP8 / SGLang→ATOM | 7 | `3.1415x` | `214.1%` | `glm5_fp8_atom_geomean/` |
 
 Exact per-config rows are in each bundle's `comparison.csv`.
 
