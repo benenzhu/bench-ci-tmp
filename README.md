@@ -93,6 +93,72 @@ If the story must stay strictly Kimi FP4, there is no same-config 3.5x-4.5x pair
 
 Old-image flag ablation for this FP4 candidate is saved in `kimi_fp4_8k1k_conc64_old_flags_ablation_prompts3x/`. The fair full-new-flags-on-old-image run is blocked: `VLLM_ROCM_USE_AITER=1` and `--block-size=1` each trigger the old `v0.16.0` AITER MLA assertion at TP8 (`Provided 8 number of heads`). Keeping `block_size=64` while applying the other compatible server flags completed locally at `290.762867 tok/s/GPU` with `CONC=64` and `num_prompts=192`.
 
+## Reproduce (from a fresh machine)
+
+These bundles were produced on an MI355X (8×GPU, gfx950) host. To reproduce the geomean results on a new machine:
+
+**0. Prerequisites**
+- 8× AMD Instinct MI355X, ROCm 7.2.x, Docker with GPU access (`--device=/dev/kfd --device=/dev/dri`).
+- A Hugging Face token with access to the model repos below.
+- Enough fast local scratch for one model at a time (weights are 0.5–0.8 TB each). Pick any directory; the scripts take it via env vars — nothing is hardcoded to a fixed install path.
+
+```bash
+# choose your own locations (examples)
+export REPRO_ROOT=$(pwd)                 # where this repo is cloned
+export MODEL_DIR=/dev/shm/hf_hub_cache   # or any large scratch dir
+export HF_HOME_DIR=/dev/shm/hf_home
+export WT_ROOT=$MODEL_DIR/../inferencex_worktrees
+export HF_TOKEN=hf_xxx                    # your token (never commit it)
+```
+
+**1. Clone the benchmark source** (the repro scripts build detached worktrees at exact commits):
+
+```bash
+git clone https://github.com/SemiAnalysisAI/InferenceX.git /root/InferenceX   # or set REPO=<path>
+```
+
+**2. Download the model weights** (one per bundle; download only what you need):
+
+| Bundle | Model repo | Revision |
+|---|---|---|
+| DSV4 | `deepseek-ai/DeepSeek-V4-Pro` | `5607980f3a4b8ea0371b9f11e1848ac41f14979e` |
+| Kimi FP4 | `amd/Kimi-K2.5-MXFP4` | `419004c8716cf22c929aa15d39b85e09a8a2091a` |
+| GLM-5 | `zai-org/GLM-5-FP8` | `4f96cc5eec29dcee5d6ded54f7ffe889438f9516` |
+
+```bash
+HF_HUB_CACHE=$MODEL_DIR HF_HOME=$HF_HOME_DIR python3 - <<'PY'
+from huggingface_hub import snapshot_download
+snapshot_download("amd/Kimi-K2.5-MXFP4", revision="419004c8716cf22c929aa15d39b85e09a8a2091a")
+PY
+```
+
+**3. Run the repro sweep** (each script pulls its old/new Docker images automatically, patches the benchmark for `num_prompts = CONC*3`, and writes results into the bundle):
+
+```bash
+# DeepSeek-V4-Pro FP4 SGLang -> geomean 3.47x
+cd "$REPRO_ROOT/dsv4_sglang_geomean"
+REPO=/root/InferenceX MODEL_DIR=$MODEL_DIR HF_HOME_DIR=$HF_HOME_DIR WT_ROOT=$WT_ROOT \
+  OUT_DIR=$PWD TARGETS=all scripts/repro_dsv4_sglang_geomean.sh
+
+# Kimi-K2.5 FP4 vLLM -> high-conc geomean 3.71x
+cd "$REPRO_ROOT/kimi_fp4_geomean"
+REPO=/root/InferenceX MODEL_DIR=$MODEL_DIR HF_HOME_DIR=$HF_HOME_DIR WT_ROOT=$WT_ROOT \
+  OUT_DIR=$PWD TARGETS=all scripts/repro_kimi_fp4_geomean.sh
+
+# GLM-5 FP8 ATOM (new) vs SGLang baseline (old) -> geomean 3.14x.
+# First run the SGLang baseline (old) once so ATOM can reuse it:
+cd "$REPRO_ROOT/glm5_fp8_geomean"
+REPO=/root/InferenceX MODEL_DIR=$MODEL_DIR HF_HOME_DIR=$HF_HOME_DIR WT_ROOT=$WT_ROOT \
+  OUT_DIR=$PWD TARGETS=old scripts/repro_glm5_fp8_geomean.sh
+cd "$REPRO_ROOT/glm5_fp8_atom_geomean"
+REPO=/root/InferenceX MODEL_DIR=$MODEL_DIR HF_HOME_DIR=$HF_HOME_DIR WT_ROOT=$WT_ROOT \
+  OUT_DIR=$PWD SGLANG_OLD_DIR="$REPRO_ROOT/glm5_fp8_geomean" TARGETS=new scripts/repro_glm5_fp8_atom_geomean.sh
+```
+
+Notes: on a shared machine the scripts already lower memory (`GPU_MEM_UTIL=0.80`) and use port `19000`; override with `GPU_MEM_UTIL=` / `PORT=` if needed. `SKIP_EXISTING=1` (default) lets you resume without re-running finished configs.
+
+**4. Verify** the resulting numbers with the scripts in the next section.
+
 ## Verify
 
 All commands below are relative to the repository root — run them from wherever you cloned this repo (no fixed install path required).
