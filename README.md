@@ -115,12 +115,23 @@ scripts/verify_dsv4_sglang_geomean.sh
 
 Expected: `ok: 7 configs, geomean=3.473867x`.
 
-Kimi FP4 and GLM-5 ATOM geomean bundles (no standalone verify script; check the geomean row of the saved comparison CSV):
+Kimi FP4 geomean bundle:
 
 ```bash
-grep GEOMEAN kimi_fp4_geomean/comparison.csv       # high-conc headline: 3.71x (c64/c128/c256)
-grep GEOMEAN glm5_fp8_atom_geomean/comparison.csv  # ATOM vs SGLang baseline: 3.14x
+cd kimi_fp4_geomean
+scripts/verify_kimi_fp4_geomean.sh
 ```
+
+Expected: `ok: 9 configs; high-conc (c64/c128/c256) geomean=3.709068x`.
+
+GLM-5 ATOM geomean bundle:
+
+```bash
+cd glm5_fp8_atom_geomean
+scripts/verify_glm5_fp8_atom_geomean.sh
+```
+
+Expected: `ok: 7 configs, ATOM-vs-SGLang geomean=3.141457x`.
 
 Kimi INT4 local attempt:
 
