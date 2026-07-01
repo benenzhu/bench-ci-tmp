@@ -111,6 +111,19 @@ These bundles were produced on an MI355X (8×GPU, gfx950) host. To reproduce the
 
 The **ROCm software stack that runs the benchmarks lives inside each Docker image** (e.g. the SGLang/vLLM/ATOM ROCm images pinned per bundle), so no host ROCm change is required — only a working amdgpu/KFD driver and Docker GPU access. The host ROCm version above is informational.
 
+Per-bundle Docker images and the ROCm version each ships (old = baseline, new = optimized):
+
+| Bundle | Variant | Image | ROCm in image |
+|---|---|---|---|
+| DSV4 | old | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` | 7.2.x (per tag) |
+| DSV4 | new | `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | 7.2.x (per tag) |
+| Kimi FP4 | old | `vllm/vllm-openai-rocm:v0.16.0` | 7.0.0 |
+| Kimi FP4 | new | `vllm/vllm-openai-rocm:v0.22.0` | 7.2.2 |
+| GLM-5 | old | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` | 7.2.0 |
+| GLM-5 ATOM | new | `rocm/atom:rocm7.2.2_ubuntu24.04_py3.12_pytorch_release_2.10.0_atom0.1.2.post` | 7.2.2 |
+
+(The SGLang-new GLM image `lmsysorg/sglang-rocm:v0.5.10rc0-rocm720-mi35x-20260413`, used by the reference `glm5_fp8_geomean` bundle, ships ROCm 7.2.0.)
+
 **0. Prerequisites**
 - 8× AMD Instinct MI355X, ROCm 7.2.x, Docker with GPU access (`--device=/dev/kfd --device=/dev/dri`).
 - A Hugging Face token with access to the model repos below.
