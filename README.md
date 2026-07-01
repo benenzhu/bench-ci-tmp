@@ -97,6 +97,20 @@ Old-image flag ablation for this FP4 candidate is saved in `kimi_fp4_8k1k_conc64
 
 These bundles were produced on an MI355X (8×GPU, gfx950) host. To reproduce the geomean results on a new machine:
 
+**Test system (host environment used for these results)**
+
+| Component | Value |
+|---|---|
+| System | Supermicro AS -4126GS-NMR-LCC (board H14DSG-OD) |
+| BIOS | AMI v1.4a (2025-04-16) |
+| GPU | 8× AMD Instinct MI355X (gfx950), VBIOS `113-M355-01-1K1-010C` |
+| GPU firmware | SMC `04.86.11.02`, TA RAS `27.69.00.10`, TA XGMI `32.00.00.20`, RLC `43`, MEC `36`, SDMA `12` |
+| OS / kernel | Ubuntu 22.04.2 LTS, kernel `5.15.0-70-generic` |
+| amdgpu (KFD) driver | `6.16.6` |
+| Host ROCm | `7.1.0` |
+
+The **ROCm software stack that runs the benchmarks lives inside each Docker image** (e.g. the SGLang/vLLM/ATOM ROCm images pinned per bundle), so no host ROCm change is required — only a working amdgpu/KFD driver and Docker GPU access. The host ROCm version above is informational.
+
 **0. Prerequisites**
 - 8× AMD Instinct MI355X, ROCm 7.2.x, Docker with GPU access (`--device=/dev/kfd --device=/dev/dri`).
 - A Hugging Face token with access to the model repos below.
