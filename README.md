@@ -133,15 +133,6 @@ scripts/verify_glm5_fp8_atom_geomean.sh
 
 Expected: `ok: 7 configs, ATOM-vs-SGLang geomean=3.141457x`.
 
-Kimi INT4 local attempt:
-
-```bash
-cd kimi_int4_8k1k_conc16_prompts3x
-scripts/verify_kimi_int4_8k1k_conc16.sh
-```
-
-Expected: all checks pass, and the script prints that the local attempt completed but did not reproduce the recorded `4.0143x` dashboard gain.
-
 ## Git Notes
 
 This parent repo tracks the whole run tree as ordinary files; it can be cloned to any location (no fixed install path). The nested git metadata from `dsv4_sglang_8k1k_conc8_prompts3x/.git` was moved out before committing so the directory is tracked as ordinary files rather than as a submodule.
