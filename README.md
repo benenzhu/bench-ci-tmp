@@ -95,35 +95,44 @@ Old-image flag ablation for this FP4 candidate is saved in `kimi_fp4_8k1k_conc64
 
 ## Verify
 
-Run:
+All commands below are relative to the repository root — run them from wherever you cloned this repo (no fixed install path required).
+
+Primary handoff bundle:
 
 ```bash
-cd /scratch/inferencex_runs/dsv4_sglang_8k1k_conc8_prompts3x
+cd dsv4_sglang_8k1k_conc8_prompts3x
 scripts/verify_bundle.sh
 ```
 
 Expected: all checks pass, including checksum validation, HF token scan, cache restore verification, DSV4 SGLang numeric results, and Kimi/GLM suite numeric results.
 
-For the Kimi INT4 local attempt:
+DSV4 SGLang geomean bundle:
 
 ```bash
-cd /scratch/inferencex_runs/kimi_int4_8k1k_conc16_prompts3x
-scripts/verify_kimi_int4_8k1k_conc16.sh
-```
-
-Expected: all checks pass, and the script prints that the local attempt completed but did not reproduce the recorded `4.0143x` dashboard gain.
-
-For the DSV4 SGLang geomean bundle:
-
-```bash
-cd /scratch/inferencex_runs/dsv4_sglang_geomean
+cd dsv4_sglang_geomean
 scripts/verify_dsv4_sglang_geomean.sh
 ```
 
 Expected: `ok: 7 configs, geomean=3.473867x`.
 
+Kimi FP4 and GLM-5 ATOM geomean bundles (no standalone verify script; check the geomean row of the saved comparison CSV):
+
+```bash
+grep GEOMEAN kimi_fp4_geomean/comparison.csv       # high-conc headline: 3.71x (c64/c128/c256)
+grep GEOMEAN glm5_fp8_atom_geomean/comparison.csv  # ATOM vs SGLang baseline: 3.14x
+```
+
+Kimi INT4 local attempt:
+
+```bash
+cd kimi_int4_8k1k_conc16_prompts3x
+scripts/verify_kimi_int4_8k1k_conc16.sh
+```
+
+Expected: all checks pass, and the script prints that the local attempt completed but did not reproduce the recorded `4.0143x` dashboard gain.
+
 ## Git Notes
 
-This parent repo is intended for pushing the whole `/scratch/inferencex_runs` tree. The nested git metadata from `dsv4_sglang_8k1k_conc8_prompts3x/.git` was moved out before committing so the directory is tracked as ordinary files rather than as a submodule.
+This parent repo tracks the whole run tree as ordinary files; it can be cloned to any location (no fixed install path). The nested git metadata from `dsv4_sglang_8k1k_conc8_prompts3x/.git` was moved out before committing so the directory is tracked as ordinary files rather than as a submodule.
 
 If this machine is released, use `HANDOFF.md` as the first file to read. The large local state under `/scratch/hf_hub_cache`, `/scratch/model_backups`, `/dev/shm`, and Docker storage is not preserved by this git repo.
