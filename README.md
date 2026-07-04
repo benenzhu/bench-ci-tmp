@@ -36,7 +36,7 @@ The old->new gains above come from image/runtime upgrades shipped across many PR
 | # | Optimization | What it does | Models |
 |---|---|---|---|
 | 1 | AITER optimized kernels | Fused & optimized GPU kernels for inference (MHC, fused hash-topk, fused compress) | Kimi, DSV4 |
-| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Triton attention backend and NSA kernels optimizations | DSV4, GLM-5 |
+| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Unified KV attention backends optimizations | DSV4, GLM-5 |
 | 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO) | DSV4, Kimi |
 
 Details:
