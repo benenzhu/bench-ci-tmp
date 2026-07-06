@@ -24,10 +24,13 @@ Three models, each swept across multiple TP8 non-disaggregated configs (`num_pro
 | DeepSeek-V4-Pro | FP4 / SGLang | 7 | `3.4739x` | `247.4%` | `dsv4_sglang_geomean/` |
 | Kimi-K2.5 | FP4 / vLLM | 3 | `3.7100x` | `271.0%` | `kimi_fp4_geomean/` |
 | GLM-5 | FP8 / SGLang→ATOM | 7 | `3.1415x` | `214.1%` | `glm5_fp8_atom_geomean/` |
+| DeepSeek-R1-0528 | FP4 / SGLang | 12 | `1.7718x` | `77.2%` | `dsr1_fp4_geomean/` |
 
 Exact per-config rows are in each bundle's `comparison.csv`.
 
 The Kimi-K2.5 headline geomean uses the three high-concurrency configs (`8k1k` CONC 64/128/256), where both old and new images are near saturation and the gain is a credible `3.71x`. The bundle also contains lower-concurrency configs (CONC 4-32), but at low concurrency the old image (vLLM v0.16.0) is pathologically slow, inflating per-config gains to 10-18x; those are kept for completeness but are not the reported headline.
+
+DeepSeek-R1-0528 (FP4/SGLang) is a maturity contrast: its earliest MI355X image (`v0.5.2-rocm7.0`, 2025-09) was already a well-optimized implementation, so the old->new (`v0.5.13`) gain is a real but modest `1.77x` across 12 configs, peaking at `2.15x` for `8k1k` CONC 128. Both ends use the same MXFP4 checkpoint (revision `6c94c74`, the one the v0.5.2 workflow used) so the gain reflects pure software optimization. Unlike DSV4/Kimi/GLM, R1 has no pathologically-slow baseline to recover, hence no 3-4x story — the gain scales with concurrency (1k1k ~1.6x, 8k1k 1.8-2.15x).
 
 ## Top Inference Optimizations
 
@@ -59,6 +62,7 @@ Per-model attribution: Kimi's speedup is concentrated in the single v0.16->v0.18
 | Kimi-K2.5 FP4 vLLM geomean | `8k1k_c64/c128/c256` | 64/128/256 | `vllm/vllm-openai-rocm:v0.16.0` -> `vllm/vllm-openai-rocm:v0.22.0` | geomean `3.7100x`, improvement `271.0%`; per-config `4.17x / 3.97x / 3.08x`; full 9-config sweep (incl. low-conc 10-18x outliers) in `kimi_fp4_geomean/comparison.csv` |
 | GLM-5 FP8 ATOM geomean | mixed: `1k1k_c1/c2/c4/c8/c16`, `8k1k_c4/c8` | mixed | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` (SGLang old) -> `rocm/atom:...atom0.1.2.post` (ATOM new) | geomean `3.1415x`, improvement `214.1%`; per-config 2.98-3.38x; exact rows in `glm5_fp8_atom_geomean/comparison.csv` |
 | GLM-5 FP8 SGLang geomean | mixed: `1k1k_c1/c2/c4/c8/c16`, `8k1k_c4/c8` | mixed | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` -> `lmsysorg/sglang-rocm:v0.5.10rc0-rocm720-mi35x-20260413` | geomean `2.5290x`, improvement `152.9%` (SGLang reference); exact rows in `glm5_fp8_geomean/comparison.csv` |
+| DeepSeek-R1-0528 FP4 SGLang geomean | `1k1k` + `8k1k`, CONC 4-256 | 4..256 | `rocm/7.0:...sgl-dev-v0.5.2-rocm7.0-mi35x-20250915` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | geomean `1.7718x` over 12 configs, peak `2.15x` (8k1k c128); same MXFP4 checkpoint (rev `6c94c74`) both ends; exact rows in `dsr1_fp4_geomean/comparison.csv` |
 | DeepSeek-V4-Pro FP4 SGLang | 8192/1024 | 8 | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | `104.044135 -> 421.982767 tok/s/GPU`, `4.0558x` |
 | Kimi-K2.5 INT4 vLLM attempted middle-state | 8192/1024 | 16 | `vllm/vllm-openai-rocm:v0.15.1` -> `vllm/vllm-openai-rocm:v0.18.0` | local `142.174440 -> 187.669496 tok/s/GPU`, `1.3200x`; did not reproduce the recorded `4.0143x` dashboard candidate |
 | Kimi-K2.5 FP4 vLLM | 8192/1024 | 4 | `vllm/vllm-openai-rocm:v0.16.0` -> `vllm/vllm-openai-rocm:v0.22.0` | `24.517507 -> 359.122629 tok/s/GPU`, `14.6476x` |
@@ -225,6 +229,15 @@ scripts/verify_glm5_fp8_atom_geomean.sh
 ```
 
 Expected: `ok: 7 configs, ATOM-vs-SGLang geomean=3.141457x`.
+
+DeepSeek-R1-0528 FP4 geomean bundle:
+
+```bash
+cd dsr1_fp4_geomean
+scripts/verify_dsr1_fp4_geomean.sh
+```
+
+Expected: `ok: 12 configs, all-config geomean=1.771816x; high-conc (8k1k c64+c128) geomean=2.111009x; peak 8k1k_c128=2.152x`.
 
 ## Git Notes
 

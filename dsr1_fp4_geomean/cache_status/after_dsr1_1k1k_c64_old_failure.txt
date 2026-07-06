@@ -1,0 +1,8 @@
+stage=after_dsr1_1k1k_c64_old_failure
+timestamp=2026-07-06T07:12:23Z
+MODEL_DIR=/dev/shm/hf_hub_cache
+MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--amd--DeepSeek-R1-0528-MXFP4-Preview
+376G	/dev/shm/hf_hub_cache/models--amd--DeepSeek-R1-0528-MXFP4-Preview
+status=present
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.5T  376G  1.2T  25% /dev/shm

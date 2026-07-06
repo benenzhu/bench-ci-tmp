@@ -1,0 +1,91 @@
+diff --git a/benchmarks/single_node/fixed_seq_len/dsr1_fp4_mi355x.sh b/benchmarks/single_node/fixed_seq_len/dsr1_fp4_mi355x.sh
+index bb6ce75c..8701e0fc 100644
+--- a/benchmarks/single_node/fixed_seq_len/dsr1_fp4_mi355x.sh
++++ b/benchmarks/single_node/fixed_seq_len/dsr1_fp4_mi355x.sh
+@@ -1,58 +1,31 @@
+ #!/usr/bin/env bash
+-
++# OLD-config DSR1 FP4 benchmark: server flags from commit 12de5c0 (2025-09, pre-optimization),
++# benchmark invocation borrowed from HEAD's benchmark_lib. Deliberately OMITS the newer
++# optimizations (--attention-backend aiter, --kv-cache-dtype fp8_e4m3, ROCM_QUICK_REDUCE INT4)
++# so the old->new gain reflects those software optimizations.
+ source "$(dirname "$0")/../../benchmark_lib.sh"
+ 
+-check_env_vars \
+-    MODEL \
+-    TP \
+-    CONC \
+-    ISL \
+-    OSL \
+-    RANDOM_RANGE_RATIO \
+-    RESULT_FILENAME
+-
+-if [[ -n "$SLURM_JOB_ID" ]]; then
+-  echo "JOB $SLURM_JOB_ID running on $SLURMD_NODENAME"
+-fi
++check_env_vars MODEL TP CONC ISL OSL RANDOM_RANGE_RATIO RESULT_FILENAME
+ 
+ if [[ "$MODEL" != /* ]]; then hf download "$MODEL"; fi
+ 
+ export SGLANG_USE_AITER=1
+-export ROCM_QUICK_REDUCE_QUANTIZATION=INT4
+-
+-PREFILL_SIZE=196608
+-if [[ "$ISL" == "8192" && "$OSL" == "1024" ]]; then
+-	if [[ "$CONC" -gt "32" ]]; then
+-		PREFILL_SIZE=32768
+-	fi
+-fi
+ 
+ SERVER_LOG=/workspace/server.log
+-
+-EVAL_CONTEXT_ARGS=""
+-if [ "${EVAL_ONLY}" = "true" ]; then
+-    setup_eval_context
+-    EVAL_CONTEXT_ARGS="--context-length $EVAL_MAX_MODEL_LEN"
+-fi
+-# Start GPU monitoring (power, temperature, clocks every second)
+ start_gpu_monitor
+ 
+ set -x
+ python3 -m sglang.launch_server --model-path=$MODEL --trust-remote-code \
+ --host=0.0.0.0 --port=$PORT \
+ --tensor-parallel-size=$TP \
+---chunked-prefill-size=$PREFILL_SIZE \
+---mem-fraction-static=0.8 \
++--chunked-prefill-size=196608 \
++--mem-fraction-static=0.80 \
+ --disable-radix-cache \
+ --num-continuous-decode-steps=4 \
+---max-prefill-tokens=$PREFILL_SIZE \
+---cuda-graph-max-bs=128 \
+---attention-backend aiter \
+---kv-cache-dtype fp8_e4m3 $EVAL_CONTEXT_ARGS > $SERVER_LOG 2>&1 &
++--max-prefill-tokens=196608 \
++--cuda-graph-max-bs=128 > $SERVER_LOG 2>&1 &
+ 
+ SERVER_PID=$!
+-
+-# Wait for server to be ready
+ wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$SERVER_PID"
+ 
+ run_benchmark_serving \
+@@ -62,17 +35,10 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/
+ 
+-# After throughput, run evaluation only if RUN_EVAL is true
+-if [ "${RUN_EVAL}" = "true" ]; then
+-    run_eval --framework lm-eval --port "$PORT"
+-    append_lm_eval_summary
+-fi
+-
+-# Stop GPU monitoring
+ stop_gpu_monitor
+ set +x

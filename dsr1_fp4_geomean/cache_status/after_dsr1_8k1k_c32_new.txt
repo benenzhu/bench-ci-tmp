@@ -1,0 +1,8 @@
+stage=after_dsr1_8k1k_c32_new
+timestamp=2026-07-06T09:49:53Z
+MODEL_DIR=/dev/shm/hf_hub_cache
+MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--amd--DeepSeek-R1-0528-MXFP4-Preview
+355G	/dev/shm/hf_hub_cache/models--amd--DeepSeek-R1-0528-MXFP4-Preview
+status=present
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.5T  362G  1.2T  24% /dev/shm
