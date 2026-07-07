@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+# OLD-config gpt-oss-120b FP4 benchmark for the vLLM 0.10.1 ROCm image
+# (rocm/7.0:...vllm_0.10.1_instinct_20250927_rc1, from commit 12de5c0f).
+# Server flags reproduce the old gptoss_fp4_mi355x_slurm.sh (config.yaml with
+# compile/cudagraph sizes, VLLM_ROCM_USE_AITER_FUSED_MOE_A16W4, --async-scheduling)
+# and DELIBERATELY OMIT the newer flags the HEAD script adds
+# (--attention-backend ROCM_AITER_UNIFIED_ATTN, fuse_rope_kvcache,
+# VLLM_ROCM_QUICK_REDUCE_QUANTIZATION=INT4, VLLM_ROCM_USE_AITER_TRITON_ROPE),
+# so the old->new gain reflects those software optimizations.
+# Benchmark invocation is borrowed from HEAD's benchmark_lib (same measurement
+# for both ends); only the server flags + image differ.
+source "$(dirname "$0")/../../benchmark_lib.sh"
+
+check_env_vars MODEL TP CONC ISL OSL MAX_MODEL_LEN RANDOM_RANGE_RATIO RESULT_FILENAME
+
+if [[ "$MODEL" != /* ]]; then hf download "$MODEL"; fi
+
+# MEC FW < 177 workaround (same as HEAD script)
+version=`rocm-smi --showfw | grep MEC | head -n 1 | awk '{print $NF}'`
+if [[ "$version" == "" || $version -lt 177 ]]; then
+  export HSA_NO_SCRATCH_RECLAIM=1
+fi
+if [ -n "$ROCR_VISIBLE_DEVICES" ]; then
+    export HIP_VISIBLE_DEVICES="$ROCR_VISIBLE_DEVICES"
+fi
+
+cat > /workspace/config.yaml << 'EOF'
+compilation-config: '{"compile_sizes":[1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,256,512,1024,2048,8192] , "cudagraph_capture_sizes":[1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,136,144,152,160,168,176,184,192,200,208,216,224,232,240,248,256,264,272,280,288,296,304,312,320,328,336,344,352,360,368,376,384,392,400,408,416,424,432,440,448,456,464,472,480,488,496,504,512,520,528,536,544,552,560,568,576,584,592,600,608,616,624,632,640,648,656,664,672,680,688,696,704,712,720,728,736,744,752,760,768,776,784,792,800,808,816,824,832,840,848,856,864,872,880,888,896,904,912,920,928,936,944,952,960,968,976,984,992,1000,1008,1016,1024,2048,4096,8192] , "cudagraph_mode": "FULL_AND_PIECEWISE"}'
+EOF
+cat /workspace/config.yaml
+
+export VLLM_USE_AITER_UNIFIED_ATTENTION=1
+export VLLM_ROCM_USE_AITER_MHA=0
+export VLLM_ROCM_USE_AITER_FUSED_MOE_A16W4=1
+
+SERVER_LOG=/workspace/server.log
+start_gpu_monitor
+
+set -x
+vllm serve $MODEL --port $PORT \
+--tensor-parallel-size=$TP \
+--gpu-memory-utilization 0.95 \
+--max-model-len $MAX_MODEL_LEN \
+--max-seq-len-to-capture $MAX_MODEL_LEN \
+--config /workspace/config.yaml \
+--block-size=64 \
+--no-enable-prefix-caching \
+--disable-log-requests \
+--async-scheduling > $SERVER_LOG 2>&1 &
+
+SERVER_PID=$!
+wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$SERVER_PID"
+
+run_benchmark_serving \
+    --model "$MODEL" \
+    --port "$PORT" \
+    --backend vllm \
+    --input-len "$ISL" \
+    --output-len "$OSL" \
+    --random-range-ratio "$RANDOM_RANGE_RATIO" \
+    --num-prompts "$((CONC * 10))" \
+    --max-concurrency "$CONC" \
+    --result-filename "$RESULT_FILENAME" \
+    --result-dir /workspace/
+
+stop_gpu_monitor
+set +x

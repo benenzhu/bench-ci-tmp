@@ -1,0 +1,438 @@
+INFO 07-07 17:37:28 [__init__.py:241] Automatically detected platform rocm.
+/opt/venv/lib/python3.10/site-packages/torch/cuda/__init__.py:410: UserWarning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (Triggered internally at /app/pytorch/c10/core/AllocatorConfig.cpp:28.)
+  torch._C._cuda_init()
+WARNING 07-07 17:37:34 [__init__.py:1750] argument '--disable-log-requests' is deprecated and replaced with '--enable-log-requests'. This will be removed in v0.12.0.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:34 [api_server.py:1885] vLLM API server version 0.9.2rc2.dev2632+gbd781f529
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:34 [utils.py:328] non-default args: {'model_tag': '/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a', 'port': 19000, 'model': '/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a', 'max_model_len': 9416, 'max_seq_len_to_capture': 9416, 'block_size': 64, 'gpu_memory_utilization': 0.95, 'enable_prefix_caching': False, 'async_scheduling': True, 'compilation_config': {"level":null,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["+rms_norm","+silu_and_mul","+quant_fp8"],"splitting_ops":null,"use_inductor":true,"compile_sizes":[1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,256,512,1024,2048,8192],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,136,144,152,160,168,176,184,192,200,208,216,224,232,240,248,256,264,272,280,288,296,304,312,320,328,336,344,352,360,368,376,384,392,400,408,416,424,432,440,448,456,464,472,480,488,496,504,512,520,528,536,544,552,560,568,576,584,592,600,608,616,624,632,640,648,656,664,672,680,688,696,704,712,720,728,736,744,752,760,768,776,784,792,800,808,816,824,832,840,848,856,864,872,880,888,896,904,912,920,928,936,944,952,960,968,976,984,992,1000,1008,1016,1024,2048,4096,8192],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":null,"local_cache_dir":null}}
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:34 [arg_utils.py:477] HF_HUB_OFFLINE is True, replace model_id [/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a] to model_path [/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a]
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:46 [__init__.py:742] Resolved architecture: GptOssForCausalLM
+[1;36m(APIServer pid=21)[0;0m `torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(APIServer pid=21)[0;0m ERROR 07-07 17:37:46 [config.py:124] Error retrieving safetensors: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a'. Use `repo_type` argument if needed., retrying 1 of 2
+[1;36m(APIServer pid=21)[0;0m ERROR 07-07 17:37:48 [config.py:122] Error retrieving safetensors: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a'. Use `repo_type` argument if needed.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [__init__.py:2879] Downcasting torch.float32 to torch.bfloat16.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [__init__.py:1771] Using max model len 9416
+[1;36m(APIServer pid=21)[0;0m WARNING 07-07 17:37:48 [__init__.py:1216] mxfp4 quantization is not fully optimized yet. The speed can be slower than non-quantized models.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [arg_utils.py:1257] Using mp-based distributed executor backend for async scheduling.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [config.py:274] Overriding max cuda graph capture size to 1024 for performance.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [layer.py:37] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [activation.py:33] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP8_QUANT=1
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [activation.py:67] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP4_QUANT=False
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [activation.py:68] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP8_QUANT=True
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:37:48 [activation.py:69] [Aiter] VLLM_TRITON_FP4_GEMM_USE_ASM=False
+INFO 07-07 17:37:54 [__init__.py:241] Automatically detected platform rocm.
+/opt/venv/lib/python3.10/site-packages/torch/cuda/__init__.py:410: UserWarning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (Triggered internally at /app/pytorch/c10/core/AllocatorConfig.cpp:28.)
+  torch._C._cuda_init()
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 17:38:00 [core.py:648] Waiting for init message from front-end.
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 17:38:00 [core.py:75] Initializing a V1 LLM engine (v0.9.2rc2.dev2632+gbd781f529) with config: model='/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a', speculative_config=None, tokenizer='/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=9416, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=mxfp4, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend='GptOss'), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a, enable_prefix_caching=False, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["+rms_norm","+silu_and_mul","+quant_fp8"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention"],"use_inductor":true,"compile_sizes":[128,1,2,256,4,512,6,1024,8,2048,10,12,14,8192,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[8192,4096,2048,1024,1016,1008,1000,992,984,976,968,960,952,944,936,928,920,912,904,896,888,880,872,864,856,848,840,832,824,816,808,800,792,784,776,768,760,752,744,736,728,720,712,704,696,688,680,672,664,656,648,640,632,624,616,608,600,592,584,576,568,560,552,544,536,528,520,512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,126,124,122,120,118,116,114,112,110,108,106,104,102,100,98,96,94,92,90,88,86,84,82,80,78,76,74,72,70,68,66,64,62,60,58,56,54,52,50,48,46,44,42,40,38,36,34,32,30,28,26,24,22,20,18,16,14,12,10,8,6,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":8192,"local_cache_dir":null}
+[1;36m(EngineCore_0 pid=326)[0;0m WARNING 07-07 17:38:00 [multiproc_worker_utils.py:273] Reducing Torch parallelism from 128 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 17:38:00 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 16777216, 10, 'psm_0b3d78b3'), local_subscribe_addr='ipc:///tmp/d92f41d3-ca9b-4f36-898c-e3daa855595e', remote_subscribe_addr=None, remote_addr_ipv6=False)
+INFO 07-07 17:38:05 [__init__.py:241] Automatically detected platform rocm.
+/opt/venv/lib/python3.10/site-packages/torch/cuda/__init__.py:410: UserWarning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (Triggered internally at /app/pytorch/c10/core/AllocatorConfig.cpp:28.)
+  torch._C._cuda_init()
+INFO 07-07 17:38:11 [layer.py:37] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True
+INFO 07-07 17:38:11 [activation.py:33] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP8_QUANT=1
+INFO 07-07 17:38:11 [activation.py:67] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP4_QUANT=False
+INFO 07-07 17:38:11 [activation.py:68] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP8_QUANT=True
+INFO 07-07 17:38:11 [activation.py:69] [Aiter] VLLM_TRITON_FP4_GEMM_USE_ASM=False
+INFO 07-07 17:38:11 [llama.py:72] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True VLLM_ROCM_USE_AITER_MHA=False
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:11 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_45af90b5'), local_subscribe_addr='ipc:///tmp/4efb28ff-1446-488a-a085-e23a250a378a', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[W707 17:38:12.362142099 ProcessGroupNCCL.cpp:915] Warning: TORCH_NCCL_AVOID_RECORD_STREAMS is the default now, this environment variable is thus deprecated. (function operator())
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:12 [parallel_state.py:1134] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(VllmWorker pid=479)[0;0m /opt/venv/lib/python3.10/site-packages/vllm/v1/sample/logits_processor/builtin.py:36: UserWarning: expandable_segments not supported on this platform (Triggered internally at /app/pytorch/c10/hip/HIPAllocatorConfig.h:39.)
+[1;36m(VllmWorker pid=479)[0;0m   self.min_p_device: torch.Tensor = torch.empty((max_num_reqs, ),
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:12 [gpt_oss.py:54] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True VLLM_ROCM_USE_AITER_MHA=False
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:12 [gpt_oss.py:55] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ADD_RMSNORM_PAD=True
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:12 [gpt_oss.py:56] [Aiter] VLLM_ROCM_USE_AITER_TRITON_BF16_GEMM=True
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:12 [gpu_model_runner.py:1932] Starting to load model /dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a...
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:12 [gpu_model_runner.py:1964] Loading model from scratch...
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:12 [rocm.py:249] Using Triton Attention backend on V1 engine.
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:12 [triton_attn.py:264] Using aiter unified attention for TritonAttentionImpl
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/15 [00:00<?, ?it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:   7% Completed | 1/15 [00:00<00:10,  1.32it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  13% Completed | 2/15 [00:01<00:11,  1.15it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  20% Completed | 3/15 [00:02<00:10,  1.16it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  27% Completed | 4/15 [00:03<00:09,  1.17it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  33% Completed | 5/15 [00:04<00:08,  1.13it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  40% Completed | 6/15 [00:05<00:07,  1.14it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  47% Completed | 7/15 [00:06<00:07,  1.12it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  53% Completed | 8/15 [00:06<00:06,  1.14it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  60% Completed | 9/15 [00:07<00:05,  1.12it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  67% Completed | 10/15 [00:08<00:04,  1.14it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  73% Completed | 11/15 [00:09<00:03,  1.12it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  80% Completed | 12/15 [00:10<00:02,  1.13it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  87% Completed | 13/15 [00:11<00:01,  1.11it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  93% Completed | 14/15 [00:12<00:00,  1.12it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards: 100% Completed | 15/15 [00:13<00:00,  1.10it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards: 100% Completed | 15/15 [00:13<00:00,  1.13it/s]
+[1;36m(VllmWorker pid=479)[0;0m 
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:26 [default_loader.py:267] Loading weights took 13.40 seconds
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:27 [gpu_model_runner.py:1986] Model loading took 74.7871 GiB and 13.874490 seconds
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:29 [backends.py:539] Using cache directory: /root/.cache/vllm/torch_compile_cache/42175afb22/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:29 [backends.py:550] Dynamo bytecode transform time: 1.69 s
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:30 [backends.py:194] Cache the graph for dynamic shape for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:40 [backends.py:215] Compiling a graph for dynamic shape takes 10.93 s
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:41 [common.py:250] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FP8_BMM=True VLLM_ROCM_USE_AITER_TRITON_FP8_BMM_MAX_BATCH_SIZE=256
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:41 [common.py:251] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:52 [gpu_worker.py:276] Available KV cache memory: 190.71 GiB
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 17:38:53 [kv_cache_utils.py:1013] GPU KV cache size: 2,777,408 tokens
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 17:38:53 [kv_cache_utils.py:1017] Maximum concurrency for 9,416 tokens per request: 311.09x
+[1;36m(VllmWorker pid=479)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/180 [00:00<?, ?it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:38:54 [backends.py:197] Cache the graph of shape 8192 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:39:01 [backends.py:218] Compiling a graph for shape 8192 takes 8.30 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   1%|          | 1/180 [00:08<24:51,  8.33s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   1%|          | 2/180 [00:12<17:38,  5.95s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:39:06 [backends.py:197] Cache the graph of shape 2048 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:39:31 [backends.py:218] Compiling a graph for shape 2048 takes 25.88 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 3/180 [00:38<44:25, 15.06s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:39:32 [backends.py:197] Cache the graph of shape 1024 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:39:53 [backends.py:218] Compiling a graph for shape 1024 takes 21.37 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 4/180 [00:59<51:29, 17.56s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 5/180 [01:00<33:24, 11.46s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 8/180 [01:00<12:58,  4.53s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 11/180 [01:00<06:52,  2.44s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   8%|▊         | 14/180 [01:00<04:06,  1.48s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 17/180 [01:01<02:36,  1.04it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  11%|█         | 20/180 [01:01<01:43,  1.55it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  13%|█▎        | 23/180 [01:01<01:10,  2.24it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▍        | 26/180 [01:01<00:48,  3.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 29/180 [01:01<00:34,  4.35it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 32/180 [01:01<00:25,  5.85it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 35/180 [01:01<00:18,  7.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 38/180 [01:01<00:14,  9.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  23%|██▎       | 41/180 [01:01<00:11, 12.16it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▍       | 44/180 [01:02<00:09, 14.61it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  26%|██▌       | 47/180 [01:02<00:07, 17.02it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  28%|██▊       | 50/180 [01:02<00:06, 19.24it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 53/180 [01:02<00:06, 21.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███       | 56/180 [01:02<00:05, 22.80it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 59/180 [01:02<00:05, 24.03it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 62/180 [01:02<00:04, 25.13it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 65/180 [01:02<00:04, 25.99it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:39:56 [backends.py:197] Cache the graph of shape 512 for later use
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 65/180 [01:15<00:04, 25.99it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:40:17 [backends.py:218] Compiling a graph for shape 512 takes 21.37 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  38%|███▊      | 68/180 [01:24<04:03,  2.17s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  38%|███▊      | 69/180 [01:24<03:38,  1.97s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 72/180 [01:24<02:19,  1.29s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 75/180 [01:25<01:31,  1.14it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 78/180 [01:25<01:01,  1.66it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 81/180 [01:25<00:42,  2.36it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  47%|████▋     | 84/180 [01:25<00:29,  3.30it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 88/180 [01:25<00:18,  4.94it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 92/180 [01:25<00:12,  6.96it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  53%|█████▎    | 96/180 [01:25<00:08,  9.36it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:40:19 [backends.py:197] Cache the graph of shape 256 for later use
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  53%|█████▎    | 96/180 [01:39<00:08,  9.36it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:40:40 [backends.py:218] Compiling a graph for shape 256 takes 21.52 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  56%|█████▌    | 100/180 [01:47<02:24,  1.81s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  56%|█████▌    | 101/180 [01:47<02:12,  1.67s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  58%|█████▊    | 104/180 [01:48<01:30,  1.19s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  59%|█████▉    | 106/180 [01:48<01:09,  1.06it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|██████    | 108/180 [01:48<00:53,  1.36it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 110/180 [01:48<00:40,  1.75it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  62%|██████▏   | 112/180 [01:48<00:30,  2.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 114/180 [01:49<00:22,  2.88it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:40:42 [backends.py:197] Cache the graph of shape 128 for later use
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 114/180 [01:59<00:22,  2.88it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:03 [backends.py:218] Compiling a graph for shape 128 takes 21.17 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  64%|██████▍   | 116/180 [02:10<03:29,  3.27s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:04 [backends.py:197] Cache the graph of shape 126 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:12 [backends.py:218] Compiling a graph for shape 126 takes 8.94 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  65%|██████▌   | 117/180 [02:19<04:26,  4.23s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:13 [backends.py:197] Cache the graph of shape 124 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:21 [backends.py:218] Compiling a graph for shape 124 takes 8.74 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 118/180 [02:28<05:17,  5.11s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:21 [backends.py:197] Cache the graph of shape 122 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:30 [backends.py:218] Compiling a graph for shape 122 takes 8.79 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 119/180 [02:36<06:00,  5.92s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:30 [backends.py:197] Cache the graph of shape 120 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:39 [backends.py:218] Compiling a graph for shape 120 takes 8.83 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 120/180 [02:45<06:36,  6.61s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:39 [backends.py:197] Cache the graph of shape 118 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:48 [backends.py:218] Compiling a graph for shape 118 takes 8.78 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 121/180 [02:54<07:02,  7.16s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:48 [backends.py:197] Cache the graph of shape 116 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:57 [backends.py:218] Compiling a graph for shape 116 takes 9.02 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  68%|██████▊   | 122/180 [03:03<07:24,  7.66s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:41:57 [backends.py:197] Cache the graph of shape 114 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:06 [backends.py:218] Compiling a graph for shape 114 takes 8.96 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  68%|██████▊   | 123/180 [03:12<07:37,  8.02s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:06 [backends.py:197] Cache the graph of shape 112 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:15 [backends.py:218] Compiling a graph for shape 112 takes 9.31 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▉   | 124/180 [03:21<07:50,  8.39s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:15 [backends.py:197] Cache the graph of shape 110 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:24 [backends.py:218] Compiling a graph for shape 110 takes 9.42 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▉   | 125/180 [03:31<07:58,  8.69s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:25 [backends.py:197] Cache the graph of shape 108 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:34 [backends.py:218] Compiling a graph for shape 108 takes 9.36 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 126/180 [03:40<08:00,  8.89s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:34 [backends.py:197] Cache the graph of shape 106 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:43 [backends.py:218] Compiling a graph for shape 106 takes 8.93 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 127/180 [03:49<07:52,  8.91s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:43 [backends.py:197] Cache the graph of shape 104 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:52 [backends.py:218] Compiling a graph for shape 104 takes 9.33 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 128/180 [03:59<07:50,  9.04s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:42:52 [backends.py:197] Cache the graph of shape 102 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:01 [backends.py:218] Compiling a graph for shape 102 takes 9.06 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 129/180 [04:08<07:41,  9.05s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:01 [backends.py:197] Cache the graph of shape 100 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:10 [backends.py:218] Compiling a graph for shape 100 takes 9.09 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 130/180 [04:17<07:33,  9.07s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:11 [backends.py:197] Cache the graph of shape 98 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:19 [backends.py:218] Compiling a graph for shape 98 takes 9.14 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 131/180 [04:26<07:25,  9.10s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:20 [backends.py:197] Cache the graph of shape 96 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:29 [backends.py:218] Compiling a graph for shape 96 takes 9.20 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 132/180 [04:35<07:18,  9.13s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:29 [backends.py:197] Cache the graph of shape 94 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:38 [backends.py:218] Compiling a graph for shape 94 takes 9.61 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  74%|███████▍  | 133/180 [04:45<07:16,  9.28s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:39 [backends.py:197] Cache the graph of shape 92 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:48 [backends.py:218] Compiling a graph for shape 92 takes 9.53 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  74%|███████▍  | 134/180 [04:54<07:10,  9.36s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:48 [backends.py:197] Cache the graph of shape 90 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:57 [backends.py:218] Compiling a graph for shape 90 takes 8.98 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▌  | 135/180 [05:03<06:56,  9.26s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:43:57 [backends.py:197] Cache the graph of shape 88 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:06 [backends.py:218] Compiling a graph for shape 88 takes 9.44 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 136/180 [05:13<06:49,  9.32s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:07 [backends.py:197] Cache the graph of shape 86 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:15 [backends.py:218] Compiling a graph for shape 86 takes 9.15 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 137/180 [05:22<06:38,  9.27s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:16 [backends.py:197] Cache the graph of shape 84 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:25 [backends.py:218] Compiling a graph for shape 84 takes 9.24 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  77%|███████▋  | 138/180 [05:31<06:29,  9.27s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:25 [backends.py:197] Cache the graph of shape 82 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:34 [backends.py:218] Compiling a graph for shape 82 takes 9.59 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  77%|███████▋  | 139/180 [05:41<06:24,  9.37s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:35 [backends.py:197] Cache the graph of shape 80 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:44 [backends.py:218] Compiling a graph for shape 80 takes 9.39 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 140/180 [05:50<06:15,  9.38s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:44 [backends.py:197] Cache the graph of shape 78 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:53 [backends.py:218] Compiling a graph for shape 78 takes 9.50 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 141/180 [06:00<06:07,  9.42s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:44:54 [backends.py:197] Cache the graph of shape 76 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:03 [backends.py:218] Compiling a graph for shape 76 takes 9.31 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 142/180 [06:09<05:57,  9.40s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:03 [backends.py:197] Cache the graph of shape 74 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:12 [backends.py:218] Compiling a graph for shape 74 takes 9.58 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 143/180 [06:19<05:49,  9.46s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:13 [backends.py:197] Cache the graph of shape 72 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:22 [backends.py:218] Compiling a graph for shape 72 takes 9.60 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 144/180 [06:28<05:42,  9.51s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:22 [backends.py:197] Cache the graph of shape 70 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:31 [backends.py:218] Compiling a graph for shape 70 takes 9.64 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 145/180 [06:38<05:34,  9.55s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:32 [backends.py:197] Cache the graph of shape 68 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:41 [backends.py:218] Compiling a graph for shape 68 takes 9.08 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 146/180 [06:47<05:20,  9.42s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:41 [backends.py:197] Cache the graph of shape 66 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:50 [backends.py:218] Compiling a graph for shape 66 takes 9.85 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 147/180 [06:57<05:15,  9.55s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:45:51 [backends.py:197] Cache the graph of shape 64 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:13 [backends.py:218] Compiling a graph for shape 64 takes 22.35 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 148/180 [07:19<07:08, 13.40s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:13 [backends.py:197] Cache the graph of shape 62 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:23 [backends.py:218] Compiling a graph for shape 62 takes 9.92 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  83%|████████▎ | 149/180 [07:29<06:23, 12.36s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:23 [backends.py:197] Cache the graph of shape 60 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:32 [backends.py:218] Compiling a graph for shape 60 takes 9.72 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  83%|████████▎ | 150/180 [07:39<05:47, 11.57s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:33 [backends.py:197] Cache the graph of shape 58 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:41 [backends.py:218] Compiling a graph for shape 58 takes 8.83 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 151/180 [07:48<05:11, 10.76s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:42 [backends.py:197] Cache the graph of shape 56 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:51 [backends.py:218] Compiling a graph for shape 56 takes 9.95 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 152/180 [07:58<04:54, 10.52s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:46:52 [backends.py:197] Cache the graph of shape 54 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:00 [backends.py:218] Compiling a graph for shape 54 takes 8.80 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  85%|████████▌ | 153/180 [08:07<04:30, 10.01s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:01 [backends.py:197] Cache the graph of shape 52 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:10 [backends.py:218] Compiling a graph for shape 52 takes 10.05 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▌ | 154/180 [08:17<04:20, 10.03s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:10 [backends.py:197] Cache the graph of shape 50 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:20 [backends.py:218] Compiling a graph for shape 50 takes 9.55 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▌ | 155/180 [08:26<04:07,  9.89s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:20 [backends.py:197] Cache the graph of shape 48 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:30 [backends.py:218] Compiling a graph for shape 48 takes 9.92 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 156/180 [08:36<03:57,  9.91s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:30 [backends.py:197] Cache the graph of shape 46 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:39 [backends.py:218] Compiling a graph for shape 46 takes 9.21 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 157/180 [08:45<03:43,  9.70s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:39 [backends.py:197] Cache the graph of shape 44 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:49 [backends.py:218] Compiling a graph for shape 44 takes 10.19 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 158/180 [08:56<03:36,  9.86s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:50 [backends.py:197] Cache the graph of shape 42 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:59 [backends.py:218] Compiling a graph for shape 42 takes 9.52 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 159/180 [09:05<03:24,  9.76s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:47:59 [backends.py:197] Cache the graph of shape 40 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:08 [backends.py:218] Compiling a graph for shape 40 takes 9.28 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  89%|████████▉ | 160/180 [09:14<03:12,  9.62s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:08 [backends.py:197] Cache the graph of shape 38 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:17 [backends.py:218] Compiling a graph for shape 38 takes 9.17 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  89%|████████▉ | 161/180 [09:24<03:00,  9.49s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:17 [backends.py:197] Cache the graph of shape 36 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:28 [backends.py:218] Compiling a graph for shape 36 takes 10.49 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|█████████ | 162/180 [09:34<02:56,  9.80s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:28 [backends.py:197] Cache the graph of shape 34 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:37 [backends.py:218] Compiling a graph for shape 34 takes 9.63 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████ | 163/180 [09:44<02:45,  9.75s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:38 [backends.py:197] Cache the graph of shape 32 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:48:59 [backends.py:218] Compiling a graph for shape 32 takes 21.87 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████ | 164/180 [10:06<03:34, 13.39s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:00 [backends.py:197] Cache the graph of shape 30 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:10 [backends.py:218] Compiling a graph for shape 30 takes 10.66 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 165/180 [10:16<03:08, 12.58s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:10 [backends.py:197] Cache the graph of shape 28 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:19 [backends.py:218] Compiling a graph for shape 28 takes 9.25 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 166/180 [10:26<02:42, 11.58s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:19 [backends.py:197] Cache the graph of shape 26 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:29 [backends.py:218] Compiling a graph for shape 26 takes 9.40 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 167/180 [10:35<02:22, 10.94s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:29 [backends.py:197] Cache the graph of shape 24 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:38 [backends.py:218] Compiling a graph for shape 24 takes 9.65 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 168/180 [10:45<02:06, 10.56s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:39 [backends.py:197] Cache the graph of shape 22 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:48 [backends.py:218] Compiling a graph for shape 22 takes 9.57 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 169/180 [10:54<01:52, 10.27s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:48 [backends.py:197] Cache the graph of shape 20 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:57 [backends.py:218] Compiling a graph for shape 20 takes 9.44 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 170/180 [11:04<01:40, 10.02s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:49:58 [backends.py:197] Cache the graph of shape 18 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:07 [backends.py:218] Compiling a graph for shape 18 takes 9.56 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  95%|█████████▌| 171/180 [11:13<01:29,  9.89s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:07 [backends.py:197] Cache the graph of shape 16 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:30 [backends.py:218] Compiling a graph for shape 16 takes 23.22 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 172/180 [11:37<01:51, 13.89s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:31 [backends.py:197] Cache the graph of shape 14 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:40 [backends.py:218] Compiling a graph for shape 14 takes 10.10 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 173/180 [11:47<01:29, 12.76s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:41 [backends.py:197] Cache the graph of shape 12 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:50 [backends.py:218] Compiling a graph for shape 12 takes 9.68 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 174/180 [11:56<01:11, 11.84s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:50 [backends.py:197] Cache the graph of shape 10 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:50:59 [backends.py:218] Compiling a graph for shape 10 takes 9.45 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 175/180 [12:06<00:55, 11.13s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:51:00 [backends.py:197] Cache the graph of shape 8 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:51:31 [backends.py:218] Compiling a graph for shape 8 takes 31.23 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 176/180 [12:37<01:08, 17.17s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:51:31 [backends.py:197] Cache the graph of shape 6 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:51:40 [backends.py:218] Compiling a graph for shape 6 takes 9.75 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 177/180 [12:47<00:44, 14.95s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:51:41 [backends.py:197] Cache the graph of shape 4 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:52:03 [backends.py:218] Compiling a graph for shape 4 takes 22.25 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▉| 178/180 [13:09<00:34, 17.15s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:52:03 [backends.py:197] Cache the graph of shape 2 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:52:25 [backends.py:218] Compiling a graph for shape 2 takes 22.41 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▉| 179/180 [13:32<00:18, 18.73s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:52:25 [backends.py:197] Cache the graph of shape 1 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:52:56 [backends.py:218] Compiling a graph for shape 1 takes 30.51 s
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:52:56 [monitor.py:34] torch.compile takes 843.21 s in total
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 180/180 [14:02<00:00, 22.28s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 180/180 [14:02<00:00,  4.68s/it]
+[1;36m(VllmWorker pid=479)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/177 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   1%|          | 1/177 [00:00<02:22,  1.23it/s]Capturing CUDA graphs (decode, FULL):   1%|          | 2/177 [00:01<02:01,  1.44it/s]Capturing CUDA graphs (decode, FULL):   3%|▎         | 5/177 [00:01<00:39,  4.36it/s]Capturing CUDA graphs (decode, FULL):   5%|▍         | 8/177 [00:01<00:22,  7.39it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 11/177 [00:01<00:16, 10.33it/s]Capturing CUDA graphs (decode, FULL):   8%|▊         | 14/177 [00:01<00:12, 13.02it/s]Capturing CUDA graphs (decode, FULL):  10%|▉         | 17/177 [00:02<00:10, 15.38it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 20/177 [00:02<00:09, 17.40it/s]Capturing CUDA graphs (decode, FULL):  13%|█▎        | 23/177 [00:02<00:08, 19.02it/s]Capturing CUDA graphs (decode, FULL):  15%|█▍        | 26/177 [00:02<00:07, 20.33it/s]Capturing CUDA graphs (decode, FULL):  16%|█▋        | 29/177 [00:02<00:06, 21.35it/s]Capturing CUDA graphs (decode, FULL):  18%|█▊        | 32/177 [00:02<00:06, 22.17it/s]Capturing CUDA graphs (decode, FULL):  20%|█▉        | 35/177 [00:02<00:06, 22.97it/s]Capturing CUDA graphs (decode, FULL):  21%|██▏       | 38/177 [00:02<00:05, 23.59it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 41/177 [00:03<00:05, 24.10it/s]Capturing CUDA graphs (decode, FULL):  25%|██▍       | 44/177 [00:03<00:08, 15.41it/s]Capturing CUDA graphs (decode, FULL):  26%|██▌       | 46/177 [00:03<00:11, 11.64it/s]Capturing CUDA graphs (decode, FULL):  28%|██▊       | 49/177 [00:03<00:08, 14.51it/s]Capturing CUDA graphs (decode, FULL):  29%|██▉       | 52/177 [00:03<00:07, 17.33it/s]Capturing CUDA graphs (decode, FULL):  31%|███       | 55/177 [00:04<00:06, 19.93it/s]Capturing CUDA graphs (decode, FULL):  33%|███▎      | 58/177 [00:04<00:05, 22.20it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 61/177 [00:04<00:04, 24.10it/s]Capturing CUDA graphs (decode, FULL):  36%|███▌      | 64/177 [00:04<00:04, 25.58it/s]Capturing CUDA graphs (decode, FULL):  38%|███▊      | 67/177 [00:04<00:04, 26.69it/s]Capturing CUDA graphs (decode, FULL):  40%|███▉      | 70/177 [00:04<00:03, 27.53it/s]Capturing CUDA graphs (decode, FULL):  41%|████      | 73/177 [00:04<00:03, 28.16it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 76/177 [00:04<00:03, 28.61it/s]Capturing CUDA graphs (decode, FULL):  45%|████▍     | 79/177 [00:04<00:03, 28.95it/s]Capturing CUDA graphs (decode, FULL):  46%|████▋     | 82/177 [00:04<00:03, 29.18it/s]Capturing CUDA graphs (decode, FULL):  48%|████▊     | 85/177 [00:05<00:03, 29.34it/s]Capturing CUDA graphs (decode, FULL):  50%|████▉     | 88/177 [00:06<00:15,  5.91it/s]Capturing CUDA graphs (decode, FULL):  51%|█████▏    | 91/177 [00:06<00:11,  7.78it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▎    | 95/177 [00:06<00:07, 10.66it/s]Capturing CUDA graphs (decode, FULL):  55%|█████▌    | 98/177 [00:07<00:08,  9.06it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 101/177 [00:07<00:06, 11.27it/s]Capturing CUDA graphs (decode, FULL):  59%|█████▉    | 104/177 [00:07<00:05, 13.70it/s]Capturing CUDA graphs (decode, FULL):  60%|██████    | 107/177 [00:07<00:04, 16.18it/s]Capturing CUDA graphs (decode, FULL):  62%|██████▏   | 110/177 [00:08<00:09,  7.08it/s]Capturing CUDA graphs (decode, FULL):  64%|██████▍   | 113/177 [00:08<00:07,  9.10it/s]Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 116/177 [00:08<00:05, 11.38it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 119/177 [00:08<00:04, 13.83it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▉   | 122/177 [00:08<00:03, 16.29it/s]Capturing CUDA graphs (decode, FULL):  71%|███████   | 125/177 [00:09<00:02, 18.60it/s]Capturing CUDA graphs (decode, FULL):  72%|███████▏  | 128/177 [00:09<00:02, 20.69it/s]Capturing CUDA graphs (decode, FULL):  74%|███████▍  | 131/177 [00:09<00:02, 22.58it/s]Capturing CUDA graphs (decode, FULL):  76%|███████▌  | 134/177 [00:09<00:01, 24.07it/s]Capturing CUDA graphs (decode, FULL):  77%|███████▋  | 137/177 [00:10<00:04,  9.82it/s]Capturing CUDA graphs (decode, FULL):  79%|███████▉  | 140/177 [00:10<00:03, 12.15it/s]Capturing CUDA graphs (decode, FULL):  81%|████████  | 143/177 [00:10<00:02, 14.56it/s]Capturing CUDA graphs (decode, FULL):  82%|████████▏ | 146/177 [00:10<00:01, 16.89it/s]Capturing CUDA graphs (decode, FULL):  84%|████████▍ | 149/177 [00:10<00:01, 19.01it/s]Capturing CUDA graphs (decode, FULL):  86%|████████▌ | 152/177 [00:10<00:01, 20.90it/s]Capturing CUDA graphs (decode, FULL):  88%|████████▊ | 155/177 [00:10<00:00, 22.51it/s]Capturing CUDA graphs (decode, FULL):  89%|████████▉ | 158/177 [00:10<00:00, 23.72it/s]Capturing CUDA graphs (decode, FULL):  91%|█████████ | 161/177 [00:10<00:00, 24.64it/s]Capturing CUDA graphs (decode, FULL):  93%|█████████▎| 164/177 [00:11<00:00, 25.35it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 167/177 [00:11<00:00, 25.91it/s]Capturing CUDA graphs (decode, FULL):  96%|█████████▌| 170/177 [00:11<00:00, 26.30it/s]Capturing CUDA graphs (decode, FULL):  98%|█████████▊| 173/177 [00:11<00:00, 16.80it/s]Capturing CUDA graphs (decode, FULL):  99%|█████████▉| 176/177 [00:12<00:00, 10.57it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 177/177 [00:14<00:00, 12.26it/s]
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 17:53:12 [gpu_model_runner.py:2686] Graph capturing finished in 860 secs, took 10.34 GiB
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 17:53:12 [core.py:217] init engine (profile, create kv cache, warmup model) took 885.74 seconds
+[1;36m(EngineCore_0 pid=326)[0;0m WARNING 07-07 17:53:13 [core.py:110] Using configured V1 scheduler class vllm.v1.core.sched.async_scheduler.AsyncScheduler. This scheduler interface is not public and compatibility may not be maintained.
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 17:53:13 [core.py:144] Batch queue is enabled with size 2
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:13 [loggers.py:142] Engine 000: vllm cache_config_info with initialization after num_gpu_blocks is: 86794
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:13 [async_llm.py:165] Torch profiler disabled. AsyncLLM CPU traces will not be collected.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:13 [api_server.py:1679] Supported_tasks: ['generate']
+[1;36m(APIServer pid=21)[0;0m WARNING 07-07 17:53:13 [serving_responses.py:143] For gpt-oss, we ignore --enable-auto-tool-choice and always enable tool use.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [api_server.py:1960] Starting vLLM API server 0 on http://0.0.0.0:19000
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:36] Available routes are:
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /openapi.json, Methods: GET, HEAD
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /docs, Methods: GET, HEAD
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /redoc, Methods: GET, HEAD
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /health, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /load, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /ping, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /ping, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /tokenize, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /detokenize, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/models, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /version, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/responses, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/responses/{response_id}, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/responses/{response_id}/cancel, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/chat/completions, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/completions, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/embeddings, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /pooling, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /classify, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /score, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/score, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/audio/transcriptions, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/audio/translations, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /rerank, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v1/rerank, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /v2/rerank, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /scale_elastic_ep, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /is_scaling_elastic_ep, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /invocations, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:14 [launcher.py:44] Route: /metrics, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO:     Started server process [21]
+[1;36m(APIServer pid=21)[0;0m INFO:     Waiting for application startup.
+[1;36m(APIServer pid=21)[0;0m INFO:     Application startup complete.
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40078 - "GET /health HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55180 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55196 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55200 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55210 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55218 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55220 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55232 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55234 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55244 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55260 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55268 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55284 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55300 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55314 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55330 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55344 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55354 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55360 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55374 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55382 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55388 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55404 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55416 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55430 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55434 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55440 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55452 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55454 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55460 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55462 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55468 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55472 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:24 [loggers.py:123] Engine 000: Avg prompt throughput: 2595.7 tokens/s, Avg generation throughput: 0.9 tokens/s, Running: 6 reqs, Waiting: 26 reqs, GPU KV cache usage: 0.9%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:34 [loggers.py:123] Engine 000: Avg prompt throughput: 20261.0 tokens/s, Avg generation throughput: 2638.1 tokens/s, Running: 32 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.8%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35382 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35392 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35402 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35416 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35426 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35440 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35452 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35464 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35472 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35484 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35494 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35508 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35512 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35528 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35534 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35542 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35552 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35566 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35572 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35588 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35598 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35606 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35620 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35630 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35646 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35650 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35652 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35658 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35670 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35678 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35694 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35698 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:44 [loggers.py:123] Engine 000: Avg prompt throughput: 23155.2 tokens/s, Avg generation throughput: 2578.8 tokens/s, Running: 32 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.8%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43514 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43530 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43544 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43598 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43600 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43618 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43634 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43650 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43666 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43682 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43692 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43710 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43560 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43576 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43578 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43592 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43608 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43612 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43614 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43632 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43648 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43668 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43688 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43698 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43726 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43734 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43738 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43750 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43758 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43764 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43780 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:43786 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:53:54 [loggers.py:123] Engine 000: Avg prompt throughput: 23439.0 tokens/s, Avg generation throughput: 2342.0 tokens/s, Running: 32 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.7%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39464 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39468 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39484 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39488 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39496 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39498 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39514 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39516 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39530 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39536 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39538 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39542 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39552 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39560 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39576 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39588 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39594 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39604 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39606 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39620 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39622 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39632 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39640 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39650 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39664 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39680 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39694 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39706 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39716 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39730 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39736 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39740 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:54:04 [loggers.py:123] Engine 000: Avg prompt throughput: 23347.6 tokens/s, Avg generation throughput: 2306.2 tokens/s, Running: 32 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.6%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45408 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45418 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45422 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45430 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45444 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45458 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45466 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45480 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45492 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45502 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45508 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45522 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45536 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45544 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45558 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45568 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45576 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45586 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45600 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45616 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45638 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45622 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45650 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45652 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45666 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45668 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45672 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45688 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45700 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:54248 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:54264 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:54268 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 17:54:14 [loggers.py:123] Engine 000: Avg prompt throughput: 23488.6 tokens/s, Avg generation throughput: 2332.7 tokens/s, Running: 32 reqs, Waiting: 0 reqs, GPU KV cache usage: 4.5%, Prefix cache hit rate: 0.0%

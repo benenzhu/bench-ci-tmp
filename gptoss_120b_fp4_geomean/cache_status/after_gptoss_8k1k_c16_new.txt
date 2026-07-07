@@ -1,0 +1,8 @@
+stage=after_gptoss_8k1k_c16_new
+timestamp=2026-07-07T18:56:38Z
+MODEL_DIR=/dev/shm/hf_hub_cache
+MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b
+96G	/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b
+status=present
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.5T  725G  788G  48% /dev/shm

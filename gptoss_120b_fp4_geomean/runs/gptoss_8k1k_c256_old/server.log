@@ -1,0 +1,1579 @@
+INFO 07-07 18:31:31 [__init__.py:241] Automatically detected platform rocm.
+/opt/venv/lib/python3.10/site-packages/torch/cuda/__init__.py:410: UserWarning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (Triggered internally at /app/pytorch/c10/core/AllocatorConfig.cpp:28.)
+  torch._C._cuda_init()
+WARNING 07-07 18:31:38 [__init__.py:1750] argument '--disable-log-requests' is deprecated and replaced with '--enable-log-requests'. This will be removed in v0.12.0.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:38 [api_server.py:1885] vLLM API server version 0.9.2rc2.dev2632+gbd781f529
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:38 [utils.py:328] non-default args: {'model_tag': '/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a', 'port': 19000, 'model': '/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a', 'max_model_len': 9416, 'max_seq_len_to_capture': 9416, 'block_size': 64, 'gpu_memory_utilization': 0.95, 'enable_prefix_caching': False, 'async_scheduling': True, 'compilation_config': {"level":null,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["+rms_norm","+silu_and_mul","+quant_fp8"],"splitting_ops":null,"use_inductor":true,"compile_sizes":[1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,256,512,1024,2048,8192],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":0,"cudagraph_capture_sizes":[1,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126,128,136,144,152,160,168,176,184,192,200,208,216,224,232,240,248,256,264,272,280,288,296,304,312,320,328,336,344,352,360,368,376,384,392,400,408,416,424,432,440,448,456,464,472,480,488,496,504,512,520,528,536,544,552,560,568,576,584,592,600,608,616,624,632,640,648,656,664,672,680,688,696,704,712,720,728,736,744,752,760,768,776,784,792,800,808,816,824,832,840,848,856,864,872,880,888,896,904,912,920,928,936,944,952,960,968,976,984,992,1000,1008,1016,1024,2048,4096,8192],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":null,"local_cache_dir":null}}
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:38 [arg_utils.py:477] HF_HUB_OFFLINE is True, replace model_id [/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a] to model_path [/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a]
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:49 [__init__.py:742] Resolved architecture: GptOssForCausalLM
+[1;36m(APIServer pid=21)[0;0m `torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(APIServer pid=21)[0;0m ERROR 07-07 18:31:49 [config.py:124] Error retrieving safetensors: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a'. Use `repo_type` argument if needed., retrying 1 of 2
+[1;36m(APIServer pid=21)[0;0m ERROR 07-07 18:31:51 [config.py:122] Error retrieving safetensors: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a'. Use `repo_type` argument if needed.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:51 [__init__.py:2879] Downcasting torch.float32 to torch.bfloat16.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:51 [__init__.py:1771] Using max model len 9416
+[1;36m(APIServer pid=21)[0;0m WARNING 07-07 18:31:51 [__init__.py:1216] mxfp4 quantization is not fully optimized yet. The speed can be slower than non-quantized models.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:52 [arg_utils.py:1257] Using mp-based distributed executor backend for async scheduling.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:52 [scheduler.py:222] Chunked prefill is enabled with max_num_batched_tokens=8192.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:52 [config.py:274] Overriding max cuda graph capture size to 1024 for performance.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:52 [layer.py:37] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:52 [activation.py:33] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP8_QUANT=1
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:52 [activation.py:67] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP4_QUANT=False
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:52 [activation.py:68] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP8_QUANT=True
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:31:52 [activation.py:69] [Aiter] VLLM_TRITON_FP4_GEMM_USE_ASM=False
+INFO 07-07 18:31:57 [__init__.py:241] Automatically detected platform rocm.
+/opt/venv/lib/python3.10/site-packages/torch/cuda/__init__.py:410: UserWarning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (Triggered internally at /app/pytorch/c10/core/AllocatorConfig.cpp:28.)
+  torch._C._cuda_init()
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 18:32:04 [core.py:648] Waiting for init message from front-end.
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 18:32:04 [core.py:75] Initializing a V1 LLM engine (v0.9.2rc2.dev2632+gbd781f529) with config: model='/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a', speculative_config=None, tokenizer='/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=False, dtype=torch.bfloat16, max_seq_len=9416, download_dir=None, load_format=auto, tensor_parallel_size=1, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=mxfp4, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend='GptOss'), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=/dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a, enable_prefix_caching=False, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":["+rms_norm","+silu_and_mul","+quant_fp8"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention"],"use_inductor":true,"compile_sizes":[128,1,2,256,4,512,6,1024,8,2048,10,12,14,8192,16,18,20,22,24,26,28,30,32,34,36,38,40,42,44,46,48,50,52,54,56,58,60,62,64,66,68,70,72,74,76,78,80,82,84,86,88,90,92,94,96,98,100,102,104,106,108,110,112,114,116,118,120,122,124,126],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[8192,4096,2048,1024,1016,1008,1000,992,984,976,968,960,952,944,936,928,920,912,904,896,888,880,872,864,856,848,840,832,824,816,808,800,792,784,776,768,760,752,744,736,728,720,712,704,696,688,680,672,664,656,648,640,632,624,616,608,600,592,584,576,568,560,552,544,536,528,520,512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,126,124,122,120,118,116,114,112,110,108,106,104,102,100,98,96,94,92,90,88,86,84,82,80,78,76,74,72,70,68,66,64,62,60,58,56,54,52,50,48,46,44,42,40,38,36,34,32,30,28,26,24,22,20,18,16,14,12,10,8,6,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"pass_config":{},"max_capture_size":8192,"local_cache_dir":null}
+[1;36m(EngineCore_0 pid=326)[0;0m WARNING 07-07 18:32:04 [multiproc_worker_utils.py:273] Reducing Torch parallelism from 128 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 18:32:04 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 16777216, 10, 'psm_b60fa296'), local_subscribe_addr='ipc:///tmp/f3efbbbd-2bed-466a-bb6c-c08f089efdb4', remote_subscribe_addr=None, remote_addr_ipv6=False)
+INFO 07-07 18:32:09 [__init__.py:241] Automatically detected platform rocm.
+/opt/venv/lib/python3.10/site-packages/torch/cuda/__init__.py:410: UserWarning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (Triggered internally at /app/pytorch/c10/core/AllocatorConfig.cpp:28.)
+  torch._C._cuda_init()
+INFO 07-07 18:32:15 [layer.py:37] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True
+INFO 07-07 18:32:15 [activation.py:33] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP8_QUANT=1
+INFO 07-07 18:32:15 [activation.py:67] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP4_QUANT=False
+INFO 07-07 18:32:15 [activation.py:68] [Aiter] VLLM_ROCM_USE_AITER_TRITON_SILU_MUL_FP8_QUANT=True
+INFO 07-07 18:32:15 [activation.py:69] [Aiter] VLLM_TRITON_FP4_GEMM_USE_ASM=False
+INFO 07-07 18:32:15 [llama.py:72] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True VLLM_ROCM_USE_AITER_MHA=False
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:15 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_fbf9a81d'), local_subscribe_addr='ipc:///tmp/5aa67fee-02ad-426d-983f-1e9cb634dced', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[W707 18:32:15.223677298 ProcessGroupNCCL.cpp:915] Warning: TORCH_NCCL_AVOID_RECORD_STREAMS is the default now, this environment variable is thus deprecated. (function operator())
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:16 [parallel_state.py:1134] rank 0 in world size 1 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(VllmWorker pid=479)[0;0m /opt/venv/lib/python3.10/site-packages/vllm/v1/sample/logits_processor/builtin.py:36: UserWarning: expandable_segments not supported on this platform (Triggered internally at /app/pytorch/c10/hip/HIPAllocatorConfig.h:39.)
+[1;36m(VllmWorker pid=479)[0;0m   self.min_p_device: torch.Tensor = torch.empty((max_num_reqs, ),
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:16 [gpt_oss.py:54] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True VLLM_ROCM_USE_AITER_MHA=False
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:16 [gpt_oss.py:55] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ADD_RMSNORM_PAD=True
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:16 [gpt_oss.py:56] [Aiter] VLLM_ROCM_USE_AITER_TRITON_BF16_GEMM=True
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:16 [gpu_model_runner.py:1932] Starting to load model /dev/shm/hf_hub_cache/models--openai--gpt-oss-120b/snapshots/b5c939de8f754692c1647ca79fbf85e8c1e70f8a...
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:16 [gpu_model_runner.py:1964] Loading model from scratch...
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:16 [rocm.py:249] Using Triton Attention backend on V1 engine.
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:16 [triton_attn.py:264] Using aiter unified attention for TritonAttentionImpl
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/15 [00:00<?, ?it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:   7% Completed | 1/15 [00:00<00:12,  1.08it/s]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  13% Completed | 2/15 [00:02<00:13,  1.07s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  20% Completed | 3/15 [00:03<00:12,  1.05s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  27% Completed | 4/15 [00:04<00:11,  1.04s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  33% Completed | 5/15 [00:05<00:10,  1.07s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  40% Completed | 6/15 [00:06<00:09,  1.08s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  47% Completed | 7/15 [00:07<00:08,  1.09s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  53% Completed | 8/15 [00:08<00:07,  1.08s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  60% Completed | 9/15 [00:09<00:06,  1.10s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  67% Completed | 10/15 [00:10<00:05,  1.08s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  73% Completed | 11/15 [00:11<00:04,  1.10s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  80% Completed | 12/15 [00:12<00:03,  1.09s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  87% Completed | 13/15 [00:14<00:02,  1.10s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards:  93% Completed | 14/15 [00:15<00:01,  1.07s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards: 100% Completed | 15/15 [00:16<00:00,  1.09s/it]
+[1;36m(VllmWorker pid=479)[0;0m Loading safetensors checkpoint shards: 100% Completed | 15/15 [00:16<00:00,  1.08s/it]
+[1;36m(VllmWorker pid=479)[0;0m 
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:33 [default_loader.py:267] Loading weights took 16.39 seconds
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:34 [gpu_model_runner.py:1986] Model loading took 74.7871 GiB and 16.870978 seconds
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:36 [backends.py:539] Using cache directory: /root/.cache/vllm/torch_compile_cache/42175afb22/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:36 [backends.py:550] Dynamo bytecode transform time: 1.68 s
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:36 [backends.py:194] Cache the graph for dynamic shape for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:47 [backends.py:215] Compiling a graph for dynamic shape takes 10.95 s
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:48 [common.py:250] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FP8_BMM=True VLLM_ROCM_USE_AITER_TRITON_FP8_BMM_MAX_BATCH_SIZE=256
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:48 [common.py:251] [Aiter] VLLM_ROCM_USE_AITER_TRITON_FUSED_ROPE_ZEROS_KV_CACHE=True
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:32:59 [gpu_worker.py:276] Available KV cache memory: 190.71 GiB
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 18:32:59 [kv_cache_utils.py:1013] GPU KV cache size: 2,777,408 tokens
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 18:32:59 [kv_cache_utils.py:1017] Maximum concurrency for 9,416 tokens per request: 311.09x
+[1;36m(VllmWorker pid=479)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/180 [00:00<?, ?it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:33:00 [backends.py:197] Cache the graph of shape 8192 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:33:08 [backends.py:218] Compiling a graph for shape 8192 takes 8.05 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   1%|          | 1/180 [00:08<24:05,  8.08s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   1%|          | 2/180 [00:12<17:19,  5.84s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:33:13 [backends.py:197] Cache the graph of shape 2048 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:33:38 [backends.py:218] Compiling a graph for shape 2048 takes 25.61 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 3/180 [00:37<43:53, 14.88s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:33:38 [backends.py:197] Cache the graph of shape 1024 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:33:59 [backends.py:218] Compiling a graph for shape 1024 takes 21.43 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 4/180 [00:59<51:15, 17.47s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 5/180 [01:00<33:14, 11.40s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 8/180 [01:00<12:54,  4.50s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 11/180 [01:00<06:50,  2.43s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   8%|▊         | 14/180 [01:00<04:05,  1.48s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   9%|▉         | 17/180 [01:00<02:35,  1.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  11%|█         | 20/180 [01:00<01:42,  1.56it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  13%|█▎        | 23/180 [01:00<01:09,  2.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▍        | 26/180 [01:00<00:48,  3.17it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 29/180 [01:01<00:34,  4.36it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 32/180 [01:01<00:25,  5.87it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  19%|█▉        | 35/180 [01:01<00:18,  7.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 38/180 [01:01<00:14,  9.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  23%|██▎       | 41/180 [01:01<00:11, 12.20it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▍       | 44/180 [01:01<00:09, 14.65it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  26%|██▌       | 47/180 [01:01<00:07, 17.07it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  28%|██▊       | 50/180 [01:01<00:06, 19.32it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 53/180 [01:01<00:05, 21.30it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███       | 56/180 [01:02<00:05, 23.01it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 59/180 [01:02<00:04, 24.22it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 62/180 [01:02<00:04, 25.30it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 65/180 [01:02<00:04, 26.15it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:34:03 [backends.py:197] Cache the graph of shape 512 for later use
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  36%|███▌      | 65/180 [01:15<00:04, 26.15it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:34:24 [backends.py:218] Compiling a graph for shape 512 takes 21.18 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  38%|███▊      | 68/180 [01:23<04:01,  2.15s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  38%|███▊      | 69/180 [01:24<03:36,  1.95s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  40%|████      | 72/180 [01:24<02:18,  1.28s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  42%|████▏     | 75/180 [01:24<01:31,  1.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 78/180 [01:24<01:01,  1.67it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 81/180 [01:24<00:41,  2.38it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  47%|████▋     | 85/180 [01:24<00:26,  3.63it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 89/180 [01:24<00:17,  5.24it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 93/180 [01:24<00:12,  7.24it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▍    | 97/180 [01:25<00:08,  9.63it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:34:26 [backends.py:197] Cache the graph of shape 256 for later use
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  54%|█████▍    | 97/180 [01:35<00:08,  9.63it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:34:46 [backends.py:218] Compiling a graph for shape 256 takes 21.29 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  56%|█████▌    | 100/180 [01:46<02:32,  1.90s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  56%|█████▌    | 101/180 [01:46<02:18,  1.75s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  58%|█████▊    | 104/180 [01:47<01:32,  1.22s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  59%|█████▉    | 106/180 [01:47<01:11,  1.04it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  60%|██████    | 108/180 [01:47<00:53,  1.34it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 110/180 [01:47<00:40,  1.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  62%|██████▏   | 112/180 [01:47<00:30,  2.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 114/180 [01:48<00:22,  2.88it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:34:49 [backends.py:197] Cache the graph of shape 128 for later use
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 114/180 [02:05<00:22,  2.88it/s][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:10 [backends.py:218] Compiling a graph for shape 128 takes 21.33 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  64%|██████▍   | 116/180 [02:09<03:32,  3.32s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:10 [backends.py:197] Cache the graph of shape 126 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:19 [backends.py:218] Compiling a graph for shape 126 takes 9.01 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  65%|██████▌   | 117/180 [02:18<04:30,  4.29s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:19 [backends.py:197] Cache the graph of shape 124 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:27 [backends.py:218] Compiling a graph for shape 124 takes 8.73 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 118/180 [02:27<05:19,  5.16s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:28 [backends.py:197] Cache the graph of shape 122 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:36 [backends.py:218] Compiling a graph for shape 122 takes 8.87 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 119/180 [02:36<06:04,  5.97s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:37 [backends.py:197] Cache the graph of shape 120 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:45 [backends.py:218] Compiling a graph for shape 120 takes 8.94 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 120/180 [02:45<06:40,  6.68s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:46 [backends.py:197] Cache the graph of shape 118 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:54 [backends.py:218] Compiling a graph for shape 118 takes 8.75 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 121/180 [02:54<07:05,  7.21s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:35:54 [backends.py:197] Cache the graph of shape 116 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:03 [backends.py:218] Compiling a graph for shape 116 takes 8.85 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  68%|██████▊   | 122/180 [03:02<07:23,  7.65s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:03 [backends.py:197] Cache the graph of shape 114 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:12 [backends.py:218] Compiling a graph for shape 114 takes 9.13 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  68%|██████▊   | 123/180 [03:12<07:39,  8.06s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:12 [backends.py:197] Cache the graph of shape 112 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:21 [backends.py:218] Compiling a graph for shape 112 takes 8.84 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▉   | 124/180 [03:20<07:44,  8.29s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:21 [backends.py:197] Cache the graph of shape 110 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:30 [backends.py:218] Compiling a graph for shape 110 takes 9.01 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▉   | 125/180 [03:29<07:47,  8.50s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:31 [backends.py:197] Cache the graph of shape 108 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:39 [backends.py:218] Compiling a graph for shape 108 takes 9.23 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 126/180 [03:39<07:50,  8.72s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:39 [backends.py:197] Cache the graph of shape 106 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:48 [backends.py:218] Compiling a graph for shape 106 takes 9.05 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 127/180 [03:48<07:47,  8.82s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:49 [backends.py:197] Cache the graph of shape 104 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:57 [backends.py:218] Compiling a graph for shape 104 takes 9.22 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 128/180 [03:57<07:45,  8.94s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:36:58 [backends.py:197] Cache the graph of shape 102 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:06 [backends.py:218] Compiling a graph for shape 102 takes 8.97 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 129/180 [04:06<07:36,  8.96s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:07 [backends.py:197] Cache the graph of shape 100 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:15 [backends.py:218] Compiling a graph for shape 100 takes 9.01 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  72%|███████▏  | 130/180 [04:15<07:28,  8.98s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:16 [backends.py:197] Cache the graph of shape 98 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:24 [backends.py:218] Compiling a graph for shape 98 takes 8.94 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 131/180 [04:24<07:19,  8.97s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:25 [backends.py:197] Cache the graph of shape 96 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:34 [backends.py:218] Compiling a graph for shape 96 takes 9.34 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 132/180 [04:33<07:16,  9.09s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:34 [backends.py:197] Cache the graph of shape 94 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:43 [backends.py:218] Compiling a graph for shape 94 takes 9.28 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  74%|███████▍  | 133/180 [04:43<07:10,  9.15s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:43 [backends.py:197] Cache the graph of shape 92 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:52 [backends.py:218] Compiling a graph for shape 92 takes 8.83 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  74%|███████▍  | 134/180 [04:51<06:56,  9.06s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:37:52 [backends.py:197] Cache the graph of shape 90 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:01 [backends.py:218] Compiling a graph for shape 90 takes 9.21 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▌  | 135/180 [05:01<06:49,  9.11s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:02 [backends.py:197] Cache the graph of shape 88 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:10 [backends.py:218] Compiling a graph for shape 88 takes 9.08 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 136/180 [05:10<06:40,  9.11s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:11 [backends.py:197] Cache the graph of shape 86 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:20 [backends.py:218] Compiling a graph for shape 86 takes 9.48 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▌  | 137/180 [05:19<06:36,  9.22s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:20 [backends.py:197] Cache the graph of shape 84 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:29 [backends.py:218] Compiling a graph for shape 84 takes 9.21 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  77%|███████▋  | 138/180 [05:29<06:27,  9.23s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:29 [backends.py:197] Cache the graph of shape 82 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:38 [backends.py:218] Compiling a graph for shape 82 takes 9.41 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  77%|███████▋  | 139/180 [05:38<06:20,  9.29s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:39 [backends.py:197] Cache the graph of shape 80 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:48 [backends.py:218] Compiling a graph for shape 80 takes 9.28 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 140/180 [05:47<06:11,  9.29s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:48 [backends.py:197] Cache the graph of shape 78 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:57 [backends.py:218] Compiling a graph for shape 78 takes 9.57 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 141/180 [05:57<06:05,  9.38s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:38:58 [backends.py:197] Cache the graph of shape 76 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:07 [backends.py:218] Compiling a graph for shape 76 takes 9.35 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 142/180 [06:06<05:56,  9.38s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:07 [backends.py:197] Cache the graph of shape 74 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:16 [backends.py:218] Compiling a graph for shape 74 takes 9.58 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 143/180 [06:16<05:49,  9.45s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:17 [backends.py:197] Cache the graph of shape 72 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:26 [backends.py:218] Compiling a graph for shape 72 takes 9.59 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 144/180 [06:25<05:41,  9.50s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:26 [backends.py:197] Cache the graph of shape 70 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:35 [backends.py:218] Compiling a graph for shape 70 takes 9.53 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 145/180 [06:35<05:32,  9.51s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:36 [backends.py:197] Cache the graph of shape 68 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:45 [backends.py:218] Compiling a graph for shape 68 takes 9.51 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  81%|████████  | 146/180 [06:45<05:23,  9.52s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:45 [backends.py:197] Cache the graph of shape 66 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:54 [backends.py:218] Compiling a graph for shape 66 takes 8.92 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 147/180 [06:53<05:08,  9.34s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:39:54 [backends.py:197] Cache the graph of shape 64 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:16 [backends.py:218] Compiling a graph for shape 64 takes 22.22 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 148/180 [07:16<07:02, 13.21s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:17 [backends.py:197] Cache the graph of shape 62 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:26 [backends.py:218] Compiling a graph for shape 62 takes 10.15 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  83%|████████▎ | 149/180 [07:26<06:21, 12.30s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:27 [backends.py:197] Cache the graph of shape 60 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:36 [backends.py:218] Compiling a graph for shape 60 takes 9.54 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  83%|████████▎ | 150/180 [07:35<05:44, 11.48s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:36 [backends.py:197] Cache the graph of shape 58 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:45 [backends.py:218] Compiling a graph for shape 58 takes 9.14 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 151/180 [07:45<05:12, 10.78s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:45 [backends.py:197] Cache the graph of shape 56 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:55 [backends.py:218] Compiling a graph for shape 56 takes 9.75 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 152/180 [07:54<04:53, 10.48s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:40:55 [backends.py:197] Cache the graph of shape 54 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:04 [backends.py:218] Compiling a graph for shape 54 takes 8.86 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  85%|████████▌ | 153/180 [08:03<04:30, 10.00s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:04 [backends.py:197] Cache the graph of shape 52 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:14 [backends.py:218] Compiling a graph for shape 52 takes 10.00 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▌ | 154/180 [08:13<04:20, 10.01s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:14 [backends.py:197] Cache the graph of shape 50 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:23 [backends.py:218] Compiling a graph for shape 50 takes 9.36 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▌ | 155/180 [08:23<04:05,  9.82s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:23 [backends.py:197] Cache the graph of shape 48 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:33 [backends.py:218] Compiling a graph for shape 48 takes 9.85 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 156/180 [08:33<03:55,  9.83s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:33 [backends.py:197] Cache the graph of shape 46 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:43 [backends.py:218] Compiling a graph for shape 46 takes 9.60 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  87%|████████▋ | 157/180 [08:42<03:44,  9.77s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:43 [backends.py:197] Cache the graph of shape 44 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:52 [backends.py:218] Compiling a graph for shape 44 takes 9.33 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 158/180 [08:51<03:32,  9.64s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:41:52 [backends.py:197] Cache the graph of shape 42 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:02 [backends.py:218] Compiling a graph for shape 42 takes 10.06 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 159/180 [09:02<03:25,  9.77s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:02 [backends.py:197] Cache the graph of shape 40 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:11 [backends.py:218] Compiling a graph for shape 40 takes 9.03 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  89%|████████▉ | 160/180 [09:11<03:11,  9.56s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:12 [backends.py:197] Cache the graph of shape 38 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:21 [backends.py:218] Compiling a graph for shape 38 takes 10.33 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  89%|████████▉ | 161/180 [09:21<03:06,  9.79s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:22 [backends.py:197] Cache the graph of shape 36 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:31 [backends.py:218] Compiling a graph for shape 36 takes 9.30 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|█████████ | 162/180 [09:30<02:53,  9.65s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:31 [backends.py:197] Cache the graph of shape 34 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:40 [backends.py:218] Compiling a graph for shape 34 takes 9.40 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████ | 163/180 [09:40<02:42,  9.58s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:42:41 [backends.py:197] Cache the graph of shape 32 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:02 [backends.py:218] Compiling a graph for shape 32 takes 21.57 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  91%|█████████ | 164/180 [10:01<03:30, 13.18s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:02 [backends.py:197] Cache the graph of shape 30 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:12 [backends.py:218] Compiling a graph for shape 30 takes 10.76 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 165/180 [10:12<03:06, 12.46s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:13 [backends.py:197] Cache the graph of shape 28 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:22 [backends.py:218] Compiling a graph for shape 28 takes 9.40 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 166/180 [10:21<02:41, 11.55s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:22 [backends.py:197] Cache the graph of shape 26 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:31 [backends.py:218] Compiling a graph for shape 26 takes 9.47 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 167/180 [10:31<02:22, 10.93s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:32 [backends.py:197] Cache the graph of shape 24 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:41 [backends.py:218] Compiling a graph for shape 24 takes 9.73 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 168/180 [10:41<02:06, 10.58s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:42 [backends.py:197] Cache the graph of shape 22 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:50 [backends.py:218] Compiling a graph for shape 22 takes 9.34 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 169/180 [10:50<01:52, 10.21s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:43:51 [backends.py:197] Cache the graph of shape 20 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:01 [backends.py:218] Compiling a graph for shape 20 takes 10.73 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 170/180 [11:01<01:43, 10.37s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:02 [backends.py:197] Cache the graph of shape 18 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:11 [backends.py:218] Compiling a graph for shape 18 takes 9.45 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  95%|█████████▌| 171/180 [11:10<01:30, 10.10s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:11 [backends.py:197] Cache the graph of shape 16 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:33 [backends.py:218] Compiling a graph for shape 16 takes 22.15 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 172/180 [11:32<01:49, 13.72s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:33 [backends.py:197] Cache the graph of shape 14 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:43 [backends.py:218] Compiling a graph for shape 14 takes 9.69 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 173/180 [11:42<01:27, 12.52s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:43 [backends.py:197] Cache the graph of shape 12 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:52 [backends.py:218] Compiling a graph for shape 12 takes 9.63 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 174/180 [11:52<01:09, 11.66s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:44:53 [backends.py:197] Cache the graph of shape 10 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:45:02 [backends.py:218] Compiling a graph for shape 10 takes 9.60 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 175/180 [12:01<00:55, 11.05s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:45:02 [backends.py:197] Cache the graph of shape 8 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:45:33 [backends.py:218] Compiling a graph for shape 8 takes 31.02 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 176/180 [12:33<01:08, 17.05s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:45:33 [backends.py:197] Cache the graph of shape 6 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:45:43 [backends.py:218] Compiling a graph for shape 6 takes 9.90 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 177/180 [12:42<00:44, 14.91s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:45:43 [backends.py:197] Cache the graph of shape 4 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:46:05 [backends.py:218] Compiling a graph for shape 4 takes 22.13 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▉| 178/180 [13:05<00:34, 17.08s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:46:05 [backends.py:197] Cache the graph of shape 2 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:46:27 [backends.py:218] Compiling a graph for shape 2 takes 22.13 s
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  99%|█████████▉| 179/180 [13:27<00:18, 18.60s/it][1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:46:27 [backends.py:197] Cache the graph of shape 1 for later use
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:46:59 [backends.py:218] Compiling a graph for shape 1 takes 31.84 s
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:46:59 [monitor.py:34] torch.compile takes 839.69 s in total
+Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 180/180 [13:59<00:00, 22.59s/it]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 180/180 [13:59<00:00,  4.66s/it]
+[1;36m(VllmWorker pid=479)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/177 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   1%|          | 1/177 [00:00<02:28,  1.19it/s]Capturing CUDA graphs (decode, FULL):   1%|          | 2/177 [00:01<02:06,  1.38it/s]Capturing CUDA graphs (decode, FULL):   3%|▎         | 5/177 [00:01<00:40,  4.20it/s]Capturing CUDA graphs (decode, FULL):   5%|▍         | 8/177 [00:01<00:23,  7.12it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 11/177 [00:01<00:16,  9.97it/s]Capturing CUDA graphs (decode, FULL):   8%|▊         | 14/177 [00:02<00:12, 12.60it/s]Capturing CUDA graphs (decode, FULL):  10%|▉         | 17/177 [00:02<00:10, 14.92it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 20/177 [00:02<00:09, 16.92it/s]Capturing CUDA graphs (decode, FULL):  13%|█▎        | 23/177 [00:02<00:08, 18.56it/s]Capturing CUDA graphs (decode, FULL):  15%|█▍        | 26/177 [00:02<00:07, 19.88it/s]Capturing CUDA graphs (decode, FULL):  16%|█▋        | 29/177 [00:02<00:07, 20.90it/s]Capturing CUDA graphs (decode, FULL):  18%|█▊        | 32/177 [00:02<00:06, 21.69it/s]Capturing CUDA graphs (decode, FULL):  20%|█▉        | 35/177 [00:02<00:06, 22.46it/s]Capturing CUDA graphs (decode, FULL):  21%|██▏       | 38/177 [00:03<00:06, 23.08it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 41/177 [00:03<00:05, 23.59it/s]Capturing CUDA graphs (decode, FULL):  25%|██▍       | 44/177 [00:03<00:08, 14.78it/s]Capturing CUDA graphs (decode, FULL):  26%|██▌       | 46/177 [00:03<00:11, 11.63it/s]Capturing CUDA graphs (decode, FULL):  28%|██▊       | 49/177 [00:03<00:08, 14.44it/s]Capturing CUDA graphs (decode, FULL):  29%|██▉       | 52/177 [00:04<00:07, 17.17it/s]Capturing CUDA graphs (decode, FULL):  31%|███       | 55/177 [00:04<00:06, 19.67it/s]Capturing CUDA graphs (decode, FULL):  33%|███▎      | 58/177 [00:04<00:05, 21.87it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 61/177 [00:04<00:04, 23.67it/s]Capturing CUDA graphs (decode, FULL):  36%|███▌      | 64/177 [00:04<00:04, 25.10it/s]Capturing CUDA graphs (decode, FULL):  38%|███▊      | 67/177 [00:04<00:04, 26.16it/s]Capturing CUDA graphs (decode, FULL):  40%|███▉      | 70/177 [00:04<00:03, 26.97it/s]Capturing CUDA graphs (decode, FULL):  41%|████      | 73/177 [00:04<00:03, 27.56it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 76/177 [00:04<00:03, 27.99it/s]Capturing CUDA graphs (decode, FULL):  45%|████▍     | 79/177 [00:04<00:03, 28.30it/s]Capturing CUDA graphs (decode, FULL):  46%|████▋     | 82/177 [00:05<00:03, 28.55it/s]Capturing CUDA graphs (decode, FULL):  48%|████▊     | 85/177 [00:05<00:03, 28.69it/s]Capturing CUDA graphs (decode, FULL):  50%|████▉     | 88/177 [00:06<00:15,  5.86it/s]Capturing CUDA graphs (decode, FULL):  51%|█████▏    | 91/177 [00:06<00:11,  7.70it/s]Capturing CUDA graphs (decode, FULL):  53%|█████▎    | 94/177 [00:06<00:08,  9.88it/s]Capturing CUDA graphs (decode, FULL):  55%|█████▍    | 97/177 [00:07<00:08,  9.52it/s]Capturing CUDA graphs (decode, FULL):  56%|█████▋    | 100/177 [00:07<00:07, 10.44it/s]Capturing CUDA graphs (decode, FULL):  58%|█████▊    | 103/177 [00:07<00:05, 12.87it/s]Capturing CUDA graphs (decode, FULL):  60%|█████▉    | 106/177 [00:07<00:04, 15.38it/s]Capturing CUDA graphs (decode, FULL):  62%|██████▏   | 109/177 [00:08<00:10,  6.70it/s]Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 112/177 [00:08<00:07,  8.66it/s]Capturing CUDA graphs (decode, FULL):  65%|██████▍   | 115/177 [00:08<00:05, 10.88it/s]Capturing CUDA graphs (decode, FULL):  67%|██████▋   | 118/177 [00:08<00:04, 13.27it/s]Capturing CUDA graphs (decode, FULL):  68%|██████▊   | 121/177 [00:09<00:03, 15.69it/s]Capturing CUDA graphs (decode, FULL):  70%|███████   | 124/177 [00:09<00:02, 17.99it/s]Capturing CUDA graphs (decode, FULL):  72%|███████▏  | 127/177 [00:09<00:02, 20.02it/s]Capturing CUDA graphs (decode, FULL):  73%|███████▎  | 130/177 [00:09<00:02, 21.74it/s]Capturing CUDA graphs (decode, FULL):  75%|███████▌  | 133/177 [00:09<00:01, 23.10it/s]Capturing CUDA graphs (decode, FULL):  77%|███████▋  | 136/177 [00:10<00:03, 12.04it/s]Capturing CUDA graphs (decode, FULL):  79%|███████▊  | 139/177 [00:10<00:03, 11.20it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 142/177 [00:10<00:02, 13.52it/s]Capturing CUDA graphs (decode, FULL):  82%|████████▏ | 145/177 [00:10<00:02, 15.80it/s]Capturing CUDA graphs (decode, FULL):  84%|████████▎ | 148/177 [00:10<00:01, 17.92it/s]Capturing CUDA graphs (decode, FULL):  85%|████████▌ | 151/177 [00:10<00:01, 19.79it/s]Capturing CUDA graphs (decode, FULL):  87%|████████▋ | 154/177 [00:10<00:01, 21.39it/s]Capturing CUDA graphs (decode, FULL):  89%|████████▊ | 157/177 [00:11<00:00, 22.64it/s]Capturing CUDA graphs (decode, FULL):  90%|█████████ | 160/177 [00:11<00:00, 23.63it/s]Capturing CUDA graphs (decode, FULL):  92%|█████████▏| 163/177 [00:11<00:00, 24.40it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 166/177 [00:11<00:00, 25.03it/s]Capturing CUDA graphs (decode, FULL):  95%|█████████▌| 169/177 [00:11<00:00, 25.50it/s]Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 172/177 [00:11<00:00, 16.50it/s]Capturing CUDA graphs (decode, FULL):  99%|█████████▉| 175/177 [00:12<00:00, 13.42it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 177/177 [00:13<00:00,  5.71it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 177/177 [00:13<00:00, 13.38it/s]
+[1;36m(VllmWorker pid=479)[0;0m INFO 07-07 18:47:15 [gpu_model_runner.py:2686] Graph capturing finished in 855 secs, took 10.29 GiB
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 18:47:15 [core.py:217] init engine (profile, create kv cache, warmup model) took 881.06 seconds
+[1;36m(EngineCore_0 pid=326)[0;0m WARNING 07-07 18:47:15 [core.py:110] Using configured V1 scheduler class vllm.v1.core.sched.async_scheduler.AsyncScheduler. This scheduler interface is not public and compatibility may not be maintained.
+[1;36m(EngineCore_0 pid=326)[0;0m INFO 07-07 18:47:15 [core.py:144] Batch queue is enabled with size 2
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:15 [loggers.py:142] Engine 000: vllm cache_config_info with initialization after num_gpu_blocks is: 86794
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:15 [async_llm.py:165] Torch profiler disabled. AsyncLLM CPU traces will not be collected.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:15 [api_server.py:1679] Supported_tasks: ['generate']
+[1;36m(APIServer pid=21)[0;0m WARNING 07-07 18:47:15 [serving_responses.py:143] For gpt-oss, we ignore --enable-auto-tool-choice and always enable tool use.
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [api_server.py:1960] Starting vLLM API server 0 on http://0.0.0.0:19000
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:36] Available routes are:
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /openapi.json, Methods: HEAD, GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /docs, Methods: HEAD, GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /redoc, Methods: HEAD, GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /health, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /load, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /ping, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /ping, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /tokenize, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /detokenize, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/models, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /version, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/responses, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/responses/{response_id}, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/responses/{response_id}/cancel, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/chat/completions, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/completions, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/embeddings, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /pooling, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /classify, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /score, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/score, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/audio/transcriptions, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/audio/translations, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /rerank, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v1/rerank, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /v2/rerank, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /scale_elastic_ep, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /is_scaling_elastic_ep, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /invocations, Methods: POST
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:16 [launcher.py:44] Route: /metrics, Methods: GET
+[1;36m(APIServer pid=21)[0;0m INFO:     Started server process [21]
+[1;36m(APIServer pid=21)[0;0m INFO:     Waiting for application startup.
+[1;36m(APIServer pid=21)[0;0m INFO:     Application startup complete.
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:57000 - "GET /health HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44646 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44658 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44664 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44676 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44688 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44702 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44710 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44722 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44726 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44738 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44744 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44752 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44756 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44760 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44762 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44772 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44774 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44784 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44786 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44796 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44810 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44826 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44836 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44848 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44864 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44876 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44888 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44900 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44916 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44926 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44928 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44936 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44948 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44956 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44960 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44976 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44984 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:44988 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45000 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45014 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45024 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45040 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45050 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45060 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45068 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45072 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45074 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45078 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45092 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45100 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45114 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45122 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45126 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45134 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45150 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45166 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45168 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45182 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45184 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45186 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45198 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45214 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45230 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45234 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45248 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45264 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45272 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45274 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45290 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45294 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45300 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45314 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45330 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45336 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45344 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45352 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45356 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45372 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45376 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45392 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45408 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45424 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45426 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45434 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45440 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45456 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45468 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45480 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45492 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45494 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45500 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45512 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45514 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45522 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45532 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45546 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45562 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45566 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45568 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45576 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45584 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45586 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45594 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45602 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45616 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45632 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45648 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45662 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45672 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45684 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45688 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45692 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45708 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45714 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45718 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45722 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45726 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45738 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45742 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45756 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45764 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45770 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45778 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45790 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45796 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45800 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45806 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45808 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45824 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45836 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45850 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45854 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45864 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45876 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45888 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45896 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45906 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45916 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45926 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45934 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45940 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45950 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45956 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45970 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45978 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45992 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45996 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46000 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46002 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46018 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46020 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46030 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46044 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46058 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46072 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46086 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46098 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46100 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46108 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46118 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46130 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46142 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46158 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46174 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46186 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46192 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46194 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46200 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46210 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46224 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46226 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46234 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46248 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46254 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46270 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46286 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46300 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46304 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46314 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46318 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46324 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46330 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46346 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46354 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46362 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46364 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46368 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46376 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46392 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46408 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46412 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46418 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46426 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46440 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46446 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46450 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46466 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46482 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46496 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46506 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46510 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46518 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46524 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46536 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46542 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46544 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46546 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46560 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46566 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46572 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46586 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46588 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46604 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46606 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46608 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46620 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46626 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46628 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46632 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46644 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46656 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46660 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46664 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46680 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46696 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46710 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46724 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46734 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46748 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46756 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46770 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46776 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46790 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46806 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46808 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46824 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46826 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46830 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46842 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46844 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46848 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46860 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46862 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46868 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46880 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46890 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46894 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46896 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46912 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46926 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46930 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46942 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46954 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46958 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46960 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46976 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:37 [loggers.py:123] Engine 000: Avg prompt throughput: 44140.1 tokens/s, Avg generation throughput: 169.9 tokens/s, Running: 63 reqs, Waiting: 193 reqs, GPU KV cache usage: 8.6%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:47 [loggers.py:123] Engine 000: Avg prompt throughput: 64408.4 tokens/s, Avg generation throughput: 837.7 tokens/s, Running: 152 reqs, Waiting: 104 reqs, GPU KV cache usage: 20.6%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:47:57 [loggers.py:123] Engine 000: Avg prompt throughput: 61511.8 tokens/s, Avg generation throughput: 1484.0 tokens/s, Running: 237 reqs, Waiting: 19 reqs, GPU KV cache usage: 32.3%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:48:07 [loggers.py:123] Engine 000: Avg prompt throughput: 15194.1 tokens/s, Avg generation throughput: 7581.7 tokens/s, Running: 256 reqs, Waiting: 0 reqs, GPU KV cache usage: 36.2%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:48:17 [loggers.py:123] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 9318.3 tokens/s, Running: 256 reqs, Waiting: 0 reqs, GPU KV cache usage: 37.9%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49450 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49464 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49468 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49472 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49476 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49492 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49494 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49506 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49516 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49530 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49534 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49542 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49548 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49552 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49566 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49578 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49592 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49602 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49616 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49624 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49638 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49650 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49652 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49664 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49672 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49688 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49692 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49700 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49712 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49716 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49722 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49732 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49734 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49748 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49750 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49754 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49768 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49772 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49778 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49786 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49794 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49798 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49808 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49820 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49826 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49842 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49852 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38834 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38850 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38852 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38860 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38868 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38872 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38882 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38898 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38904 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38920 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38922 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38926 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38932 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38938 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38946 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38948 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38952 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38956 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38966 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38974 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38986 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38992 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38996 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38998 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39004 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39008 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39018 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39022 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39028 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39042 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39058 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39074 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39076 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39092 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39108 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39110 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:48:27 [loggers.py:123] Engine 000: Avg prompt throughput: 54967.8 tokens/s, Avg generation throughput: 2161.9 tokens/s, Running: 250 reqs, Waiting: 3 reqs, GPU KV cache usage: 36.2%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39126 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39128 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39140 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39142 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39152 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39168 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39184 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39190 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39200 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39202 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39216 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39218 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39226 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39230 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39240 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39246 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39248 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39254 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39260 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39266 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39280 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39292 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39306 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39320 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39322 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39324 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39328 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39344 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39348 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39358 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39374 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39384 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39398 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39414 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39426 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39440 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39454 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39466 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39470 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39478 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39484 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39492 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39504 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39518 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39526 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49088 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49090 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49102 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49108 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49120 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49134 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49136 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49148 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49152 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49166 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49172 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49180 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49194 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49204 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49218 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49222 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49224 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49236 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49244 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49248 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49254 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49266 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49274 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49288 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49304 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49312 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49328 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49338 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49348 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49358 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49360 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49370 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49386 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49392 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49406 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49418 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49432 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:48:37 [loggers.py:123] Engine 000: Avg prompt throughput: 57888.3 tokens/s, Avg generation throughput: 1817.5 tokens/s, Running: 250 reqs, Waiting: 4 reqs, GPU KV cache usage: 35.2%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49444 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49456 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49466 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49470 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49474 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49482 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49490 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49508 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49510 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49522 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49532 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49544 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49554 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49556 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49564 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49576 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49586 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49596 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49604 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49606 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49622 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49640 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49654 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49660 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49674 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49682 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49696 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49702 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49714 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49724 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49736 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49744 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49756 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49758 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49764 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49770 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49782 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49792 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49810 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49812 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49822 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49836 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49840 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49844 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49854 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59134 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59146 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59150 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59160 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59174 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59180 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59194 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59196 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59200 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59206 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59216 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59232 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59246 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59248 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59258 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59262 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59278 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59282 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59298 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59306 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59314 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59318 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59326 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59332 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59348 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59356 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59370 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59384 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59400 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59410 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59420 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59430 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59440 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59456 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59462 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59464 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:48:47 [loggers.py:123] Engine 000: Avg prompt throughput: 58614.2 tokens/s, Avg generation throughput: 1811.5 tokens/s, Running: 249 reqs, Waiting: 4 reqs, GPU KV cache usage: 34.1%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59476 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59492 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59508 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59522 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59524 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59532 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59542 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59554 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59564 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59580 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:48:57 [loggers.py:123] Engine 000: Avg prompt throughput: 13743.1 tokens/s, Avg generation throughput: 7818.7 tokens/s, Running: 256 reqs, Waiting: 0 reqs, GPU KV cache usage: 36.2%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:49:07 [loggers.py:123] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 9350.1 tokens/s, Running: 251 reqs, Waiting: 0 reqs, GPU KV cache usage: 37.2%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37740 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37744 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37750 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37770 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37784 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37794 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37810 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37852 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37874 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37880 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37892 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37908 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37912 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37918 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37934 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37942 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37962 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37996 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38018 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38040 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38064 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38072 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38118 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38120 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38142 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38178 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38184 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38188 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38210 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38216 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38252 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38268 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38274 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38300 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38306 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38312 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38332 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38336 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38348 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38356 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38372 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38392 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38400 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38408 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38416 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37746 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37758 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37808 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37816 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37824 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37840 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37858 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37886 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37944 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37952 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37978 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:37988 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38010 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38026 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38048 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38088 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38104 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38126 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38138 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38140 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38148 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38154 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38162 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38168 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38194 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38208 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38220 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38236 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38242 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38246 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38284 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38326 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38342 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38384 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38396 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38410 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38446 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38468 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38472 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38522 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38554 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38586 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38592 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38602 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38644 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38662 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38690 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38694 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38704 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38716 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38722 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38736 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38746 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38752 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38768 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38814 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38826 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38838 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38850 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38862 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38878 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38894 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38898 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38906 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38924 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38958 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38978 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39002 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39004 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39020 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39042 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39054 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39062 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39078 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39082 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39130 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39154 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39158 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39224 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39228 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39278 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39310 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39332 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39364 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39370 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39388 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39422 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39454 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39474 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39514 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39544 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39602 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39620 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39638 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39642 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39660 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39662 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39678 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39712 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39726 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39746 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39754 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39760 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39778 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39796 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39816 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39830 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39834 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39840 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39850 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39860 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39878 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39888 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39894 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39908 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39948 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39964 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39976 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39984 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40046 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38418 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38428 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38432 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38458 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38486 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38496 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38510 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38530 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38546 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38564 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38570 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38616 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38622 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38628 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38636 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38654 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38676 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38696 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38698 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38700 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38780 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38786 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38800 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38818 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38828 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38830 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38904 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38908 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38920 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38938 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38944 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38970 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:38994 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39032 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39084 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39100 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39116 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39124 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39144 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39174 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39188 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39198 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39212 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39234 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39242 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39254 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39264 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39292 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39304 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39312 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39316 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39330 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39346 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39350 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39356 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39384 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39394 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39408 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39432 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39440 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39456 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39472 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39490 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39500 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39522 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39532 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39554 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39570 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39580 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39588 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39618 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39628 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39644 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39654 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39692 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39696 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39706 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39730 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39774 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39786 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39802 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39872 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39880 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39922 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39938 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39982 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:39998 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40006 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40010 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40022 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40034 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:49:17 [loggers.py:123] Engine 000: Avg prompt throughput: 38453.1 tokens/s, Avg generation throughput: 3015.1 tokens/s, Running: 55 reqs, Waiting: 201 reqs, GPU KV cache usage: 7.6%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:49:27 [loggers.py:123] Engine 000: Avg prompt throughput: 65565.9 tokens/s, Avg generation throughput: 798.3 tokens/s, Running: 145 reqs, Waiting: 111 reqs, GPU KV cache usage: 19.9%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:49:37 [loggers.py:123] Engine 000: Avg prompt throughput: 61140.4 tokens/s, Avg generation throughput: 1405.0 tokens/s, Running: 227 reqs, Waiting: 29 reqs, GPU KV cache usage: 31.4%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:49:47 [loggers.py:123] Engine 000: Avg prompt throughput: 23336.1 tokens/s, Avg generation throughput: 5355.9 tokens/s, Running: 256 reqs, Waiting: 0 reqs, GPU KV cache usage: 36.3%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:49:57 [loggers.py:123] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 7987.0 tokens/s, Running: 256 reqs, Waiting: 0 reqs, GPU KV cache usage: 37.8%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49848 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49854 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49860 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49876 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49890 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49908 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49904 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49924 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35430 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35434 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35436 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35452 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35460 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35468 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35480 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35492 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35500 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35514 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35526 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35522 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35530 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35546 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35548 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35566 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35564 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35582 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35586 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35598 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35600 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35606 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:50:07 [loggers.py:123] Engine 000: Avg prompt throughput: 21139.0 tokens/s, Avg generation throughput: 5059.6 tokens/s, Running: 255 reqs, Waiting: 0 reqs, GPU KV cache usage: 38.1%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35616 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35622 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35646 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35638 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35660 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35662 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35678 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35688 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35698 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35700 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35702 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35708 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35712 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35714 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35730 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35736 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35746 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35748 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35760 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35762 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35776 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35782 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35796 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35814 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35798 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35824 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35830 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35838 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35844 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35868 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35882 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35860 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35888 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35898 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35924 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35914 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35916 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35936 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35938 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35942 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:35954 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58892 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58894 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58916 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58906 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58928 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58942 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58936 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58940 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58960 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58968 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58956 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58984 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58992 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59002 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59004 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59018 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59032 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59042 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59060 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59074 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59044 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59078 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59090 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59084 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59092 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59100 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59106 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59108 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59120 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59136 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59144 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59160 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59176 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:50:17 [loggers.py:123] Engine 000: Avg prompt throughput: 51982.4 tokens/s, Avg generation throughput: 2282.8 tokens/s, Running: 253 reqs, Waiting: 2 reqs, GPU KV cache usage: 37.0%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59184 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59200 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59214 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59240 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59224 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59254 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59272 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59294 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59270 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59278 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59298 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59312 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59316 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59324 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59326 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59332 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59348 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59334 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59346 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59358 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59370 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59384 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59394 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59410 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59426 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59434 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59438 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59446 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59466 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59452 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59472 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59478 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59500 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59518 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59484 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59514 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59534 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59536 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59538 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59540 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59556 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59566 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59582 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59598 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59608 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59618 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:59622 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47174 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47178 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47192 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47198 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47200 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47206 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47220 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47236 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47242 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47248 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47252 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47260 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47268 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47280 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47296 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47300 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47312 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47316 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47336 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47326 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47350 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47362 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47368 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47380 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47390 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47404 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47410 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47422 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47432 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47446 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47462 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47474 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47488 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47504 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47516 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:50:27 [loggers.py:123] Engine 000: Avg prompt throughput: 56744.9 tokens/s, Avg generation throughput: 1787.7 tokens/s, Running: 247 reqs, Waiting: 7 reqs, GPU KV cache usage: 35.4%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47518 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47526 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47534 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47566 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47582 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47550 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47588 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47604 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47612 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47616 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47622 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47626 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47638 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47642 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47654 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47656 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47672 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47682 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47696 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47706 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47718 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47730 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47734 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47738 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47752 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47762 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47766 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47778 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47794 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47796 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47812 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47828 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47830 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47848 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47850 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47840 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47860 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:47872 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51426 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51438 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51454 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51470 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51486 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51498 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51502 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51510 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51514 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51524 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51528 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51540 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51550 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51554 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51564 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51572 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51586 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51590 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51598 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51602 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:50:37 [loggers.py:123] Engine 000: Avg prompt throughput: 48152.0 tokens/s, Avg generation throughput: 2189.4 tokens/s, Running: 254 reqs, Waiting: 1 reqs, GPU KV cache usage: 35.8%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51616 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51624 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51626 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51638 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51646 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51652 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51656 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51672 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51674 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51690 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51692 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:51694 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:50:47 [loggers.py:123] Engine 000: Avg prompt throughput: 10896.8 tokens/s, Avg generation throughput: 7109.7 tokens/s, Running: 256 reqs, Waiting: 0 reqs, GPU KV cache usage: 37.0%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55854 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55866 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55876 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55888 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55892 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55898 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55912 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55926 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:50:57 [loggers.py:123] Engine 000: Avg prompt throughput: 5928.3 tokens/s, Avg generation throughput: 7572.9 tokens/s, Running: 256 reqs, Waiting: 0 reqs, GPU KV cache usage: 38.2%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55942 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55956 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55968 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55982 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:55996 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56002 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56008 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56014 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56022 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56032 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56034 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56042 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56046 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56062 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56066 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56070 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56074 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56080 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56084 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56090 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56092 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56098 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56108 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56114 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56126 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56136 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56146 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:56148 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40702 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40718 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40724 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40730 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40738 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40754 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40760 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40764 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40766 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40782 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40796 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40798 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40814 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40808 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40824 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40838 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40848 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40856 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40872 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40886 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40898 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40902 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40918 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40934 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:51:07 [loggers.py:123] Engine 000: Avg prompt throughput: 37496.0 tokens/s, Avg generation throughput: 3744.1 tokens/s, Running: 254 reqs, Waiting: 0 reqs, GPU KV cache usage: 37.9%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40944 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40956 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40960 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40968 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40970 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40984 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:40996 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41002 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41010 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41012 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41028 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41026 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41044 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41060 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41068 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41082 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41098 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41104 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41110 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41126 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41140 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41154 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41160 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41176 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41188 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41190 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41206 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41222 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41232 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41234 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41240 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41246 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41252 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41256 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41266 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41268 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41276 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41288 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41290 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41294 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41302 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41310 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41322 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:41338 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49976 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49980 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:49996 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50004 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50002 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50016 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50022 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50038 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50054 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50062 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50070 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50072 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50086 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50100 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50112 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50132 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50118 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50126 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50140 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50146 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50148 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50150 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50154 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50162 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50164 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50178 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50194 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50196 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50210 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50222 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50226 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50240 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50248 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:51:17 [loggers.py:123] Engine 000: Avg prompt throughput: 54612.9 tokens/s, Avg generation throughput: 1880.7 tokens/s, Running: 252 reqs, Waiting: 2 reqs, GPU KV cache usage: 36.9%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50262 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50268 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50280 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50290 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50302 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50316 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50322 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50328 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50330 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50332 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50338 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50340 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50348 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50352 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50368 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50380 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50396 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50374 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50404 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50406 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50420 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50426 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50436 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50458 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50464 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50450 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50480 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50484 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50498 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50494 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50500 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50502 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50512 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50524 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50528 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50542 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50544 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50546 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50554 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50568 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50574 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50576 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50580 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50592 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:50606 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45556 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45572 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45590 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45586 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45594 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45602 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45604 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45620 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45630 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45638 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45644 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45652 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45676 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45664 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45684 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45698 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45708 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45722 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45734 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45750 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45766 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45782 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45786 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45810 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45800 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:51:27 [loggers.py:123] Engine 000: Avg prompt throughput: 53674.4 tokens/s, Avg generation throughput: 2008.1 tokens/s, Running: 254 reqs, Waiting: 0 reqs, GPU KV cache usage: 36.4%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45812 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45814 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45818 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45832 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45834 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45842 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45854 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45860 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45870 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45884 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45900 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45912 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45914 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45926 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45922 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45942 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45956 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45972 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45976 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45988 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:45994 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46010 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46022 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46038 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46046 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46052 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46068 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46080 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46088 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46094 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:46110 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58696 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58708 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58724 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58734 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58732 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58742 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58750 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58764 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58780 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58790 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58796 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58810 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58818 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58826 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58842 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58858 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58862 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO:     127.0.0.1:58866 - "POST /v1/completions HTTP/1.1" 200 OK
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:51:37 [loggers.py:123] Engine 000: Avg prompt throughput: 37562.2 tokens/s, Avg generation throughput: 3922.9 tokens/s, Running: 255 reqs, Waiting: 0 reqs, GPU KV cache usage: 36.2%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:51:47 [loggers.py:123] Engine 000: Avg prompt throughput: 817.1 tokens/s, Avg generation throughput: 8036.3 tokens/s, Running: 256 reqs, Waiting: 0 reqs, GPU KV cache usage: 37.8%, Prefix cache hit rate: 0.0%
+[1;36m(APIServer pid=21)[0;0m INFO 07-07 18:51:57 [loggers.py:123] Engine 000: Avg prompt throughput: 0.0 tokens/s, Avg generation throughput: 8017.1 tokens/s, Running: 133 reqs, Waiting: 0 reqs, GPU KV cache usage: 20.3%, Prefix cache hit rate: 0.0%

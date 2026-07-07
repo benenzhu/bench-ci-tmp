@@ -1,0 +1,13 @@
+diff --git a/benchmarks/single_node/fixed_seq_len/gptoss_fp4_mi355x.sh b/benchmarks/single_node/fixed_seq_len/gptoss_fp4_mi355x.sh
+index 14dedb14..09427187 100644
+--- a/benchmarks/single_node/fixed_seq_len/gptoss_fp4_mi355x.sh
++++ b/benchmarks/single_node/fixed_seq_len/gptoss_fp4_mi355x.sh
+@@ -70,7 +70,7 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/
