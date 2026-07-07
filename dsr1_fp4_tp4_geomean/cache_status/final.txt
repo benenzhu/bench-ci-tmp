@@ -1,0 +1,8 @@
+stage=final
+timestamp=2026-07-07T10:42:38Z
+MODEL_DIR=/dev/shm/hf_hub_cache
+MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--amd--DeepSeek-R1-0528-MXFP4-Preview
+393G	/dev/shm/hf_hub_cache/models--amd--DeepSeek-R1-0528-MXFP4-Preview
+status=present
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           1.5T  400G  1.1T  27% /dev/shm

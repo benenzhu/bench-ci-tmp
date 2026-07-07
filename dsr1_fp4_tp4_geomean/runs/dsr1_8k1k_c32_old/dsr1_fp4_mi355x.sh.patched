@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# OLD-config DSR1 FP4 benchmark: server flags from commit 12de5c0 (2025-09, pre-optimization),
+# benchmark invocation borrowed from HEAD's benchmark_lib. Deliberately OMITS the newer
+# optimizations (--attention-backend aiter, --kv-cache-dtype fp8_e4m3, ROCM_QUICK_REDUCE INT4)
+# so the old->new gain reflects those software optimizations.
+source "$(dirname "$0")/../../benchmark_lib.sh"
+
+check_env_vars MODEL TP CONC ISL OSL RANDOM_RANGE_RATIO RESULT_FILENAME
+
+if [[ "$MODEL" != /* ]]; then hf download "$MODEL"; fi
+
+export SGLANG_USE_AITER=1
+
+SERVER_LOG=/workspace/server.log
+start_gpu_monitor
+
+set -x
+python3 -m sglang.launch_server --model-path=$MODEL --trust-remote-code \
+--host=0.0.0.0 --port=$PORT \
+--tensor-parallel-size=$TP \
+--chunked-prefill-size=${CHUNKED_PREFILL_SIZE:-196608} \
+--mem-fraction-static=0.80 \
+--disable-radix-cache \
+--num-continuous-decode-steps=4 \
+--max-prefill-tokens=${MAX_PREFILL_TOKENS:-196608} \
+--cuda-graph-max-bs=128 > $SERVER_LOG 2>&1 &
+
+SERVER_PID=$!
+wait_for_server_ready --port "$PORT" --server-log "$SERVER_LOG" --server-pid "$SERVER_PID"
+
+run_benchmark_serving \
+    --model "$MODEL" \
+    --port "$PORT" \
+    --backend vllm \
+    --input-len "$ISL" \
+    --output-len "$OSL" \
+    --random-range-ratio "$RANDOM_RANGE_RATIO" \
+    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+    --max-concurrency "$CONC" \
+    --result-filename "$RESULT_FILENAME" \
+    --result-dir /workspace/
+
+stop_gpu_monitor
+set +x

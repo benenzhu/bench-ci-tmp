@@ -1,0 +1,5 @@
+model_group,config_id,isl,osl,conc,num_prompts,old_label,new_label,old_status,new_status,old_tput_per_gpu,new_tput_per_gpu,measured_gain_x,measured_improvement_pct
+dsr1_fp4,8k1k_c128,8192,1024,128,384,dsr1_8k1k_c128_old,dsr1_8k1k_c128_new,success,success,454.9322500183678,1182.5754928305637,2.5994540786739506,159.94540786739506
+dsr1_fp4,8k1k_c32,8192,1024,32,96,dsr1_8k1k_c32_old,dsr1_8k1k_c32_new,success,success,243.11674403687917,562.4048422660657,2.3133118391086738,131.33118391086737
+dsr1_fp4,8k1k_c64,8192,1024,64,192,dsr1_8k1k_c64_old,dsr1_8k1k_c64_new,success,success,316.5317021861293,877.6301946396734,2.7726454840962593,177.26454840962595
+dsr1_fp4,GEOMEAN,,,,,,,3 configs,3 configs,,,2.5546822539577927,155.46822539577926

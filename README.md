@@ -17,20 +17,20 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 
 ## Multi-Config Geomean Summary
 
-Three models, each swept across multiple TP8 non-disaggregated configs (`num_prompts = CONC * 3`), reporting the geometric mean of per-config old->new `tok/s/GPU` gains:
+Four models, each swept across multiple non-disaggregated configs (`num_prompts = CONC * 3`; TP8 except DeepSeek-R1-0528 which is TP4 — `tok/s/GPU` is per-GPU normalized so the two are comparable), reporting the geometric mean of per-config old->new `tok/s/GPU` gains:
 
 | Model | Prec / Framework | Configs | Geomean | Improvement | Bundle |
 |---|---|---:|---:|---:|---|
 | DeepSeek-V4-Pro | FP4 / SGLang | 7 | `3.4739x` | `247.4%` | `dsv4_sglang_geomean/` |
 | Kimi-K2.5 | FP4 / vLLM | 3 | `3.7100x` | `271.0%` | `kimi_fp4_geomean/` |
 | GLM-5 | FP8 / SGLang→ATOM | 7 | `3.1415x` | `214.1%` | `glm5_fp8_atom_geomean/` |
-| DeepSeek-R1-0528 | FP4 / SGLang | 3 | `2.0711x` | `107.1%` | `dsr1_fp4_geomean/` |
+| DeepSeek-R1-0528 | FP4 / SGLang | 3 | `2.5547x` | `155.5%` | `dsr1_fp4_tp4_geomean/` |
 
 Exact per-config rows are in each bundle's `comparison.csv`.
 
 The Kimi-K2.5 headline geomean uses the three high-concurrency configs (`8k1k` CONC 64/128/256), where both old and new images are near saturation and the gain is a credible `3.71x`. The bundle also contains lower-concurrency configs (CONC 4-32), but at low concurrency the old image (vLLM v0.16.0) is pathologically slow, inflating per-config gains to 10-18x; those are kept for completeness but are not the reported headline.
 
-The DeepSeek-R1-0528 headline geomean uses the three highest-gain configs (`8k1k` CONC 32/64/128 = `1.99x / 2.07x / 2.15x`, geomean `2.07x`), where the new image's high-concurrency optimizations land best. Both ends use the same MXFP4 checkpoint (revision `6c94c74`, the one the v0.5.2 workflow used) so the gain reflects pure software optimization (old `v0.5.2-rocm7.0` + old server flags -> new `v0.5.13`). R1's earliest MI355X image was already well-optimized, so gain scales with concurrency (1k1k ~1.6x, 8k1k 1.8-2.15x) and tops out near `2.15x`; the full 12-config sweep (all-config geomean `1.77x`) is kept in the bundle for completeness.
+The DeepSeek-R1-0528 headline geomean uses the three high-concurrency configs (`8k1k` CONC 32/64/128 = `2.31x / 2.77x / 2.60x`, geomean `2.55x`) at TP4. This is an end-to-end latest-vs-earliest comparison: the OLD end runs the MXFP4 checkpoint the v0.5.2 workflow shipped with (revision `6c94c74`, pre-2025-09-30) on `v0.5.2-rocm7.0` with the old server flags, while the NEW end runs the current HEAD checkpoint (revision `913fc83b`, which AMD further optimized across releases) on `v0.5.13`, so the gain reflects both the software/runtime upgrade and the model-level weight optimization done over time. `tput_per_gpu` is per-GPU normalized, so TP4 stays directly comparable to the other TP8 bundles. The prior pure-software, same-checkpoint TP8 number (`2.07x`) is retained in `dsr1_fp4_geomean/`.
 
 ## Top Inference Optimizations
 
@@ -62,7 +62,8 @@ Per-model attribution: Kimi's speedup is concentrated in the single v0.16->v0.18
 | Kimi-K2.5 FP4 vLLM geomean | `8k1k_c64/c128/c256` | 64/128/256 | `vllm/vllm-openai-rocm:v0.16.0` -> `vllm/vllm-openai-rocm:v0.22.0` | geomean `3.7100x`, improvement `271.0%`; per-config `4.17x / 3.97x / 3.08x`; full 9-config sweep (incl. low-conc 10-18x outliers) in `kimi_fp4_geomean/comparison.csv` |
 | GLM-5 FP8 ATOM geomean | mixed: `1k1k_c1/c2/c4/c8/c16`, `8k1k_c4/c8` | mixed | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` (SGLang old) -> `rocm/atom:...atom0.1.2.post` (ATOM new) | geomean `3.1415x`, improvement `214.1%`; per-config 2.98-3.38x; exact rows in `glm5_fp8_atom_geomean/comparison.csv` |
 | GLM-5 FP8 SGLang geomean | mixed: `1k1k_c1/c2/c4/c8/c16`, `8k1k_c4/c8` | mixed | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` -> `lmsysorg/sglang-rocm:v0.5.10rc0-rocm720-mi35x-20260413` | geomean `2.5290x`, improvement `152.9%` (SGLang reference); exact rows in `glm5_fp8_geomean/comparison.csv` |
-| DeepSeek-R1-0528 FP4 SGLang geomean | `8k1k_c32/c64/c128` | 32/64/128 | `rocm/7.0:...sgl-dev-v0.5.2-rocm7.0-mi35x-20250915` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | geomean `2.0711x`, improvement `107.1%`; per-config `1.99x / 2.07x / 2.15x`; full 12-config sweep (all-config geomean `1.77x`) in `dsr1_fp4_geomean/comparison.csv` |
+| DeepSeek-R1-0528 FP4 SGLang geomean (TP4, latest-vs-earliest ckpt) | `8k1k_c32/c64/c128` | 32/64/128 | `rocm/7.0:...sgl-dev-v0.5.2-rocm7.0-mi35x-20250915` + ckpt `6c94c74` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` + ckpt `913fc83b` (HEAD) | geomean `2.5547x`, improvement `155.5%`; per-config `2.31x / 2.77x / 2.60x`; exact rows in `dsr1_fp4_tp4_geomean/comparison.csv` |
+| DeepSeek-R1-0528 FP4 SGLang geomean (TP8, same-ckpt pure-software) | `8k1k_c32/c64/c128` | 32/64/128 | `rocm/7.0:...sgl-dev-v0.5.2-rocm7.0-mi35x-20250915` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | geomean `2.0711x`, improvement `107.1%`; per-config `1.99x / 2.07x / 2.15x`; full 12-config sweep (all-config geomean `1.77x`) in `dsr1_fp4_geomean/comparison.csv` |
 | DeepSeek-V4-Pro FP4 SGLang | 8192/1024 | 8 | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` -> `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` | `104.044135 -> 421.982767 tok/s/GPU`, `4.0558x` |
 | Kimi-K2.5 INT4 vLLM attempted middle-state | 8192/1024 | 16 | `vllm/vllm-openai-rocm:v0.15.1` -> `vllm/vllm-openai-rocm:v0.18.0` | local `142.174440 -> 187.669496 tok/s/GPU`, `1.3200x`; did not reproduce the recorded `4.0143x` dashboard candidate |
 | Kimi-K2.5 FP4 vLLM | 8192/1024 | 4 | `vllm/vllm-openai-rocm:v0.16.0` -> `vllm/vllm-openai-rocm:v0.22.0` | `24.517507 -> 359.122629 tok/s/GPU`, `14.6476x` |
@@ -155,6 +156,8 @@ git clone https://github.com/SemiAnalysisAI/InferenceX.git /root/InferenceX   # 
 | DSV4 | `deepseek-ai/DeepSeek-V4-Pro` | `5607980f3a4b8ea0371b9f11e1848ac41f14979e` |
 | Kimi FP4 | `amd/Kimi-K2.5-MXFP4` | `419004c8716cf22c929aa15d39b85e09a8a2091a` |
 | GLM-5 | `zai-org/GLM-5-FP8` | `4f96cc5eec29dcee5d6ded54f7ffe889438f9516` |
+| DSR1 FP4 (OLD end) | `amd/DeepSeek-R1-0528-MXFP4-Preview` | `6c94c74df15d3eabd6cbc71bb12a2b31dae6f5ff` |
+| DSR1 FP4 (NEW end, HEAD) | `amd/DeepSeek-R1-0528-MXFP4-Preview` | `913fc83b2d3962dbc2682d6b97e9ef31acb4bf5a` |
 
 ```bash
 HF_HUB_CACHE=$MODEL_DIR HF_HOME=$HF_HOME_DIR python3 - <<'PY'
@@ -230,7 +233,16 @@ scripts/verify_glm5_fp8_atom_geomean.sh
 
 Expected: `ok: 7 configs, ATOM-vs-SGLang geomean=3.141457x`.
 
-DeepSeek-R1-0528 FP4 geomean bundle:
+DeepSeek-R1-0528 FP4 geomean bundle (TP4, latest-vs-earliest checkpoint — headline):
+
+```bash
+cd dsr1_fp4_tp4_geomean
+scripts/verify_dsr1_fp4_tp4_geomean.sh
+```
+
+Expected: `ok: headline (8k1k c32/c64/c128, TP4, old-ckpt->HEAD-ckpt) geomean=2.554682x; c32=2.313x c64=2.773x c128=2.599x`.
+
+DeepSeek-R1-0528 FP4 geomean bundle (TP8, same-checkpoint pure-software):
 
 ```bash
 cd dsr1_fp4_geomean
