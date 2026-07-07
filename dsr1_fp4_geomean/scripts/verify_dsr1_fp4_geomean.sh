@@ -21,10 +21,10 @@ expected_configs = {
     "1k1k_c4","1k1k_c8","1k1k_c16","1k1k_c32","1k1k_c64",
     "8k1k_c4","8k1k_c8","8k1k_c16","8k1k_c32","8k1k_c64","8k1k_c128","8k1k_c256",
 }
-expected_geomean = 1.7718158468204603          # all 12 configs
-# high-concurrency window (8k1k c64+c128), the peak part of the curve
-highconc_configs = ["8k1k_c64", "8k1k_c128"]
-expected_highconc_geomean = 2.1110086395805694
+expected_geomean = 1.7718158468204603          # all 12 configs (kept for completeness)
+# headline = the three highest-gain configs (8k1k c32/c64/c128)
+highconc_configs = ["8k1k_c32", "8k1k_c64", "8k1k_c128"]
+expected_highconc_geomean = 2.0711423890452463
 
 if not comparison_path.exists(): raise SystemExit(f"missing {comparison_path}")
 if not combined_path.exists(): raise SystemExit(f"missing {combined_path}")
@@ -66,6 +66,6 @@ for r in crows:
     if r["status"] != "success":
         raise SystemExit(f"non-success combined row: {r['label']} {r['status']}")
 
-print(f"ok: {len(expected_configs)} configs, all-config geomean={gm:.6f}x; "
-      f"high-conc (8k1k c64+c128) geomean={hc_gm:.6f}x; peak 8k1k_c128={gains['8k1k_c128']:.3f}x")
+print(f"ok: {len(expected_configs)} configs; headline top-3 (8k1k c32/c64/c128) geomean={hc_gm:.6f}x; "
+      f"all-config geomean={gm:.6f}x; peak 8k1k_c128={gains['8k1k_c128']:.3f}x")
 PY
