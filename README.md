@@ -1,5 +1,17 @@
 # InferenceX MI355X Repro Runs
 
+## Multi-Config Geomean Summary
+
+Geometric mean of per-config old->new `tok/s/GPU` gains on MI355X (per-GPU normalized, so TP1/TP4/TP8 are comparable):
+
+| Model | Prec / Framework | Geomean | Image (old → new) |
+|---|---|---:|---|
+| DeepSeek-V4-Pro | FP4 / SGLang | `3.4739x` | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` → `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` |
+| Kimi-K2.5 | FP4 / vLLM | `3.7100x` | `vllm/vllm-openai-rocm:v0.16.0` → `vllm/vllm-openai-rocm:v0.22.0` |
+| GLM-5 | FP8 / SGLang→ATOM | `3.1415x` | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` → `rocm/atom:...atom0.1.2.post` |
+| DeepSeek-R1-0528 | FP4 / SGLang | `2.5547x` | `rocm/7.0:...sgl-dev-v0.5.2-rocm7.0-mi35x-20250915` → `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` |
+| gpt-oss-120b | FP4 / vLLM | `1.1507x` | `rocm/7.0:...vllm_0.10.1_instinct_20250927_rc1` → `vllm/vllm-openai-rocm:v0.22.0` |
+
 This repository contains the local MI355X benchmark reproduction artifacts produced on 2026-06-15 UTC.
 
 ## Contents
@@ -15,19 +27,9 @@ This repository contains the local MI355X benchmark reproduction artifacts produ
 - `HANDOFF.md`: restart note for the next agent after this machine is released. It assumes only this git repo survives and documents what must be re-downloaded.
 - `backup_inventory/`: small, git-safe inventories for model cache directories, Docker images, repo files, and one legacy root script. It does not contain model weights or Docker layers.
 
-## Multi-Config Geomean Summary
+## Multi-Config Geomean Details
 
-Five models, each swept across multiple non-disaggregated configs (`num_prompts = CONC * 3`; TP8 except DeepSeek-R1-0528 at TP4 and gpt-oss-120b at TP1 — `tok/s/GPU` is per-GPU normalized so all are comparable), reporting the geometric mean of per-config old->new `tok/s/GPU` gains:
-
-| Model | Prec / Framework | Configs | Geomean | Improvement | Bundle |
-|---|---|---:|---:|---:|---|
-| DeepSeek-V4-Pro | FP4 / SGLang | 7 | `3.4739x` | `247.4%` | `dsv4_sglang_geomean/` |
-| Kimi-K2.5 | FP4 / vLLM | 3 | `3.7100x` | `271.0%` | `kimi_fp4_geomean/` |
-| GLM-5 | FP8 / SGLang→ATOM | 7 | `3.1415x` | `214.1%` | `glm5_fp8_atom_geomean/` |
-| DeepSeek-R1-0528 | FP4 / SGLang | 3 | `2.5547x` | `155.5%` | `dsr1_fp4_tp4_geomean/` |
-| gpt-oss-120b | FP4 / vLLM | 5 | `1.1507x` | `15.1%` | `gptoss_120b_fp4_geomean/` |
-
-Exact per-config rows are in each bundle's `comparison.csv`.
+Five models, each swept across multiple non-disaggregated configs (`num_prompts = CONC * 3`; TP8 except DeepSeek-R1-0528 at TP4 and gpt-oss-120b at TP1 — `tok/s/GPU` is per-GPU normalized so all are comparable). The headline geomeans are in the summary table at the top; exact per-config rows are in each bundle's `comparison.csv`.
 
 The Kimi-K2.5 headline geomean uses the three high-concurrency configs (`8k1k` CONC 64/128/256), where both old and new images are near saturation and the gain is a credible `3.71x`. The bundle also contains lower-concurrency configs (CONC 4-32), but at low concurrency the old image (vLLM v0.16.0) is pathologically slow, inflating per-config gains to 10-18x; those are kept for completeness but are not the reported headline.
 
