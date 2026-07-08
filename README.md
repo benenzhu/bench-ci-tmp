@@ -6,7 +6,7 @@ Geometric mean of per-config old->new `tok/s/GPU` gains on MI355X (per-GPU norma
 
 | Model | Prec / Framework | Geomean | Image (old → new) |
 |---|---|---:|---|
-| DeepSeek-V4-Pro | FP4 / SGLang | `3.4739x` | `rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` → `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` |
+| ~~DeepSeek-V4-Pro~~ | ~~FP4 / SGLang~~ | ~~`3.4739x`~~ | ~~`rocm/sgl-dev:rocm720-mi35x-583b1b6-20260501-DSv4` → `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612`~~ |
 | Kimi-K2.5 | FP4 / vLLM | `3.7100x` | `vllm/vllm-openai-rocm:v0.16.0` → `vllm/vllm-openai-rocm:v0.22.0` |
 | GLM-5 | FP8 / SGLang→ATOM | `3.1415x` | `rocm/sgl-dev:v0.5.8.post1-rocm720-mi35x-20260219` → `rocm/atom:...atom0.1.2.post` |
 | DeepSeek-R1-0528 | FP4 / SGLang | `2.5547x` | `rocm/7.0:...sgl-dev-v0.5.2-rocm7.0-mi35x-20250915` → `lmsysorg/sglang-rocm:v0.5.13-rocm720-mi35x-20260612` |
