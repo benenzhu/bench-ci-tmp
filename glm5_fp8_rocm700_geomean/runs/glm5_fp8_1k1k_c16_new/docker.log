@@ -1,0 +1,860 @@
+TP: 8, CONC: 16, ISL: 1024, OSL: 1024, EP_SIZE: 1, DP_ATTENTION: false
+[GPU Monitor] Started AMD (PID=13, interval=1s, output=/workspace/gpu_metrics.csv)
++ pip install -U transformers
+Requirement already satisfied: transformers in /opt/venv/lib/python3.12/site-packages (5.2.0)
+Collecting transformers
+  Using cached transformers-5.12.1-py3-none-any.whl.metadata (33 kB)
+Requirement already satisfied: huggingface-hub<2.0,>=1.5.0 in /opt/venv/lib/python3.12/site-packages (from transformers) (1.11.0)
+Requirement already satisfied: numpy>=1.17 in /opt/venv/lib/python3.12/site-packages (from transformers) (2.4.4)
+Requirement already satisfied: packaging>=20.0 in /opt/venv/lib/python3.12/site-packages (from transformers) (26.1)
+Requirement already satisfied: pyyaml>=5.1 in /opt/venv/lib/python3.12/site-packages (from transformers) (6.0.3)
+Requirement already satisfied: regex>=2025.10.22 in /opt/venv/lib/python3.12/site-packages (from transformers) (2026.4.4)
+Requirement already satisfied: tokenizers<=0.23.0,>=0.22.0 in /opt/venv/lib/python3.12/site-packages (from transformers) (0.22.2)
+Requirement already satisfied: typer in /opt/venv/lib/python3.12/site-packages (from transformers) (0.24.1)
+Requirement already satisfied: safetensors>=0.4.3 in /opt/venv/lib/python3.12/site-packages (from transformers) (0.7.0)
+Requirement already satisfied: tqdm>=4.60 in /opt/venv/lib/python3.12/site-packages (from transformers) (4.67.3)
+Requirement already satisfied: filelock>=3.10.0 in /opt/venv/lib/python3.12/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers) (3.28.0)
+Requirement already satisfied: fsspec>=2023.5.0 in /opt/venv/lib/python3.12/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers) (2026.2.0)
+Requirement already satisfied: hf-xet<2.0.0,>=1.4.3 in /opt/venv/lib/python3.12/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers) (1.4.3)
+Requirement already satisfied: httpx<1,>=0.23.0 in /opt/venv/lib/python3.12/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers) (0.28.1)
+Requirement already satisfied: typing-extensions>=4.1.0 in /opt/venv/lib/python3.12/site-packages (from huggingface-hub<2.0,>=1.5.0->transformers) (4.15.0)
+Requirement already satisfied: anyio in /opt/venv/lib/python3.12/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers) (4.13.0)
+Requirement already satisfied: certifi in /opt/venv/lib/python3.12/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers) (2026.4.22)
+Requirement already satisfied: httpcore==1.* in /opt/venv/lib/python3.12/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers) (1.0.9)
+Requirement already satisfied: idna in /opt/venv/lib/python3.12/site-packages (from httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers) (3.12)
+Requirement already satisfied: h11>=0.16 in /opt/venv/lib/python3.12/site-packages (from httpcore==1.*->httpx<1,>=0.23.0->huggingface-hub<2.0,>=1.5.0->transformers) (0.16.0)
+Requirement already satisfied: click>=8.2.1 in /opt/venv/lib/python3.12/site-packages (from typer->transformers) (8.3.3)
+Requirement already satisfied: shellingham>=1.3.0 in /opt/venv/lib/python3.12/site-packages (from typer->transformers) (1.5.4)
+Requirement already satisfied: rich>=12.3.0 in /opt/venv/lib/python3.12/site-packages (from typer->transformers) (15.0.0)
+Requirement already satisfied: annotated-doc>=0.0.2 in /opt/venv/lib/python3.12/site-packages (from typer->transformers) (0.0.4)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /opt/venv/lib/python3.12/site-packages (from rich>=12.3.0->typer->transformers) (4.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /opt/venv/lib/python3.12/site-packages (from rich>=12.3.0->typer->transformers) (2.20.0)
+Requirement already satisfied: mdurl~=0.1 in /opt/venv/lib/python3.12/site-packages (from markdown-it-py>=2.2.0->rich>=12.3.0->typer->transformers) (0.1.2)
+Using cached transformers-5.12.1-py3-none-any.whl (11.2 MB)
+Installing collected packages: transformers
+  Attempting uninstall: transformers
+    Found existing installation: transformers 5.2.0
+    Uninstalling transformers-5.2.0:
+      Successfully uninstalled transformers-5.2.0
+ERROR: pip's dependency resolver does not currently take into account all the packages that are installed. This behaviour is the source of the following dependency conflicts.
+atom 0.1.3.dev106+gf4478c5e8 requires transformers==5.2.0, but you have transformers 5.12.1 which is incompatible.
+Successfully installed transformers-5.12.1
+
+[notice] A new release of pip is available: 26.0.1 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
++ SERVER_PID=31
++ wait_for_server_ready --port 19000 --server-log /workspace/server.log --server-pid 31
++ set +x
++ python3 -m atom.entrypoints.openai_server --model zai-org/GLM-5-FP8 --server-port 19000 -tp 8 --kv_cache_dtype fp8 --gpu-memory-utilization 0.80 --default-chat-template-kwargs '{"enable_thinking": false}' --trust-remote-code
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[atom 12:39:38] Default chat template kwargs: {'enable_thinking': False}
+[atom 12:39:38] Loading tokenizer from zai-org/GLM-5-FP8...
+[atom 12:39:40] Initializing engine with model zai-org/GLM-5-FP8...
+[atom 12:39:40] Engine kwargs: {'trust_remote_code': True, 'tensor_parallel_size': 8, 'data_parallel_size': 1, 'enforce_eager': False, 'enable_prefix_caching': False, 'port': 8006, 'kv_cache_dtype': 'fp8', 'max_model_len': None, 'max_num_batched_tokens': 16384, 'scheduler_delay_factor': 0.0, 'max_num_seqs': 512, 'gpu_memory_utilization': 0.8, 'load_dummy': False, 'enable_expert_parallel': False, 'torch_profiler_dir': None, 'enable_dp_attention': False, 'mark_trace': False, 'kv_cache_block_size': 16, 'compilation_config': CompilationConfig(level=3, use_cudagraph=True, local_cache_dir=None, cudagraph_capture_sizes=[1, 2, 4, 8, 16, 32, 48, 64, 128, 256], cuda_graph_sizes=[512], debug_dump_path='', traced_files=set(), cache_dir='', use_inductor=True, cudagraph_mode=None, compilation_time=0.0, splitting_ops=None, cudagraph_copy_inputs=False, inductor_compile_config={}, compile_sizes=None, static_forward_context={}), 'speculative_config': None, 'enable_tbo': False, 'enable_tbo_decode': False, 'enable_low_latency': False}
+[transformers] The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[transformers] You are using a model of type `glm_moe_dsa` to instantiate a model of type `deepseek_v3`. This may be expected if you are loading a checkpoint that shares a subset of the architecture (e.g., loading a `sam2_video` checkpoint into `Sam2Model`), but is otherwise not supported and can yield errors. Please verify that the checkpoint is compatible with the model you are instantiating.
+[transformers] The following generation flags are not valid and may be ignored: ['top_p']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[atom 12:39:41] Engine Core Mgr: Creating EngineCore for DP rank 0/1
+[atom 12:39:41] Creating EngineCore process: DP rank 0, will use GPUs 0 to 7
+[atom 12:39:41] Engine Core Mgr: Starting EngineCore for DP rank 0/1
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3, 4, 5, 6, 7], buffer_handle=(8, 16777216, 10, 'psm_5423d27a'), local_subscribe_addr='ipc:///tmp/76d1169b-72a4-4edd-8c35-2a2c4353623c', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] import [module_aiter_core] under /app/aiter-test/aiter/jit/module_aiter_core.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+[atom 12:39:57] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:57] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:57] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:57] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+[atom 12:39:58] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 12:39:58] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 12:39:58] Create lazy wrapper for FusedMoE to change the naming
+[atom 12:39:58] ModelRunner rank=1, dp_rank_local=0, local_device_rank=1, device=cuda:1
+[atom 12:39:58] Create lazy wrapper for FusedMoE to change the naming
+[atom 12:39:58] ModelRunner rank=7, dp_rank_local=0, local_device_rank=7, device=cuda:7
+[atom 12:39:58] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+[atom 12:39:58] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+[atom 12:39:58] Create lazy wrapper for FusedMoE to change the naming
+[atom 12:39:58] ModelRunner rank=5, dp_rank_local=0, local_device_rank=5, device=cuda:5
+[atom 12:39:58] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 12:39:58] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 12:39:58] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 12:39:58] Create lazy wrapper for FusedMoE to change the naming
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+[atom 12:39:58] ModelRunner rank=3, dp_rank_local=0, local_device_rank=3, device=cuda:3
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+[atom 12:39:58] Create lazy wrapper for FusedMoE to change the naming
+[atom 12:39:58] Create lazy wrapper for FusedMoE to change the naming
+[atom 12:39:58] ModelRunner rank=0, dp_rank_local=0, local_device_rank=0, device=cuda:0
+[atom 12:39:58] ModelRunner rank=2, dp_rank_local=0, local_device_rank=2, device=cuda:2
+[atom 12:39:58] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLAAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use MLASparseAttentionImplDecoratorForPluginMode to decorate MLAAttention
+[atom 12:39:58] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 12:39:58] Use PagedAttentionImplDecoratorForPluginMode to decorate PagedAttentionImpl
+[atom 12:39:58] Create lazy wrapper for FusedMoE to change the naming
+[atom 12:39:58] Create lazy wrapper for FusedMoE to change the naming
+[atom 12:39:58] ModelRunner rank=4, dp_rank_local=0, local_device_rank=4, device=cuda:4
+[atom 12:39:58] ModelRunner rank=6, dp_rank_local=0, local_device_rank=6, device=cuda:6
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+/app/aiter-test/aiter/jit/utils/torch_guard.py:288: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:40.)
+  torch.empty(1, device=device), *args, **kwargs
+/app/aiter-test/aiter/jit/utils/torch_guard.py:288: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:40.)
+  torch.empty(1, device=device), *args, **kwargs
+/app/aiter-test/aiter/jit/utils/torch_guard.py:288: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:40.)
+  torch.empty(1, device=device), *args, **kwargs
+[aiter] import [module_custom_all_reduce] under /app/aiter-test/aiter/jit/module_custom_all_reduce.so
+[aiter] import [module_custom_all_reduce] under /app/aiter-test/aiter/jit/module_custom_all_reduce.so
+[aiter] import [module_custom_all_reduce] under /app/aiter-test/aiter/jit/module_custom_all_reduce.so
+/app/aiter-test/aiter/jit/utils/torch_guard.py:288: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:40.)
+  torch.empty(1, device=device), *args, **kwargs
+[aiter] import [module_custom_all_reduce] under /app/aiter-test/aiter/jit/module_custom_all_reduce.so
+/app/aiter-test/aiter/jit/utils/torch_guard.py:288: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:40.)
+  torch.empty(1, device=device), *args, **kwargs
+/app/aiter-test/aiter/jit/utils/torch_guard.py:288: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:40.)
+  torch.empty(1, device=device), *args, **kwargs
+/app/aiter-test/aiter/jit/utils/torch_guard.py:288: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:40.)
+  torch.empty(1, device=device), *args, **kwargs
+/app/aiter-test/aiter/jit/utils/torch_guard.py:288: UserWarning: expandable_segments not supported on this platform (Triggered internally at /pytorch/c10/hip/HIPAllocatorConfig.h:40.)
+  torch.empty(1, device=device), *args, **kwargs
+[aiter] import [module_custom_all_reduce] under /app/aiter-test/aiter/jit/module_custom_all_reduce.so
+[aiter] import [module_custom_all_reduce] under /app/aiter-test/aiter/jit/module_custom_all_reduce.so
+[aiter] import [module_custom_all_reduce] under /app/aiter-test/aiter/jit/module_custom_all_reduce.so
+[aiter] import [module_custom_all_reduce] under /app/aiter-test/aiter/jit/module_custom_all_reduce.so
+[aiter] load RCCL version: 2.27.7
+[aiter] message queue communication handle: Handle(local_reader_ranks=[1, 2, 3, 4, 5, 6, 7], buffer_handle=(7, 4194304, 6, 'psm_0cae1020'), local_subscribe_addr='ipc:///tmp/ebc773b2-ebdd-44f8-9477-db5f7f1e7823', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 1 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 3 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 6 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 0 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 2 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 7 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 4 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[Gloo] Rank 5 is connected to 7 peer ranks. Expected number of connected peer ranks is : 7
+[aiter] load RCCL version: 2.27.7
+[aiter] rank 7 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 7, EP rank 7
+[aiter] rank 5 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 5, EP rank 5
+[aiter] rank 4 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 4, EP rank 4
+[aiter] rank 6 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 6, EP rank 6
+[aiter] rank 0 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[aiter] rank 1 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[aiter] rank 3 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+[aiter] rank 2 in world size 8 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+[atom 12:40:03] MLA head repeat enabled: 8 -> 16 (repeat factor 2)
+[atom 12:40:03] Info: Because ATOM_USE_TRITON_GEMM is not turned on in DeepSeek-R1, ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION is turned off automatically
+[atom 12:40:03] MLA head repeat enabled: 8 -> 16 (repeat factor 2)
+[atom 12:40:03] MLA head repeat enabled: 8 -> 16 (repeat factor 2)
+[atom 12:40:03] Info: Because ATOM_USE_TRITON_GEMM is not turned on in DeepSeek-R1, ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION is turned off automatically
+[atom 12:40:03] Info: Because ATOM_USE_TRITON_GEMM is not turned on in DeepSeek-R1, ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION is turned off automatically
+[atom 12:40:03] MLA head repeat enabled: 8 -> 16 (repeat factor 2)
+[atom 12:40:03] Info: Because ATOM_USE_TRITON_GEMM is not turned on in DeepSeek-R1, ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION is turned off automatically
+[atom 12:40:03] MLA head repeat enabled: 8 -> 16 (repeat factor 2)
+[atom 12:40:03] Info: Because ATOM_USE_TRITON_GEMM is not turned on in DeepSeek-R1, ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION is turned off automatically
+[atom 12:40:03] MLA head repeat enabled: 8 -> 16 (repeat factor 2)
+[atom 12:40:03] Info: Because ATOM_USE_TRITON_GEMM is not turned on in DeepSeek-R1, ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION is turned off automatically
+[atom 12:40:03] MLA head repeat enabled: 8 -> 16 (repeat factor 2)
+[atom 12:40:03] Info: Because ATOM_USE_TRITON_GEMM is not turned on in DeepSeek-R1, ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION is turned off automatically
+[atom 12:40:03] MLA head repeat enabled: 8 -> 16 (repeat factor 2)
+[atom 12:40:03] Info: Because ATOM_USE_TRITON_GEMM is not turned on in DeepSeek-R1, ATOM_ENABLE_DS_INPUT_RMSNORM_QUANT_FUSION is turned off automatically
+[atom 12:40:04] disable_mmap: False
+[atom 12:40:04] disable_mmap: False
+[atom 12:40:05] disable_mmap: False
+[atom 12:40:05] disable_mmap: False
+[atom 12:40:05] disable_mmap: False
+[atom 12:40:05] disable_mmap: False
+[atom 12:40:05] disable_mmap: False
+[atom.model_loader.weight_utils 12:40:05] Using model weights format ['*.safetensors']
+[atom 12:40:05] disable_mmap: False
+[atom.model_loader.weight_utils 12:40:05] Using model weights format ['*.safetensors']
+[atom.model_loader.weight_utils 12:40:05] Using model weights format ['*.safetensors']
+[atom.model_loader.weight_utils 12:40:05] Using model weights format ['*.safetensors']
+[atom.model_loader.weight_utils 12:40:05] Using model weights format ['*.safetensors']
+[atom.model_loader.weight_utils 12:40:05] Using model weights format ['*.safetensors']
+[atom.model_loader.weight_utils 12:40:05] Using model weights format ['*.safetensors']
+[atom.model_loader.weight_utils 12:40:06] Using model weights format ['*.safetensors']
+Loading safetensors shards[zai-org/GLM-5-FP8]:   0%|          | 0/142 [00:00<?, ?it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   1%|          | 1/142 [00:00<00:25,  5.52it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   1%|▏         | 2/142 [00:00<00:32,  4.28it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   2%|▏         | 3/142 [00:00<00:31,  4.45it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   4%|▍         | 6/142 [00:00<00:13, 10.12it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   6%|▌         | 8/142 [00:01<00:16,  8.37it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   7%|▋         | 10/142 [00:01<00:21,  6.21it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   8%|▊         | 11/142 [00:01<00:21,  6.07it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   8%|▊         | 12/142 [00:01<00:19,  6.60it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:   9%|▉         | 13/142 [00:02<00:23,  5.56it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  10%|▉         | 14/142 [00:02<00:34,  3.69it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  11%|█         | 15/142 [00:02<00:36,  3.48it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  11%|█▏        | 16/142 [00:03<00:53,  2.33it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  12%|█▏        | 17/142 [00:04<00:47,  2.64it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  13%|█▎        | 18/142 [00:04<00:45,  2.72it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  13%|█▎        | 19/142 [00:04<00:37,  3.31it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  14%|█▍        | 20/142 [00:04<00:38,  3.17it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  15%|█▍        | 21/142 [00:05<00:42,  2.82it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  15%|█▌        | 22/142 [00:05<00:40,  2.99it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  16%|█▌        | 23/142 [00:05<00:37,  3.21it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  17%|█▋        | 24/142 [00:05<00:29,  3.94it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  18%|█▊        | 25/142 [00:06<00:33,  3.50it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  18%|█▊        | 26/142 [00:06<00:43,  2.69it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  19%|█▉        | 27/142 [00:07<00:34,  3.37it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  20%|█▉        | 28/142 [00:07<00:33,  3.45it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  20%|██        | 29/142 [00:07<00:39,  2.88it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  21%|██        | 30/142 [00:08<00:47,  2.36it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  22%|██▏       | 31/142 [00:08<00:47,  2.35it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  23%|██▎       | 32/142 [00:09<01:00,  1.82it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  23%|██▎       | 33/142 [00:09<00:50,  2.17it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  24%|██▍       | 34/142 [00:10<00:41,  2.57it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  25%|██▍       | 35/142 [00:10<00:32,  3.25it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  25%|██▌       | 36/142 [00:10<00:32,  3.28it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  26%|██▌       | 37/142 [00:10<00:34,  3.06it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  27%|██▋       | 38/142 [00:11<00:34,  2.98it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  27%|██▋       | 39/142 [00:11<00:33,  3.04it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  28%|██▊       | 40/142 [00:11<00:30,  3.38it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  29%|██▉       | 41/142 [00:11<00:24,  4.07it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  30%|██▉       | 42/142 [00:12<00:24,  4.11it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  30%|███       | 43/142 [00:12<00:20,  4.76it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  31%|███       | 44/142 [00:12<00:20,  4.71it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  32%|███▏      | 45/142 [00:12<00:18,  5.27it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  32%|███▏      | 46/142 [00:12<00:19,  4.81it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  33%|███▎      | 47/142 [00:13<00:17,  5.52it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  34%|███▍      | 48/142 [00:13<00:20,  4.51it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  35%|███▍      | 49/142 [00:13<00:21,  4.26it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  35%|███▌      | 50/142 [00:14<00:41,  2.23it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  36%|███▌      | 51/142 [00:14<00:38,  2.34it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  37%|███▋      | 52/142 [00:15<00:38,  2.33it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  37%|███▋      | 53/142 [00:15<00:43,  2.04it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  38%|███▊      | 54/142 [00:16<00:42,  2.07it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  39%|███▊      | 55/142 [00:16<00:39,  2.22it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  39%|███▉      | 56/142 [00:17<00:40,  2.11it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  40%|████      | 57/142 [00:17<00:32,  2.65it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  41%|████      | 58/142 [00:17<00:27,  3.01it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  42%|████▏     | 59/142 [00:18<00:26,  3.14it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  42%|████▏     | 60/142 [00:18<00:21,  3.84it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  43%|████▎     | 61/142 [00:18<00:24,  3.32it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  44%|████▎     | 62/142 [00:18<00:23,  3.43it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  44%|████▍     | 63/142 [00:19<00:21,  3.62it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  45%|████▌     | 64/142 [00:19<00:17,  4.36it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  46%|████▌     | 65/142 [00:19<00:18,  4.09it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  46%|████▋     | 66/142 [00:19<00:16,  4.56it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  47%|████▋     | 67/142 [00:19<00:16,  4.48it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  48%|████▊     | 68/142 [00:20<00:17,  4.19it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  49%|████▊     | 69/142 [00:20<00:18,  3.91it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  49%|████▉     | 70/142 [00:20<00:20,  3.44it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  50%|█████     | 71/142 [00:20<00:18,  3.90it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  51%|█████     | 72/142 [00:21<00:33,  2.06it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  51%|█████▏    | 73/142 [00:22<00:28,  2.40it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  52%|█████▏    | 74/142 [00:22<00:22,  2.99it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  53%|█████▎    | 75/142 [00:22<00:26,  2.52it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  54%|█████▎    | 76/142 [00:23<00:23,  2.78it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  54%|█████▍    | 77/142 [00:23<00:19,  3.36it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  55%|█████▍    | 78/142 [00:23<00:18,  3.54it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  56%|█████▌    | 79/142 [00:23<00:17,  3.67it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  56%|█████▋    | 80/142 [00:23<00:14,  4.41it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  57%|█████▋    | 81/142 [00:24<00:15,  3.84it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  58%|█████▊    | 82/142 [00:24<00:17,  3.46it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  58%|█████▊    | 83/142 [00:25<00:22,  2.57it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  59%|█████▉    | 84/142 [00:25<00:24,  2.32it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  60%|█████▉    | 85/142 [00:26<00:28,  2.00it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  61%|██████    | 86/142 [00:26<00:27,  2.04it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  61%|██████▏   | 87/142 [00:27<00:24,  2.21it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  62%|██████▏   | 88/142 [00:27<00:23,  2.28it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  63%|██████▎   | 89/142 [00:28<00:24,  2.15it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  63%|██████▎   | 90/142 [00:28<00:24,  2.13it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  64%|██████▍   | 91/142 [00:29<00:22,  2.27it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  65%|██████▍   | 92/142 [00:29<00:19,  2.56it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  65%|██████▌   | 93/142 [00:29<00:17,  2.84it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  66%|██████▌   | 94/142 [00:29<00:13,  3.54it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  67%|██████▋   | 95/142 [00:30<00:13,  3.54it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  68%|██████▊   | 96/142 [00:30<00:11,  4.15it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  68%|██████▊   | 97/142 [00:30<00:10,  4.14it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  69%|██████▉   | 98/142 [00:31<00:22,  1.94it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  70%|██████▉   | 99/142 [00:31<00:20,  2.09it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  70%|███████   | 100/142 [00:32<00:17,  2.38it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  71%|███████   | 101/142 [00:32<00:14,  2.81it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  72%|███████▏  | 102/142 [00:32<00:13,  3.00it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  73%|███████▎  | 103/142 [00:32<00:10,  3.64it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  73%|███████▎  | 104/142 [00:33<00:10,  3.64it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  74%|███████▍  | 105/142 [00:33<00:10,  3.39it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  75%|███████▍  | 106/142 [00:33<00:12,  2.95it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  75%|███████▌  | 107/142 [00:34<00:11,  2.94it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  76%|███████▌  | 108/142 [00:34<00:11,  3.07it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  77%|███████▋  | 109/142 [00:34<00:08,  3.72it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  77%|███████▋  | 110/142 [00:34<00:08,  3.68it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  78%|███████▊  | 111/142 [00:35<00:07,  4.36it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  79%|███████▉  | 112/142 [00:35<00:07,  4.26it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  80%|███████▉  | 113/142 [00:35<00:07,  3.86it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  80%|████████  | 114/142 [00:36<00:08,  3.50it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  81%|████████  | 115/142 [00:36<00:06,  4.15it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  82%|████████▏ | 116/142 [00:36<00:06,  3.81it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  82%|████████▏ | 117/142 [00:36<00:06,  3.74it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  83%|████████▎ | 118/142 [00:37<00:06,  3.57it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  84%|████████▍ | 119/142 [00:37<00:07,  3.20it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  85%|████████▍ | 120/142 [00:37<00:07,  2.78it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  85%|████████▌ | 121/142 [00:38<00:07,  2.70it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  86%|████████▌ | 122/142 [00:38<00:07,  2.80it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  87%|████████▋ | 123/142 [00:38<00:06,  2.92it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  87%|████████▋ | 124/142 [00:39<00:06,  2.77it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  88%|████████▊ | 125/142 [00:39<00:05,  3.00it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  89%|████████▊ | 126/142 [00:39<00:04,  3.58it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  89%|████████▉ | 127/142 [00:40<00:04,  3.58it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  90%|█████████ | 128/142 [00:40<00:03,  4.28it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  91%|█████████ | 129/142 [00:41<00:06,  1.99it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  92%|█████████▏| 130/142 [00:41<00:05,  2.26it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  92%|█████████▏| 131/142 [00:42<00:04,  2.28it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  93%|█████████▎| 132/142 [00:42<00:03,  2.50it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  94%|█████████▎| 133/142 [00:42<00:02,  3.14it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  94%|█████████▍| 134/142 [00:42<00:02,  3.29it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  96%|█████████▌| 136/142 [00:43<00:01,  4.32it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  96%|█████████▋| 137/142 [00:43<00:01,  4.92it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  97%|█████████▋| 138/142 [00:43<00:00,  4.39it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  98%|█████████▊| 139/142 [00:43<00:00,  4.92it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  99%|█████████▊| 140/142 [00:43<00:00,  4.65it/s]Loading safetensors shards[zai-org/GLM-5-FP8]:  99%|█████████▉| 141/142 [00:43<00:00,  5.13it/s]Loading safetensors shards[zai-org/GLM-5-FP8]: 100%|██████████| 142/142 [00:44<00:00,  4.68it/s]Loading safetensors shards[zai-org/GLM-5-FP8]: 100%|██████████| 142/142 [00:44<00:00,  3.21it/s]
+[aiter] import [module_quant] under /app/aiter-test/aiter/jit/module_quant.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3.5_397b.csv:/app/aiter-test/aiter/configs/model_configs/glm5_a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_dsv3.csv
+[aiter] import [module_quant] under /app/aiter-test/aiter/jit/module_quant.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3.5_397b.csv:/app/aiter-test/aiter/configs/model_configs/glm5_a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_dsv3.csv
+[aiter] import [module_quant] under /app/aiter-test/aiter/jit/module_quant.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3.5_397b.csv:/app/aiter-test/aiter/configs/model_configs/glm5_a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_dsv3.csv
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle.so
+[aiter] import [module_quant] under /app/aiter-test/aiter/jit/module_quant.so
+[atom 12:40:58] Model load done: zai-org/GLM-5-FP8
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3.5_397b.csv:/app/aiter-test/aiter/configs/model_configs/glm5_a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_dsv3.csv
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle.so
+[atom 12:40:58] Model Runner5/8: DP size=1 too large, warmup_max_tokens=16384 < max_model_len=202752. Using 1 seq with length 16384 for warmup.
+[aiter] import [module_quant] under /app/aiter-test/aiter/jit/module_quant.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3.5_397b.csv:/app/aiter-test/aiter/configs/model_configs/glm5_a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_dsv3.csv
+[atom 12:40:59] Model load done: zai-org/GLM-5-FP8
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle.so
+[atom 12:40:59] Model Runner6/8: DP size=1 too large, warmup_max_tokens=16384 < max_model_len=202752. Using 1 seq with length 16384 for warmup.
+[aiter] import [module_quant] under /app/aiter-test/aiter/jit/module_quant.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3.5_397b.csv:/app/aiter-test/aiter/configs/model_configs/glm5_a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_dsv3.csv
+[atom 12:40:59] Model load done: zai-org/GLM-5-FP8
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle.so
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle.so
+[atom 12:40:59] Model Runner4/8: DP size=1 too large, warmup_max_tokens=16384 < max_model_len=202752. Using 1 seq with length 16384 for warmup.
+[aiter] import [module_quant] under /app/aiter-test/aiter/jit/module_quant.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3.5_397b.csv:/app/aiter-test/aiter/configs/model_configs/glm5_a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_dsv3.csv
+[atom 12:41:00] Model load done: zai-org/GLM-5-FP8
+[atom 12:41:00] Model load done: zai-org/GLM-5-FP8
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle.so
+[atom 12:41:00] Model Runner7/8: DP size=1 too large, warmup_max_tokens=16384 < max_model_len=202752. Using 1 seq with length 16384 for warmup.
+[atom 12:41:00] Model Runner2/8: DP size=1 too large, warmup_max_tokens=16384 < max_model_len=202752. Using 1 seq with length 16384 for warmup.
+[aiter] import [module_quant] under /app/aiter-test/aiter/jit/module_quant.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_qwen3.5_397b.csv:/app/aiter-test/aiter/configs/model_configs/glm5_a8w8_blockscale_bpreshuffle_tuned_gemm.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_bpreshuffle_tuned_gemm_dsv3.csv
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle.so
+[atom 12:41:00] Model load done: zai-org/GLM-5-FP8
+[atom 12:41:00] Model Runner3/8: DP size=1 too large, warmup_max_tokens=16384 < max_model_len=202752. Using 1 seq with length 16384 for warmup.
+[atom 12:41:01] Model load done: zai-org/GLM-5-FP8
+[atom 12:41:01] Model Runner1/8: DP size=1 too large, warmup_max_tokens=16384 < max_model_len=202752. Using 1 seq with length 16384 for warmup.
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle.so
+[atom 12:41:01] Model load done: zai-org/GLM-5-FP8
+[atom 12:41:01] Model Runner0/8: DP size=1 too large, warmup_max_tokens=16384 < max_model_len=202752. Using 1 seq with length 16384 for warmup.
+[atom 12:41:13] Using cache directory: /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_5/backbone for vLLM's torch.compile
+[atom 12:41:13] Dynamo bytecode transform time: 13.90 s
+[atom 12:41:14] Using cache directory: /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_6/backbone for vLLM's torch.compile
+[atom 12:41:14] Dynamo bytecode transform time: 14.71 s
+[atom 12:41:14] Using cache directory: /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_2/backbone for vLLM's torch.compile
+[atom 12:41:14] Dynamo bytecode transform time: 14.03 s
+[atom 12:41:15] Using cache directory: /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_7/backbone for vLLM's torch.compile
+[atom 12:41:15] Dynamo bytecode transform time: 14.46 s
+[atom 12:41:15] Cache the graph for dynamic shape for later use
+[atom 12:41:16] Using cache directory: /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_4/backbone for vLLM's torch.compile
+[atom 12:41:16] Dynamo bytecode transform time: 15.85 s
+[atom 12:41:16] Using cache directory: /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_1/backbone for vLLM's torch.compile
+[atom 12:41:16] Dynamo bytecode transform time: 14.72 s
+[atom 12:41:16] Cache the graph for dynamic shape for later use
+[atom 12:41:16] Using cache directory: /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_3/backbone for vLLM's torch.compile
+[atom 12:41:16] Dynamo bytecode transform time: 15.53 s
+[atom 12:41:16] Cache the graph for dynamic shape for later use
+[atom 12:41:17] Using cache directory: /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_0/backbone for vLLM's torch.compile
+[atom 12:41:17] Dynamo bytecode transform time: 15.07 s
+[atom 12:41:17] Cache the graph for dynamic shape for later use
+[atom 12:41:17] Cache the graph for dynamic shape for later use
+[atom 12:41:18] Cache the graph for dynamic shape for later use
+[atom 12:41:18] Cache the graph for dynamic shape for later use
+[atom 12:41:18] Cache the graph for dynamic shape for later use
+[atom 12:41:53] Compiling a graph for dynamic shape takes 37.53 s
+[atom 12:41:53] Compiling a graph for dynamic shape takes 38.43 s
+[atom 12:41:53] Computation graph saved to /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_5/backbone/computation_graph.py
+[atom 12:41:54] Compiling a graph for dynamic shape takes 39.29 s
+[atom 12:41:54] Computation graph saved to /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_6/backbone/computation_graph.py
+[aiter] import [module_rmsnorm_quant] under /app/aiter-test/aiter/jit/module_rmsnorm_quant.so
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle_cktile] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_blockscale_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, preshuffleB: bool = True) -> torch.Tensor
+[aiter] import [module_fused_qk_rmsnorm_group_quant] under /app/aiter-test/aiter/jit/module_fused_qk_rmsnorm_group_quant.so
+[aiter] shape is M:16384, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[atom 12:41:55] Computation graph saved to /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_7/backbone/computation_graph.py
+[atom 12:41:55] Compiling a graph for dynamic shape takes 39.95 s
+[atom 12:41:55] Computation graph saved to /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_2/backbone/computation_graph.py
+[atom 12:41:55] Compiling a graph for dynamic shape takes 38.91 s
+[aiter] import [module_rmsnorm_quant] under /app/aiter-test/aiter/jit/module_rmsnorm_quant.so
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle_cktile] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_blockscale_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, preshuffleB: bool = True) -> torch.Tensor
+[aiter] import [module_fused_qk_rmsnorm_group_quant] under /app/aiter-test/aiter/jit/module_fused_qk_rmsnorm_group_quant.so
+[aiter] shape is M:16384, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[atom 12:41:55] Computation graph saved to /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_4/backbone/computation_graph.py
+[atom 12:41:55] Compiling a graph for dynamic shape takes 38.42 s
+[atom 12:41:55] Computation graph saved to /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_3/backbone/computation_graph.py
+[aiter] import [module_rmsnorm_quant] under /app/aiter-test/aiter/jit/module_rmsnorm_quant.so
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle_cktile] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_blockscale_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, preshuffleB: bool = True) -> torch.Tensor
+[aiter] import [module_fused_qk_rmsnorm_group_quant] under /app/aiter-test/aiter/jit/module_fused_qk_rmsnorm_group_quant.so
+[aiter] shape is M:16384, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_rmsnorm_quant] under /app/aiter-test/aiter/jit/module_rmsnorm_quant.so
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle_cktile] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_blockscale_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, preshuffleB: bool = True) -> torch.Tensor
+[aiter] import [module_fused_qk_rmsnorm_group_quant] under /app/aiter-test/aiter/jit/module_fused_qk_rmsnorm_group_quant.so
+[aiter] shape is M:16384, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[atom 12:41:57] Compiling a graph for dynamic shape takes 40.96 s
+[atom 12:41:57] Compiling a graph for dynamic shape takes 40.02 s
+[atom 12:41:57] Computation graph saved to /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_1/backbone/computation_graph.py
+[atom 12:41:57] Computation graph saved to /root/.cache/atom/torch_compile_cache/e3554d9cf6/rank_0/backbone/computation_graph.py
+[aiter] import [module_norm] under /app/aiter-test/aiter/jit/module_norm.so
+[aiter] import [module_rope_2c_cached_positions_fwd] under /app/aiter-test/aiter/jit/module_rope_2c_cached_positions_fwd.so
+[aiter] import [module_rmsnorm_quant] under /app/aiter-test/aiter/jit/module_rmsnorm_quant.so
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle_cktile] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_blockscale_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, preshuffleB: bool = True) -> torch.Tensor
+[aiter] import [module_fused_qk_rmsnorm_group_quant] under /app/aiter-test/aiter/jit/module_fused_qk_rmsnorm_group_quant.so
+[aiter] import [module_rmsnorm_quant] under /app/aiter-test/aiter/jit/module_rmsnorm_quant.so
+[aiter] shape is M:16384, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle_cktile] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_blockscale_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, preshuffleB: bool = True) -> torch.Tensor
+[aiter] import [module_fused_qk_rmsnorm_group_quant] under /app/aiter-test/aiter/jit/module_fused_qk_rmsnorm_group_quant.so
+[aiter] shape is M:16384, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_rmsnorm_quant] under /app/aiter-test/aiter/jit/module_rmsnorm_quant.so
+[aiter] import [module_rmsnorm_quant] under /app/aiter-test/aiter/jit/module_rmsnorm_quant.so
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle_cktile] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_blockscale_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, preshuffleB: bool = True) -> torch.Tensor
+[aiter] import [module_fused_qk_rmsnorm_group_quant] under /app/aiter-test/aiter/jit/module_fused_qk_rmsnorm_group_quant.so
+[aiter] import [module_norm] under /app/aiter-test/aiter/jit/module_norm.so
+[aiter] import [module_gemm_a8w8_blockscale_bpreshuffle_cktile] under /app/aiter-test/aiter/jit/module_gemm_a8w8_blockscale_bpreshuffle_cktile.so
+[aiter] type hints mismatch, override to --> gemm_a8w8_blockscale_bpreshuffle_cktile(XQ: torch.Tensor, WQ: torch.Tensor, x_scale: torch.Tensor, w_scale: torch.Tensor, Out: torch.Tensor, preshuffleB: bool = True) -> torch.Tensor
+[aiter] import [module_fused_qk_rmsnorm_group_quant] under /app/aiter-test/aiter/jit/module_fused_qk_rmsnorm_group_quant.so
+[aiter] import [module_rope_2c_cached_positions_fwd] under /app/aiter-test/aiter/jit/module_rope_2c_cached_positions_fwd.so
+[aiter] import [module_activation] under /app/aiter-test/aiter/jit/module_activation.so
+[aiter] shape is M:16384, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:16384, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_activation] under /app/aiter-test/aiter/jit/module_activation.so
+[aiter] import [module_norm] under /app/aiter-test/aiter/jit/module_norm.so
+[aiter] import [module_rope_2c_cached_positions_fwd] under /app/aiter-test/aiter/jit/module_rope_2c_cached_positions_fwd.so
+[aiter] import [module_activation] under /app/aiter-test/aiter/jit/module_activation.so
+[aiter] import [module_norm] under /app/aiter-test/aiter/jit/module_norm.so
+[aiter] import [module_rope_2c_cached_positions_fwd] under /app/aiter-test/aiter/jit/module_rope_2c_cached_positions_fwd.so
+[aiter] import [module_activation] under /app/aiter-test/aiter/jit/module_activation.so
+[aiter] import [module_moe_asm] under /app/aiter-test/aiter/jit/module_moe_asm.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_fp8fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/qwen3_5_397b_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_glm5.csv:/app/aiter-test/aiter/configs/model_configs/minimax_m25_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_minimax-m2_5.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_ds_v3.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_5_397b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp8fp4_tuned_fmoe.csv
+[aiter] import [module_moe_asm] under /app/aiter-test/aiter/jit/module_moe_asm.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_fp8fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/qwen3_5_397b_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_glm5.csv:/app/aiter-test/aiter/configs/model_configs/minimax_m25_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_minimax-m2_5.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_ds_v3.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_5_397b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp8fp4_tuned_fmoe.csv
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E', kernelName2=nan) for (256, 16384, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_sorting] under /app/aiter-test/aiter/jit/module_moe_sorting.so
+[aiter] LoadKernel: _ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_64x256.co
+[aiter] import [module_moe_asm] under /app/aiter-test/aiter/jit/module_moe_asm.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_fp8fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/qwen3_5_397b_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_glm5.csv:/app/aiter-test/aiter/configs/model_configs/minimax_m25_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_minimax-m2_5.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_ds_v3.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_5_397b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp8fp4_tuned_fmoe.csv
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E', kernelName2=nan) for (256, 16384, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_sorting] under /app/aiter-test/aiter/jit/module_moe_sorting.so
+[aiter] LoadKernel: _ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_64x256.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E', kernelName2=nan) for (256, 16384, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_sorting] under /app/aiter-test/aiter/jit/module_moe_sorting.so
+[aiter] LoadKernel: _ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_64x256.co
+[aiter] shape is M:1, N:19360, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_sample] under /app/aiter-test/aiter/jit/module_sample.so
+[aiter] shape is M:1, N:19360, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:1, N:19360, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_sample] under /app/aiter-test/aiter/jit/module_sample.so
+[aiter] import [module_sample] under /app/aiter-test/aiter/jit/module_sample.so
+[aiter] import [module_moe_asm] under /app/aiter-test/aiter/jit/module_moe_asm.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_fp8fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/qwen3_5_397b_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_glm5.csv:/app/aiter-test/aiter/configs/model_configs/minimax_m25_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_minimax-m2_5.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_ds_v3.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_5_397b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp8fp4_tuned_fmoe.csv
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E', kernelName2=nan) for (256, 16384, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_sorting] under /app/aiter-test/aiter/jit/module_moe_sorting.so
+[aiter] LoadKernel: _ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_64x256.co
+[aiter] shape is M:1, N:19360, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_sample] under /app/aiter-test/aiter/jit/module_sample.so
+[aiter] import [module_norm] under /app/aiter-test/aiter/jit/module_norm.so
+[aiter] import [module_rope_2c_cached_positions_fwd] under /app/aiter-test/aiter/jit/module_rope_2c_cached_positions_fwd.so
+[aiter] import [module_activation] under /app/aiter-test/aiter/jit/module_activation.so
+[aiter] import [module_norm] under /app/aiter-test/aiter/jit/module_norm.so
+[aiter] import [module_rope_2c_cached_positions_fwd] under /app/aiter-test/aiter/jit/module_rope_2c_cached_positions_fwd.so
+[aiter] import [module_activation] under /app/aiter-test/aiter/jit/module_activation.so
+[aiter] import [module_moe_asm] under /app/aiter-test/aiter/jit/module_moe_asm.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_fp8fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/qwen3_5_397b_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_glm5.csv:/app/aiter-test/aiter/configs/model_configs/minimax_m25_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_minimax-m2_5.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_ds_v3.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_5_397b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp8fp4_tuned_fmoe.csv
+[aiter] import [module_norm] under /app/aiter-test/aiter/jit/module_norm.so
+[aiter] import [module_rope_2c_cached_positions_fwd] under /app/aiter-test/aiter/jit/module_rope_2c_cached_positions_fwd.so
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E', kernelName2=nan) for (256, 16384, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_sorting] under /app/aiter-test/aiter/jit/module_moe_sorting.so
+[aiter] LoadKernel: _ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_64x256.co
+[aiter] import [module_moe_asm] under /app/aiter-test/aiter/jit/module_moe_asm.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_fp8fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/qwen3_5_397b_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_glm5.csv:/app/aiter-test/aiter/configs/model_configs/minimax_m25_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_minimax-m2_5.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_ds_v3.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_5_397b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp8fp4_tuned_fmoe.csv
+[aiter] import [module_activation] under /app/aiter-test/aiter/jit/module_activation.so
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E', kernelName2=nan) for (256, 16384, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_sorting] under /app/aiter-test/aiter/jit/module_moe_sorting.so
+[aiter] LoadKernel: _ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_64x256.co
+[aiter] shape is M:1, N:19360, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_sample] under /app/aiter-test/aiter/jit/module_sample.so
+[aiter] import [module_moe_asm] under /app/aiter-test/aiter/jit/module_moe_asm.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_fp8fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/qwen3_5_397b_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_glm5.csv:/app/aiter-test/aiter/configs/model_configs/minimax_m25_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_minimax-m2_5.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_ds_v3.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_5_397b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp8fp4_tuned_fmoe.csv
+[aiter] shape is M:1, N:19360, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E', kernelName2=nan) for (256, 16384, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_norm] under /app/aiter-test/aiter/jit/module_norm.so
+[aiter] import [module_moe_sorting] under /app/aiter-test/aiter/jit/module_moe_sorting.so
+[aiter] LoadKernel: _ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_64x256.co
+[aiter] import [module_sample] under /app/aiter-test/aiter/jit/module_sample.so
+[aiter] import [module_rope_2c_cached_positions_fwd] under /app/aiter-test/aiter/jit/module_rope_2c_cached_positions_fwd.so
+[aiter] import [module_activation] under /app/aiter-test/aiter/jit/module_activation.so
+[aiter] shape is M:1, N:19360, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_sample] under /app/aiter-test/aiter/jit/module_sample.so
+[aiter] import [module_moe_asm] under /app/aiter-test/aiter/jit/module_moe_asm.so
+[aiter] merge tuned file under model_configs/ and configs/ /app/aiter-test/aiter/configs/tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/gptoss_fp8fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/qwen3_5_397b_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/dsv3_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_glm5.csv:/app/aiter-test/aiter/configs/model_configs/minimax_m25_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_minimax-m2_5.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_235b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp4_tuned_fmoe.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_ds_v3.csv:/app/aiter-test/aiter/configs/model_configs/a8w8_blockscale_tuned_fmoe_qwen3_5_397b.csv:/app/aiter-test/aiter/configs/model_configs/kimik2_fp8fp4_tuned_fmoe.csv
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E', kernelName2=nan) for (256, 16384, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_sorting] under /app/aiter-test/aiter/jit/module_moe_sorting.so
+[aiter] LoadKernel: _ZN5aiter46fmoe_bf16_blockscaleFp8_g1u1_vs_ps_silu_64x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_64x256.co
+[aiter] shape is M:1, N:19360, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_sample] under /app/aiter-test/aiter/jit/module_sample.so
+[atom 12:42:04] Model Runner7/8: warmup_model 64.11 seconds with 1 reqs 16384 tokens
+[atom 12:42:04] Model warmup done: zai-org/GLM-5-FP8
+[atom 12:42:04] Memory budget: total_gpu=287.98GB, free=184.22GB, utilization=0.8, budget=230.39GB, peak_torch=92.54GB, cudagraph_est=0.26GB, safety=5.76GB, available_for_kv=131.83GB, block_bytes=898560, num_kvcache_blocks=157529
+[atom 12:42:04] Model Runner2/8: warmup_model 64.04 seconds with 1 reqs 16384 tokens
+[atom 12:42:04] Model warmup done: zai-org/GLM-5-FP8
+[atom 12:42:04] Model Runner3/8: warmup_model 63.58 seconds with 1 reqs 16384 tokens
+[atom 12:42:04] Model warmup done: zai-org/GLM-5-FP8
+[atom 12:42:04] Model Runner4/8: warmup_model 64.52 seconds with 1 reqs 16384 tokens
+[atom 12:42:04] Model warmup done: zai-org/GLM-5-FP8
+[atom 12:42:04] Model Runner0/8: warmup_model 62.63 seconds with 1 reqs 16384 tokens
+[atom 12:42:04] Model warmup done: zai-org/GLM-5-FP8
+[atom 12:42:04] Model Runner5/8: warmup_model 65.48 seconds with 1 reqs 16384 tokens
+[atom 12:42:04] Model warmup done: zai-org/GLM-5-FP8
+[atom 12:42:04] Memory budget: total_gpu=287.98GB, free=183.78GB, utilization=0.8, budget=230.39GB, peak_torch=92.54GB, cudagraph_est=0.26GB, safety=5.76GB, available_for_kv=131.83GB, block_bytes=898560, num_kvcache_blocks=157529
+[atom 12:42:04] Memory budget: total_gpu=287.98GB, free=183.81GB, utilization=0.8, budget=230.39GB, peak_torch=92.54GB, cudagraph_est=0.26GB, safety=5.76GB, available_for_kv=131.83GB, block_bytes=898560, num_kvcache_blocks=157529
+[atom 12:42:04] Model Runner6/8: warmup_model 65.10 seconds with 1 reqs 16384 tokens
+[atom 12:42:04] Memory budget: total_gpu=287.98GB, free=184.23GB, utilization=0.8, budget=230.39GB, peak_torch=92.54GB, cudagraph_est=0.26GB, safety=5.76GB, available_for_kv=131.83GB, block_bytes=898560, num_kvcache_blocks=157529
+[atom 12:42:04] Model warmup done: zai-org/GLM-5-FP8
+[atom 12:42:04] Memory budget: total_gpu=287.98GB, free=183.43GB, utilization=0.8, budget=230.39GB, peak_torch=92.54GB, cudagraph_est=0.26GB, safety=5.76GB, available_for_kv=131.83GB, block_bytes=898560, num_kvcache_blocks=157529
+[atom 12:42:04] Memory budget: total_gpu=287.98GB, free=183.96GB, utilization=0.8, budget=230.39GB, peak_torch=92.54GB, cudagraph_est=0.26GB, safety=5.76GB, available_for_kv=131.83GB, block_bytes=898560, num_kvcache_blocks=157529
+[atom 12:42:04] Model Runner1/8: warmup_model 63.28 seconds with 1 reqs 16384 tokens
+[atom 12:42:04] Model warmup done: zai-org/GLM-5-FP8
+[atom 12:42:04] Memory budget: total_gpu=287.98GB, free=184.15GB, utilization=0.8, budget=230.39GB, peak_torch=92.54GB, cudagraph_est=0.26GB, safety=5.76GB, available_for_kv=131.83GB, block_bytes=898560, num_kvcache_blocks=157529
+[atom 12:42:04] Memory budget: total_gpu=287.98GB, free=185.05GB, utilization=0.8, budget=230.39GB, peak_torch=92.54GB, cudagraph_est=0.26GB, safety=5.76GB, available_for_kv=131.83GB, block_bytes=898560, num_kvcache_blocks=157529
+[atom 12:42:04] Binding KV cache for target model starting at layer_id=0
+[atom 12:42:04] Binding KV cache for target model starting at layer_id=0
+[atom 12:42:04] Binding KV cache for target model starting at layer_id=0
+[atom 12:42:04] Binding KV cache for target model starting at layer_id=0
+[atom 12:42:04] Binding KV cache for target model starting at layer_id=0
+[atom 12:42:04] Binding KV cache for target model starting at layer_id=0
+[atom 12:42:04] Binding KV cache for target model starting at layer_id=0
+/opt/venv/lib/python3.12/site-packages/torch/distributed/c10d_logger.py:83: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  return func(*args, **kwargs)
+[rank0]:[W628 12:42:04.844447117 ProcessGroupNCCL.cpp:5140] Guessing device ID based on global rank. This can cause a hang if rank to GPU mapping is heterogeneous. You can specify device_id in init_process_group()
+[atom 12:42:04] Binding KV cache for target model starting at layer_id=0
+  0%|          | 0/10 [00:00<?, ?it/s]Capturing bs=256, max_q_len=1:   0%|          | 0/10 [00:00<?, ?it/s][aiter] import [module_mla_metadata] under /app/aiter-test/aiter/jit/module_mla_metadata.so
+[aiter] import [module_mla_metadata] under /app/aiter-test/aiter/jit/module_mla_metadata.so
+[aiter] import [module_mla_metadata] under /app/aiter-test/aiter/jit/module_mla_metadata.so
+[aiter] import [module_mla_metadata] under /app/aiter-test/aiter/jit/module_mla_metadata.so
+[aiter] import [module_mla_metadata] under /app/aiter-test/aiter/jit/module_mla_metadata.so
+[aiter] import [module_mla_metadata] under /app/aiter-test/aiter/jit/module_mla_metadata.so
+[aiter] import [module_mla_metadata] under /app/aiter-test/aiter/jit/module_mla_metadata.so
+[aiter] import [module_mla_metadata] under /app/aiter-test/aiter/jit/module_mla_metadata.so
+[aiter] shape is M:256, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:256, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_cache] under /app/aiter-test/aiter/jit/module_cache.so
+[aiter] import [module_cache] under /app/aiter-test/aiter/jit/module_cache.so
+[aiter] shape is M:256, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:256, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:256, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:256, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:256, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:256, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] import [module_cache] under /app/aiter-test/aiter/jit/module_cache.so
+[aiter] import [module_cache] under /app/aiter-test/aiter/jit/module_cache.so
+[aiter] import [module_cache] under /app/aiter-test/aiter/jit/module_cache.so
+[aiter] import [module_cache] under /app/aiter-test/aiter/jit/module_cache.so
+[aiter] import [module_cache] under /app/aiter-test/aiter/jit/module_cache.so
+[aiter] import [module_cache] under /app/aiter-test/aiter/jit/module_cache.so
+[aiter] import [module_top_k_per_row] under /app/aiter-test/aiter/jit/module_top_k_per_row.so
+[aiter] import [module_top_k_per_row] under /app/aiter-test/aiter/jit/module_top_k_per_row.so
+[aiter] import [module_top_k_per_row] under /app/aiter-test/aiter/jit/module_top_k_per_row.so
+[aiter] import [module_top_k_per_row] under /app/aiter-test/aiter/jit/module_top_k_per_row.so
+[aiter] import [module_top_k_per_row] under /app/aiter-test/aiter/jit/module_top_k_per_row.so
+[aiter] import [module_top_k_per_row] under /app/aiter-test/aiter/jit/module_top_k_per_row.so
+[aiter] import [module_top_k_per_row] under /app/aiter-test/aiter/jit/module_top_k_per_row.so
+[aiter] import [module_top_k_per_row] under /app/aiter-test/aiter/jit/module_top_k_per_row.so
+[aiter] LoadKernel: _ZN5aiter36mla_a8w8_qh16_qseqlen1_gqaratio16_psE hsaco: /app/aiter-test/hsa//gfx950/mla/mla_a8w8_qh16_qseqlen1_gqaratio16_ps.co
+[aiter] LoadKernel: _ZN5aiter36mla_a8w8_qh16_qseqlen1_gqaratio16_psE hsaco: /app/aiter-test/hsa//gfx950/mla/mla_a8w8_qh16_qseqlen1_gqaratio16_ps.co
+[aiter] import [module_mla_reduce] under /app/aiter-test/aiter/jit/module_mla_reduce.so
+[aiter] import [module_mla_reduce] under /app/aiter-test/aiter/jit/module_mla_reduce.so
+[aiter] LoadKernel: _ZN5aiter36mla_a8w8_qh16_qseqlen1_gqaratio16_psE hsaco: /app/aiter-test/hsa//gfx950/mla/mla_a8w8_qh16_qseqlen1_gqaratio16_ps.co
+[aiter] LoadKernel: _ZN5aiter36mla_a8w8_qh16_qseqlen1_gqaratio16_psE hsaco: /app/aiter-test/hsa//gfx950/mla/mla_a8w8_qh16_qseqlen1_gqaratio16_ps.co
+[aiter] LoadKernel: _ZN5aiter36mla_a8w8_qh16_qseqlen1_gqaratio16_psE hsaco: /app/aiter-test/hsa//gfx950/mla/mla_a8w8_qh16_qseqlen1_gqaratio16_ps.co
+[aiter] LoadKernel: _ZN5aiter36mla_a8w8_qh16_qseqlen1_gqaratio16_psE hsaco: /app/aiter-test/hsa//gfx950/mla/mla_a8w8_qh16_qseqlen1_gqaratio16_ps.co
+[aiter] LoadKernel: _ZN5aiter36mla_a8w8_qh16_qseqlen1_gqaratio16_psE hsaco: /app/aiter-test/hsa//gfx950/mla/mla_a8w8_qh16_qseqlen1_gqaratio16_ps.co
+[aiter] LoadKernel: _ZN5aiter36mla_a8w8_qh16_qseqlen1_gqaratio16_psE hsaco: /app/aiter-test/hsa//gfx950/mla/mla_a8w8_qh16_qseqlen1_gqaratio16_ps.co
+[aiter] import [module_mla_reduce] under /app/aiter-test/aiter/jit/module_mla_reduce.so
+[aiter] import [module_mla_reduce] under /app/aiter-test/aiter/jit/module_mla_reduce.so
+[aiter] import [module_mla_reduce] under /app/aiter-test/aiter/jit/module_mla_reduce.so
+[aiter] import [module_mla_reduce] under /app/aiter-test/aiter/jit/module_mla_reduce.so
+[aiter] import [module_mla_reduce] under /app/aiter-test/aiter/jit/module_mla_reduce.so
+[aiter] import [module_mla_reduce] under /app/aiter-test/aiter/jit/module_mla_reduce.so
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_96x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_96x64_splitk_clean.co
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 256, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2.so
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_96x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_96x64_splitk_clean.co
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 256, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2.so
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_96x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_96x64_splitk_clean.co
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 256, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_96x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_96x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_96x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_96x64_splitk_clean.co
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 256, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 256, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2.so
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_96x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_96x64_splitk_clean.co
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 256, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2.so
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2.so
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_96x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_96x64_splitk_clean.co
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 256, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_96x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_96x64_splitk_clean.co
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 256, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2.so
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2.so
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2.so
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] type hints mismatch, override to --> ck_moe_stage1(hidden_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w1_scale: Optional[torch.Tensor] = None, a1_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+[aiter] type hints mismatch, override to --> ck_moe_stage2(inter_states: torch.Tensor, w1: torch.Tensor, w2: torch.Tensor, sorted_token_ids: torch.Tensor, sorted_expert_ids: torch.Tensor, num_valid_ids: torch.Tensor, out: torch.Tensor, topk: int, kernelName: str = None, w2_scale: Optional[torch.Tensor] = None, a2_scale: Optional[torch.Tensor] = None, block_m: Optional[int] = 32, sorted_weights: Optional[torch.Tensor] = None, quant_type: int = 0, activation: int = 0, splitk: Optional[int] = 1, non_temporal_load: bool = False, dst_type: Optional[str] = None, is_shuffled: bool = True) -> None
+Capturing bs=256, max_q_len=1:  10%|█         | 1/10 [00:00<00:08,  1.10it/s]Capturing bs=128, max_q_len=1:  10%|█         | 1/10 [00:00<00:08,  1.10it/s][aiter] shape is M:128, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_64x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_64x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E', kernelName2=nan) for (256, 128, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256.co
+[aiter] shape is M:128, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_64x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_64x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E', kernelName2=nan) for (256, 128, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256.co
+[aiter] shape is M:128, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:128, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_64x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_64x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E', kernelName2=nan) for (256, 128, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_64x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_64x64_splitk_clean.co
+[aiter] shape is M:128, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E', kernelName2=nan) for (256, 128, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256.co
+[aiter] shape is M:128, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:128, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_64x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_64x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E', kernelName2=nan) for (256, 128, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_64x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_64x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E', kernelName2=nan) for (256, 128, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_64x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_64x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E', kernelName2=nan) for (256, 128, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256.co
+[aiter] shape is M:128, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_64x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_64x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E', kernelName2=nan) for (256, 128, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter50fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_ps_32x256.co
+Capturing bs=128, max_q_len=1:  20%|██        | 2/10 [00:01<00:03,  2.07it/s]Capturing bs=64, max_q_len=1:  20%|██        | 2/10 [00:01<00:03,  2.07it/s] [aiter] shape is M:64, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E', kernelName2=nan) for (256, 64, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256.co
+[aiter] shape is M:64, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E', kernelName2=nan) for (256, 64, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256.co
+[aiter] shape is M:64, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:64, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E', kernelName2=nan) for (256, 64, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256.co
+[aiter] shape is M:64, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E', kernelName2=nan) for (256, 64, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E', kernelName2=nan) for (256, 64, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256.co
+[aiter] shape is M:64, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E', kernelName2=nan) for (256, 64, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256.co
+[aiter] shape is M:64, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E', kernelName2=nan) for (256, 64, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256.co
+[aiter] shape is M:64, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E', kernelName2=nan) for (256, 64, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter49fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_novs_silu_1tg_32x256.co
+Capturing bs=64, max_q_len=1:  30%|███       | 3/10 [00:01<00:02,  2.90it/s]Capturing bs=48, max_q_len=1:  30%|███       | 3/10 [00:01<00:02,  2.90it/s][aiter] shape is M:48, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:48, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:48, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:48, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:48, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:48, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:48, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:48, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_48x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_48x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_48x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_48x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_48x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_48x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_48x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_48x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_48x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_48x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_48x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_48x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_48x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_48x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_48x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_48x64_splitk_clean.co
+Capturing bs=48, max_q_len=1:  40%|████      | 4/10 [00:01<00:02,  2.66it/s]Capturing bs=32, max_q_len=1:  40%|████      | 4/10 [00:01<00:02,  2.66it/s][aiter] shape is M:32, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_32x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_32x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E', kernelName2=nan) for (256, 32, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256.co
+[aiter] shape is M:32, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_32x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_32x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E', kernelName2=nan) for (256, 32, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256.co
+[aiter] shape is M:32, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:32, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_32x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_32x64_splitk_clean.co
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_32x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_32x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E', kernelName2=nan) for (256, 32, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E', kernelName2=nan) for (256, 32, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256.co
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256.co
+[aiter] shape is M:32, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_32x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_32x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E', kernelName2=nan) for (256, 32, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256.co
+[aiter] shape is M:32, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_32x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_32x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E', kernelName2=nan) for (256, 32, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256.co
+[aiter] shape is M:32, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_32x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_32x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E', kernelName2=nan) for (256, 32, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256.co
+[aiter] shape is M:32, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] LoadKernel: _ZN5aiter39bf16gemm_fp32bf16_tn_32x64_splitk_cleanE hsaco: /app/aiter-test/hsa//gfx950/bf16gemm/bf16gemm_fp32bf16_tn_32x64_splitk_clean.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E', kernelName2=nan) for (256, 32, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_32x256.co
+Capturing bs=32, max_q_len=1:  50%|█████     | 5/10 [00:01<00:01,  3.26it/s]Capturing bs=16, max_q_len=1:  50%|█████     | 5/10 [00:01<00:01,  3.26it/s][aiter] shape is M:16, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:16, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:16, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:16, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:16, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:16, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:16, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:16, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 16, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_pf2_16x128.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 16, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_pf2_16x128.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 16, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_pf2_16x128.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 16, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 16, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_pf2_16x128.co
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_pf2_16x128.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 16, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_pf2_16x128.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 16, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_pf2_16x128.co
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 16, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] LoadKernel: _ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E hsaco: /app/aiter-test/hsa//gfx950/fmoe/silu/fmoe_bf16_blockscaleFp8_g1u1_vs_silu_1tg_pf2_16x128.co
+Capturing bs=16, max_q_len=1:  60%|██████    | 6/10 [00:02<00:01,  3.01it/s]Capturing bs=8, max_q_len=1:  60%|██████    | 6/10 [00:02<00:01,  3.01it/s] [aiter] shape is M:8, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:8, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:8, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:8, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:8, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:8, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:8, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] shape is M:8, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using torch solution:0
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 8, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 8, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 8, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 8, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 8, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 8, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 8, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+Capturing bs=8, max_q_len=1:  70%|███████   | 7/10 [00:02<00:01,  2.74it/s]Capturing bs=4, max_q_len=1:  70%|███████   | 7/10 [00:02<00:01,  2.74it/s][aiter] shape is M:4, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] import [module_custom] under /app/aiter-test/aiter/jit/module_custom.so
+[aiter] type hints mismatch, override to --> wv_splitk_small_fp16_bf16(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: int, arg4: int) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 4, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk.so
+[aiter] shape is M:4, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] import [module_custom] under /app/aiter-test/aiter/jit/module_custom.so
+[aiter] type hints mismatch, override to --> wv_splitk_small_fp16_bf16(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: int, arg4: int) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 4, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk.so
+[aiter] shape is M:4, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] import [module_custom] under /app/aiter-test/aiter/jit/module_custom.so
+[aiter] type hints mismatch, override to --> wv_splitk_small_fp16_bf16(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: int, arg4: int) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 4, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk.so
+[aiter] shape is M:4, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] shape is M:4, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] import [module_custom] under /app/aiter-test/aiter/jit/module_custom.so
+[aiter] type hints mismatch, override to --> wv_splitk_small_fp16_bf16(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: int, arg4: int) -> None
+[aiter] import [module_custom] under /app/aiter-test/aiter/jit/module_custom.so
+[aiter] type hints mismatch, override to --> wv_splitk_small_fp16_bf16(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: int, arg4: int) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 4, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 4, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk.so
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk.so
+[aiter] shape is M:4, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] import [module_custom] under /app/aiter-test/aiter/jit/module_custom.so
+[aiter] type hints mismatch, override to --> wv_splitk_small_fp16_bf16(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: int, arg4: int) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 4, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk.so
+[aiter] shape is M:4, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] import [module_custom] under /app/aiter-test/aiter/jit/module_custom.so
+[aiter] type hints mismatch, override to --> wv_splitk_small_fp16_bf16(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: int, arg4: int) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 4, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk.so
+Capturing bs=4, max_q_len=1:  80%|████████  | 8/10 [00:02<00:00,  3.26it/s]Capturing bs=2, max_q_len=1:  80%|████████  | 8/10 [00:02<00:00,  3.26it/s][aiter] shape is M:2, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 2, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:2, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] shape is M:2, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 2, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 2, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:2, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] shape is M:2, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 2, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 2, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:2, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 2, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:2, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+Capturing bs=2, max_q_len=1:  90%|█████████ | 9/10 [00:03<00:00,  3.78it/s]Capturing bs=1, max_q_len=1:  90%|█████████ | 9/10 [00:03<00:00,  3.78it/s][aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 2, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:1, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 1, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:1, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] shape is M:1, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 1, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 1, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:1, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] shape is M:1, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 1, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 1, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:1, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 1, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:1, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 1, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+Capturing bs=1, max_q_len=1: 100%|██████████| 10/10 [00:03<00:00,  3.69it/s]Capturing bs=1, max_q_len=1: 100%|██████████| 10/10 [00:03<00:00,  3.00it/s]
+[aiter] [fused_moe] using 1stage (kernelName1='_ZN5aiter47fmoe_bf16_blockscaleFp8_g1u1_vs_pf2_silu_16x128E', kernelName2=nan) for (256, 8, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:4, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] import [module_custom] under /app/aiter-test/aiter/jit/module_custom.so
+[aiter] type hints mismatch, override to --> wv_splitk_small_fp16_bf16(arg0: torch.Tensor, arg1: torch.Tensor, arg2: torch.Tensor, arg3: int, arg4: int) -> None
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 4, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] import [module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk] under /app/aiter-test/aiter/jit/module_moe_ck2stages_f8_f8_preshuffle_on_b16_silu_per_1x128_mulWeightStage2_splitk.so
+[aiter] shape is M:2, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 2, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] shape is M:1, N:32, K:6144 dtype='torch.bfloat16' otype='torch.bfloat16' bias=False, scaleAB=False, bpreshuffle=False, not found tuned config in /tmp/aiter_configs/bf16_tuned_gemm.csv, will use default config! using skinny solution:2
+[aiter] [fused_moe] using 2stage (kernelName1='moe_ck2stages_gemm1_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscaleSplitk_v1_Nswizzle0_Quant4_MulRoutedWeight0_silu_F8_F8_B16', kernelName2='moe_ck2stages_gemm2_256x32x128x128_1x4_MulABScaleExpertWeightA8W8blkscale_v1_Nswizzle0_Quant4_MulRoutedWeight1_F8_F8_B16') for (256, 1, 6144, 256, 257, 9, 'ActivationType.Silu', 'torch.bfloat16', 'torch.float8_e4m3fn', 'torch.float8_e4m3fn', 'QuantType.per_1x128', True, False) 
+[aiter] Registering 1570 cuda graph addresses
+[aiter] Registering 1570 cuda graph addresses
+[aiter] Registering 1570 cuda graph addresses
+[aiter] Registering 1570 cuda graph addresses
+[aiter] Registering 1570 cuda graph addresses
+[aiter] Registering 1570 cuda graph addresses
+[aiter] Registering 1570 cuda graph addresses
+[aiter] Registering 1570 cuda graph addresses
+[atom 12:42:10] Post-init memory: actual=239.11GB (83.0%), target=230.39GB (80%)
+[atom 12:42:10] Actual GPU memory usage (83.0%) exceeds target (80%) by 3.0%. Consider reducing gpu_memory_utilization.
+[atom 12:42:10] Post-init memory: actual=239.68GB (83.2%), target=230.39GB (80%)
+[atom 12:42:10] Post-init memory: actual=239.39GB (83.1%), target=230.39GB (80%)
+[atom 12:42:10] Actual GPU memory usage (83.1%) exceeds target (80%) by 3.1%. Consider reducing gpu_memory_utilization.
+[atom 12:42:10] Actual GPU memory usage (83.2%) exceeds target (80%) by 3.2%. Consider reducing gpu_memory_utilization.
+[atom 12:42:10] Post-init memory: actual=239.10GB (83.0%), target=230.39GB (80%)
+[atom 12:42:10] Actual GPU memory usage (83.0%) exceeds target (80%) by 3.0%. Consider reducing gpu_memory_utilization.
+[atom 12:42:10] Post-init memory: actual=239.19GB (83.1%), target=230.39GB (80%)
+[atom 12:42:10] Actual GPU memory usage (83.1%) exceeds target (80%) by 3.1%. Consider reducing gpu_memory_utilization.
+[atom 12:42:10] Post-init memory: actual=240.02GB (83.3%), target=230.39GB (80%)
+[atom 12:42:10] Actual GPU memory usage (83.3%) exceeds target (80%) by 3.3%. Consider reducing gpu_memory_utilization.
+[atom 12:42:10] Post-init memory: actual=239.66GB (83.2%), target=230.39GB (80%)
+[atom 12:42:10] Post-init memory: actual=238.00GB (82.6%), target=230.39GB (80%)
+[atom 12:42:10] Actual GPU memory usage (83.2%) exceeds target (80%) by 3.2%. Consider reducing gpu_memory_utilization.
+[atom 12:42:10] Engine Core: cudagraph capture[1, 2, 4, 8, 16, 32, 48, 64, 128, 256] cost: 4.77 seconds
+[atom 12:42:10] Actual GPU memory usage (82.6%) exceeds target (80%) by 2.6%. Consider reducing gpu_memory_utilization.
+[atom 12:42:10] Engine Core: load model runner success
+[atom 12:42:10] Engine Core: EngineCore fully initialized and ready
+[atom 12:42:10] Engine Core Mgr: DP rank 0 is fully initialized and ready
+[atom 12:42:10] Engine Core Mgr: All EngineCores are fully initialized and ready
+[atom 12:42:10] Engine Core Mgr: All 1 EngineCores initialized and ready
+[atom 12:42:10] LLMEngine init with 1 data parallel ranks
+[atom 12:42:10] Starting server on 0.0.0.0:19000...
+INFO:     Started server process [31]
+INFO:     Waiting for application startup.
+[atom 12:42:10] Server started successfully and ready to accept requests
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:19000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50284 - "GET /health HTTP/1.1" 200 OK
++ [[ -n '' ]]
++ python3 /workspace/utils/bench_serving/benchmark_serving.py --model zai-org/GLM-5-FP8 --backend vllm --base-url http://0.0.0.0:19000 --dataset-name random --random-input-len 1024 --random-output-len 1024 --random-range-ratio 0.8 --num-prompts 48 --max-concurrency 16 --request-rate inf --ignore-eos --save-result --num-warmups 32 --percentile-metrics ttft,tpot,itl,e2el --result-dir /workspace/ --result-filename glm5_1024x1024_fp8_atom_mi355x_tp8-ep1-dpafalse_disagg-false_spec-none_conc16_prompts3x_new.json --trust-remote-code
+Namespace(backend='vllm', base_url='http://0.0.0.0:19000', host='127.0.0.1', port=8000, endpoint='/v1/completions', dataset_name='random', dataset_path=None, max_concurrency=16, model='zai-org/GLM-5-FP8', tokenizer=None, best_of=1, use_beam_search=False, num_prompts=48, logprobs=None, request_rate=inf, burstiness=1.0, seed=0, trust_remote_code=True, disable_tqdm=False, profile=False, save_result=True, save_detailed=False, metadata=None, result_dir='/workspace/', result_filename='glm5_1024x1024_fp8_atom_mi355x_tp8-ep1-dpafalse_disagg-false_spec-none_conc16_prompts3x_new.json', ignore_eos=True, percentile_metrics='ttft,tpot,itl,e2el', metric_percentiles='90,99,99.9', goodput=None, sonnet_input_len=550, sonnet_output_len=150, sonnet_prefix_len=200, sharegpt_output_len=None, random_input_len=1024, random_output_len=1024, random_range_ratio=0.8, random_prefix_len=0, use_chat_template=False, random_num_workers=0, dsv4=False, hf_subset=None, hf_split=None, hf_output_len=None, tokenizer_mode='auto', served_model_name=None, lora_modules=None, num_warmups=32)
+Generating 48 prompts using 8 worker processes...
+  0%|          | 0/32 [00:00<?, ?it/s]Prompt generation completed in 1.7s
+-------------------  Input/Output Length Statistics  -------------------
+ input_lens : min=828   max=1021  mean=925.65   avg_token_mismatch=0.00  
+ output_lens: min=820   max=1023  mean=924.35  
+------------------------------------------------------------------------ 
+
+Starting initial single prompt test run...
+Warming up with 32 requests...
+  3%|▎         | 1/32 [00:20<10:29, 20.29s/it] 53%|█████▎    | 17/32 [00:40<00:30,  2.04s/it]100%|██████████| 32/32 [00:40<00:00,  1.25s/it]
+Warmup completed.
+Traffic request rate: inf
+Burstiness factor: 1.0 (Poisson process)
+Maximum request concurrency: 16
+  0%|          | 0/48 [00:00<?, ?it/s]  2%|▏         | 1/48 [00:17<13:59, 17.87s/it]  4%|▍         | 2/48 [00:18<05:46,  7.53s/it]  6%|▋         | 3/48 [00:18<03:07,  4.18s/it]  8%|▊         | 4/48 [00:18<01:53,  2.58s/it] 10%|█         | 5/48 [00:18<01:16,  1.79s/it] 12%|█▎        | 6/48 [00:19<00:58,  1.39s/it] 15%|█▍        | 7/48 [00:20<00:48,  1.19s/it] 17%|█▋        | 8/48 [00:20<00:37,  1.08it/s] 21%|██        | 10/48 [00:20<00:19,  1.91it/s] 25%|██▌       | 12/48 [00:21<00:15,  2.38it/s] 27%|██▋       | 13/48 [00:21<00:13,  2.52it/s] 31%|███▏      | 15/48 [00:22<00:11,  2.85it/s] 33%|███▎      | 16/48 [00:22<00:12,  2.63it/s] 35%|███▌      | 17/48 [00:37<01:56,  3.76s/it] 40%|███▉      | 19/48 [00:37<01:07,  2.32s/it] 42%|████▏     | 20/48 [00:38<00:56,  2.01s/it] 44%|████▍     | 21/48 [00:39<00:47,  1.77s/it] 46%|████▌     | 22/48 [00:39<00:35,  1.36s/it] 50%|█████     | 24/48 [00:40<00:20,  1.19it/s] 52%|█████▏    | 25/48 [00:40<00:15,  1.45it/s] 54%|█████▍    | 26/48 [00:41<00:15,  1.39it/s] 56%|█████▋    | 27/48 [00:41<00:13,  1.60it/s] 58%|█████▊    | 28/48 [00:42<00:12,  1.54it/s] 60%|██████    | 29/48 [00:42<00:09,  1.95it/s] 62%|██████▎   | 30/48 [00:42<00:09,  1.89it/s] 65%|██████▍   | 31/48 [00:43<00:07,  2.43it/s] 67%|██████▋   | 32/48 [00:43<00:08,  1.80it/s] 69%|██████▉   | 33/48 [00:57<01:07,  4.49s/it] 73%|███████▎  | 35/48 [00:58<00:33,  2.54s/it] 75%|███████▌  | 36/48 [00:58<00:23,  1.99s/it] 77%|███████▋  | 37/48 [00:59<00:17,  1.63s/it] 79%|███████▉  | 38/48 [00:59<00:13,  1.32s/it] 81%|████████▏ | 39/48 [01:00<00:09,  1.10s/it] 83%|████████▎ | 40/48 [01:00<00:06,  1.22it/s] 85%|████████▌ | 41/48 [01:00<00:04,  1.52it/s] 88%|████████▊ | 42/48 [01:00<00:03,  1.92it/s] 90%|████████▉ | 43/48 [01:01<00:02,  1.94it/s] 92%|█████████▏| 44/48 [01:02<00:02,  1.62it/s] 94%|█████████▍| 45/48 [01:02<00:01,  1.64it/s] 96%|█████████▌| 46/48 [01:02<00:00,  2.15it/s] 98%|█████████▊| 47/48 [01:03<00:00,  2.01it/s]100%|██████████| 48/48 [01:04<00:00,  1.32it/s]100%|██████████| 48/48 [01:04<00:00,  1.35s/it]
+Starting main benchmark run...
+============ Serving Benchmark Result ============
+Successful requests:                     48        
+Benchmark duration (s):                  64.81     
+Total input tokens:                      44431     
+Total generated tokens:                  44369     
+Request throughput (req/s):              0.74      
+Output token throughput (tok/s):         684.57    
+Total Token throughput (tok/s):          1370.10   
+---------------Time to First Token----------------
+Mean TTFT (ms):                          221.58    
+Median TTFT (ms):                        135.99    
+P90 TTFT (ms):                           484.62    
+P99 TTFT (ms):                           486.26    
+P99.9 TTFT (ms):                         486.84    
+-----Time per Output Token (excl. 1st token)------
+Mean TPOT (ms):                          21.66     
+Median TPOT (ms):                        21.72     
+P90 TPOT (ms):                           22.32     
+P99 TPOT (ms):                           22.57     
+P99.9 TPOT (ms):                         22.57     
+---------------Inter-token Latency----------------
+Mean ITL (ms):                           21.64     
+Median ITL (ms):                         21.03     
+P90 ITL (ms):                            21.34     
+P99 ITL (ms):                            73.61     
+P99.9 ITL (ms):                          102.31    
+----------------End-to-end Latency----------------
+Mean E2EL (ms):                          20224.56  
+Median E2EL (ms):                        20388.71  
+P90 E2EL (ms):                           21961.74  
+P99 E2EL (ms):                           22720.12  
+P99.9 E2EL (ms):                         22746.88  
+==================================================
++ local benchmark_exit_code=0
++ set +x
+[GPU Monitor] Stopped (PID=13)
+[GPU Monitor] Collected 2384 rows -> /workspace/gpu_metrics.csv
