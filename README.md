@@ -2,18 +2,19 @@
 
 MI355X inference speedups from old→new image/runtime upgrades, reproduced locally. Each number is the geometric mean of per-config old→new `tok/s/GPU` gains across a concurrency sweep (per-GPU normalized, so TP1/TP4/TP8 are comparable).
 
-| Model | Prec / Framework | New image | Old image | Speedup (geomean) | Breakdowns |
-| --- | --- | --- | --- | ---: | --- |
-| GLM-5 | FP8 / SGLang→ATOM | `rocm/atom:...atom0.1.2.post` (ROCm 7.2.2) | `rocm/sgl-dev:v0.5.8.post1-rocm700` (ROCm 7.0) | **3.52x** | 7 configs `3.28–4.06x`; ATOM engine vs SGLang baseline |
-| Kimi-K2.5 | FP4 / vLLM | `vllm/vllm-openai-rocm:v0.22.0` | `vllm/vllm-openai-rocm:v0.16.0` | **3.71x** | high-conc `8k1k` c64/128/256 |
-| DeepSeek-R1-0528 | FP4 / SGLang | `lmsysorg/sglang-rocm:v0.5.13-rocm720` + HEAD ckpt | `...v0.5.2-rocm7.0` + `6c94c74` ckpt | **2.55x** | `8k1k` c32/64/128; latest-vs-earliest ckpt |
+| Model | Prec / Framework | ROCm (old → new) | Speedup (geomean) |
+| --- | --- | --- | ---: |
+| GLM-5 | FP8 / SGLang→ATOM | 7.0.0 → 7.2.2 | **3.52x** |
+| Kimi-K2.5 | FP4 / vLLM | 7.0.0 → 7.2.2 | **3.71x** |
+| DeepSeek-R1-0528 | FP4 / SGLang | 7.0.0 → 7.2.0 | **2.55x** |
 
 ## Key Optimizations
 
-- **AITER optimized kernels**: fused & tuned GPU kernels — AITER MHC (hash-correction) pre/post, fused hash-topk, fused compress. Dominant lever for Kimi and DeepSeek-V4-Pro.
-- **MoE / Attention backend upgrades**: FlyDSL MoE, unified-KV / NSA attention backends replace generic paths with MI355X-tuned ones.
-- **ATOM inference engine**: AMD's optimized engine (vs SGLang) is the headline lever for GLM-5.
-- **Parallelism & scheduling tuning**: expert parallelism (EP), DP-attention, two-batch overlap (TBO), and CONC-driven graph/serving/KV-pool sizing to keep all GPUs busy at high concurrency.
+| # | Optimization | What it does |
+|---|---|---|
+| 1 | AITER optimized kernels | Fused & optimized GPU kernels for inference (MHC, fused hash-topk, fused compress) |
+| 2 | MoE/Attention backend upgrades | FlyDSL MoE + Unified KV attention backends optimizations |
+| 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO) |
 
 ## How to Reproduce
 
