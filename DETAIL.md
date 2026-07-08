@@ -39,13 +39,13 @@ The old->new gains come from image/runtime upgrades shipped across many PRs in t
 
 | # | Optimization | What it does |
 |---|---|---|
-| 1 | AITER optimized kernels | Fused & optimized GPU kernels for inference (fused MoE 2-stage grouped GEMM, FP8/FP4 quant + hipBLASLt GEMM, INT4 quick-reduce all-reduce, fused RoPE / RMSNorm) |
+| 1 | AITER optimized kernels | Fused & optimized GPU kernels for inference (FP8/FP4 quant + hipBLASLt GEMM, fused custom reduce kernels, fused RoPE / RMSNorm) |
 | 2 | MoE/Attention backend upgrades | FlyDSL MoE + Unified KV attention backends optimizations |
 | 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO) |
 
 Details:
 
-1. **AITER optimized kernels.** Fused & optimized GPU kernels for inference — fused MoE 2-stage grouped GEMM, FP8/FP4 dynamic-quant + hipBLASLt GEMM, INT4 quick-reduce all-reduce, and fused RoPE / RMSNorm. Dominant lever for Kimi (the v0.16->v0.18 jump in PR #936) and applies across all three MoE models.
+1. **AITER optimized kernels.** Fused & optimized GPU kernels for inference — FP8/FP4 dynamic-quant + hipBLASLt GEMM, fused custom reduce kernels, and fused RoPE / RMSNorm. Dominant lever for Kimi (the v0.16->v0.18 jump in PR #936) and applies across all three MoE models.
 
 2. **MoE/Attention backend upgrades.** FlyDSL MoE and NSA kernels (GLM-5 PR #762) replace the generic MoE/Attention paths with hardware-tuned ones on MI355X.
 

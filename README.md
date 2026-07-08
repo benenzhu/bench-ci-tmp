@@ -12,7 +12,7 @@ MI355X inference speedups after upgrading the ROCm (7.0 → 7.2) & image version
 
 | # | Optimization | What it does |
 |---|---|---|
-| 1 | AITER optimized kernels | Fused & optimized GPU kernels for inference (fused MoE 2-stage grouped GEMM, FP8/FP4 quant + hipBLASLt GEMM, INT4 quick-reduce all-reduce, fused RoPE / RMSNorm) |
+| 1 | AITER optimized kernels | Fused & optimized GPU kernels for inference (FP8/FP4 quant + hipBLASLt GEMM, fused custom reduce kernels, fused RoPE / RMSNorm) |
 | 2 | MoE/Attention backend upgrades | FlyDSL MoE + Unified KV attention backends optimizations |
 | 3 | Parallelism & scheduling tuning | Expert parallelism (EP), DP-attention, and two-batch overlap (TBO) |
 
