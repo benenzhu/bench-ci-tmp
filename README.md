@@ -1,6 +1,6 @@
 # Summary
 
-MI355X inference speedups from old→new image/runtime upgrades, reproduced locally. Each number is the geometric mean of per-config old→new `tok/s/GPU` gains across a concurrency sweep (per-GPU normalized, so TP1/TP4/TP8 are comparable).
+MI355X inference speedups after upgrading the ROCm (7.0 → 7.2) & image version. Each number is the geomean of per-config `tok/s/GPU` speedups at matched concurrency.
 
 | Model | Prec / Framework | ROCm (old → new) | Speedup (geomean) |
 | --- | --- | --- | ---: |
