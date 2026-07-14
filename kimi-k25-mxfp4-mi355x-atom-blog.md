@@ -66,8 +66,6 @@ ATOM, like vLLM, must decide when to admit new prefills into a busy decode loop.
 
 `--scheduler-delay-factor 1` delays prefill admission by one previous-prompt-latency unit, letting the scheduler accumulate prefills and co-schedule them instead of dribbling them into the decode stream. On the fixed-sequence-length InferenceX workloads this smooths the concurrency-64/128 operating points — [FILL: X% throughput at conc 128, X% p99 TPOT improvement] — at negligible TTFT cost.
 
-Operationally, `ATOM_DISABLE_MMAP=true` is also set in the new configuration: loading the ~[FILL: 5xx] GB checkpoint through direct reads rather than mmap-backed paging cuts model-load time [FILL: from X to Y minutes], which matters for benchmark automation and elastic production deployments alike, though it does not affect steady-state performance.
-
 ## Performance Results
 
 We benchmark with InferenceX's single-node fixed-sequence-length harness on two standard workloads — 1k/1k (ISL 1024 / OSL 1024) and 8k/1k (ISL 8192 / OSL 1024) — sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
