@@ -28,7 +28,7 @@ Kimi K2.5 inherits the DeepSeek-style recipe — MLA attention plus a wide, spar
 1. **It is memory-bound at the weights.** Even though only ~32B parameters activate per token, the full 1T parameters must be resident. At 4 bits per weight this is roughly [FILL: ~5xx] GB plus scales and metadata. On MI355X (288 GB HBM3E, 8 TB/s per GPU), TP=4 holds the model with headroom for large KV caches; competing 192 GB-class GPUs need TP=8 for the same model, spending twice the GPUs per replica.
 2. **It is communication-sensitive.** With tensor-parallel MoE, every layer ends in an all-reduce. At interactive batch sizes these collectives sit on the critical path of each decode step, so shrinking or hiding them translates directly into tok/s/user.
 
-ATOM ([ROCm/atom](https://github.com/ROCm/atom)) is AMD's lightweight, PyTorch-native LLM inference engine, and AITER ([ROCm/aiter](https://github.com/ROCm/aiter)) supplies its hand-tuned kernels. The work described here landed in ATOM 0.1.4 and the AITER kernels shipped in the `rocm/atom:rocm7.2.4_..._atom0.1.4` image, and was validated end-to-end through InferenceX's continuous benchmarking.
+ATOM ([ROCm/atom](https://github.com/ROCm/atom)) is AMD's lightweight, PyTorch-native LLM inference engine, and AITER ([ROCm/aiter](https://github.com/ROCm/aiter)) supplies its hand-tuned kernels.
 
 ## Key Optimizations
 
