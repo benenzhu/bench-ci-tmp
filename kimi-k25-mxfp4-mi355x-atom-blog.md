@@ -1,6 +1,6 @@
 # Serving Kimi K2.5 in MXFP4 on AMD Instinct™ MI355X GPUs with ATOM
 
-**Authors:** [FILL: author list — e.g. benenzhu, RadeonFlow Team, AMD contributors]
+**Authors:** [@fty, @colorwinds, @jpy, @benenzhu, @felix(++), @lingpeng(++), @xun, @daniel, @George, @Sunpeng, @guru]
 **Date:** [FILL: publication date]
 **Tags:** AI/ML, LLM, Inference, Optimization, Performance
 
