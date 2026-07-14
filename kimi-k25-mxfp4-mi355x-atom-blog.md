@@ -12,14 +12,13 @@ Trillion-parameter Mixture-of-Experts (MoE) models are no longer research curios
 
 In a [previous post](https://rocm.blogs.amd.com/software-tools-optimization/atom-optimiztion/README.html) we showed how ATOM, AMD's open inference engine, uses DP Attention scheduling and Two-Batch Overlap to deliver strong DeepSeek-V4 performance on AMD Instinct™ MI355X GPUs. In this post we turn to Kimi K2.5 — one of the most widely deployed open-weight models today, and the same backbone that powers Cursor's Composer 2 coding model [FILL: link/citation for the Composer 2 claim]. That popularity makes its serving efficiency a question with immediate practical stakes for anyone running it at scale. As with DeepSeek-V4, we serve it end-to-end in **MXFP4**: the MI355X's CDNA™ 4 architecture natively supports the OCP microscaling MXFP4 data type, and with the latest ATOM release and AITER (AI Tensor Engine for ROCm) kernels, the entire MoE path — activations and weights — runs in 4-bit.
 
-All results below are produced with [InferenceX](https://github.com/SemiAnalysisAI/InferenceX), SemiAnalysis's open, continuously-run inference benchmark, and are reproducible from the public configuration merged in [InferenceX PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132). Every submission passes the same accuracy gate, and the InferenceX compliance checklist forbids model-architecture changes, engine patching, or evaluation shortcuts — what is benchmarked is what you can `docker pull` today.
+All results below are produced with [InferenceX](https://github.com/SemiAnalysisAI/InferenceX), SemiAnalysis's open, continuously-run inference benchmark, and are reproducible from the public configuration merged in [InferenceX PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132). Every submission must pass the InferenceX compliance checklist — no model-architecture changes, no engine patching, no evaluation shortcuts — so what is benchmarked is what you can `docker pull` today.
 
 ## At a Glance
 
 - Kimi K2.5 (1T-parameter MoE) served in MXFP4 on a **single MI355X node at TP=4** — the 4-bit weights (~[FILL: ~5xx] GB) fit comfortably in 4 × 288 GB of HBM3E, leaving ample room for KV cache; one 8-GPU node hosts two independent TP4 replicas.
 - Peak throughput of **[FILL: X,XXX] tok/s/GPU** on the 8k/1k workload and **[FILL: X,XXX] tok/s/GPU** on 1k/1k, versus the published single-node NVIDIA B200 (vLLM, NVFP4) figure of ~4,021 tok/s/GPU on 8k/1k — [FILL: ratio / positioning statement].
 - A fully 4-bit MoE path: AITER MXFP4 (A4W4) fused MoE kernels for gfx950, MXFP4 intermediate activations, and INT4-compressed all-reduce via Quick Reduce.
-- Accuracy preserved: GSM8K exact-match (strict) of **97.19%** at concurrency 64 and **97.27%** at concurrency 128, matching the FP8/BF16 reference within noise.
 - Everything ships in the public `rocm/atom` Docker image — no private branches, no patches.
 
 ## Background: Kimi K2.5 Meets MI355X
@@ -41,7 +40,7 @@ The heart of Kimi K2.5 inference is the grouped GEMM inside the MoE block. Earli
 
 Two backends are provided because MoE GEMMs live in two regimes. At decode-time batch sizes the kernel is launched over many small expert problems and is bound by scheduling and memory; at prefill it approaches dense GEMM behavior. The dispatcher picks per-shape, so both ends of the Pareto curve benefit.
 
-Setting `AITER_MXFP4_INTERMEDIATE=1` extends 4-bit to the **intermediate activations between the up- and down-projection** of each expert. The gate/up output is quantized to MXFP4 on the fly (fused into the activation kernel, so no extra pass over memory) before the down-projection consumes it. This cuts the intermediate tensor traffic — the largest activation in the model, `topk × tokens × 2 × moe_intermediate_dim` — by [FILL: 2×/4× vs previous format], which matters most at high concurrency where prefill and decode share bandwidth. GSM8K showed no measurable degradation from this step (see Accuracy below).
+Setting `AITER_MXFP4_INTERMEDIATE=1` extends 4-bit to the **intermediate activations between the up- and down-projection** of each expert. The gate/up output is quantized to MXFP4 on the fly (fused into the activation kernel, so no extra pass over memory) before the down-projection consumes it. This cuts the intermediate tensor traffic — the largest activation in the model, `topk × tokens × 2 × moe_intermediate_dim` — by [FILL: 2×/4× vs previous format], which matters most at high concurrency where prefill and decode share bandwidth.
 
 ### 2. INT4-compressed all-reduce with Quick Reduce
 
@@ -51,7 +50,7 @@ With TP=4, every transformer layer performs an all-reduce over the residual-stre
 AITER_QUICK_REDUCE_QUANTIZATION=INT4
 ```
 
-quantizes the payload to INT4 (with per-block scales) before it crosses the link and dequantizes on arrival — a ~4× reduction in bytes moved versus FP16. Because the all-reduce operates on the pre-normalization residual contribution, and each layer immediately renormalizes, the numerical impact is small; the accuracy gate confirms it. The wall-clock effect is largest exactly where users feel it: small-batch decode, where the collective is latency- rather than bandwidth-bound and every microsecond is visible in tok/s/user. On the 8k/1k workload this contributed [FILL: X% at conc 4 / X% at conc 64] end-to-end.
+quantizes the payload to INT4 (with per-block scales) before it crosses the link and dequantizes on arrival — a ~4× reduction in bytes moved versus FP16. Because the all-reduce operates on the pre-normalization residual contribution, and each layer immediately renormalizes, the numerical impact is small. The wall-clock effect is largest exactly where users feel it: small-batch decode, where the collective is latency- rather than bandwidth-bound and every microsecond is visible in tok/s/user. On the 8k/1k workload this contributed [FILL: X% at conc 4 / X% at conc 64] end-to-end.
 
 ### 3. Single-stage fused all-reduce at production batch sizes
 
@@ -95,17 +94,6 @@ Beyond the peak number, the shape of the frontier is the story: the communicatio
 
 Note also what the comparison does *not* include: rack-scale disaggregated serving (e.g. wide-EP on NVL72-class systems) is a different deployment class with its own InferenceX category; here we compare single-node, buy-it-today configurations.
 
-## Accuracy Validation
-
-Every InferenceX submission must pass its accuracy gate at the measured operating points, with the model architecture untouched and the engine unpatched. With the full 4-bit path enabled — MXFP4 weights, MXFP4 intermediate activations, and INT4-compressed all-reduce — `amd/Kimi-K2.5-MXFP4` scores:
-
-| Concurrency | GSM8K exact-match (strict) |
-|---|---|
-| 64 | **97.19%** |
-| 128 | **97.27%** |
-
-This matches the reference within run-to-run noise ([FILL: reference number/format, e.g. FP8 baseline 97.2x%]), confirming that each of the low-precision steps above stays inside the model's numerical tolerance.
-
 ## How to Reproduce
 
 Everything runs from the public image and the open InferenceX harness.
@@ -141,15 +129,15 @@ Both the 1k/1k and 8k/1k workloads run at concurrencies {4, …, 128}; results l
 
 Part of this work has an unusual origin story: a public competition. Earlier this year, AMD and GPU MODE ran the [E2E Model Speedrun](https://luma.com/cqq4mojz) — a $1.1M challenge on MI355X GPUs whose qualifier round targeted exactly the kernels that dominate this workload (MXFP4 MoE, MLA decode, MXFP4 GEMM), and whose finals asked for end-to-end inference optimization, with Kimi K2.5 1T FP4 as one of the two tracks.
 
-The RadeonFlow team competed in the Speedrun, and after the competition contributed their work upstream: their MXFP4 (A4W4) MoE backend ([aiter #3832](https://github.com/ROCm/aiter/pull/3832)) now ships in the same public `rocm/atom` image benchmarked in this post, side by side with AMD's own kernels, picked by the dispatcher whenever it wins on a given shape. Competition code becoming production code within weeks is exactly the loop this stack is designed for: the kernels live in open repositories, the serving engine is open, and an open, continuously-run benchmark decides — publicly and with accuracy gates — what is actually faster.
+The RadeonFlow team competed in the Speedrun, and after the competition contributed their work upstream: their MXFP4 (A4W4) MoE backend ([aiter #3832](https://github.com/ROCm/aiter/pull/3832)) now ships in the same public `rocm/atom` image benchmarked in this post, side by side with AMD's own kernels, picked by the dispatcher whenever it wins on a given shape. Competition code becoming production code within weeks is exactly the loop this stack is designed for: the kernels live in open repositories, the serving engine is open, and an open, continuously-run benchmark decides publicly what is actually faster.
 
 That loop is open to everyone. If you have a faster kernel, a better scheduling heuristic, or a sharper configuration, the path the RadeonFlow team took is available to you too: send a PR to [AITER](https://github.com/ROCm/aiter) or [ATOM](https://github.com/ROCm/atom), and let [InferenceX](https://github.com/SemiAnalysisAI/InferenceX) measure it in the open. We want the ROCm software stack — from kernels to serving engine to benchmark harness, fully open source — to be iterated by the community that runs on it, and results like the ones in this post are what that iteration looks like.
 
 ## Summary
 
-Kimi K2.5 on MI355X is now a fully 4-bit serving stack: MXFP4 weights *and* activations through the MoE, 4-bit compressed collectives between GPUs, running at TP=4 on a single node with accuracy held at the FP8 reference level. The individual ingredients — A4W4 fused MoE kernels, Quick Reduce, collective-strategy gating fixes, a faster router, and calmer prefill scheduling — are each modest; compounded, they move the MI355X Kimi K2.5 frontier to **[FILL: headline claim vs. B200]**.
+Kimi K2.5 on MI355X is now a fully 4-bit serving stack: MXFP4 weights *and* activations through the MoE, 4-bit compressed collectives between GPUs, running at TP=4 on a single node. The individual ingredients — A4W4 fused MoE kernels, Quick Reduce, collective-strategy gating fixes, a faster router, and calmer prefill scheduling — are each modest; compounded, they move the MI355X Kimi K2.5 frontier to **[FILL: headline claim vs. B200]**.
 
-Just as importantly, the pace is visible in public: every step above corresponds to an upstream PR in [ROCm/aiter](https://github.com/ROCm/aiter) or a configuration change in [InferenceX](https://github.com/SemiAnalysisAI/InferenceX), landed, gated on accuracy, and re-measured continuously. More is coming — [FILL: teaser: e.g. TBO for K2.5, wide-EP multi-node, MTP/speculative decoding] — on the same silicon.
+Just as importantly, the pace is visible in public: every step above corresponds to an upstream PR in [ROCm/aiter](https://github.com/ROCm/aiter) or a configuration change in [InferenceX](https://github.com/SemiAnalysisAI/InferenceX), landed and re-measured continuously. And more is coming on the same silicon: Two-Batch Overlap and DP Attention for Kimi K2.5 — the scheduling techniques we introduced for DeepSeek-V4 — and **ATOMmesh**, ATOM's distributed serving layer with prefill/decode disaggregation for multi-node deployments.
 
 ## Additional Resources
 
