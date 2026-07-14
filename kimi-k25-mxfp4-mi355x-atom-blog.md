@@ -137,6 +137,14 @@ atom serve amd/Kimi-K2.5-MXFP4 \
 
 Both the 1k/1k and 8k/1k workloads run at concurrencies {4, …, 128}; results land in the standard InferenceX output format and are directly comparable with the public dashboard at [inferencex.semianalysis.com](https://inferencex.semianalysis.com/).
 
+## From a Speedrun to Upstream: Community-Built Performance
+
+Part of this work has an unusual origin story: a public competition. Earlier this year, AMD and GPU MODE ran the [E2E Model Speedrun](https://luma.com/cqq4mojz) — a $1.1M challenge on MI355X GPUs whose qualifier round targeted exactly the kernels that dominate this workload (MXFP4 MoE, MLA decode, MXFP4 GEMM), and whose finals asked for end-to-end inference optimization, with Kimi K2.5 1T FP4 as one of the two tracks.
+
+The RadeonFlow team competed in the Speedrun, and after the competition contributed their work upstream: their MXFP4 (A4W4) MoE backend ([aiter #3832](https://github.com/ROCm/aiter/pull/3832)) now ships in the same public `rocm/atom` image benchmarked in this post, side by side with AMD's own kernels, picked by the dispatcher whenever it wins on a given shape. Competition code becoming production code within weeks is exactly the loop this stack is designed for: the kernels live in open repositories, the serving engine is open, and an open, continuously-run benchmark decides — publicly and with accuracy gates — what is actually faster.
+
+That loop is open to everyone. If you have a faster kernel, a better scheduling heuristic, or a sharper configuration, the path the RadeonFlow team took is available to you too: send a PR to [AITER](https://github.com/ROCm/aiter) or [ATOM](https://github.com/ROCm/atom), and let [InferenceX](https://github.com/SemiAnalysisAI/InferenceX) measure it in the open. We want the ROCm software stack — from kernels to serving engine to benchmark harness, fully open source — to be iterated by the community that runs on it, and results like the ones in this post are what that iteration looks like.
+
 ## Summary
 
 Kimi K2.5 on MI355X is now a fully 4-bit serving stack: MXFP4 weights *and* activations through the MoE, 4-bit compressed collectives between GPUs, running at TP=4 on a single node with accuracy held at the FP8 reference level. The individual ingredients — A4W4 fused MoE kernels, Quick Reduce, collective-strategy gating fixes, a faster router, and calmer prefill scheduling — are each modest; compounded, they move the MI355X Kimi K2.5 frontier to **[FILL: headline claim vs. B200]**.
