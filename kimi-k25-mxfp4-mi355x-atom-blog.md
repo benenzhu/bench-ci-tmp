@@ -74,34 +74,7 @@ Note also what the comparison does *not* include: rack-scale disaggregated servi
 
 ## How to Reproduce
 
-Everything runs from the public image and the open InferenceX harness.
-
-```bash
-# 1. Pull the ATOM release image
-docker pull rocm/atom:rocm7.2.4_ubuntu24.04_py3.12_pytorch_release_2.10.0_atom0.1.4_202607091539
-
-# 2. Get the benchmark harness
-git clone https://github.com/SemiAnalysisAI/InferenceX.git
-cd InferenceX
-
-# 3. Run the Kimi K2.5 MXFP4 benchmark (TP4, concurrency sweep 4–128)
-bash benchmarks/single_node/fixed_seq_len/kimik2.5_fp4_mi355x_atom.sh
-```
-
-The key server-side settings, as merged in [PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132):
-
-```bash
-export ATOM_DISABLE_MMAP=true              # faster model load
-export AITER_QUICK_REDUCE_QUANTIZATION=INT4  # INT4-compressed TP all-reduce
-export AITER_MXFP4_INTERMEDIATE=1          # MXFP4 intermediate MoE activations
-
-atom serve amd/Kimi-K2.5-MXFP4 \
-  --tensor-parallel-size 4 \
-  --scheduler-delay-factor 1 \
-  [FILL: remaining serve flags from the script]
-```
-
-Both the 1k/1k and 8k/1k workloads run at concurrencies {4, …, 128}; results land in the standard InferenceX output format and are directly comparable with the public dashboard at [inferencex.semianalysis.com](https://inferencex.semianalysis.com/).
+To serve Kimi K2.5 with ATOM on MI355X, follow the official recipe: [ATOM Kimi-K2 recipe — Launching Server](https://github.com/ROCm/ATOM/blob/main/recipes/Kimi-K2.md#launching-server). The exact benchmark configuration behind the results in this post is the InferenceX submission merged in [PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132), and its results are directly comparable with the public dashboard at [inferencex.semianalysis.com](https://inferencex.semianalysis.com/).
 
 ## From a Speedrun to Upstream: Community-Built Performance
 
