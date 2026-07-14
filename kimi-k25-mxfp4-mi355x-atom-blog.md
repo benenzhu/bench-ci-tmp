@@ -18,7 +18,7 @@ All results below are produced with [InferenceX](https://github.com/SemiAnalysis
 
 - Kimi K2.5 (1T-parameter MoE) served in MXFP4 on a **single MI355X node at TP=4** — the 4-bit weights (~[FILL: ~5xx] GB) fit comfortably in 4 × 288 GB of HBM3E, leaving ample room for KV cache; one 8-GPU node hosts two independent TP4 replicas.
 - Peak throughput of **[FILL: X,XXX] tok/s/GPU** on the 8k/1k workload and **[FILL: X,XXX] tok/s/GPU** on 1k/1k, versus the published single-node NVIDIA B200 (vLLM, NVFP4) figure of ~4,021 tok/s/GPU on 8k/1k — [FILL: ratio / positioning statement].
-- A fully 4-bit MoE path: AITER MXFP4 (A4W4) fused MoE kernels for gfx950, MXFP4 intermediate activations, and INT4-compressed all-reduce via Quick Reduce.
+- A fully 4-bit MoE path: AITER MXFP4 (A4W4) fused MoE kernels for gfx950 with MXFP4 intermediate activations.
 - Everything ships in the public `rocm/atom` Docker image — no private branches, no patches.
 
 ## Background: Kimi K2.5 Meets MI355X
@@ -32,7 +32,7 @@ ATOM ([ROCm/atom](https://github.com/ROCm/atom)) is AMD's lightweight, PyTorch-n
 
 ## Key Optimizations
 
-The gains come from five threads of work, each visible as an upstream PR. We describe them in the order a token experiences them.
+The gains come from four threads of work, each visible as an upstream PR. We describe them in the order a token experiences them.
 
 ### 1. MXFP4 (A4W4) fused MoE kernels for gfx950
 
@@ -42,25 +42,15 @@ Two backends are provided because MoE GEMMs live in two regimes. At decode-time 
 
 Setting `AITER_MXFP4_INTERMEDIATE=1` extends 4-bit to the **intermediate activations between the up- and down-projection** of each expert. The gate/up output is quantized to MXFP4 on the fly (fused into the activation kernel, so no extra pass over memory) before the down-projection consumes it. This cuts the intermediate tensor traffic — the largest activation in the model, `topk × tokens × 2 × moe_intermediate_dim` — by [FILL: 2×/4× vs previous format], which matters most at high concurrency where prefill and decode share bandwidth.
 
-### 2. INT4-compressed all-reduce with Quick Reduce
+### 2. Single-stage fused all-reduce at production batch sizes
 
-With TP=4, every transformer layer performs an all-reduce over the residual-stream tensor. AITER's **Quick Reduce** implements the collective directly over XGMI links with optional on-the-wire compression. Setting
+With TP=4, every transformer layer ends in an all-reduce over the residual-stream tensor, and at interactive batch sizes these collectives sit on the critical path of every decode step. AITER's **Quick Reduce**, the fused all-reduce ATOM uses over XGMI links, has two internal strategies: a **one-stage** algorithm (each rank pulls and reduces peers' buffers directly — lowest latency, more redundant traffic) and a **two-stage** reduce-scatter + all-gather (less traffic, more synchronization). The crossover had been tuned for small messages, so the batch sizes that matter for serving — concurrency 32–64 — silently fell onto the slower two-stage path. [aiter #3458](https://github.com/ROCm/aiter/pull/3458) raises the one-stage limit to cover concurrency 64, and [aiter #3880](https://github.com/ROCm/aiter/pull/3880) fixes the gating condition so the decision is made on actual message bytes ([FILL: exact condition]). This is a two-line class of fix that is invisible in kernel microbenchmarks and worth [FILL: X%] in end-to-end throughput — precisely the kind of regression a continuous benchmark like InferenceX exists to catch.
 
-```bash
-AITER_QUICK_REDUCE_QUANTIZATION=INT4
-```
-
-quantizes the payload to INT4 (with per-block scales) before it crosses the link and dequantizes on arrival — a ~4× reduction in bytes moved versus FP16. Because the all-reduce operates on the pre-normalization residual contribution, and each layer immediately renormalizes, the numerical impact is small. The wall-clock effect is largest exactly where users feel it: small-batch decode, where the collective is latency- rather than bandwidth-bound and every microsecond is visible in tok/s/user. On the 8k/1k workload this contributed [FILL: X% at conc 4 / X% at conc 64] end-to-end.
-
-### 3. Single-stage fused all-reduce at production batch sizes
-
-Quick Reduce has two internal strategies: a **one-stage** algorithm (each rank pulls and reduces peers' buffers directly — lowest latency, more redundant traffic) and a **two-stage** reduce-scatter + all-gather (less traffic, more synchronization). The crossover had been tuned for small messages, so the batch sizes that matter for serving — concurrency 32–64 — silently fell onto the slower two-stage path. [aiter #3458](https://github.com/ROCm/aiter/pull/3458) raises the one-stage limit to cover concurrency 64, and [aiter #3880](https://github.com/ROCm/aiter/pull/3880) fixes the gating condition so the decision is made on actual message bytes ([FILL: exact condition]). This is a two-line class of fix that is invisible in kernel microbenchmarks and worth [FILL: X%] in end-to-end throughput — precisely the kind of regression a continuous benchmark like InferenceX exists to catch.
-
-### 4. Faster expert routing: the TopK kernel
+### 3. Faster expert routing: the TopK kernel
 
 Routing every token to 8 of 384 experts sounds negligible next to the GEMMs, but at decode batch sizes the router runs once per layer per step, and Kimi K2.5 has [FILL: N] MoE layers. The original top-k selection launched [FILL: multiple kernels / used a generic sort]; [aiter #3466](https://github.com/ROCm/aiter/pull/3466) replaces it with a fused single-kernel reduction specialized for K2.5's expert count and group-routing scheme, cutting router time by [FILL: X×]. Together with the MoE-metadata parallelization work for MLA models that landed alongside it, the non-GEMM overhead per decode step dropped from [FILL: X µs to Y µs].
 
-### 5. Scheduling: `--scheduler-delay-factor 1`
+### 4. Scheduling: `--scheduler-delay-factor 1`
 
 ATOM, like vLLM, must decide when to admit new prefills into a busy decode loop. Admitting them greedily maximizes time-to-first-token at low load but causes **decode stalls** at high concurrency: a long prefill lands in the middle of a decode stream and every in-flight user sees a latency spike; worse, decode batches fragment and per-step efficiency drops.
 
@@ -76,9 +66,9 @@ We benchmark with InferenceX's single-node fixed-sequence-length harness on two 
 
 On the 8k/1k workload, MI355X with ATOM reaches **[FILL: X,XXX] tok/s/GPU** at concurrency 128 while sustaining **[FILL: XX] tok/s/user**, and **[FILL: XX] tok/s/user** at concurrency 4 on the interactive end. For reference, the published single-node B200 result on this workload (vLLM, NVFP4, TP[FILL]) is **~4,021 tok/s/GPU** ([InferenceX](https://inferencex.semianalysis.com/)); the best previously published MI355X number on the vLLM path was 2,687 tok/s/GPU. [FILL: one-sentence positioning — e.g. "The ATOM MXFP4 stack closes/reverses this gap, reaching XX% of / exceeding B200 single-node throughput while offering YY% more HBM per GPU."]
 
-**Figure 3: [FILL: optimization waterfall — baseline ATOM 0.1.3 → +A4W4 MoE → +MXFP4 intermediate → +Quick Reduce INT4 → +AR 1-stage fix → +TopK → +scheduler, at conc 64, 8k/1k]**
+**Figure 3: [FILL: optimization waterfall — baseline ATOM 0.1.3 → +A4W4 MoE → +MXFP4 intermediate → +AR 1-stage fix → +TopK → +scheduler, at conc 64, 8k/1k]**
 
-Beyond the peak number, the shape of the frontier is the story: the communication work (optimizations #2–3) lifts the low-concurrency, interactivity-critical end, while the A4W4 MoE kernels and scheduler change lift the high-concurrency end. [FILL: 1–2 sentences on where the biggest deltas landed vs. the previous ATOM image, e.g. "Relative to the previous atom0.1.3 image, the new stack is X% faster at conc 4 and Y% faster at conc 128."]
+Beyond the peak number, the shape of the frontier is the story: the collective-strategy work (optimization #2) lifts the low-concurrency, interactivity-critical end, while the A4W4 MoE kernels and scheduler change lift the high-concurrency end. [FILL: 1–2 sentences on where the biggest deltas landed vs. the previous ATOM image, e.g. "Relative to the previous atom0.1.3 image, the new stack is X% faster at conc 4 and Y% faster at conc 128."]
 
 Note also what the comparison does *not* include: rack-scale disaggregated serving (e.g. wide-EP on NVL72-class systems) is a different deployment class with its own InferenceX category; here we compare single-node, buy-it-today configurations.
 
@@ -123,7 +113,7 @@ That loop is open to everyone. If you have a faster kernel, a better scheduling 
 
 ## Summary
 
-Kimi K2.5 on MI355X is now a fully 4-bit serving stack: MXFP4 weights *and* activations through the MoE, 4-bit compressed collectives between GPUs, running at TP=4 on a single node. The individual ingredients — A4W4 fused MoE kernels, Quick Reduce, collective-strategy gating fixes, a faster router, and calmer prefill scheduling — are each modest; compounded, they move the MI355X Kimi K2.5 frontier to **[FILL: headline claim vs. B200]**.
+Kimi K2.5 on MI355X is now a fully 4-bit serving stack: MXFP4 weights *and* activations through the MoE, running at TP=4 on a single node. The individual ingredients — A4W4 fused MoE kernels, collective-strategy gating fixes, a faster router, and calmer prefill scheduling — are each modest; compounded, they move the MI355X Kimi K2.5 frontier to **[FILL: headline claim vs. B200]**.
 
 Just as importantly, the pace is visible in public: every step above corresponds to an upstream PR in [ROCm/aiter](https://github.com/ROCm/aiter) or a configuration change in [InferenceX](https://github.com/SemiAnalysisAI/InferenceX), landed and re-measured continuously. And more is coming on the same silicon: Two-Batch Overlap and DP Attention for Kimi K2.5 — the scheduling techniques we introduced for DeepSeek-V4 — and **ATOMmesh**, ATOM's distributed serving layer with prefill/decode disaggregation for multi-node deployments.
 
