@@ -32,7 +32,7 @@ ATOM ([ROCm/atom](https://github.com/ROCm/atom)) is AMD's lightweight, PyTorch-n
 
 ## Key Optimizations
 
-The gains come from five threads of work, each visible as an upstream PR — plus one deliberate configuration decision (TP4-only). We describe them in the order a token experiences them.
+The gains come from five threads of work, each visible as an upstream PR. We describe them in the order a token experiences them.
 
 ### 1. MXFP4 (A4W4) fused MoE kernels for gfx950
 
@@ -67,16 +67,6 @@ ATOM, like vLLM, must decide when to admit new prefills into a busy decode loop.
 `--scheduler-delay-factor 1` delays prefill admission by one previous-prompt-latency unit, letting the scheduler accumulate prefills and co-schedule them instead of dribbling them into the decode stream. On the fixed-sequence-length InferenceX workloads this smooths the concurrency-64/128 operating points — [FILL: X% throughput at conc 128, X% p99 TPOT improvement] — at negligible TTFT cost.
 
 Operationally, `ATOM_DISABLE_MMAP=true` is also set in the new configuration: loading the ~[FILL: 5xx] GB checkpoint through direct reads rather than mmap-backed paging cuts model-load time [FILL: from X to Y minutes], which matters for benchmark automation and elastic production deployments alike, though it does not affect steady-state performance.
-
-### Why TP4-only (and what happened to TP8)
-
-The previous configuration swept both TP=4 and TP=8. The updated submission removes TP=8 because it was **consistently slower than TP=4** for Kimi K2.5 MXFP4 on MI355X, on both workloads and at every concurrency:
-
-- TP=8 halves the per-GPU GEMM work. K2.5's expert matrices are narrow once sharded 8 ways; the MXFP4 kernels drop below their efficiency knee, so each GPU does half the work at well under half the time saved.
-- The all-reduce doubles in participant count, and cross-node-free 8-GPU collectives still cost more than 4-GPU ones — growing exactly the term optimizations #2 and #3 shrink.
-- 288 GB of HBM3E removes the usual reason to shard wider: TP=4 already fits the model plus [FILL: X] GB of KV cache per GPU.
-
-The practical consequence: an 8-GPU MI355X node runs **two independent TP4 replicas**, each serving its own traffic. For throughput-oriented serving this is strictly better than one TP8 instance — and it is the configuration InferenceX now tracks.
 
 ## Performance Results
 
