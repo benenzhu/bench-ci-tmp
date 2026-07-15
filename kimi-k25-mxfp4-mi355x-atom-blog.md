@@ -22,17 +22,27 @@ Every gain in this post traveled the same three-stage, fully public pipeline: a 
 
 ### 1. AITER: kernel-level optimization
 
-**MXFP4 (A4W4) fused MoE for gfx950.** The heart of Kimi K2 inference is the grouped GEMM inside the MoE block. Earlier MXFP4 support quantized weights only (W4A8/W4A16): activations were upcast, halving the arithmetic benefit of the format. The new AITER backends ([aiter #3470](https://github.com/ROCm/aiter/pull/3470), with a RadeonFlow-contributed variant in [aiter #3832](https://github.com/ROCm/aiter/pull/3832)) execute the full **A4W4** path: both activations and weights enter the matrix units as MXFP4, using CDNA 4's native microscaling instructions with per-32-element E8M0 scales. Two backends exist because MoE GEMMs live in two regimes — many small expert problems at decode, near-dense GEMM at prefill — so both ends of the Pareto curve benefit. The fused activation kernel also quantizes the **intermediate activations between up- and down-projection** to MXFP4 on the fly, cutting traffic on the largest activation tensor in the model.
+#### 1.1 Deeper-fused MXFP4 (A4W4) MoE backends for gfx950
+
+The heart of Kimi K2 inference is the grouped GEMM inside the MoE block. AITER already ran this path in full A4W4 MXFP4 — activations and weights both entering the matrix units as 4-bit, using CDNA 4's native microscaling instructions with per-32-element E8M0 scales. The new backends ([aiter #3470](https://github.com/ROCm/aiter/pull/3470), with a RadeonFlow-contributed variant in [aiter #3832](https://github.com/ROCm/aiter/pull/3832)) rebuild the MoE path around deeper fusion and MoE-specific optimizations: [FILL: the concrete list — e.g. fused quantize/gather/scatter stages around the grouped GEMM, tiling tuned to K2's expert shapes, …]. Two backends exist because MoE GEMMs live in two regimes — many small expert problems at decode, near-dense GEMM at prefill — so both ends of the Pareto curve benefit. The fused activation kernel also quantizes the **intermediate activations between up- and down-projection** to MXFP4 on the fly, cutting traffic on the largest activation tensor in the model.
 
 Several of these kernels are authored in **FlyDSL** ([ROCm/FlyDSL](https://github.com/ROCm/FlyDSL)), ROCm's Python-first, MLIR-native kernel DSL that lets developers express tiling, layouts, and data movement at a high level without giving up expert-level performance — a big part of why community contributors can iterate on AITER kernels this quickly ([FILL: link the specific FlyDSL-based kernel PRs]; see also the [FlyDSL introduction on ROCm Blogs](https://rocm.blogs.amd.com/software-tools-optimization/flydsl-python-native/README.html)).
 
-**Single-stage fused all-reduce at production batch sizes.** With TP=4, every transformer layer ends in an all-reduce that sits on the critical path of each decode step. AITER's Quick Reduce, the fused all-reduce ATOM uses over XGMI links, chooses between a low-latency **one-stage** algorithm and a lower-traffic **two-stage** one; the crossover had been tuned for small messages, so serving-scale batches (concurrency 32–64) silently fell onto the slower path. [aiter #3458](https://github.com/ROCm/aiter/pull/3458) raises the one-stage limit to cover concurrency 64 and [aiter #3880](https://github.com/ROCm/aiter/pull/3880) fixes the gating condition ([FILL: exact condition]) — a two-line class of fix that is invisible in kernel microbenchmarks and worth [FILL: X%] end-to-end.
+#### 1.2 Single-stage fused all-reduce at production batch sizes
 
-**Faster expert routing.** Routing every token to 8 of 384 experts runs once per layer per decode step. [aiter #3466](https://github.com/ROCm/aiter/pull/3466) replaces the original top-k selection with a fused single-kernel reduction specialized for K2's expert count and group-routing scheme, and together with MoE-metadata parallelization for MLA models, drops non-GEMM overhead per decode step from [FILL: X µs to Y µs].
+With TP=4, every transformer layer ends in an all-reduce that sits on the critical path of each decode step. AITER's Quick Reduce, the fused all-reduce ATOM uses over XGMI links, chooses between a low-latency **one-stage** algorithm and a lower-traffic **two-stage** one; the crossover had been tuned for small messages, so serving-scale batches (concurrency 32–64) silently fell onto the slower path. [aiter #3458](https://github.com/ROCm/aiter/pull/3458) raises the one-stage limit to cover concurrency 64 and [aiter #3880](https://github.com/ROCm/aiter/pull/3880) fixes the gating condition ([FILL: exact condition]) — a two-line class of fix that is invisible in kernel microbenchmarks and worth [FILL: X%] end-to-end.
+
+#### 1.3 Faster expert routing
+
+Routing every token to 8 of 384 experts runs once per layer per decode step. [aiter #3466](https://github.com/ROCm/aiter/pull/3466) replaces the original top-k selection with a fused single-kernel reduction specialized for K2's expert count and group-routing scheme, and together with MoE-metadata parallelization for MLA models, drops non-GEMM overhead per decode step from [FILL: X µs to Y µs].
 
 ### 2. ATOM: wiring the kernels into the engine
 
+#### 2.1 Per-shape backend dispatch
+
 Fast kernels only pay off if the engine picks them at the right moments. ATOM's dispatcher selects the MoE backend per shape, so the decode- and prefill-optimized A4W4 kernels each serve the regime they win in; `AITER_MXFP4_INTERMEDIATE=1` turns on the 4-bit intermediate-activation path.
+
+#### 2.2 Prefill scheduling and parallelism
 
 The engine-level tuning matters just as much. `--scheduler-delay-factor 1` changes when ATOM admits new prefills into a busy decode loop: instead of greedily injecting them — which fragments decode batches and spikes every in-flight user's latency — the scheduler briefly accumulates prefills and co-schedules them, smoothing the concurrency-64/128 operating points at negligible TTFT cost. And the parallelism choice is deliberate: TP=4 keeps expert GEMMs above the kernels' efficiency knee and collectives cheap, so the InferenceX submission runs TP4 only.
 
