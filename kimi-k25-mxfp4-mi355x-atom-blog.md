@@ -1,4 +1,4 @@
-<img width="3190" height="1786" alt="image" src="https://github.com/user-attachments/assets/2678823e-eea0-4b55-8119-e9bc9bcff97e" /># Serving Kimi K2.5/K2.6/K2.7-Code in MXFP4 on AMD Instinct™ MI355X GPUs with ATOM
+# Serving Kimi K2.5/K2.6/K2.7-Code in MXFP4 on AMD Instinct™ MI355X GPUs with ATOM
 
 **Authors:** [@fty, @colorwinds, @jpy, @benenzhu, @felix(++), @lingpeng(++), @xun, @daniel, @George, @Sunpeng, @guru]
 **Date:** [FILL: publication date]
@@ -13,7 +13,7 @@ Serving Kimi K2.5/K2.6/K2.7-Code efficiently requires getting three things right
 ## At a Glance
 
 - Kimi K2.5/K2.6/K2.7-Code (1T-parameter MoE) served in MXFP4 on a **single MI355X node at TP=4** — the 4-bit weights fit comfortably in 4 × 288 GB of HBM3E, and one 8-GPU node hosts two independent TP4 replicas.
-- Peak throughput of **[FILL: X,XXX] tok/s/GPU** on the 8k/1k workload and **[FILL: X,XXX] tok/s/GPU** on 1k/1k — **[FILL: X%] above single-node NVIDIA B200** (vLLM, NVFP4, ~4,021 tok/s/GPU on 8k/1k).
+- Peak throughput of **5,369.6 tok/s/GPU** on the 8k/1k workload ([FILL: 1k/1k number, or drop the 1k/1k mention]) — roughly **34% above single-node NVIDIA B200** (vLLM, NVFP4, ~4,021 tok/s/GPU on 8k/1k).
 - Built together with the community: optimizations co-developed by AMD engineers and open-source contributors, merged upstream into AITER/ATOM/InferenceX, with **$300K** in AMD awards recognizing community work.
 
 ## Key Optimizations: From Kernel to Engine to Benchmark
@@ -55,12 +55,13 @@ The last mile is [InferenceX PR #2132](https://github.com/SemiAnalysisAI/Inferen
 We benchmark with InferenceX's single-node fixed-sequence-length harness on two standard workloads — 1k/1k (ISL 1024 / OSL 1024) and 8k/1k (ISL 8192 / OSL 1024) — sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
 
 **Figure 1: [FILL: Pareto frontier, 8k/1k — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 vLLM NVFP4 (single node)]** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
-TODO: keep only one of the two photos later, put all here temp.
+TODO: keep only one of the photos later, put all here temp.
 <img width="3180" height="1754" alt="image" src="https://github.com/user-attachments/assets/8d5b7f18-a589-4a18-b048-475de82bca5a" />
 <img width="3190" height="1786" alt="image" src="https://github.com/user-attachments/assets/d54deccd-1716-4f6b-b13c-4183c08faaf9" />
+<img width="3190" height="1786" alt="image" src="https://github.com/user-attachments/assets/2678823e-eea0-4b55-8119-e9bc9bcff97e" />
 
 
-On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end.
+On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end. The published single-node NVIDIA B200 result on this workload (vLLM, NVFP4) is **~4,021 tok/s/GPU** ([InferenceX](https://inferencex.semianalysis.com/)) — MI355X with ATOM beats it by roughly **34%**.
 
 Note also what the comparison does *not* include: rack-scale disaggregated serving (e.g. wide-EP on NVL72-class systems) is a different deployment class with its own InferenceX category; here we compare single-node, buy-it-today configurations.
 
@@ -76,7 +77,7 @@ The loop is open to anyone. If you have a faster kernel, a better scheduling heu
 
 ## Summary
 
-Kimi K2.5/K2.6/K2.7-Code on MI355X is now a fully 4-bit serving stack: MXFP4 weights *and* activations through the MoE, running at TP=4 on a single node, at **[FILL: headline claim vs. B200]**. The individual ingredients — A4W4 fused MoE kernels, collective-strategy gating fixes, a faster router, and calmer prefill scheduling — are each modest; compounded, and traveling the AITER → ATOM → InferenceX pipeline in public, they moved the frontier past B200 on the same silicon that started at [FILL: X,XXX] tok/s/GPU.
+Kimi K2.5/K2.6/K2.7-Code on MI355X is now a fully 4-bit serving stack: MXFP4 weights *and* activations through the MoE, running at TP=4 on a single node, at **5,369.6 tok/s/GPU on 8k/1k — roughly 34% above single-node NVIDIA B200**. The individual ingredients — A4W4 fused MoE kernels, collective-strategy gating fixes, a faster router, and calmer prefill scheduling — are each modest; compounded, and traveling the AITER → ATOM → InferenceX pipeline in public, they moved the frontier past B200 on the same silicon that started at [FILL: X,XXX] tok/s/GPU.
 
 And more is coming: Two-Batch Overlap and DP Attention for the Kimi K2 family, **ATOMmesh** — ATOM's distributed serving layer with prefill/decode disaggregation for multi-node deployments — and the vLLM/SGLang upstreaming mentioned above.
 
