@@ -36,7 +36,7 @@ These kernels are authored in **FlyDSL** ([ROCm/FlyDSL](https://github.com/ROCm/
 
 #### 1.2 Single-stage fused all-reduce at production batch sizes
 
-With TP=4, every transformer layer ends in an all-reduce that sits on the critical path of each decode step. AITER's Quick Reduce, the fused all-reduce ATOM uses over XGMI links, chooses between a low-latency **one-stage** algorithm and a lower-traffic **two-stage** one; the crossover had been tuned for small messages, so serving-scale batches (concurrency 32–64) silently fell onto the slower path. [aiter #3458](https://github.com/ROCm/aiter/pull/3458) raises the one-stage limit to cover concurrency 64 and [aiter #3880](https://github.com/ROCm/aiter/pull/3880) corrects the gating condition so serving-scale batches take the fast path — a small fix that is invisible in kernel microbenchmarks but shows up directly in end-to-end throughput.
+Every transformer layer ends in an all-reduce that sits on the critical path of each decode step. AITER's Quick Reduce, the fused all-reduce ATOM uses over XGMI links, chooses between a low-latency **one-stage** algorithm and a lower-traffic **two-stage** one. [aiter #3458](https://github.com/ROCm/aiter/pull/3458) and [aiter #3880](https://github.com/ROCm/aiter/pull/3880) introduced TP-aware gating, selecting the one-stage path through batch 32 at TP4 and batch 16 at TP8 before switching to two-stage for larger decode batches. This keeps communication latency low at common serving batch sizes without sacrificing efficiency as concurrency grows.
 
 #### 1.3 Faster expert routing
 
