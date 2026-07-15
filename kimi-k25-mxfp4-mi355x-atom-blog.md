@@ -1,4 +1,4 @@
-# Serving Kimi K2.5/K2.6/K2.7-Code in MXFP4 on AMD Instinct™ MI355X GPUs with ATOM
+# Kimi K2.5 / K2.6 / K2.7-Code in MXFP4 on AMD Instinct™ MI355X GPUs with ATOM outperforms NVIDIA B200
 
 **Authors:** [@fty, @colorwinds, @jpy, @benenzhu, @felix(++), @lingpeng(++), @bernard, @xun, @daniel, @George, @Sunpeng, @guru]
 **Date:** [FILL: publication date]
