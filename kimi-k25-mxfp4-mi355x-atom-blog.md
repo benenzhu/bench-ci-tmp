@@ -54,11 +54,9 @@ The last mile is [InferenceX PR #2132](https://github.com/SemiAnalysisAI/Inferen
 
 We benchmark with InferenceX's single-node fixed-sequence-length harness on two standard workloads — 1k/1k (ISL 1024 / OSL 1024) and 8k/1k (ISL 8192 / OSL 1024) — sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
 
-**Figure 1: [FILL: Pareto frontier, 8k/1k — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 vLLM NVFP4 (single node)]** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
-TODO: keep only one of the photos later, put all here temp.
-<img width="3180" height="1754" alt="image" src="https://github.com/user-attachments/assets/8d5b7f18-a589-4a18-b048-475de82bca5a" />
-<img width="3190" height="1786" alt="image" src="https://github.com/user-attachments/assets/d54deccd-1716-4f6b-b13c-4183c08faaf9" />
-<img width="3190" height="1786" alt="image" src="https://github.com/user-attachments/assets/2678823e-eea0-4b55-8119-e9bc9bcff97e" />
+<img width="3180" height="1754" alt="Pareto frontier, 8k/1k — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node)" src="https://github.com/user-attachments/assets/8d5b7f18-a589-4a18-b048-475de82bca5a" />
+
+**Figure 1: Pareto frontier on the 8k/1k workload — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node).** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
 
 
 On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end. The published single-node NVIDIA B200 result on this workload (vLLM, NVFP4) is **~4,021 tok/s/GPU** ([InferenceX](https://inferencex.semianalysis.com/)) — MI355X with ATOM beats it by roughly **34%**.
