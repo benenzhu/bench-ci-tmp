@@ -16,7 +16,7 @@ All results below are produced with [InferenceX](https://github.com/SemiAnalysis
 
 - Kimi K2.5/K2.6/K2.7-Code (1T-parameter MoE) served in MXFP4 on a **single MI355X node at TP=4** — the 4-bit weights fit comfortably in 4 × 288 GB of HBM3E, and one 8-GPU node hosts two independent TP4 replicas.
 - Peak throughput of **[FILL: X,XXX] tok/s/GPU** on the 8k/1k workload and **[FILL: X,XXX] tok/s/GPU** on 1k/1k — **[FILL: X%] above single-node NVIDIA B200** (vLLM, NVFP4, ~4,021 tok/s/GPU on 8k/1k).
-- Built with the community: kernels and configurations contributed by open-source developers, merged upstream into AITER/ATOM/InferenceX, and recognized with **$300K** in AMD awards.
+- Built together with the community: optimizations co-developed by AMD engineers and open-source contributors, merged upstream into AITER/ATOM/InferenceX, with **$300K** in AMD awards recognizing community work.
 - Everything ships in the public `rocm/atom` Docker image — no private branches, no patches.
 
 ## Background: Kimi K2 Meets MI355X
@@ -69,7 +69,7 @@ To serve Kimi K2 models with ATOM on MI355X, follow the official recipe: [ATOM K
 
 ## Built With the Developer Community
 
-The optimizations above came out of a close collaboration between AMD engineers and open-source developers: community contributors brought kernels and configurations, and AMD engineers reviewed, benchmarked, hardened, and merged them across [AITER](https://github.com/ROCm/aiter), [ATOM](https://github.com/ROCm/atom), and [InferenceX](https://github.com/SemiAnalysisAI/InferenceX) — the A4W4 MoE backend from the RadeonFlow team is one example now shipping in the public `rocm/atom` image, selected by the dispatcher whenever it wins on a given shape. AMD recognizes and sponsors developers who move the needle like this: contributors to this work have received **$300K** in awards, and that program continues.
+The optimizations above came out of a close collaboration between AMD engineers and open-source developers. AMD engineers drove much of the kernel and engine iteration directly — the A4W4 MoE backends, the all-reduce strategy fixes, the routing and scheduler work — and alongside that, community contributors brought kernels and configurations of their own, which AMD engineers reviewed, benchmarked, and merged across [AITER](https://github.com/ROCm/aiter), [ATOM](https://github.com/ROCm/atom), and [InferenceX](https://github.com/SemiAnalysisAI/InferenceX). The A4W4 MoE backend from the RadeonFlow team is one example, now shipping in the public `rocm/atom` image and selected by the dispatcher whenever it wins on a given shape. AMD recognizes and sponsors developers who move the needle like this: contributors to this work have received **$300K** in awards, and that program continues.
 
 The loop is open to anyone. If you have a faster kernel, a better scheduling heuristic, or a sharper configuration: write it (FlyDSL makes the kernel side far more approachable), send a PR to [AITER](https://github.com/ROCm/aiter) or [ATOM](https://github.com/ROCm/atom), and let [InferenceX](https://github.com/SemiAnalysisAI/InferenceX) measure it in the open. We are also upstreaming these optimizations into **vLLM** and **SGLang**, so the same gains will surface across those stacks over time. We want the ROCm software stack — kernels, serving engine, benchmark harness, all open source — to be iterated by the community that runs on it.
 
