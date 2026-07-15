@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Moonshot AI's Kimi K2 family — K2.5, K2.6, and K2.7-Code — is one of the most widely deployed open-weight model lines today, and the same backbone that powers Cursor's Composer 2 coding model [FILL: link/citation for the Composer 2 claim]. Architecturally these are 1T-parameter MoE models with roughly 32B parameters activated per token on top of MLA attention — large enough that serving them well stresses kernels, communication, and scheduling all at once.
+Serving Kimi K2.5/K2.6/K2.7-Code efficiently requires getting three things right at once: the MoE GEMMs that dominate compute, the all-reduce collectives on every decode step's critical path, and the scheduler that decides when prefill is allowed to interrupt decode. This post is about how all three were pushed on AMD Instinct™ MI355X GPUs with ATOM — far enough to beat single-node NVIDIA B200.
 
 The performance in this post was not built by AMD alone. Open-source developers contributed many of the key optimizations, and AMD engineers worked closely with them to review, benchmark, and merge their commits across [AITER](https://github.com/ROCm/aiter), [ATOM](https://github.com/ROCm/atom), and [InferenceX](https://github.com/SemiAnalysisAI/InferenceX); AMD has awarded **$300K** to these developers in recognition of that work. The result: Kimi K2 serving throughput on MI355X went from **[FILL: X,XXX]** to **[FILL: X,XXX] tok/s/GPU** on the 8k/1k workload — beating the published single-node NVIDIA B200 figure of ~4,021 tok/s/GPU. The whole stack runs end-to-end in **MXFP4**, the OCP microscaling 4-bit format that the MI355X's CDNA™ 4 architecture supports natively.
 
