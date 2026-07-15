@@ -10,8 +10,6 @@
 
 Serving Kimi K2.5/K2.6/K2.7-Code efficiently requires getting three things right at once: the MoE GEMMs that dominate compute, the all-reduce collectives on every decode step's critical path, and the scheduler that decides when prefill is allowed to interrupt decode. This post is about how all three were pushed on AMD Instinct™ MI355X GPUs with ATOM, running end-to-end in **MXFP4** — the OCP microscaling 4-bit format that CDNA™ 4 supports natively — far enough to beat single-node NVIDIA B200.
 
-All results below are produced with [InferenceX](https://github.com/SemiAnalysisAI/InferenceX), SemiAnalysis's open, continuously-run inference benchmark, and are reproducible from the public configuration merged in [InferenceX PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132). Every submission must pass the InferenceX compliance checklist — no model-architecture changes, no engine patching, no evaluation shortcuts — so what is benchmarked is what you can `docker pull` today.
-
 ## At a Glance
 
 - Kimi K2.5/K2.6/K2.7-Code (1T-parameter MoE) served in MXFP4 on a **single MI355X node at TP=4** — the 4-bit weights fit comfortably in 4 × 288 GB of HBM3E, and one 8-GPU node hosts two independent TP4 replicas.
@@ -51,9 +49,9 @@ The last mile is [InferenceX PR #2132](https://github.com/SemiAnalysisAI/Inferen
 
 We benchmark with InferenceX's single-node fixed-sequence-length harness on two standard workloads — 1k/1k (ISL 1024 / OSL 1024) and 8k/1k (ISL 8192 / OSL 1024) — sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
 
-**Figure 1: [FILL: Pareto frontier, 8k/1k — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 vLLM NVFP4 (single node)]**
+**Figure 1: [FILL: Pareto frontier, 8k/1k — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 vLLM NVFP4 (single node)]** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
 
-**Figure 2: [FILL: Pareto frontier, 1k/1k — same systems]**
+**Figure 2: [FILL: Pareto frontier, 1k/1k — same systems]** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
 
 On the 8k/1k workload, MI355X with ATOM reaches **[FILL: X,XXX] tok/s/GPU** at concurrency 128 while sustaining **[FILL: XX] tok/s/user**, and **[FILL: XX] tok/s/user** at concurrency 4 on the interactive end. The published single-node B200 result on this workload (vLLM, NVFP4) is **~4,021 tok/s/GPU** ([InferenceX](https://inferencex.semianalysis.com/)) — MI355X now beats it by **[FILL: X%]**, up from [FILL: X,XXX] tok/s/GPU where this configuration started.
 
