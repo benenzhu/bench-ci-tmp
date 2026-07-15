@@ -1,4 +1,4 @@
-# Serving Kimi K2.5/K2.6/K2.7-Code in MXFP4 on AMD Instinct™ MI355X GPUs with ATOM
+<img width="3190" height="1786" alt="image" src="https://github.com/user-attachments/assets/2678823e-eea0-4b55-8119-e9bc9bcff97e" /># Serving Kimi K2.5/K2.6/K2.7-Code in MXFP4 on AMD Instinct™ MI355X GPUs with ATOM
 
 **Authors:** [@fty, @colorwinds, @jpy, @benenzhu, @felix(++), @lingpeng(++), @xun, @daniel, @George, @Sunpeng, @guru]
 **Date:** [FILL: publication date]
@@ -55,14 +55,12 @@ The last mile is [InferenceX PR #2132](https://github.com/SemiAnalysisAI/Inferen
 We benchmark with InferenceX's single-node fixed-sequence-length harness on two standard workloads — 1k/1k (ISL 1024 / OSL 1024) and 8k/1k (ISL 8192 / OSL 1024) — sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
 
 **Figure 1: [FILL: Pareto frontier, 8k/1k — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 vLLM NVFP4 (single node)]** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
+TODO: keep only one of the two photos later, put all here temp.
+<img width="3180" height="1754" alt="image" src="https://github.com/user-attachments/assets/8d5b7f18-a589-4a18-b048-475de82bca5a" />
+<img width="3190" height="1786" alt="image" src="https://github.com/user-attachments/assets/d54deccd-1716-4f6b-b13c-4183c08faaf9" />
 
-**Figure 2: [FILL: Pareto frontier, 1k/1k — same systems]** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
 
-On the 8k/1k workload, MI355X with ATOM reaches **[FILL: X,XXX] tok/s/GPU** at concurrency 128 while sustaining **[FILL: XX] tok/s/user**, and **[FILL: XX] tok/s/user** at concurrency 4 on the interactive end. The published single-node B200 result on this workload (vLLM, NVFP4) is **~4,021 tok/s/GPU** ([InferenceX](https://inferencex.semianalysis.com/)) — MI355X now beats it by **[FILL: X%]**, up from [FILL: X,XXX] tok/s/GPU where this configuration started.
-
-**Figure 3: [FILL: optimization waterfall — baseline → +A4W4 MoE → +MXFP4 intermediate → +AR 1-stage fix → +TopK → +scheduler, at conc 64, 8k/1k]**
-
-Beyond the peak number, the shape of the frontier is the story: the all-reduce strategy fix lifts the low-concurrency, interactivity-critical end, while the A4W4 MoE kernels and scheduler change lift the high-concurrency end. [FILL: 1–2 sentences on where the biggest deltas landed vs. the previous image.]
+On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end.
 
 Note also what the comparison does *not* include: rack-scale disaggregated serving (e.g. wide-EP on NVL72-class systems) is a different deployment class with its own InferenceX category; here we compare single-node, buy-it-today configurations.
 
