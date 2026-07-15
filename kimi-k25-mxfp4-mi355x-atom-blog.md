@@ -8,7 +8,7 @@
 
 ## Introduction
 
-Serving Kimi K2.5/K2.6/K2.7-Code efficiently requires getting three things right at once: the MoE GEMMs that dominate compute, the all-reduce collectives on every decode step's critical path, and the scheduler that decides when prefill is allowed to interrupt decode. This post is about how all three were pushed on AMD Instinct™ MI355X GPUs with ATOM, running end-to-end in **MXFP4** — the OCP microscaling 4-bit format that CDNA™ 4 supports natively — far enough to beat single-node NVIDIA B200.
+Serving Kimi K2.5/K2.6/K2.7-Code efficiently means keeping four things fast at once: the MLA attention kernels, the MoE GEMMs that dominate compute, the all-reduce collectives on every decode step's critical path, and the scheduler that decides when prefill is allowed to interrupt decode. Attention is already well covered by AITER's hand-tuned MLA kernels; this post is about pushing the other three on AMD Instinct™ MI355X GPUs with ATOM, running end-to-end in **MXFP4** — the OCP microscaling 4-bit format that CDNA™ 4 supports natively — far enough to beat single-node NVIDIA B200.
 
 ## At a Glance
 
