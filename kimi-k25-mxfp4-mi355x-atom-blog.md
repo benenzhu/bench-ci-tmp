@@ -15,15 +15,10 @@ Serving Kimi K2.5/K2.6/K2.7-Code efficiently requires getting three things right
 - Kimi K2.5/K2.6/K2.7-Code (1T-parameter MoE) served in MXFP4 on a **single MI355X node at TP=4** — the 4-bit weights fit comfortably in 4 × 288 GB of HBM3E, and one 8-GPU node hosts two independent TP4 replicas.
 - Peak throughput of **[FILL: X,XXX] tok/s/GPU** on the 8k/1k workload and **[FILL: X,XXX] tok/s/GPU** on 1k/1k — **[FILL: X%] above single-node NVIDIA B200** (vLLM, NVFP4, ~4,021 tok/s/GPU on 8k/1k).
 - Built together with the community: optimizations co-developed by AMD engineers and open-source contributors, merged upstream into AITER/ATOM/InferenceX, with **$300K** in AMD awards recognizing community work.
-- Everything ships in the public `rocm/atom` Docker image — no private branches, no patches.
-
-## Background: Kimi K2 Meets MI355X
-
-Kimi K2.5/K2.6/K2.7-Code share one serving profile: 1T total parameters (~32B active per token, 384 experts) with MLA attention. In MXFP4 the weights come to roughly [FILL: ~5xx] GB, so on MI355X (288 GB HBM3E, 8 TB/s per GPU) the model fits at **TP=4** with ample room for KV cache — one 8-GPU node runs two independent replicas — while CDNA 4's native MXFP4 matrix instructions supply the compute. ATOM ([ROCm/atom](https://github.com/ROCm/atom)) is AMD's lightweight, PyTorch-native LLM inference engine, and AITER ([ROCm/aiter](https://github.com/ROCm/aiter)) supplies its hand-tuned kernels.
 
 ## Key Optimizations: From Kernel to Engine to Benchmark
 
-Every gain in this post traveled the same three-stage, fully public pipeline: a kernel is optimized in **AITER**, **ATOM** wires it into the serving engine, and the configuration lands in **InferenceX**, where it is re-measured continuously. We walk through each stage.
+Every gain in this post traveled the same three-stage, fully public pipeline: a kernel is optimized in **AITER** ([ROCm/aiter](https://github.com/ROCm/aiter), the AI Tensor Engine for ROCm), **ATOM** ([ROCm/atom](https://github.com/ROCm/atom), AMD's PyTorch-native inference engine) wires it into serving, and the configuration lands in **InferenceX**, where it is re-measured continuously. We walk through each stage.
 
 ### 1. AITER: kernel-level optimization
 
