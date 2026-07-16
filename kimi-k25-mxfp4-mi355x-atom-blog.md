@@ -59,7 +59,7 @@ The last mile is [InferenceX PR #2132](https://github.com/SemiAnalysisAI/Inferen
 
 ## Performance Results
 
-We benchmark with InferenceX's single-node fixed-sequence-length harness on two standard workloads — 1k/1k (ISL 1024 / OSL 1024) and 8k/1k (ISL 8192 / OSL 1024) — sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
+We benchmark with InferenceX's single-node fixed-sequence-length harness on the 8k/1k workload (ISL 8192 / OSL 1024), sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
 
 <img width="3180" height="1754" alt="Pareto frontier, 8k/1k — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node)" src="https://github.com/user-attachments/assets/8d5b7f18-a589-4a18-b048-475de82bca5a" />
 
