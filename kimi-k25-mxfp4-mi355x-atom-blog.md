@@ -1,6 +1,6 @@
 # Kimi K2.5 / K2.6 / K2.7-Code in MXFP4 on AMD Instinct™ MI355X GPUs with ATOM outperforms NVIDIA B200
 
-**Authors:** [@fty, @colorwinds, @jpy, @benenzhu, @felix(++), @lingpeng(++), @bernard, @xun, @daniel, @George, @Sunpeng, @guru]
+**Authors:** [@fty, @colorwinds, @jpy, @felix(++), @lingpeng(++), @bernard, @benenzhu, @xun, @daniel, @George, @Sunpeng, @guru]
 **Date:** [FILL: publication date]
 **Tags:** AI/ML, LLM, Inference, Optimization, Performance
 
