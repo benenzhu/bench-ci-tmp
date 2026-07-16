@@ -101,5 +101,5 @@ And more is coming: Two-Batch Overlap and DP Attention for the Kimi K2 family, *
 - Related reading: [FlyDSL: Expert GPU Kernel Development with a Python-Native DSL](https://rocm.blogs.amd.com/software-tools-optimization/flydsl-python-native/README.html) · [DP Attention and TBO for DeepSeek-V4 on MI355X](https://rocm.blogs.amd.com/software-tools-optimization/atom-optimiztion/README.html)
 
 ---
-
-*[FILL: standard ROCm blogs disclaimer / endnotes block — testing configuration, date of measurement, system details (CPU, ROCm version, ATOM version, node config 8× MI355X), and the B200 comparison source & date.]*
+## Disclaimers
+Third-party content is licensed to you directly by the third party that owns the content and is not licensed to you by AMD. ALL LINKED THIRD-PARTY CONTENT IS PROVIDED “AS IS” WITHOUT A WARRANTY OF ANY KIND. USE OF SUCH THIRD-PARTY CONTENT IS DONE AT YOUR SOLE DISCRETION AND UNDER NO CIRCUMSTANCES WILL AMD BE LIABLE TO YOU FOR ANY THIRD-PARTY CONTENT. YOU ASSUME ALL RISK AND ARE SOLELY RESPONSIBLE FOR ANY DAMAGES THAT MAY ARISE FROM YOUR USE OF THIRD-PARTY CONTENT.
