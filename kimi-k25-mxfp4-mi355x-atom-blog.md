@@ -13,7 +13,7 @@ Serving Kimi K2.5/K2.6/K2.7-Code efficiently means keeping four things fast at o
 ## At a Glance
 
 - Kimi K2.5/K2.6/K2.7-Code (1T-parameter MoE) served in MXFP4 on a **single MI355X node at TP=4** — the 4-bit weights fit comfortably in 4 × 288 GB of HBM3E, and one 8-GPU node hosts two independent TP4 replicas.
-- Peak throughput of **5,369.6 tok/s/GPU** on the 8k/1k workload — roughly **34% above single-node NVIDIA B200** (vLLM, NVFP4, ~4,021 tok/s/GPU on 8k/1k).
+- Peak throughput of **5,369.6 tok/s/GPU** on the 8k/1k workload, staying **ahead of single-node NVIDIA B200 across multiple concurrency levels**.
 - Built together with the community: optimizations co-developed by AMD engineers and open-source contributors, merged upstream into AITER/ATOM/InferenceX through an AMD developer collaboration program.
 
 ## Key Optimizations: From Kernel to Engine to Benchmark
@@ -66,7 +66,7 @@ We benchmark with InferenceX's single-node fixed-sequence-length harness on two 
 **Figure 1: Pareto frontier on the 8k/1k workload — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node).** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
 
 
-On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end. The published single-node NVIDIA B200 result on this workload (vLLM, NVFP4) is **~4,021 tok/s/GPU** ([InferenceX](https://inferencex.semianalysis.com/)) — MI355X with ATOM beats it by roughly **34%**.
+On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end. As Figure 1 shows, its Pareto frontier sits above single-node NVIDIA B200 (vLLM, NVFP4) across multiple concurrency levels — MI355X delivers more throughput at matched interactivity along the curve, not just at the peak.
 
 Note also what the comparison does *not* include: rack-scale disaggregated serving (e.g. wide-EP on NVL72-class systems) is a different deployment class with its own InferenceX category; here we compare single-node, buy-it-today configurations.
 
