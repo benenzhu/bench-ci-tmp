@@ -63,8 +63,9 @@ We benchmark with InferenceX's single-node fixed-sequence-length harness on the 
 
 <img width="3180" height="1754" alt="Pareto frontier, 8k/1k — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node)" src="https://github.com/user-attachments/assets/8d5b7f18-a589-4a18-b048-475de82bca5a" />
 
-**Figure 1: Pareto frontier on the 8k/1k workload — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node).** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
-
+**Figure 1: ThroughtPut vs Interactivity Pareto frontier on the 8k/1k workload — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node).** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
+<img width="3077" height="1742" alt="image" src="https://github.com/user-attachments/assets/4e2cadd7-752c-4e4f-8abf-ea059dff2b82" />
+**Figure 1: E2E latency vs Interactivity Pareto frontier on the 8k/1k workload — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node).** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
 
 On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end. As Figure 1 shows, its Pareto frontier sits above single-node NVIDIA B200 (vLLM, NVFP4) across multiple concurrency levels — MI355X delivers more throughput at matched interactivity along the curve, not just at the peak.
 
