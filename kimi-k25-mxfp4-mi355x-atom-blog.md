@@ -13,7 +13,7 @@ Serving Kimi K2.5/K2.6/K2.7-Code efficiently means keeping four things fast at o
 ## At a Glance
 
 - Kimi K2.5/K2.6/K2.7-Code (1T-parameter MoE) served in MXFP4 on a **single MI355X node at TP=4** — the 4-bit weights fit comfortably in 4 × 288 GB of HBM3E, and one 8-GPU node hosts two independent TP4 replicas.
-- Peak throughput of **5,369.6 tok/s/GPU** on the 8k/1k workload ([FILL: 1k/1k number, or drop the 1k/1k mention]) — roughly **34% above single-node NVIDIA B200** (vLLM, NVFP4, ~4,021 tok/s/GPU on 8k/1k).
+- Peak throughput of **5,369.6 tok/s/GPU** on the 8k/1k workload — roughly **34% above single-node NVIDIA B200** (vLLM, NVFP4, ~4,021 tok/s/GPU on 8k/1k).
 - Built together with the community: optimizations co-developed by AMD engineers and open-source contributors, merged upstream into AITER/ATOM/InferenceX through an AMD developer collaboration program.
 
 ## Key Optimizations: From Kernel to Engine to Benchmark
