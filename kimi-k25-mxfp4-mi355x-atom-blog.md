@@ -61,17 +61,13 @@ The last mile is the benchmark itself: bump the public `rocm/atom` image, set th
 
 We benchmark with InferenceX's single-node fixed-sequence-length harness on the 8k/1k workload (ISL 8192 / OSL 1024), sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
 
-<img width="2939" height="1741" alt="image" src="https://github.com/user-attachments/assets/26378983-7740-47ac-b4cc-7a69e684fb20" />
+<img width="2939" height="1741" alt="Throughput vs. interactivity Pareto frontier, 8k/1k — MI355X + ATOM vs. single-node B200" src="https://github.com/user-attachments/assets/26378983-7740-47ac-b4cc-7a69e684fb20" />
 
+**Figure 1: Throughput vs. interactivity, 8k/1k — MI355X + ATOM (MXFP4, TP4) vs. single-node B200.** *(source: [InferenceX](https://inferencex.semianalysis.com/))*
 
+<img width="2956" height="1762" alt="End-to-end latency vs. interactivity Pareto frontier, 8k/1k — MI355X + ATOM vs. single-node B200" src="https://github.com/user-attachments/assets/2fdd583d-0678-47d8-99b4-a24e9faa1dbd" />
 
-
-**Figure 1: ThroughtPut vs Interactivity Pareto frontier on the 8k/1k workload — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node).** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
-
-<img width="2956" height="1762" alt="image" src="https://github.com/user-attachments/assets/2fdd583d-0678-47d8-99b4-a24e9faa1dbd" />
-
-
-**Figure 1: E2E latency vs Interactivity Pareto frontier on the 8k/1k workload — MI355X ATOM MXFP4 (TP4) vs. NVIDIA B200 (single node).** *(data source: [InferenceX](https://inferencex.semianalysis.com/))*
+**Figure 2: End-to-end latency vs. interactivity, same systems.** *(source: [InferenceX](https://inferencex.semianalysis.com/))*
 
 On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end. As Figure 1 shows, its Pareto frontier sits above single-node NVIDIA B200 (vLLM, NVFP4) across multiple concurrency levels — MI355X delivers more throughput at matched interactivity along the curve, not just at the peak.
 
