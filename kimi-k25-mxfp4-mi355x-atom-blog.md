@@ -61,7 +61,8 @@ The last mile is the benchmark itself: bump the public `rocm/atom` image, set th
 
 We benchmark with InferenceX's single-node fixed-sequence-length harness on the 8k/1k workload (ISL 8192 / OSL 1024), sweeping concurrency from 4 to 128 and plotting the resulting Pareto frontier of throughput (tok/s/GPU) versus interactivity (tok/s/user).
 
-<img width="2956" height="1762" alt="image" src="https://github.com/user-attachments/assets/ccec6b53-33bb-4797-94d2-b39ae1f26494" />
+<img width="2939" height="1741" alt="image" src="https://github.com/user-attachments/assets/26378983-7740-47ac-b4cc-7a69e684fb20" />
+
 
 
 
