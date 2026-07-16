@@ -72,7 +72,7 @@ This comparison is deliberately scoped to **single-node** serving. Rack-scale, d
 
 ## How to Reproduce
 
-To serve Kimi K2 models with ATOM on MI355X, follow the official recipe: [ATOM Kimi-K2 recipe — Launching Server](https://github.com/ROCm/ATOM/blob/main/recipes/Kimi-K2.md#launching-server). The exact benchmark configuration behind the results in this post is the InferenceX submission merged in [PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132), and its results are directly comparable with the public dashboard at [inferencex.semianalysis.com](https://inferencex.semianalysis.com/).
+To serve Kimi K2 models with ATOM on MI355X and reproduce the numbers above, follow the official recipe: [ATOM Kimi-K2 recipe — Launching Server](https://github.com/ROCm/ATOM/blob/main/recipes/Kimi-K2.md#launching-server). It pins the image, model, and serving flags used for these results.
 
 ## Built With the Developer Community
 
