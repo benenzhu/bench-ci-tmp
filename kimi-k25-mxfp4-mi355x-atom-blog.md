@@ -55,7 +55,7 @@ The engine-level tuning matters just as much. `--scheduler-delay-factor 1` chang
 
 ### 3. InferenceX: shipping it and measuring it in the open
 
-The last mile is [InferenceX PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132): bump the public `rocm/atom` image, set the two flags above, and let the harness sweep both workloads at concurrency 4–128. Because InferenceX re-runs continuously, this stage is also the safety net — regressions like the all-reduce gating miss are exactly what a continuously-run public benchmark exists to catch, and improvements show up on the dashboard within days of merging.
+The last mile is [InferenceX PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132): bump the public `rocm/atom` image, set the two flags above, and let the harness sweep the workload at concurrency 4–128. Because InferenceX re-runs continuously, this stage is also the safety net — each merge is re-measured on the same public benchmark, so improvements show up on the dashboard within days and any regression is caught before it reaches users.
 
 ## Performance Results
 
