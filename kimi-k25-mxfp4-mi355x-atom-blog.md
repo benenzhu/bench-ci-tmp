@@ -71,6 +71,8 @@ We benchmark with InferenceX's single-node fixed-sequence-length harness on the 
 
 On the 8k/1k workload, MI355X with ATOM reaches **5369.6 tok/s/GPU** at concurrency 128 while sustaining **19.2 tok/s/user**, and **116.4 tok/s/user** at concurrency 4 on the interactive end. As Figure 1 shows, its Pareto frontier sits above single-node NVIDIA B200 (vLLM, NVFP4) across multiple concurrency levels — MI355X delivers more throughput at matched interactivity along the curve, not just at the peak.
 
+Figure 2 tells the same story from the latency side: plotting end-to-end latency against interactivity, MI355X holds lower latency at matched interactivity, so users see faster responses at the same per-user token rate — the throughput lead in Figure 1 does not come at the cost of responsiveness.
+
 This comparison is deliberately scoped to **single-node** serving. Rack-scale, disaggregated deployments — prefill/decode split across nodes with wide expert parallelism — are a separate deployment class that we'll cover on its own (see ATOMmesh in the roadmap below).
 
 ## How to Reproduce
