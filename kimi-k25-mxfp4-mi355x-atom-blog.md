@@ -55,7 +55,7 @@ The engine-level tuning matters just as much. `--scheduler-delay-factor 1` chang
 
 ### 3. InferenceX: shipping it and measuring it in the open
 
-The last mile is [InferenceX PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132): bump the public `rocm/atom` image, set the two flags above, and let the harness sweep the workload at concurrency 4–128. Because InferenceX re-runs continuously, this stage is also the safety net — each merge is re-measured on the same public benchmark, so improvements show up on the dashboard within days and any regression is caught before it reaches users.
+The last mile is the benchmark itself: bump the public `rocm/atom` image, set the two flags above, and let the harness sweep the workload at concurrency 4–128. Because InferenceX re-runs continuously, this stage is also the safety net — each merge is re-measured on the same public benchmark, so improvements show up on the dashboard within days and any regression is caught before it reaches users.
 
 ## Performance Results
 
@@ -91,7 +91,7 @@ And more is coming: Two-Batch Overlap and DP Attention for the Kimi K2 family, *
 ## Additional Resources
 
 - [ATOM on GitHub](https://github.com/ROCm/atom) · [AITER on GitHub](https://github.com/ROCm/aiter) · [FlyDSL on GitHub](https://github.com/ROCm/FlyDSL)
-- [InferenceX benchmark platform](https://inferencex.semianalysis.com/) · [InferenceX PR #2132](https://github.com/SemiAnalysisAI/InferenceX/pull/2132)
+- [InferenceX benchmark platform](https://inferencex.semianalysis.com/)
 - Upstream kernel PRs: [aiter #3470](https://github.com/ROCm/aiter/pull/3470) (A4W4 MoE), [aiter #3832](https://github.com/ROCm/aiter/pull/3832) (RadeonFlow A4W4 MoE), [aiter #3466](https://github.com/ROCm/aiter/pull/3466) (TopK), [aiter #3458](https://github.com/ROCm/aiter/pull/3458) / [#3880](https://github.com/ROCm/aiter/pull/3880) (fused all-reduce)
 - Related reading: [FlyDSL: Expert GPU Kernel Development with a Python-Native DSL](https://rocm.blogs.amd.com/software-tools-optimization/flydsl-python-native/README.html) · [DP Attention and TBO for DeepSeek-V4 on MI355X](https://rocm.blogs.amd.com/software-tools-optimization/atom-optimiztion/README.html)
 
