@@ -262,10 +262,18 @@ def send_text(content: str) -> None:
             parsed = {}
         if parsed.get("errcode", 0) != 0:
             raise RuntimeError(f"dingtalk response: {response_body}")
-
+IGNORED_NOTIFICATION_TYPES = {"idle_prompt"}
+def should_skip(event: dict) -> bool:
+    if (event.get("hook_event_name") or "") != "Notification":
+        return False
+    notif_type = event.get("notification_type") or ""
+    log(f"notification_type={notif_type!r} message={str(event.get('message'))[:80]!r}")
+    return notif_type in IGNORED_NOTIFICATION_TYPES
 
 def main() -> int:
     event = read_event()
+    if should_skip(event):
+        return 0
     try:
         send_text(build_message(event))
     except (urllib.error.URLError, TimeoutError, RuntimeError, OSError) as exc:
