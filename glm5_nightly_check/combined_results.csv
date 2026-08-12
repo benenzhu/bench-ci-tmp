@@ -1,0 +1,2 @@
+model_group,config_id,variant,label,status,model,precision,framework,image,commit,isl,osl,conc,tp,ep,dp_attention,num_prompts,total_token_throughput,output_throughput,tput_per_gpu,output_tput_per_gpu,input_tput_per_gpu,mean_ttft_ms,mean_tpot_ms
+glm5_fp8,8k1k_c8,new,glm5_fp8_8k1k_c8_new,success,/dev/shm/model/GLM-5-FP8,fp8,sglang,rocm/atom-dev:nightly_202608111555,a66f20e9d830cce9364db2fbbb033dc6c3e154c4,8192,1024,8,8,1,false,24,2876.726909911978,325.55456277169094,359.59086373899726,40.69432034646137,318.8965433925359,807.137492922872,22.676192763962295

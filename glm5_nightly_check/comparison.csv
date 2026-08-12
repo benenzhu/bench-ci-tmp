@@ -1,0 +1,2 @@
+model_group,config_id,isl,osl,conc,num_prompts,old_label,new_label,old_status,new_status,old_tput_per_gpu,new_tput_per_gpu,measured_gain_x,measured_improvement_pct
+glm5_fp8,8k1k_c8,8192,1024,8,24,glm5_fp8_8k1k_c8_old,glm5_fp8_8k1k_c8_new,not_run,success,,359.59086373899726,,
