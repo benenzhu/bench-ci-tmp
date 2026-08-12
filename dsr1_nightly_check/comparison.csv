@@ -1,0 +1,2 @@
+model_group,config_id,isl,osl,conc,num_prompts,old_label,new_label,old_status,new_status,old_tput_per_gpu,new_tput_per_gpu,measured_gain_x,measured_improvement_pct
+dsr1_fp4,8k1k_c128,8192,1024,128,384,dsr1_8k1k_c128_old,dsr1_8k1k_c128_new,not_run,success,,4052.973305645285,,
