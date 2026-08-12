@@ -1,0 +1,2 @@
+model_group,config_id,isl,osl,conc,num_prompts,old_label,new_label,old_status,new_status,old_tput_per_gpu,new_tput_per_gpu,measured_gain_x,measured_improvement_pct
+kimi_fp4,8k1k_c128,8192,1024,128,384,kimi_fp4_8k1k_c128_old,kimi_fp4_8k1k_c128_new,not_run,success,,2236.6866302356993,,
