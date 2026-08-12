@@ -1,5 +1,5 @@
 stage=final
-timestamp=2026-08-12T09:07:21Z
+timestamp=2026-08-12T13:57:13Z
 MODEL_DIR=/dev/shm/hf_hub_cache
 MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
 status=missing

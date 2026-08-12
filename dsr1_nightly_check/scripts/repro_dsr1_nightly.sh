@@ -41,7 +41,7 @@ REPO_SLUG=SemiAnalysisAI/InferenceX
 OLD_COMMIT=a66f20e9d830cce9364db2fbbb033dc6c3e154c4
 NEW_COMMIT=a66f20e9d830cce9364db2fbbb033dc6c3e154c4
 OLD_IMAGE=rocm/7.0:rocm7.0_ubuntu_22.04_sgl-dev-v0.5.2-rocm7.0-mi35x-20250915
-NEW_IMAGE=${IMAGE:-rocm/atom-dev:sglang-v0.5.15.post1-nightly_20260811}
+NEW_IMAGE=${IMAGE:-lmsysorg/sglang-rocm:v0.5.17-rocm700-mi35x-20260811}
 BENCH_SCRIPT=benchmarks/single_node/fixed_seq_len/dsr1_fp4_mi355x.sh
 
 # Per-end MXFP4 checkpoints (see header). Download once with:

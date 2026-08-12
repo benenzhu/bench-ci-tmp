@@ -1,1 +1,1 @@
-success
+docker_failed:1
