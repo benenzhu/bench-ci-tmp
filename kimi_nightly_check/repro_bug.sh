@@ -14,8 +14,10 @@
 # Usage:
 #   ./repro_bug.sh                       # default: nightly (expect failure)
 #   IMAGE=vllm/vllm-openai-rocm:v0.22.0 ./repro_bug.sh   # control: expect success
+#   VLLM_ROCM_AITER_MLA_ASM_PADDING=asm ./repro_bug.sh    # workaround: force ASM decode
 #
-# Env knobs: IMAGE, MODEL_DIR, TP, PORT, ROCR_VISIBLE_DEVICES
+# Env knobs: IMAGE, MODEL_DIR, TP, PORT, ROCR_VISIBLE_DEVICES,
+#            VLLM_ROCM_AITER_MLA_ASM_PADDING (auto|gluon|asm)
 set -uo pipefail
 
 IMAGE=${IMAGE:-vllm/vllm-openai-rocm:nightly}
@@ -53,6 +55,7 @@ docker run --rm --name "$NAME" \
   -v "$MODEL_DIR:$MODEL_DIR:ro" \
   ${ROCR_VISIBLE_DEVICES:+-e ROCR_VISIBLE_DEVICES="$ROCR_VISIBLE_DEVICES"} \
   -e HF_HUB_OFFLINE=1 \
+  ${VLLM_ROCM_AITER_MLA_ASM_PADDING:+-e VLLM_ROCM_AITER_MLA_ASM_PADDING="$VLLM_ROCM_AITER_MLA_ASM_PADDING"} \
   --entrypoint /bin/bash "$IMAGE" -lc "
     vllm serve '$MODEL_DIR' \
       --served-model-name kimi-k2.5-mxfp4 \
