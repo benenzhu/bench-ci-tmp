@@ -1,30 +1,36 @@
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 420, in get_response
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]     raise RuntimeError(
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344] RuntimeError: Worker failed with error 'at 319:8:
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]     cur_head = cur_head_id * BLOCK_H + gl.arange(0, BLOCK_H, layout=gl.SliceLayout(1, blocked_q_nope))
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]     offs_q_nope = cur_batch * stride_q_nope_bs + q_pos * stride_q_nope_s + cur_head[:, None] * stride_q_nope_h + offs_d_ckv[None, :]
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]     ### For nhead < BLOCK_H, mask OOB heads to zero on Q load and skip OOB O stores; wasted MFMA lanes are free (memory-bound).
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]     gl.amd.cdna4.async_copy.buffer_load_to_shared(buf_q_nope, Q_nope, offs_q_nope, mask = (cur_head < NHEAD)[:, None] if NHEAD < BLOCK_H else None)
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]     gl.amd.cdna4.async_copy.commit_group()
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344] 
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]     # load q_pe
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]     if HAS_PE:
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]         offs_d_kpe = gl.arange(0, HEAD_DIM_KPE, layout=gl.SliceLayout(0, blocked_q_pe))
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]         cur_head_qpe = cur_head_id * BLOCK_H + gl.arange(0, BLOCK_H, layout=gl.SliceLayout(1, blocked_q_pe))
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]         offs_q_pe = cur_batch * stride_q_pe_bs + q_pos * stride_q_pe_s + cur_head_qpe[:, None] * stride_q_pe_h + offs_d_kpe[None, :]
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]         gl.amd.cdna4.async_copy.buffer_load_to_shared(buf_q_pe, Q_pe, offs_q_pe, mask = (cur_head_qpe < NHEAD)[:, None] if NHEAD < BLOCK_H else None)
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344]         ^
-(EngineCore pid=894) ERROR 08-12 13:56:54 [core.py:1344] expected offsets type layout to be BlockedLayout or SliceLayout', please check the stack trace above for the root cause
-(EngineCore pid=894) ERROR 08-12 13:57:04 [multiproc_executor.py:310] Worker proc VllmWorker-7 died unexpectedly (exit code: None), shutting down executor.
-(EngineCore pid=894) INFO 08-12 13:57:04 [multiproc_executor.py:455] [shutdown] Executor: waiting for worker exit count=8
-(EngineCore pid=894) Process EngineCore:
-(EngineCore pid=894) Traceback (most recent call last):
-(EngineCore pid=894)   File "/usr/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
-(EngineCore pid=894)     self.run()
-(EngineCore pid=894)   File "/usr/lib/python3.12/multiprocessing/process.py", line 108, in run
-(EngineCore pid=894)     self._target(*self._args, **self._kwargs)
+# vLLM nightly: aiter Gluon MLA decode kernel fails to compile
+# image : vllm/vllm-openai-rocm:nightly  (vLLM v0.26.1rc1.dev668+g3ee2df303)
+# model : amd/Kimi-K2.5-MXFP4 | TP8 | MI355X gfx950
+# the layout error appears 10 times in the full log
+
+## Traceback frames (deduped)
+  File "/usr/local/lib/python3.12/dist-packages/aiter/ops/triton/gluon/mla_gluon.py", line 1029, in mla_gluon
+  File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/attention/mla_attention.py", line 1252, in unified_mla_attention_with_output
+  File "/usr/local/lib/python3.12/dist-packages/vllm/model_executor/layers/attention/mla_attention.py", line 945, in forward_impl
+
+## Failing statement + error
+RuntimeError: Worker failed with error 'at 319:8:
+    cur_head = cur_head_id * BLOCK_H + gl.arange(0, BLOCK_H, layout=gl.SliceLayout(1, blocked_q_nope))
+    offs_q_nope = cur_batch * stride_q_nope_bs + q_pos * stride_q_nope_s + cur_head[:, None] * stride_q_nope_h + offs_d_ckv[None, :]
+    ### For nhead < BLOCK_H, mask OOB heads to zero on Q load and skip OOB O stores; wasted MFMA lanes are free (memory-bound).
+    gl.amd.cdna4.async_copy.buffer_load_to_shared(buf_q_nope, Q_nope, offs_q_nope, mask = (cur_head < NHEAD)[:, None] if NHEAD < BLOCK_H else None)
+    gl.amd.cdna4.async_copy.commit_group()
+    # load q_pe
+    if HAS_PE:
+        offs_d_kpe = gl.arange(0, HEAD_DIM_KPE, layout=gl.SliceLayout(0, blocked_q_pe))
+        cur_head_qpe = cur_head_id * BLOCK_H + gl.arange(0, BLOCK_H, layout=gl.SliceLayout(1, blocked_q_pe))
+        offs_q_pe = cur_batch * stride_q_pe_bs + q_pos * stride_q_pe_s + cur_head_qpe[:, None] * stride_q_pe_h + offs_d_kpe[None, :]
+        gl.amd.cdna4.async_copy.buffer_load_to_shared(buf_q_pe, Q_pe, offs_q_pe, mask = (cur_head_qpe < NHEAD)[:, None] if NHEAD < BLOCK_H else None)
+        ^
+expected offsets type layout to be BlockedLayout or SliceLayout', please check the stack trace above for the root cause
 --
-(EngineCore pid=894)   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 420, in get_response
-(EngineCore pid=894)     raise RuntimeError(
-(EngineCore pid=894) RuntimeError: Worker failed with error 'at 319:8:
-(EngineCore pid=894)     cur_head = cur_head_id * BLOCK_H + gl.arange(0, BLOCK_H, layout=gl.SliceLayout(1, blocked_q_nope))
+(APIServer pid=23) Traceback (most recent call last):
+(APIServer pid=23)   File "/usr/local/bin/vllm", line 10, in <module>
+(APIServer pid=23)     sys.exit(main())
+(APIServer pid=23)              ^^^^^^
+(APIServer pid=23)   File "/usr/local/lib/python3.12/dist-packages/vllm/entrypoints/cli/main.py", line 97, in main
+
+## Fallout
+  RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}
+  Server died before becoming healthy.
+  Worker proc VllmWorker-7 died unexpectedly (exit code: None)

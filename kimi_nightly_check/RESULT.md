@@ -15,7 +15,7 @@ MI355X: the aiter Gluon MLA decode kernel fails to compile, all 8 workers die,
 and the engine never initializes.
 
 ```
-File "/aiter/ops/triton/gluon/mla_gluon.py", line 1029, in mla
+File "/aiter/ops/triton/gluon/mla_gluon.py", line 1029, in mla_gluon
   gl.amd.cdna4.async_copy.buffer_load_to_shared(buf_q_pe, Q_pe, offs_q_pe,
       mask = (cur_head_qpe < NHEAD)[:, None] if NHEAD < BLOCK_H else None)
 expected offsets type layout to be BlockedLayout or SliceLayout

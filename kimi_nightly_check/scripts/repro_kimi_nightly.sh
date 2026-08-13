@@ -61,7 +61,7 @@ for spec in "${CONFIG_SPECS[@]}"; do
     ISL[$label]="$isl"
     OSL[$label]="$osl"
     CONC[$label]="$conc"
-    TP[$label]=8
+    TP[$label]=${TP_VAL:-8}
     EP_SIZE[$label]=1
     DP_ATTENTION[$label]=false
     if [[ "$variant" == "old" ]]; then
