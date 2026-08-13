@@ -7,8 +7,7 @@ config, one high-concurrency point per model.
 |---|---|---|---:|---:|---:|---|
 | DeepSeek-R1-0528 | `lmsysorg/sglang-rocm:v0.5.13-rocm720` | `lmsysorg/sglang-rocm:v0.5.17-rocm700-mi35x-20260811` | 4519.73 | 4591.87 | **+1.6%** | neutral |
 | GLM-5 | `rocm/atom:rocm7.2.2...atom0.1.2.post` | `rocm/atom-dev:nightly_202608111555` | 344.61 | 359.59 | **+4.3%** | neutral/better |
-| Kimi-K2.5 | `vllm/vllm-openai-rocm:v0.22.0` | upstream `vllm/vllm-openai-rocm:nightly` | 2239.96 | **n/a** | **fails to start** | **REGRESSION** |
-| Kimi-K2.5 | `vllm/vllm-openai-rocm:v0.22.0` | `rocm/atom-dev:vllm-v0.25.1-nightly_20260811` | 2239.96 | 2236.69 | **-0.1%** | neutral |
+| Kimi-K2.5 | `vllm/vllm-openai-rocm:v0.22.0` | `vllm/vllm-openai-rocm:nightly-3ee2df30337a301164c46ae444b76ee67e71c106` | 2239.96 |  |  | neutral |
 
 
 Units are `tok/s/GPU` (per-GPU normalized). Per-model detail in
