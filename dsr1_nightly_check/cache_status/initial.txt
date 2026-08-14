@@ -1,7 +1,7 @@
 stage=initial
-timestamp=2026-08-12T13:20:27Z
+timestamp=2026-08-14T03:57:17Z
 MODEL_DIR=/dev/shm/hf_hub_cache
 MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--amd--DeepSeek-R1-0528-MXFP4-Preview
 status=missing
 Filesystem      Size  Used Avail Use% Mounted on
-tmpfs           1.5T  1.1T  429G  72% /dev/shm
+tmpfs           1.5T  594G  919G  40% /dev/shm

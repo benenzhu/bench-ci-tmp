@@ -1,2 +1,2 @@
 model_group,config_id,variant,label,status,model,precision,framework,image,commit,isl,osl,conc,tp,ep,dp_attention,num_prompts,total_token_throughput,output_throughput,tput_per_gpu,output_tput_per_gpu,input_tput_per_gpu,mean_ttft_ms,mean_tpot_ms
-kimi_fp4,8k1k_c128,new,kimi_fp4_8k1k_c128_new,docker_failed:1,/dev/shm/model/Kimi-K2.5-MXFP4,fp4,vllm,vllm/vllm-openai-rocm:nightly,a187fa20e7785c88e136c834c411fc39022c75ba,8192,1024,128,8,1,false,384,,,,,,,
+kimi_fp4,8k1k_c128,new,kimi_fp4_8k1k_c128_new,docker_failed:1,/mnt/disk/huggingface/Kimi-K2.5-MXFP4,fp4,vllm,rocm/ufb-private:vllm-0.27.0-ubuntu24.04-py3.14-prereleases-device-all-rocm10.0.0rc2-7d3ceb497f,a187fa20e7785c88e136c834c411fc39022c75ba,8192,1024,128,8,1,false,384,,,,,,,

@@ -41,7 +41,7 @@ REPO_SLUG=SemiAnalysisAI/InferenceX
 OLD_COMMIT=a66f20e9d830cce9364db2fbbb033dc6c3e154c4
 NEW_COMMIT=a66f20e9d830cce9364db2fbbb033dc6c3e154c4
 OLD_IMAGE=rocm/7.0:rocm7.0_ubuntu_22.04_sgl-dev-v0.5.2-rocm7.0-mi35x-20250915
-NEW_IMAGE=${IMAGE:-lmsysorg/sglang-rocm:v0.5.17-rocm700-mi35x-20260811}
+NEW_IMAGE=${IMAGE:-rocm/ufb-private:sglang-v0.5.15.post1-ubuntu24.04-py3.14-prereleases-device-all-rocm10.0.0rc2-e35a33b34a}
 BENCH_SCRIPT=benchmarks/single_node/fixed_seq_len/dsr1_fp4_mi355x.sh
 
 # Per-end MXFP4 checkpoints (see header). Download once with:
@@ -50,7 +50,7 @@ OLD_MODEL_REVISION=6c94c74df15d3eabd6cbc71bb12a2b31dae6f5ff
 NEW_MODEL_REVISION=913fc83b2d3962dbc2682d6b97e9ef31acb4bf5a
 MODEL_CACHE_NAME=models--amd--DeepSeek-R1-0528-MXFP4-Preview
 OLD_MODEL_ID=${OLD_MODEL_ID:-$MODEL_DIR/$MODEL_CACHE_NAME/snapshots/$OLD_MODEL_REVISION}
-NEW_MODEL_ID=${MODEL_ID:-${NEW_MODEL_ID:-$MODEL_DIR/$MODEL_CACHE_NAME/snapshots/$NEW_MODEL_REVISION}}
+NEW_MODEL_ID=${MODEL_ID:-/mnt/disk/huggingface/DeepSeek-R1-0528-MXFP4-Preview}
 MODEL_PREFIX_VAL=dsr1
 
 declare -A OLD_RUN=([run]=0 [attempt]=0 [job]=0)
@@ -296,6 +296,7 @@ run_one() {
     --entrypoint /bin/bash -w /workspace \
     -v "$wt:/workspace" \
     -v "$MODEL_DIR:$MODEL_DIR" \
+    -v "$(dirname "${MODEL[$label]}")":"$(dirname "${MODEL[$label]}")":ro \
     -v "$HF_HOME_DIR:$HF_HOME_DIR" \
     -v /dev/shm/pip_cache:/root/.cache/pip \
     -e HF_TOKEN \

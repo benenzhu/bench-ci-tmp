@@ -1,0 +1,113 @@
+[GPU Monitor] Started AMD (PID=13, interval=1s, output=/workspace/gpu_metrics.csv)
++ SERVER_PID=14
++ wait_for_server_ready --port 19000 --server-log /workspace/server.log --server-pid 14
++ set +x
++ python3 -m sglang.launch_server --model-path=/mnt/disk/huggingface/DeepSeek-R1-0528-MXFP4-Preview --trust-remote-code --host=0.0.0.0 --port=19000 --tensor-parallel-size=4 --chunked-prefill-size=32768 --mem-fraction-static=0.80 --disable-radix-cache --num-continuous-decode-steps=4 --max-prefill-tokens=32768 --cuda-graph-max-bs=128 --attention-backend aiter --kv-cache-dtype fp8_e4m3
+/sgl-workspace/sglang/python/sglang/srt/environ.py:1039: UserWarning: Environment variable SGL_ROCM_ARCH is deprecated, please use SGLANG_ROCM_ARCH
+  warnings.warn(
+/sgl-workspace/sglang/python/sglang/launch_server.py:55: UserWarning: 'python -m sglang.launch_server' is still supported, but 'sglang serve' is the recommended entrypoint.
+  Example: sglang serve --model-path <model> [options]
+  warnings.warn(
+[1;33m'--cuda-graph-max-bs' is deprecated and will be removed in a future release. Use '--cuda-graph-max-bs-decode' instead.[0m
+[aiter] [pid=14 pname=MainProcess] start build [module_aiter_core] under /sgl-workspace/aiter/aiter/jit/build/module_aiter_core
+[aiter] Current hipcc not support: -mllvm -amdgpu-coerce-illegal-types=1, skip it.
+[aiter] [pid=14 pname=MainProcess] [32mfinish build [module_aiter_core], cost 15.6s [0m
+[aiter] import [module_aiter_core] under /sgl-workspace/aiter/aiter/jit/module_aiter_core.so
+[aiter] merge tuned file under model_configs/ and configs/ /sgl-workspace/aiter/aiter/configs/bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/qwen32B_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/kimi_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/glm47_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/gptoss_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/dsv3_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/llama70B_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/dsv4_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/minimax_m3_eagle_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/llama405B_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/kimik2_bf16_tuned_gemm.csv:/sgl-workspace/aiter/aiter/configs/model_configs/glm5_bf16_tuned_gemm.csv
+Traceback (most recent call last):
+  File "/opt/venv/lib/python3.14/site-packages/transformers/utils/hub.py", line 437, in cached_files
+    hf_hub_download(
+    ~~~~~~~~~~~~~~~^
+        path_or_repo_id,
+        ^^^^^^^^^^^^^^^^
+    ...<10 lines>...
+        tqdm_class=tqdm_class,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/opt/venv/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py", line 84, in _inner_fn
+    validate_repo_id(arg_value)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "/opt/venv/lib/python3.14/site-packages/huggingface_hub/utils/_validators.py", line 132, in validate_repo_id
+    raise HFValidationError(
+    ...<2 lines>...
+    )
+huggingface_hub.errors.HFValidationError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/mnt/disk/huggingface/DeepSeek-R1-0528-MXFP4-Preview'. Use `repo_type` argument if needed.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 203, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/sgl-workspace/sglang/python/sglang/launch_server.py", line 67, in <module>
+    server_args = prepare_server_args(sys.argv[1:])
+  File "/sgl-workspace/sglang/python/sglang/srt/server_args.py", line 7161, in prepare_server_args
+    return ServerArgs.from_cli_args(raw_args)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "/sgl-workspace/sglang/python/sglang/srt/server_args.py", line 6391, in from_cli_args
+    return cls(**{attr: getattr(args, attr) for attr in attrs})
+  File "<string>", line 425, in __init__
+  File "/sgl-workspace/sglang/python/sglang/srt/server_args.py", line 2693, in __post_init__
+    self._handle_cuda_graph_config()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/sgl-workspace/sglang/python/sglang/srt/server_args.py", line 3181, in _handle_cuda_graph_config
+    self._apply_cuda_graph_compatibility()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/sgl-workspace/sglang/python/sglang/srt/server_args.py", line 3265, in _apply_cuda_graph_compatibility
+    self._disable_tc_piecewise_cudagraph_if_incompatible()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/sgl-workspace/sglang/python/sglang/srt/server_args.py", line 3338, in _disable_tc_piecewise_cudagraph_if_incompatible
+    if predicate():
+       ~~~~~~~~~^^
+  File "/sgl-workspace/sglang/python/sglang/srt/server_args.py", line 3281, in <lambda>
+    lambda: self.get_model_config().is_piecewise_cuda_graph_disabled_model,
+            ~~~~~~~~~~~~~~~~~~~~~^^
+  File "/sgl-workspace/sglang/python/sglang/srt/server_args.py", line 6441, in get_model_config
+    self.model_config = ModelConfig.from_server_args(self)
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/sgl-workspace/sglang/python/sglang/srt/configs/model_config.py", line 504, in from_server_args
+    return ModelConfig(
+        model_path=model_path or server_args.model_path,
+    ...<22 lines>...
+        **kwargs,
+    )
+  File "/sgl-workspace/sglang/python/sglang/srt/configs/model_config.py", line 274, in __init__
+    get_config(
+    ~~~~~~~~~~^
+        self.model_path,
+        ^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/sgl-workspace/sglang/python/sglang/srt/utils/common.py", line 3882, in wrapper
+    result = func(*args, **kwargs)
+  File "/sgl-workspace/sglang/python/sglang/srt/utils/hf_transformers/config.py", line 229, in get_config
+    config = parser.parse(
+        model, trust_remote_code=trust_remote_code, revision=revision, **kwargs
+    )
+  File "/sgl-workspace/sglang/python/sglang/srt/utils/hf_transformers/config.py", line 63, in parse
+    config = AutoConfig.from_pretrained(
+        model,
+    ...<2 lines>...
+        **kwargs,
+    )
+  File "/opt/venv/lib/python3.14/site-packages/transformers/models/auto/configuration_auto.py", line 376, in from_pretrained
+    config_dict, unused_kwargs = PreTrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.14/site-packages/transformers/configuration_utils.py", line 687, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+                          ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/venv/lib/python3.14/site-packages/transformers/configuration_utils.py", line 742, in _get_config_dict
+    resolved_config_file = cached_file(
+        pretrained_model_name_or_path,
+    ...<9 lines>...
+        _commit_hash=commit_hash,
+    )
+  File "/opt/venv/lib/python3.14/site-packages/transformers/utils/hub.py", line 293, in cached_file
+    file = cached_files(path_or_repo_id=path_or_repo_id, filenames=[filename], **kwargs)
+  File "/opt/venv/lib/python3.14/site-packages/transformers/utils/hub.py", line 488, in cached_files
+    raise OSError(f"{e}") from e
+OSError: Repo id must be in the form 'repo_name' or 'namespace/repo_name': '/mnt/disk/huggingface/DeepSeek-R1-0528-MXFP4-Preview'. Use `repo_type` argument if needed.
+Server died before becoming healthy. Exiting.

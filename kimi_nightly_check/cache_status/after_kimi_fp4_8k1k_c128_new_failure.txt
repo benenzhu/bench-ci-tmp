@@ -1,7 +1,7 @@
 stage=after_kimi_fp4_8k1k_c128_new_failure
-timestamp=2026-08-12T13:57:13Z
+timestamp=2026-08-14T03:55:50Z
 MODEL_DIR=/dev/shm/hf_hub_cache
 MODEL_CACHE_ROOT=/dev/shm/hf_hub_cache/models--amd--Kimi-K2.5-MXFP4
 status=missing
 Filesystem      Size  Used Avail Use% Mounted on
-tmpfs           1.5T  521G  992G  35% /dev/shm
+tmpfs           1.5T  962G  550G  64% /dev/shm

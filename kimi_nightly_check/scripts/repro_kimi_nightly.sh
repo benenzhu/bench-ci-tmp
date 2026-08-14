@@ -275,6 +275,7 @@ run_one() {
     --entrypoint /bin/bash -w /workspace \
     -v "$wt:/workspace" \
     -v "$MODEL_DIR:$MODEL_DIR" \
+    -v "$(dirname "${MODEL[$label]}")":"$(dirname "${MODEL[$label]}")":ro \
     -v "$HF_HOME_DIR:$HF_HOME_DIR" \
     -v /dev/shm/pip_cache:/root/.cache/pip \
     -e HF_TOKEN \
