@@ -1,0 +1,102 @@
+diff --git a/atom/model_ops/linear.py b/atom/model_ops/linear.py
+index 5e97596..6b53182 100644
+--- a/atom/model_ops/linear.py
++++ b/atom/model_ops/linear.py
+@@ -391,6 +391,15 @@ def _a8w8_preshuffle_output_padding(output_size: int) -> int:
+     return 0 if remainder == 0 else 128 - remainder
+ 
+ 
++# Plain-int copies of the aiter pybind11 QuantType enum members. Dynamo can
++# constant-fold these; the enum members themselves it cannot even read.
++_QT_No = int(QuantType.No.value)
++_QT_per_Tensor = int(QuantType.per_Tensor.value)
++_QT_per_Token = int(QuantType.per_Token.value)
++_QT_per_1x128 = int(QuantType.per_1x128.value)
++_QT_per_1x32 = int(QuantType.per_1x32.value)
++
++
+ class LinearBase(nn.Module):
+     def __init__(
+         self,
+@@ -859,11 +868,28 @@ class LinearBase(nn.Module):
+         o_dtype = otype
+         return f"{self.prefix}[M={m},N={n},K={k},a={a_dtype},w={w_dtype},o={o_dtype}]"
+ 
++    # QuantType is a pybind11 enum from aiter.jit.module_aiter_core. torch 2.12's
++    # Dynamo cannot trace it: touching it inside the compiled forward raises a
++    # CALL_KW graph break ("likely to be a Dynamo bug" per Dynamo's own hint),
++    # and because the break lands inside a loop Dynamo skips the whole frame to
++    # eager -- which re-enters VllmBackend and trips its single-shot assert.
++    # Mirror the enum into a plain int so the traced forward compares ints only.
++    # A property (rather than a one-off in __init__) keeps the mirror correct
++    # across the later reassignment in the online-quantization path.
++    @property
++    def quant_type(self):
++        return self._quant_type
++
++    @quant_type.setter
++    def quant_type(self, value):
++        self._quant_type = value
++        self._quant_type_value = int(value.value)
++
+     @mark_trace
+     def forward(
+         self, x: torch.Tensor, x_scale: Optional[torch.Tensor] = None, otype=dtypes.bf16
+     ) -> torch.Tensor:
+-        if self.quant_type.value == QuantType.No.value:
++        if self._quant_type_value == _QT_No:
+             y = tgemm.mm(
+                 x,
+                 self.weight,
+@@ -873,7 +899,7 @@ class LinearBase(nn.Module):
+         else:
+             if x_scale is None:
+                 quant_func = self.quant_func
+-                if self.quant_type.value == QuantType.per_1x128.value:
++                if self._quant_type_value == _QT_per_1x128:
+                     # preshuffle GEMM expects column-major x_scale;
+                     # non-preshuffle GEMM expects row-major x_scale
+                     quant_func = functools_partial(
+@@ -885,13 +911,13 @@ class LinearBase(nn.Module):
+                             else {}
+                         ),
+                     )
+-                if self.quant_type.value != QuantType.per_1x32.value:
++                if self._quant_type_value != _QT_per_1x32:
+                     x, x_scale = quant_func(
+                         x,
+                         quant_dtype=self.params_dtype,
+                         scale=getattr(self, "input_scale", None),
+                     )
+-            if self.quant_type.value == QuantType.per_Tensor.value:
++            if self._quant_type_value == _QT_per_Tensor:
+                 if use_triton_gemm() and gemm_a8w8_triton is not None:
+                     y = gemm_a8w8_per_tensor_impl(
+                         x,
+@@ -910,7 +936,7 @@ class LinearBase(nn.Module):
+                         scale_a=x_scale,
+                         scale_b=self.weight_scale,
+                     )
+-            elif self.quant_type.value == QuantType.per_Token.value:
++            elif self._quant_type_value == _QT_per_Token:
+                 if self.params_dtype == dtypes.i8:
+                     y = gemm_a8w8(
+                         x,
+@@ -940,7 +966,7 @@ class LinearBase(nn.Module):
+                     )
+                     if self.bias is not None:
+                         y += self.bias
+-            elif self.quant_type.value == QuantType.per_1x128.value:
++            elif self._quant_type_value == _QT_per_1x128:
+                 if envs.ATOM_FP8_BLOCKSCALE_WEIGHT_PRESHUFFLE:
+                     y = gemm_a8w8_blockscale_preshuffle_impl(
+                         x,
+@@ -969,7 +995,7 @@ class LinearBase(nn.Module):
+                         )
+                 if self.bias is not None:
+                     y += self.bias
+-            elif self.quant_type.value == QuantType.per_1x32.value:
++            elif self._quant_type_value == _QT_per_1x32:
+                 y = gemm_a4w4_quant(
+                     x,
+                     x_scale,

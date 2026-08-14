@@ -90,17 +90,70 @@ skip" — that comment is wrong for server mode.
 number it produced would be a floor, not something comparable to the 344.61
 baseline. Not run for that reason.
 
+## The Dynamo fix works — and uncovers a second, independent blocker
+
+`atom_quanttype_dynamo.patch` (in this directory) implements the narrow fix:
+mirror the pybind enum into a plain int and have the traced `forward` compare
+ints only. A property keeps the mirror in sync, because the online-quantization
+path reassigns `quant_type` at `linear.py:687`:
+
+```python
+_QT_No = int(QuantType.No.value)          # module-level, constant-foldable
+...
+@property
+def quant_type(self): return self._quant_type
+@quant_type.setter
+def quant_type(self, value):
+    self._quant_type = value
+    self._quant_type_value = int(value.value)
+...
+if self._quant_type_value == _QT_No:      # was: self.quant_type.value == QuantType.No.value
+```
+
+7 comparisons in `LinearBase.forward` rewritten; `LinearBase` is the base of
+every Linear so one edit covers all of them. No image rebuild needed — ATOM is
+`pip install -e`, so the reproducer bind-mounts the patch and `git apply`s it at
+container start (`PATCH=... ./repro_glm5_atom_rocm10.sh`).
+
+**Result: the compile failure is gone.** No `VllmBackend can only be called
+once`, no graph breaks at all, and startup progresses past compilation into
+CUDA graph capture. Then it dies there instead:
+
+```
+[AITER] /app/aiter/aiter_meta/csrc/kernels/cache_kernels.cu:4043
+        norm_weight dtype must match q dtype
+Capturing bs=512, max_q_len=1: 0%|  | 0/11
+AsyncIOProcManager(ModelRunner): [ModelRunner1/8] proc died unexpectedly (exitcode=-6)
+```
+
+This is an abort inside an aiter C++ cache kernel, unrelated to torch.compile.
+It is **not** caused by the fp8 KV cache: re-running with `KVDTYPE=bf16`
+produces the identical abort.
+
+The likely cause is again a version mismatch, this time in aiter rather than
+torch. Official ATOM images build aiter from source (reporting version `0.0.0`);
+ours installs the released wheel **0.1.19** that comes with the vLLM ROCm 10
+base. `--kv_cache_dtype fp8` is exactly what the ROCm 7 ATOM baseline uses and
+works there, so the kernel contract changed between those aiter builds.
+
 ## What would fix it
 
 In rough order of preference:
 
-1. **Publish a ROCm 10 ATOM base with torch 2.13** — then ATOM runs on the torch
-   it targets and none of this arises.
-2. **Make `linear.py:866` not branch on a pybind enum inside the traced region** —
-   e.g. hoist `quant_type` to a plain Python int/bool at `__init__` time so
-   Dynamo sees a constant. This is the narrow fix and is ATOM-side.
-3. Report the pybind-enum tracing failure upstream to PyTorch — Dynamo's own
-   hint says it is likely a Dynamo bug.
+1. **Publish a ROCm 10 ATOM base built the way the official images are** — torch
+   2.13 plus aiter from source. Both blockers here trace back to our image
+   pairing ATOM with a torch and an aiter it was not developed against, which is
+   forced on us because the only ROCm 10 base available is a vLLM image.
+2. **Upstream the Dynamo fix regardless** (`atom_quanttype_dynamo.patch`) — it is
+   small, behaviour-preserving, and makes ATOM robust to torch versions whose
+   Dynamo cannot trace pybind enums.
+3. Report the pybind-enum tracing failure to PyTorch — Dynamo's own hint says it
+   is likely a Dynamo bug.
 
-Artifacts: `logs/glm5_atom/` (first run) and `logs/glm5_atom_diag/`
-(with graph-break diagnostics). Reproducer: `repro_glm5_atom_rocm10.sh`.
+Chasing the aiter abort further was not attempted: with two independent
+version-skew blockers, any number produced would say more about our improvised
+image than about ROCm 10.
+
+Artifacts: `logs/glm5_atom/` (first run), `logs/glm5_atom_diag/` (graph-break
+diagnostics), `logs/glm5_atom_patched/` (with the fix applied, showing the aiter
+abort). Reproducer: `repro_glm5_atom_rocm10.sh`.

@@ -49,12 +49,17 @@ regression. What breaks are toolchain skew and kernel-eligibility gates:
   from `aiter.jit.module_aiter_core`, which torch 2.12's Dynamo cannot trace
   ("likely to be a Dynamo bug", per PyTorch's own hint). The break lands inside
   a loop, Dynamo falls back to eager, and the second entry into `VllmBackend`
-  trips its single-shot assert. Official ATOM images ship torch **2.13** or
-  **2.10**; ours has 2.12 only because the sole ROCm 10 base is a vLLM image.
+  trips its single-shot assert. `atom_quanttype_dynamo.patch` here fixes that
+  (mirror the enum to a plain int; bind-mounted and `git apply`d at container
+  start, no rebuild) and the compile failure does go away — only to expose a
+  **second, independent blocker**: an abort inside an aiter cache kernel
+  (`norm_weight dtype must match q dtype`) during CUDA graph capture, which also
+  happens with bf16 KV. Both are version skew from our improvised image: official
+  ATOM ships torch **2.13**/**2.10** and builds aiter from source, while ours has
+  torch 2.12 and aiter wheel 0.1.19 because the only ROCm 10 base is a vLLM image.
   Note `VllmBackend` is ATOM's own forked class and no real vLLM code runs here
-  (0 `site-packages/vllm` frames in the traceback) — uninstalling vLLM does not
-  help, and `--enforce-eager` does not bypass it (`--level` is the compile
-  switch). Needs torch 2.13, or an ATOM-side fix at `linear.py:866`.
+  (0 `site-packages/vllm` frames) — uninstalling vLLM does not help, and
+  `--enforce-eager` does not bypass it (`--level` is the compile switch).
 
 ## Building the ATOM ROCm 10 image
 

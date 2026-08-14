@@ -28,6 +28,7 @@
 #   ./remote_glm5_atom.sh                              # reproduce w/ diagnostics
 #   IMG=atom-rocm10:novllm ./remote_glm5_atom.sh       # is vllm's presence to blame?
 #   LEVEL=0 CGMODE=NONE ./remote_glm5_atom.sh          # bypass compile entirely
+#   PATCH=/dev/shm/atom_quanttype_dynamo.patch ./remote_glm5_atom.sh   # apply the fix
 # At LEVEL=0 any throughput is a FLOOR (no compile, no cuda graphs) and is NOT
 # comparable to the 344.61 baseline.
 set -uo pipefail
@@ -36,6 +37,10 @@ MODEL=/dev/shm/model/GLM-5-FP8
 IMG=${IMG:-atom-rocm10:local}   # :novllm variant has vllm pip-uninstalled
 TP=${TP:-8}
 ISL=8192 OSL=1024 CONC=8 PROMPT_MULT=3 MAX_MODEL_LEN=10240 PORT=19000
+# Baseline ATOM (ROCm 7) runs fp8 KV. On ROCm 10 the aiter cache kernel aborts
+# with "norm_weight dtype must match q dtype", so KVDTYPE=bf16 tests whether
+# that is the blocker. Changing it makes the run NOT comparable to 344.61.
+KVDTYPE=${KVDTYPE:-fp8}
 LEVEL=${LEVEL:-3}          # 3=PIECEWISE (ATOM default, the path that asserts); 0=NO_COMPILATION
 CGMODE=${CGMODE:-FULL}     # ATOM default; only meaningful at level 3
 OUT=${OUT:-/dev/shm/glm5_atom_run}
@@ -45,7 +50,7 @@ CTR=${CTR:-glm5-atom-rocm10}
 mkdir -p "$OUT"
 say(){ echo "[$(date +%H:%M:%S)] $*" | tee -a "$LOG"; }
 
-say "=== GLM-5 on ATOM ROCm10, TP$TP, --level $LEVEL --cudagraph-mode $CGMODE ==="
+say "=== GLM-5 on ATOM ROCm10, TP$TP, --level $LEVEL --cudagraph-mode $CGMODE --kv_cache_dtype $KVDTYPE ==="
 docker rm -f "$CTR" >/dev/null 2>&1
 
 # ATOM_DISABLE_MMAP is deliberately NOT set: the bundle's bench script hardcodes
@@ -57,13 +62,19 @@ docker run -d --name "$CTR" \
   --cap-add=SYS_PTRACE --security-opt seccomp=unconfined \
   --ulimit memlock=-1 --ulimit stack=67108864 \
   -v "$MODEL:$MODEL:ro" -v "$OUT:/workspace" \
+  ${PATCH:+-v "$PATCH:/tmp/atom.patch:ro"} \
   -e HF_HUB_OFFLINE=1 \
   -e TORCH_LOGS="${TORCH_LOGS:-graph_breaks,recompiles}" \
   -e TORCHDYNAMO_VERBOSE="${TORCHDYNAMO_VERBOSE:-1}" \
   --entrypoint /bin/bash "$IMG" -lc "
+    # ATOM is pip install -e, so patching /app/ATOM patches what runs. Applying
+    # it here beats rebuilding and re-shipping a 61G image for a 100-line diff.
+    if [ -f /tmp/atom.patch ]; then
+      cd /app/ATOM && git apply -v /tmp/atom.patch && echo PATCH_APPLIED || { echo PATCH_FAILED; exit 1; }
+    fi
     python3 -m atom.entrypoints.openai_server \
       --model '$MODEL' --server-port $PORT -tp $TP \
-      --kv_cache_dtype fp8 \
+      --kv_cache_dtype $KVDTYPE \
       --max-model-len $MAX_MODEL_LEN \
       --gpu-memory-utilization 0.9 \
       --level $LEVEL --cudagraph-mode $CGMODE \
@@ -71,6 +82,7 @@ docker run -d --name "$CTR" \
       --trust-remote-code > /workspace/server.log 2>&1
   " >/dev/null || { say "docker run failed"; exit 1; }
 
+[[ -n "${PATCH:-}" ]] && say "applying patch: $PATCH"
 say "waiting for server (up to 40 min)"
 ready=0
 for i in $(seq 1 480); do
@@ -89,6 +101,8 @@ if [[ "$ready" != 1 ]]; then
   fi
   grep -hoE "(OSError|TypeError|RuntimeError|AssertionError|ValueError|ImportError): .*" \
     "$OUT/server.log" 2>/dev/null | sort -u | head -6 | cut -c1-200 | tee -a "$LOG"
+  say "--- aiter kernel aborts ---"
+  grep -hoE "\[AITER\] .*" "$OUT/server.log" 2>/dev/null | sort -u | head -5 | cut -c1-190 | tee -a "$LOG"
   say "--- graph breaks / recompiles (why a 2nd graph?) ---"
   grep -hiE "graph break|Recompiling|torch._dynamo.*cache_size|reason:" "$OUT/server.log" 2>/dev/null \
     | sed "s/^.*\] //" | sort -u | head -20 | cut -c1-220 | tee -a "$LOG"

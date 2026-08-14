@@ -1,0 +1,12 @@
+[07:09:32] === GLM-5 on ATOM ROCm10, TP8, --level 3 --cudagraph-mode FULL --kv_cache_dtype bf16 ===
+[07:09:32] applying patch: /dev/shm/atom_quanttype_dynamo.patch
+[07:09:32] waiting for server (up to 40 min)
+[07:11:23] container exited early
+[07:11:23] === SERVER DID NOT COME UP ===
+[07:11:23]   compile assert GONE; new failure below
+RuntimeError: Engine Core Mgr: Received unexpected SHUTDOWN signal from DP rank 0 during initialization
+[07:11:23] --- aiter kernel aborts ---
+[AITER] /app/aiter/aiter_meta/csrc/kernels/cache_kernels.cu:4043 norm_weight dtype must match q dtype
+[07:11:23] --- graph breaks / recompiles (why a 2nd graph?) ---
+[07:11:23] --- did real vllm participate at all? ---
+[07:11:23]   site-packages/vllm frames in log: 0
