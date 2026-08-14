@@ -59,7 +59,7 @@ stays enabled. Wired into `scripts/repro_kimi_nightly.sh` as `LOGPROBS_MODE=`.
 
 With that, the server starts and serves — which exposes the next blocker.
 
-## Blocker 2 — aiter prefill FMHA signature mismatch (fatal at request time)
+## Blocker 2 — aiter `aiter_tensor_t` pybind type identity clash (fatal at request time)
 
 Server reaches `Application startup complete`, then **every** request returns
 500 and the run records 0 input / 0 output tokens:
@@ -68,14 +68,40 @@ Server reaches `Application startup complete`, then **every** request returns
 TypeError: fmha_fwd_bf16_opus_fwd(): incompatible function arguments.
   The following argument types are supported:
     1. (q: aiter_tensor_t, k: aiter_tensor_t, v: aiter_tensor_t,
-        out: aiter_tensor_t, causal: bool, softmax_scale: ...)
+        out: aiter_tensor_t, causal: bool, softmax_scale: ..., seqstart_q: ...,
+        seqstart_k: ..., seqstart_q_pad: ..., seqstart_k_pad: ...,
+        max_seqlen_q: ..., max_seqlen_k: ...)
+
+  Invoked with: <aiter.jit.module_aiter_core.aiter_tensor_t object>, ... x4,
+                True, 0.14467962580268923, <...aiter_tensor_t> x4, 7237, 7237
 ```
 
-Call path: `rocm_aiter_mla.py:1023 forward_mha` →
-`run_prefill_new_tokens` → `flash_attn_varlen_func` → `FlashAttnVarlenFunc.apply`
-→ `_fmha_fwd_bf16_opus_fwd(...)`. vLLM 0.27.0 passes an argument list the
-amd-aiter 0.1.19 binding in this image does not accept — a vLLM/aiter version
-skew inside the image, independent of blocker 1.
+This is **not** an arity or a vLLM/aiter version problem — expected and invoked
+are both 12 arguments in the same order and the versions match (see below). The
+mismatch is the *type identity* of `aiter_tensor_t`:
+
+- `aiter_tensor_t` is registered by exactly one prebuilt module,
+  `aiter/jit/module_aiter_core.so` (the only `.so` in `aiter/jit/` whose
+  strings contain the class name), and `torch_to_aiter_pybind()`
+  (`aiter/utility/dtypes.py:59`) constructs instances from *that* module.
+- `module_fmha_fwd_bf16_opus` is **JIT-built at runtime** in this image
+  (`finish build [module_fmha_fwd_bf16_opus], cost 17.8s`) and, via
+  `FMHA_FWD_BF16_OPUS_PYBIND` in `aiter_meta/csrc/include/rocm_ops.hpp:1452`,
+  registers its own `aiter_tensor_t`.
+
+pybind11 keys type conversion on the registered C++ type in the local internals
+namespace, so the freshly JIT-built module does not accept the
+`module_aiter_core` instances the `develop=True` path feeds it
+(`aiter/jit/core.py:1758`). Prebuilt-vs-JIT split of the same pybind class.
+
+Call path: `rocm_aiter_mla.py:1023 forward_mha` → `run_prefill_new_tokens` →
+`flash_attn_varlen_func` → `FlashAttnVarlenFunc.apply` →
+`_fmha_fwd_bf16_opus_fwd(...)` (`aiter/ops/mha.py:344`, declared
+`@compile_ops(..., develop=True)`).
+
+Why it JIT-builds here at all is the thing to check upstream: on a working
+image `module_fmha_fwd_bf16_opus` should be prebuilt into the wheel alongside
+`module_aiter_core`, and then both share one type registry.
 
 No workaround found that keeps the MLA prefill path on aiter.
 
@@ -91,5 +117,24 @@ No workaround found that keeps the MLA prefill path on aiter.
 MLA decode compile bug seen on the upstream nightly (see `NIGHTLY_CHECK.md`);
 it is orthogonal to both blockers above.
 
-Artifacts: `kimi_nightly_check/runs/kimi_fp4_8k1k_c128_new/`
-(`docker.log`, `server.log`, `local_patch.diff`).
+## Versions in the image
+
+From `pip show` and `/app/versions.txt` inside the container:
+
+| Component | Version |
+|---|---|
+| vLLM | `0.27.1.dev1+g7d3ceb497.d20260812.rocm100` (commit `7d3ceb497`, 2026-08-12) |
+| amd-aiter | `0.1.19` — `AITER_BRANCH: v0.1.19`, `AITER_REPO: https://github.com/ROCm/aiter.git` |
+| torch | `2.12.0+rocm10.0.0rc2` (hip 7.15.26301) |
+| flash-attention | `FA_BRANCH: 0e60e394` |
+| base | `rocm/ufb-private:vllm-base-...rocm10.0.0rc2-7d3ceb497f` |
+
+vLLM source is at `/app/vllm` but **with `.git` stripped**, so there is no repo
+to diff against; the commit is recoverable only from the version string and the
+image tag (both say `7d3ceb497`). The aiter pin is not guesswork — vLLM's own
+`docker/Dockerfile.rocm_base:4` carries `ARG AITER_BRANCH="v0.1.19"`, and that
+is what got built, so **vLLM and aiter are the pair vLLM intends**. That is why
+blocker 2 is an aiter-internal problem, not version skew.
+
+Artifacts: `logs/kimi/` here (`docker.log.gz`, `server.log.gz`,
+`local_patch.diff`, patched bench script).

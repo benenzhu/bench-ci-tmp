@@ -27,8 +27,11 @@ skew inside the images, not model or config problems:
 - **Kimi / vLLM** — two separate aiter breakages. (1) ROCm 10's hipCUB dropped
   `hipcub::Traits`, so aiter's sampling kernel fails to JIT-compile and all
   workers die at init; `--logprobs-mode processed_logits` works around it.
-  (2) Past that, `fmha_fwd_bf16_opus_fwd` rejects the argument list vLLM 0.27.0
-  passes, so every request 500s. No workaround for (2).
+  (2) Past that, `fmha_fwd_bf16_opus_fwd` rejects its arguments and every
+  request 500s — not version skew (vLLM pins `AITER_BRANCH=v0.1.19` itself and
+  that is what shipped), but two pybind registrations of `aiter_tensor_t`: one
+  prebuilt in `module_aiter_core.so`, one in the runtime-JIT-built
+  `module_fmha_fwd_bf16_opus`. No workaround for (2).
 - **GLM-5 / ATOM** — `AssertionError: VllmBackend can only be called once`
   during warmup: Dynamo produces a second graph for the model forward under
   torch 2.12 / py3.14. Needs a fix in ATOM.
