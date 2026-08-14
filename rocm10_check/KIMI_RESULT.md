@@ -103,19 +103,83 @@ Why it JIT-builds here at all is the thing to check upstream: on a working
 image `module_fmha_fwd_bf16_opus` should be prebuilt into the wheel alongside
 `module_aiter_core`, and then both share one type registry.
 
-No workaround found that keeps the MLA prefill path on aiter.
+### Workaround: run TP4 — it stays on aiter
+
+The gate that decides this is `rocm_aiter_mla.py:333`:
+
+```python
+# FP8 MLA prefill (kn_mla_reduce_v1) only supports 16-aligned heads.
+self._fp8_prefill_enabled = (
+    _fp8_mla_prefill_supported() and self.num_heads % 16 == 0
+)
+```
+
+`num_heads` here is **per rank** (`ModelConfig.get_num_attention_heads()`
+divides by TP). Kimi has 64 attention heads (`text_config`), so:
+
+| TP | heads/rank | `% 16` | prefill path |
+|---:|---:|---|---|
+| 8 | 8 | ✗ | falls back to `flash_attn_varlen_func` → blocker 2 |
+| 4 | **16** | ✓ | **stays on the aiter FP8 ASM prefill** |
+
+The other two conditions in `_fp8_mla_prefill_supported()` already hold on this
+image: `on_gfx950()` is True and aiter 0.1.19 exports both
+`mla_prefill_ps_asm_fwd` and `mla_reduce_v1`.
+
+Verified at TP4 — see the result section below. `fmha_fwd_bf16_opus_fwd`
+appears **0 times** in the server log and the backend selected is
+`ROCM_AITER_MLA`. So blocker 2 is not a dead end; TP8 simply excludes itself
+from the ASM path.
+
+## TP4 result — Kimi runs on ROCm 10
+
+Run on `smci355-ccs-aus-n02-09` (8 idle GPUs), same image, 8192x1024 / CONC=128
+/ 384 prompts:
+
+| Metric | Value |
+|---|---:|
+| Successful / failed requests | **384 / 0** |
+| Total token throughput | 14469.40 tok/s |
+| **tok/s/GPU** | **3617.35** |
+| Output throughput | 1607.71 tok/s |
+| Mean TTFT / TPOT | 7517.6 ms / 71.74 ms |
+| Attention backend | `ROCM_AITER_MLA` |
+| `fmha_fwd_bf16_opus_fwd` errors | 0 |
+
+**Do not compare 3617.35 against the 2239.96 TP8 baseline.** Three things
+differ: TP4 vs TP8, the aiter sampler is disabled, and this is a different
+host. `tok/s/GPU` normalises for GPU count but not for any of those. Treat this
+as a *does-it-run on aiter* result, not a speedup.
+
+Two config details this run pinned down, both of which are harness bugs rather
+than ROCm 10 problems:
+
+- `VLLM_ROCM_USE_AITER=1` is **required**. Without it `_get_backend_priorities()`
+  never offers `ROCM_AITER_MLA` at all, and since `--block-size=1` is also in
+  the recipe (and `TRITON_MLA` rejects `block_size=1`), the selector finds zero
+  valid backends and the engine aborts with `No valid attention backend found`.
+  The bundle's bench script exports it at line 49; a hand-rolled serve command
+  must too.
+- `--random-range-ratio 0.8` with `--max-model-len 9416` is invalid for
+  `vllm bench serve`: it samples input length from
+  `[len*(1-r), len*(1+r)]` = up to 14746 tokens, and the server 400s everything
+  over 9416. A first attempt scored 181/384 successful for exactly this reason.
+  Pinned to `0` (fixed 8192x1024) for the numbers above.
 
 ## Status
 
 | Config | Outcome |
 |---|---|
-| default | dies at init (blocker 1) |
-| `VLLM_ROCM_AITER_MLA_ASM_PADDING=asm` | dies at init (blocker 1) |
-| `+ --logprobs-mode processed_logits` | serves, but all requests 500 (blocker 2) |
+| TP8, default | dies at init (blocker 1) |
+| TP8 `+ --logprobs-mode processed_logits` | serves, but all requests 500 (blocker 2) |
+| **TP4 `+ --logprobs-mode processed_logits`** | **works — 384/384, on `ROCM_AITER_MLA`** |
 
-`VLLM_ROCM_AITER_MLA_ASM_PADDING=asm` does successfully avoid the *older* Gluon
-MLA decode compile bug seen on the upstream nightly (see `NIGHTLY_CHECK.md`);
-it is orthogonal to both blockers above.
+Note on `VLLM_ROCM_AITER_MLA_ASM_PADDING`: that env var **does not exist in
+this image**. It is present in the upstream nightly (vLLM 0.26.1, where it
+works around the Gluon MLA decode compile bug — see `NIGHTLY_CHECK.md`) but
+vLLM 0.27.1 rewrote that code path and dropped it, so setting it here is
+silently ignored. An earlier version of this file listed it as a distinct
+tested configuration; it was not.
 
 ## Versions in the image
 

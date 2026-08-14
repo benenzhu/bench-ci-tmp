@@ -13,7 +13,8 @@ Images (all prerelease):
 | Model | Framework | Config | Baseline | ROCm 10 | Verdict |
 |---|---|---|---:|---:|---|
 | DeepSeek-R1-0528 | SGLang | TP4 8k1k c128 | 4519.73 | **4742.94** | +4.9%, no regression |
-| Kimi-K2.5 | vLLM | TP8 8k1k c128 | 2239.96 | — | **broken** |
+| Kimi-K2.5 | vLLM | TP8 8k1k c128 | 2239.96 | — | **broken** at TP8 |
+| Kimi-K2.5 | vLLM | **TP4** 8k1k c128 | (n/a) | 3617.35 | **runs** on `ROCM_AITER_MLA` |
 | GLM-5 | ATOM | TP8 8k1k c8 | 344.61 | — | **broken** |
 
 Units are `tok/s/GPU`. Detail per model in `DSR1_RESULT.md`,
@@ -21,8 +22,9 @@ Units are `tok/s/GPU`. Detail per model in `DSR1_RESULT.md`,
 
 ## Conclusion
 
-Only the SGLang path is healthy on ROCm 10. Both failures are toolchain/version
-skew inside the images, not model or config problems:
+SGLang is healthy on ROCm 10, vLLM works at TP4 but not TP8, ATOM does not run.
+None of the failures are model or config problems — they are toolchain skew and
+kernel-eligibility gates inside the images:
 
 - **Kimi / vLLM** — two separate aiter breakages. (1) ROCm 10's hipCUB dropped
   `hipcub::Traits`, so aiter's sampling kernel fails to JIT-compile and all
@@ -31,7 +33,10 @@ skew inside the images, not model or config problems:
   request 500s — not version skew (vLLM pins `AITER_BRANCH=v0.1.19` itself and
   that is what shipped), but two pybind registrations of `aiter_tensor_t`: one
   prebuilt in `module_aiter_core.so`, one in the runtime-JIT-built
-  `module_fmha_fwd_bf16_opus`. No workaround for (2).
+  `module_fmha_fwd_bf16_opus`. **(2) only bites at TP8**: the aiter FP8 ASM MLA
+  prefill requires `num_heads % 16 == 0` per rank, and Kimi's 64 heads give 8 at
+  TP8 (falls back to the broken path) but 16 at TP4 (stays on aiter). At TP4 the
+  model serves 384/384 requests on `ROCM_AITER_MLA`.
 - **GLM-5 / ATOM** — `AssertionError: VllmBackend can only be called once`
   during warmup: Dynamo produces a second graph for the model forward under
   torch 2.12 / py3.14. Needs a fix in ATOM.
