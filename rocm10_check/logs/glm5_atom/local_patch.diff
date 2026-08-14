@@ -1,0 +1,13 @@
+diff --git a/benchmarks/single_node/fixed_seq_len/glm5_fp8_mi355x_atom.sh b/benchmarks/single_node/fixed_seq_len/glm5_fp8_mi355x_atom.sh
+index b1d1b61c..28c73910 100644
+--- a/benchmarks/single_node/fixed_seq_len/glm5_fp8_mi355x_atom.sh
++++ b/benchmarks/single_node/fixed_seq_len/glm5_fp8_mi355x_atom.sh
+@@ -65,7 +65,7 @@ run_benchmark_serving \
+     --input-len "$ISL" \
+     --output-len "$OSL" \
+     --random-range-ratio "$RANDOM_RANGE_RATIO" \
+-    --num-prompts "$((CONC * 10))" \
++    --num-prompts "$((CONC * PROMPT_MULTIPLIER))" \
+     --max-concurrency "$CONC" \
+     --result-filename "$RESULT_FILENAME" \
+     --result-dir /workspace/ \

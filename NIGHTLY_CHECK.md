@@ -24,6 +24,10 @@ Units are `tok/s/GPU` (per-GPU normalized). Per-model detail in
   engine never initializes. The **ATOM-packaged vLLM v0.25.1 works fine**
   (-0.1%), so only the upstream nightly build is affected.
 
+A separate ROCm 10.0.0rc2 pass over the same three models is in
+`rocm10_check/` — DeepSeek-R1 is fine there too (+4.9%), Kimi and GLM-5 do not
+run at all.
+
 ## Notes
 
 - DSR1 baseline is **4519.73**, from a re-run of the baseline image. The

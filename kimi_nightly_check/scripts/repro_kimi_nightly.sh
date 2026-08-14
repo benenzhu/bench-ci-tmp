@@ -13,6 +13,7 @@ OUT_DIR=${OUT_DIR:-/home/tazhu/bench-ci-tmp/kimi_nightly_check}
 MODEL_DIR=${MODEL_DIR:-/dev/shm/hf_hub_cache}
 HF_HOME_DIR=${HF_HOME_DIR:-/dev/shm/hf_home}
 PORT=${PORT:-19000}  # 18888 is held by a shared tinyproxy on this machine; use a free port
+LOGPROBS_MODE=${LOGPROBS_MODE:-}    # set to processed_logits on ROCm 10 to skip the aiter sampler (hipcub::Traits gone)
 GPU_MEM_UTIL=${GPU_MEM_UTIL:-0.80}  # lowered from upstream 0.95: leaves headroom for other users on GPU3 AND for CUDA-graph capture (0.85 OOM'd during graph capture at CONC=8)
 PROMPT_MULTIPLIER=${PROMPT_MULTIPLIER:-3}
 RANDOM_RANGE_RATIO=${RANDOM_RANGE_RATIO:-0.8}
@@ -146,6 +147,15 @@ prepare_worktree() {
   perl -0pi -e "s/--gpu-memory-utilization 0\.9[05]/--gpu-memory-utilization $GPU_MEM_UTIL/g" "$dest/$script"
   rg -F -q -- "--gpu-memory-utilization $GPU_MEM_UTIL" "$dest/$script" || {
     echo "Failed to patch gpu-memory-utilization in $dest/$script" >&2; exit 1; }
+  # ROCm 10 only: hipCUB dropped hipcub::Traits, so aiter's sampling.cuh fails to
+  # JIT-compile and every worker dies loading the missing lib.so. A processed
+  # logprobs mode routes sampling through forward_native and skips that kernel;
+  # all other aiter kernels stay enabled.
+  if [[ -n "$LOGPROBS_MODE" ]]; then
+    perl -0pi -e "s/^--gpu-memory-utilization /--logprobs-mode $LOGPROBS_MODE \\\\\n--gpu-memory-utilization /m" "$dest/$script"
+    rg -F -q -- "--logprobs-mode $LOGPROBS_MODE" "$dest/$script" || {
+      echo "Failed to patch logprobs-mode in $dest/$script" >&2; exit 1; }
+  fi
   git -C "$dest" diff -- "$script" > "$(run_dir_for "$label")/local_patch.diff" 2>/dev/null || true
 }
 
@@ -279,6 +289,7 @@ run_one() {
     -v "$HF_HOME_DIR:$HF_HOME_DIR" \
     -v /dev/shm/pip_cache:/root/.cache/pip \
     -e HF_TOKEN \
+    -e VLLM_ROCM_AITER_MLA_ASM_PADDING="${VLLM_ROCM_AITER_MLA_ASM_PADDING:-asm}" \
     -e HF_HUB_CACHE="$MODEL_DIR" -e HF_HOME="$HF_HOME_DIR" -e HF_XET_CACHE="$HF_HOME_DIR/xet" \
     -e MODEL="${MODEL[$label]}" -e MODEL_PREFIX="${MODEL_PREFIX[$label]}" -e IMAGE="${IMAGE[$label]}" \
     -e FRAMEWORK="${FRAMEWORK[$label]}" -e PRECISION="${PRECISION[$label]}" -e RUNNER_TYPE=mi355x \
