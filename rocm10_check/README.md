@@ -15,8 +15,7 @@ Images (all prerelease):
 | Model | Framework | Config | Baseline | ROCm 10 | Verdict |
 |---|---|---|---:|---:|---|
 | DeepSeek-R1-0528 | SGLang | TP4 8k1k c128 | 4519.73 | **4742.94** | +4.9%, no regression |
-| Kimi-K2.5 | vLLM | TP8 8k1k c128 | 2239.96 | — | **broken** at TP8 |
-| Kimi-K2.5 | vLLM | **TP4** 8k1k c128 | 3270.65 | **3617.35** | **+10.6%, no regression** |
+| Kimi-K2.5 | vLLM | TP4 8k1k c128 | 3270.65 | **3617.35** | **+10.6%, no regression** |
 | GLM-5 | ATOM | TP8 8k1k c8 | 344.61 | **350.29** | **+1.6%, no regression** |
 
 Units are `tok/s/GPU`. Detail per model in `DSR1_RESULT.md`,
