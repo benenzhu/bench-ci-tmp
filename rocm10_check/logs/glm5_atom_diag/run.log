@@ -1,0 +1,20 @@
+[06:51:30] === GLM-5 on ATOM ROCm10, TP8, --level 3 --cudagraph-mode FULL ===
+[06:51:30] waiting for server (up to 40 min)
+[06:52:41] container exited early
+[06:52:41] === SERVER DID NOT COME UP ===
+[06:52:41]   STILL the torch.compile assert -- --level 3 did not take effect
+AssertionError: VllmBackend can only be called once
+RuntimeError: Engine Core Mgr: Received unexpected SHUTDOWN signal from DP rank 0 during initialization
+[06:52:41] --- graph breaks / recompiles (why a 2nd graph?) ---
+  Explanation: torch.compile detected a graph break in a for/while loop. Skipping the frame and falling back to eager, as graph breaks in loops are not supported.
+ For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb0116.html
+ For more details about this graph break, please visit: https://meta-pytorch.github.io/compile-graph-break-site/gb/gb7000.html
+graph break in loop
+Graph break in user code at /app/ATOM/atom/model_ops/linear.py:866
+Graph Break Reason: Encountered graph break when attempting to trace CALL_KW: a function call with keyword arguments, e.g. f(x=True):
+Graph Break Reason: Failed to handle graph break gracefully. Skipping the function and falling back to eager. Graph break encountered:
+  Hint: This graph break may have been caused by an earlier graph break. Resolving the earlier graph break may resolve this one.
+NOTE: the most recent `torch.compile` tracing attempt might not be where you applied `torch.compile`! This is due to how graph breaks are implemented - the optimized code object returned by Dynamo will call another Dynam
+*** While handling this graph break, another graph break occurred: ***
+[06:52:41] --- did real vllm participate at all? ---
+[06:52:41]   site-packages/vllm frames in log: 0

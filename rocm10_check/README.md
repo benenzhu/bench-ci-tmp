@@ -44,8 +44,17 @@ regression. What breaks are toolchain skew and kernel-eligibility gates:
   model serves 384/384 requests on `ROCM_AITER_MLA`, and against a same-host
   ROCm 7 TP4 control it is **10.6% faster** (3270.65 -> 3617.35 tok/s/GPU).
 - **GLM-5 / ATOM** — `AssertionError: VllmBackend can only be called once`
-  during warmup: Dynamo produces a second graph for the model forward under
-  torch 2.12 / py3.14. Needs a fix in ATOM.
+  during warmup. Graph-break logs pin it down: `LinearBase.forward`
+  (`atom/model_ops/linear.py:866`) branches on `QuantType`, a **pybind11 enum**
+  from `aiter.jit.module_aiter_core`, which torch 2.12's Dynamo cannot trace
+  ("likely to be a Dynamo bug", per PyTorch's own hint). The break lands inside
+  a loop, Dynamo falls back to eager, and the second entry into `VllmBackend`
+  trips its single-shot assert. Official ATOM images ship torch **2.13** or
+  **2.10**; ours has 2.12 only because the sole ROCm 10 base is a vLLM image.
+  Note `VllmBackend` is ATOM's own forked class and no real vLLM code runs here
+  (0 `site-packages/vllm` frames in the traceback) — uninstalling vLLM does not
+  help, and `--enforce-eager` does not bypass it (`--level` is the compile
+  switch). Needs torch 2.13, or an ATOM-side fix at `linear.py:866`.
 
 ## Building the ATOM ROCm 10 image
 
