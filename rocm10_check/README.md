@@ -14,17 +14,22 @@ Images (all prerelease):
 |---|---|---|---:|---:|---|
 | DeepSeek-R1-0528 | SGLang | TP4 8k1k c128 | 4519.73 | **4742.94** | +4.9%, no regression |
 | Kimi-K2.5 | vLLM | TP8 8k1k c128 | 2239.96 | — | **broken** at TP8 |
-| Kimi-K2.5 | vLLM | **TP4** 8k1k c128 | (n/a) | 3617.35 | **runs** on `ROCM_AITER_MLA` |
+| Kimi-K2.5 | vLLM | **TP4** 8k1k c128 | 3270.65 | **3617.35** | **+10.6%, no regression** |
 | GLM-5 | ATOM | TP8 8k1k c8 | 344.61 | — | **broken** |
 
 Units are `tok/s/GPU`. Detail per model in `DSR1_RESULT.md`,
 `KIMI_RESULT.md`, `GLM5_ATOM_RESULT.md`.
 
+The Kimi TP4 baseline (3270.65) is a control run measured for this comparison —
+same host, same TP, same serve flags, only the image differs
+(`vllm/vllm-openai-rocm:v0.22.0`, hip 7.2.53211). It is not the 2239.96 TP8
+number, which is not comparable to a TP4 run.
+
 ## Conclusion
 
-SGLang is healthy on ROCm 10, vLLM works at TP4 but not TP8, ATOM does not run.
-None of the failures are model or config problems — they are toolchain skew and
-kernel-eligibility gates inside the images:
+Where ROCm 10 kernels are reachable they are **faster**, not slower: DeepSeek-R1
++4.9% on SGLang and Kimi +10.6% at TP4 on vLLM. Nothing here is a performance
+regression. What breaks are toolchain skew and kernel-eligibility gates:
 
 - **Kimi / vLLM** — two separate aiter breakages. (1) ROCm 10's hipCUB dropped
   `hipcub::Traits`, so aiter's sampling kernel fails to JIT-compile and all
@@ -36,7 +41,8 @@ kernel-eligibility gates inside the images:
   `module_fmha_fwd_bf16_opus`. **(2) only bites at TP8**: the aiter FP8 ASM MLA
   prefill requires `num_heads % 16 == 0` per rank, and Kimi's 64 heads give 8 at
   TP8 (falls back to the broken path) but 16 at TP4 (stays on aiter). At TP4 the
-  model serves 384/384 requests on `ROCM_AITER_MLA`.
+  model serves 384/384 requests on `ROCM_AITER_MLA`, and against a same-host
+  ROCm 7 TP4 control it is **10.6% faster** (3270.65 -> 3617.35 tok/s/GPU).
 - **GLM-5 / ATOM** — `AssertionError: VllmBackend can only be called once`
   during warmup: Dynamo produces a second graph for the model forward under
   torch 2.12 / py3.14. Needs a fix in ATOM.

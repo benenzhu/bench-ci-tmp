@@ -148,8 +148,34 @@ Run on `smci355-ccs-aus-n02-09` (8 idle GPUs), same image, 8192x1024 / CONC=128
 
 **Do not compare 3617.35 against the 2239.96 TP8 baseline.** Three things
 differ: TP4 vs TP8, the aiter sampler is disabled, and this is a different
-host. `tok/s/GPU` normalises for GPU count but not for any of those. Treat this
-as a *does-it-run on aiter* result, not a speedup.
+host. `tok/s/GPU` normalises for GPU count but not for any of those. The
+like-for-like comparison is the ROCm 7 TP4 control below.
+
+## ROCm 7 vs ROCm 10 at TP4 — the like-for-like comparison
+
+Control run on the **same host, same TP, same serve flags, same 8192x1024 /
+CONC=128 / 384-prompt workload**, only the image differs. `--logprobs-mode
+processed_logits` is kept on both ends even though ROCm 7 does not need it, so
+the two configurations stay identical.
+
+| | ROCm 7.2 (`vllm/vllm-openai-rocm:v0.22.0`) | ROCm 10.0.0rc2 | delta |
+|---|---:|---:|---:|
+| **tok/s/GPU** | **3270.65** | **3617.35** | **+10.6%** |
+| Total token throughput | 13082.59 | 14469.40 | +10.6% |
+| Output throughput | 1453.62 | 1607.71 | +10.6% |
+| Mean TPOT | 78.51 ms | 71.74 ms | −8.6% |
+| Mean TTFT | 9240.5 ms | 7517.6 ms | −18.6% |
+| Benchmark duration | 270.51 s | 244.58 s | −9.6% |
+| Successful / failed | 384 / 0 | 384 / 0 | — |
+
+Baseline image versions: vLLM 0.22.0, torch 2.10.0+git8514f05, **hip 7.2.53211**,
+amd-aiter 0.1.13.
+
+**Verdict: no regression — ROCm 10 is ~10.6% faster at TP4**, with the gain
+showing up consistently across throughput, TPOT and TTFT rather than in a single
+metric. This mirrors DeepSeek-R1's +4.9% on the SGLang ROCm 10 image, so the
+ROCm 10 kernels are healthy where they are reachable; Kimi's TP8 failures are
+eligibility/toolchain gates, not performance problems.
 
 Two config details this run pinned down, both of which are harness bugs rather
 than ROCm 10 problems:
