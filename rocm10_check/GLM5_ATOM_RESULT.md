@@ -1,10 +1,22 @@
-# GLM-5-FP8 on ATOM built for ROCm 10.0.0rc2 — 8k1k c8, TP8
+# GLM-5-FP8 on ATOM for ROCm 10 — 8k1k c8, TP8
 
-Image: `atom-rocm10:local`, built here from `atom_on_vllm_rocm10.dockerfile`
-(see `README.md`). Baseline: 344.61 tok/s/GPU
-(`rocm/atom:rocm7.2.2...atom0.1.2.post`).
+**Result: 350.29 tok/s/GPU, +1.6% vs the 344.61 ROCm 7.2 baseline — no
+regression.** Getting there took rebuilding the image properly; jump to
+[Resolution](#resolution-rebuild-the-image-properly--glm-5-runs-16) for the
+final numbers and the two dockerfiles.
 
-**Result: does not run. No throughput number.**
+The rest of this document is the diagnosis of why the *first* image failed,
+kept because both failures are instructive and one of them (the Dynamo/pybind
+issue) is still worth upstreaming.
+
+---
+
+## First attempt: `atom-rocm10:local` (ATOM layered onto a vLLM ROCm 10 image)
+
+Built from `atom_on_vllm_rocm10.dockerfile`. Baseline for comparison:
+344.61 tok/s/GPU (`rocm/atom:rocm7.2.2...atom0.1.2.post`).
+
+**Result: did not run.**
 
 Weights load fine (all 8 ranks, ~30 s), then every rank dies during warmup:
 
@@ -136,23 +148,58 @@ ours installs the released wheel **0.1.19** that comes with the vLLM ROCm 10
 base. `--kv_cache_dtype fp8` is exactly what the ROCm 7 ATOM baseline uses and
 works there, so the kernel contract changed between those aiter builds.
 
+## Resolution: rebuild the image properly — GLM-5 runs, +1.6%
+
+Both blockers were artefacts of the improvised image, and both vanish once ATOM
+is built the way the official images are. `rocm101_torch_base.dockerfile` here
+builds a ROCm 10.1 + torch base on plain `ubuntu:24.04` (ROCm/torch install
+lifted from the Primus training Dockerfile, trimmed to the SDK + torch and to
+gfx950 only), and `atom_release_rocm101.dockerfile` is ATOM's own release
+dockerfile on top of it, building RCCL and aiter **from source**.
+
+Key deviation from the Primus file: **torch 2.13, not the 2.12 it pins.** The
+nightly index carries 2.13 for the same ROCm 10.1 date, and 2.13 is what
+official ATOM images ship — 2.12 is precisely what breaks Dynamo.
+
+| | broken image | rebuilt image |
+|---|---|---|
+| base | vLLM ROCm 10 image | `ubuntu:24.04` |
+| ROCm | 10.0.0rc2 | **10.1.0a20260814** |
+| torch | 2.12 | **2.13.0** |
+| aiter | wheel 0.1.19 | **source-built (`0.0.0`)** |
+| size | 61.5 GB | 30.1 GB |
+
+Result on `smci355-ccs-aus-n02-09`, TP8 / 8192x1024 / CONC=8 / 24 prompts:
+
+| | ROCm 7.2 ATOM (baseline) | ROCm 10.1 (rebuilt) | delta |
+|---|---:|---:|---:|
+| **tok/s/GPU** | **344.61** | **350.29** | **+1.6%** |
+| Total throughput | — | 2802.30 tok/s | |
+| Mean TTFT | — | 843.00 ms | |
+| Mean TPOT | — | 24.74 ms | |
+| Successful requests | — | 24 / 24 | |
+
+`VllmBackend can only be called once`: **0 occurrences**.
+`norm_weight dtype must match q dtype`: **0 occurrences**.
+
+Note this run did **not** apply `atom_quanttype_dynamo.patch` — confirming that
+patch was only ever a torch-2.12 workaround. On 2.13 Dynamo traces the pybind
+enum fine and unmodified ATOM source works.
+
+**Verdict: no regression. ROCm 10.1 is +1.6% on GLM-5**, consistent with
+DeepSeek-R1 (+4.9%) and Kimi (+10.6%).
+
 ## What would fix it
 
-In rough order of preference:
+(Kept for the record — this was written before the rebuild above resolved it.)
 
-1. **Publish a ROCm 10 ATOM base built the way the official images are** — torch
-   2.13 plus aiter from source. Both blockers here trace back to our image
-   pairing ATOM with a torch and an aiter it was not developed against, which is
-   forced on us because the only ROCm 10 base available is a vLLM image.
-2. **Upstream the Dynamo fix regardless** (`atom_quanttype_dynamo.patch`) — it is
-   small, behaviour-preserving, and makes ATOM robust to torch versions whose
-   Dynamo cannot trace pybind enums.
+1. ~~Publish a ROCm 10 ATOM base built the way the official images are~~ — done
+   locally; see the two dockerfiles in this directory.
+2. **Upstream the Dynamo fix anyway** (`atom_quanttype_dynamo.patch`) — no longer
+   needed on 2.13, but it is small and behaviour-preserving, and would make ATOM
+   robust to any torch whose Dynamo cannot trace pybind enums.
 3. Report the pybind-enum tracing failure to PyTorch — Dynamo's own hint says it
    is likely a Dynamo bug.
-
-Chasing the aiter abort further was not attempted: with two independent
-version-skew blockers, any number produced would say more about our improvised
-image than about ROCm 10.
 
 Artifacts: `logs/glm5_atom/` (first run), `logs/glm5_atom_diag/` (graph-break
 diagnostics), `logs/glm5_atom_patched/` (with the fix applied, showing the aiter

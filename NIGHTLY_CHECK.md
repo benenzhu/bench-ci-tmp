@@ -24,9 +24,10 @@ Units are `tok/s/GPU` (per-GPU normalized). Per-model detail in
   engine never initializes. The **ATOM-packaged vLLM v0.25.1 works fine**
   (-0.1%), so only the upstream nightly build is affected.
 
-A separate ROCm 10.0.0rc2 pass over the same three models is in
-`rocm10_check/` — DeepSeek-R1 is fine there too (+4.9%), Kimi and GLM-5 do not
-run at all.
+A separate ROCm 10 pass over the same three models is in `rocm10_check/`:
+**no regressions** — DeepSeek-R1 +4.9%, Kimi +10.6% (TP4), GLM-5 +1.6%. GLM-5
+needed an ATOM image rebuilt from source (torch 2.13 + aiter from source);
+layering ATOM onto a vLLM ROCm 10 image does not work.
 
 ## Notes
 

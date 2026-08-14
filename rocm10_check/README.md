@@ -7,15 +7,17 @@ Images (all prerelease):
 
 - SGLang `rocm/ufb-private:sglang-v0.5.15.post1-ubuntu24.04-py3.14-prereleases-device-all-rocm10.0.0rc2-e35a33b34a`
 - vLLM `rocm/ufb-private:vllm-0.27.0-ubuntu24.04-py3.14-prereleases-device-all-rocm10.0.0rc2-7d3ceb497f`
-- ATOM `atom-rocm10:local` — built here on the vLLM image above
-  (`atom_on_vllm_rocm10.dockerfile`), since no ROCm 10 ATOM image is published
+- ATOM `atom-rocm101:local` — built here, since no ROCm 10 ATOM image is
+  published: `rocm101_torch_base.dockerfile` (ROCm 10.1 + torch 2.13 on
+  `ubuntu:24.04`) then ATOM's own `atom_release_rocm101.dockerfile` on top,
+  with RCCL and aiter built from source
 
 | Model | Framework | Config | Baseline | ROCm 10 | Verdict |
 |---|---|---|---:|---:|---|
 | DeepSeek-R1-0528 | SGLang | TP4 8k1k c128 | 4519.73 | **4742.94** | +4.9%, no regression |
 | Kimi-K2.5 | vLLM | TP8 8k1k c128 | 2239.96 | — | **broken** at TP8 |
 | Kimi-K2.5 | vLLM | **TP4** 8k1k c128 | 3270.65 | **3617.35** | **+10.6%, no regression** |
-| GLM-5 | ATOM | TP8 8k1k c8 | 344.61 | — | **broken** |
+| GLM-5 | ATOM | TP8 8k1k c8 | 344.61 | **350.29** | **+1.6%, no regression** |
 
 Units are `tok/s/GPU`. Detail per model in `DSR1_RESULT.md`,
 `KIMI_RESULT.md`, `GLM5_ATOM_RESULT.md`.
@@ -27,9 +29,10 @@ number, which is not comparable to a TP4 run.
 
 ## Conclusion
 
-Where ROCm 10 kernels are reachable they are **faster**, not slower: DeepSeek-R1
-+4.9% on SGLang and Kimi +10.6% at TP4 on vLLM. Nothing here is a performance
-regression. What breaks are toolchain skew and kernel-eligibility gates:
+**No regressions anywhere.** All three models are faster on ROCm 10: DeepSeek-R1
++4.9% (SGLang), Kimi +10.6% at TP4 (vLLM), GLM-5 +1.6% (ATOM). Every failure hit
+along the way turned out to be toolchain skew or a kernel-eligibility gate in
+our own images, never a ROCm 10 performance problem:
 
 - **Kimi / vLLM** — two separate aiter breakages. (1) ROCm 10's hipCUB dropped
   `hipcub::Traits`, so aiter's sampling kernel fails to JIT-compile and all
@@ -49,34 +52,54 @@ regression. What breaks are toolchain skew and kernel-eligibility gates:
   from `aiter.jit.module_aiter_core`, which torch 2.12's Dynamo cannot trace
   ("likely to be a Dynamo bug", per PyTorch's own hint). The break lands inside
   a loop, Dynamo falls back to eager, and the second entry into `VllmBackend`
-  trips its single-shot assert. `atom_quanttype_dynamo.patch` here fixes that
-  (mirror the enum to a plain int; bind-mounted and `git apply`d at container
-  start, no rebuild) and the compile failure does go away — only to expose a
-  **second, independent blocker**: an abort inside an aiter cache kernel
-  (`norm_weight dtype must match q dtype`) during CUDA graph capture, which also
-  happens with bf16 KV. Both are version skew from our improvised image: official
-  ATOM ships torch **2.13**/**2.10** and builds aiter from source, while ours has
-  torch 2.12 and aiter wheel 0.1.19 because the only ROCm 10 base is a vLLM image.
-  Note `VllmBackend` is ATOM's own forked class and no real vLLM code runs here
-  (0 `site-packages/vllm` frames) — uninstalling vLLM does not help, and
-  `--enforce-eager` does not bypass it (`--level` is the compile switch).
+  trips its single-shot assert. Behind it sat a second, independent blocker: an
+  abort inside an aiter cache kernel (`norm_weight dtype must match q dtype`)
+  during CUDA graph capture. **Both were artefacts of the first image**, which
+  paired ATOM with a torch and an aiter it was never developed against (2.12 +
+  aiter wheel 0.1.19) because the only ROCm 10 base available is a vLLM image.
+  Rebuilding the way official ATOM images are built — torch **2.13**, aiter and
+  RCCL **from source** — makes both vanish and GLM-5 runs at **+1.6%**, with no
+  source patch required. Two notes for anyone re-treading this: `VllmBackend` is
+  ATOM's own forked class, so no real vLLM code is involved (0
+  `site-packages/vllm` frames) and uninstalling vLLM does not help; and
+  `--enforce-eager` does not bypass compilation (`--level` is the switch).
 
 ## Building the ATOM ROCm 10 image
 
-`atom_on_vllm_rocm10.dockerfile` layers ATOM onto the vLLM ROCm 10 image, which
-already ships torch 2.12.0+rocm10.0.0rc2 and amd-aiter 0.1.19 — so unlike
-ATOM's own `atom_release.dockerfile` it does not rebuild aiter/RCCL from source.
-`atomesh` (Rust) is skipped; it is only needed for mesh/router features, not for
-single-node serving benchmarks.
+No ROCm 10 ATOM image is published, so build one in two steps. **Do not layer
+ATOM onto a vLLM ROCm 10 image** — that was the first attempt and it pairs ATOM
+with a torch (2.12) and an aiter (wheel 0.1.19) it was not developed against,
+producing two separate blockers. `atom_on_vllm_rocm10.dockerfile` is kept only
+as the record of that dead end.
 
 ```bash
 git clone https://github.com/ROCm/ATOM.git && cd ATOM
-cp /path/to/atom_on_vllm_rocm10.dockerfile docker/
-DOCKER_BUILDKIT=1 docker build -f docker/atom_on_vllm_rocm10.dockerfile \
-  -t atom-rocm10:local --build-arg CACHEBUST=$(date +%s) .
+cp /path/to/rocm101_torch_base.dockerfile /path/to/atom_release_rocm101.dockerfile docker/
+
+# 1. ROCm 10.1 + torch 2.13 base on ubuntu:24.04 (~18 GB, ~25 min)
+DOCKER_BUILDKIT=1 docker build -f docker/rocm101_torch_base.dockerfile \
+  -t rocm101-torch:local .
+
+# 2. ATOM's own release dockerfile on top; RCCL + aiter from source (~30 GB, ~1 h)
+DOCKER_BUILDKIT=1 docker build -f docker/atom_release_rocm101.dockerfile \
+  --build-arg BASE_IMAGE=rocm101-torch:local \
+  --build-arg GPU_ARCH=gfx950 \
+  --build-arg INSTALL_MOONCAKE=0 \
+  -t atom-rocm101:local .
 ```
 
-Verified in the resulting image: `atom 0.1.6rc1.dev272+gc406d694a`,
-`torch 2.12.0+rocm10.0.0rc2`, `hip 7.15.26301`, `amd-aiter 0.1.19`, and both
-`import atom` and `import atom.entrypoints.openai_server` succeed. The image
-builds and imports cleanly — the failure above is at runtime.
+Resulting image: `atom 0.1.6rc1.dev274`, `torch 2.13.0+rocm10.1.0a20260814`,
+`hip 7.16.26323`, aiter source-built (`0.0.0`) — matching how the official
+`rocm/atom-dev` images are put together.
+
+Three deviations from the stock files, each deliberate:
+
+- **torch 2.13, not the 2.12** the Primus training Dockerfile pins. The nightly
+  index carries 2.13 for the same ROCm 10.1 date, and 2.13 is what official ATOM
+  ships; 2.12 is exactly what breaks Dynamo on aiter's pybind enums.
+- **gfx950 only** — the benchmark boxes are all MI355X, and a single arch cuts
+  the aiter source build substantially.
+- `atom_release_rocm101.dockerfile` adds `ATOM_MESH_BUILD=0` (the Rust
+  `atomesh` build fails with `Too many open files`, and mesh/router is not used
+  for single-node serving) plus a missing `sortedcontainers` in the LMCache
+  step. `INSTALL_MOONCAKE=0` for the same reason — disaggregated serving only.
